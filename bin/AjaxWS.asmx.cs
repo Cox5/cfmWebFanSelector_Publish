@@ -33,6 +33,11 @@ namespace CFM_Web
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public fanData GetFanData(int fanDataID, double airflow, double staticPressure, int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
+            if (double.IsNaN(airflow) && double.IsNaN(staticPressure))
+            {
+                airflow = 2000;
+                staticPressure = 80;
+            }
             var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
             var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
             fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
