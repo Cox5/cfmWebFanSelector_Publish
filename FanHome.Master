@@ -1,0 +1,19 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FanHome.Master.cs" Inherits="CFM_Web.FanSelectionMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Content/FanSelection.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+ 
+      <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" />
+   
+    <div id="divBody" style="margin-left: 20px;">
+      <asp:ContentPlaceHolder ID="body" runat="server" />
+    </div>
+ 
+</body>
+</html>
