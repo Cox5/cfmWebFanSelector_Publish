@@ -55,6 +55,8 @@ namespace CFM_Web
             }else{
                 selectedFanData.imageLocation = CONST_IMAGE_UNAVALIABLE;
             }
+            pdfData.FanImage = selectedFanData.imageLocation;
+
             selectedFanData.wireElement = getWireFrameDiagram(fanData);
             selectedFanData.nominalDataTable = buildNominalDataTable(fanData);
             selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, staticPressure);
@@ -81,7 +83,7 @@ namespace CFM_Web
             pdfData.FanDataMass = Convert.ToString(fanData.mass);
 
             pdfData.PerformanceCurveSVG = selectedFanData.performanceCurve;
-            pdfData.PowerCurveSVG = selectedFanData.powerCurve;
+            //pdfData.PowerCurveSVG = selectedFanData.powerCurve;
 
             pdfData.MotorType = "normal"; // check this out later
             pdfData.MotorPower = Convert.ToString(fanData.motorkW);
