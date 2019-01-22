@@ -1,24 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="CFM_Web.Users.Signup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FanHome.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="CFM_Web.Users.Signup" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-    <script>
-    var check = function() {
-  if (document.getElementById('txtPassword').value ==
-    document.getElementById('txtConfirmPassword').value) {
-    document.getElementById('lblMessage').style.color = 'green';
-    document.getElementById('lblMessage').innerHTML = 'matching';
-  } else {
-    document.getElementById('lblMessage').style.color = 'red';
-    document.getElementById('lblMessage').innerHTML = 'not matching';
-  }
-}
-</script>
-
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
+    <form id="formSignUp" runat="server">
     <div class="content-wrapper">
-
         <div class="leftcolumn">
             <h1>Fan Selector User Registration</h1>
             <h3>Your details</h3>
@@ -26,38 +10,41 @@
                 <tr>
                     <td>Firstname</td>
                     <td>
-                        <asp:TextBox ID="txtFirstname" runat="server" required />
+                        <asp:TextBox ID="txtFirstname" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
                     <td>Lastname</td>
                     <td>
-                        <asp:TextBox ID="txtLastname" runat="server" />
+                        <asp:TextBox ID="txtLastname" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
                     <td>Email</td>
                     <td>
-                        <asp:TextBox ID="txtEmail" runat="server" />
+                        <asp:TextBox ID="txtEmail" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
                     <td>Phone</td>
                     <td>
-                        <asp:TextBox ID="txtUserPhone" runat="server" />
+                        <asp:TextBox ID="txtUserPhone" runat="server"  required="true"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Password</td>
                     <td>
-                        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" onkeyup="check();" />
+                        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" required="true"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Confirm Password</td>
                     <td>
-                        <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" onkeyup="check();" />
+                        <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" required="true"/>
                     </td>
+                </tr>
+                <tr>
+                    <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>
                 </tr>
             </table>
         </div>
@@ -69,13 +56,13 @@
                 <tr>
                     <td>Name</td>
                     <td>
-                        <asp:TextBox ID="txtCompany" runat="server" />
+                        <asp:TextBox ID="txtCompany" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
                     <td>Address 1</td>
                     <td>
-                        <asp:TextBox ID="txtCompanyAddr1" runat="server" />
+                        <asp:TextBox ID="txtCompanyAddr1" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
@@ -87,7 +74,7 @@
                 <tr>
                     <td>Suburb/City</td>
                     <td>
-                        <asp:TextBox ID="txtCompanySubCity" runat="server" />
+                        <asp:TextBox ID="txtCompanySubCity" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
@@ -105,13 +92,13 @@
                 <tr>
                     <td>Country</td>
                     <td>
-                        <asp:TextBox ID="txtCompanyCountry" runat="server" />
+                        <asp:TextBox ID="txtCompanyCountry" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
                     <td>Telephone</td>
                     <td>
-                        <asp:TextBox ID="txtCompanyTelephone" runat="server" />
+                        <asp:TextBox ID="txtCompanyTelephone" runat="server" required="true" />
                     </td>
                 
                 </tr>
@@ -119,7 +106,7 @@
                 <tr>
                     <td>Website</td>
                     <td>
-                        <asp:TextBox ID="txtCompanyWebsite" runat="server" />
+                        <asp:TextBox ID="txtCompanyWebsite" runat="server" required="true" />
                     </td>
                 </tr>
             </table>
@@ -127,5 +114,6 @@
             <asp:Label ID="lblMessage" runat="server" />
         </div>
     </div>
+ </form>
 
 </asp:Content>
