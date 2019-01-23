@@ -9,7 +9,7 @@
 </head>
 <body>
  
-      <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" />
+      <a href="/index.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
    
     <div id="divBody" style="margin-left: 20px;">
       <asp:ContentPlaceHolder ID="body" runat="server" />
