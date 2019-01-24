@@ -4,14 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
     <h2>Password Reset</h2>
-    <P>Enter your email address and a new password will be emailed to you.</P>
+    <p>Enter your email address and a new password will be emailed to you.</p>
     <form id="formReset" runat="server">
         <div class="homepagefl" style="border: 1px solid white; background-color:white">
          
             <table>
                 <tr><td>Email address:</td><td><asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox></td></tr>           
-                <tr><td><asp:Button ID="btnLogin" Text="Reset Password" runat="server"/></td></tr>
+                <tr><td><asp:Button ID="btnResetPassword" Text="Reset Password" runat="server" OnClick="btnResetPassword_Click"/></td></tr>
             </table>
+            <asp:Label ID="lblResetMsg" runat="server"></asp:Label>
         </div>
         <div class="homepagefl" style="border: 1px solid black; background-color:antiquewhite">
             <p>To request access to the CFM Fan Selector you must first register.</p>

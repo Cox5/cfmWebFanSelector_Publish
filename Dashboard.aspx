@@ -2,8 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <h3>Welcome back,  <asp:Label ID="lbl_logged_user" runat="server"></asp:Label></h3>
+    
     <div class="content-wrapper">
+        <h3>Welcome back,  <asp:Label ID="lbl_logged_user" runat="server"></asp:Label></h3>
     <table class="dashboard">
         <tr><td><a href="/Projects/ProjectsDashboard.aspx">Projects</a></td></tr>
         <tr><td><a href="/Users/AccountsDashboard.aspx">User accounts</a></td></tr>
