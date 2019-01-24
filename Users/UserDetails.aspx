@@ -2,13 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+      <div class="content-wrapper">
   <table>
     <tr>
-      <td>Firstname</td>
+      <td>First name</td>
       <td><asp:Literal ID="litFirstname" runat="server"/></td>
     </tr>
     <tr>
-      <td>Lastname</td>
+      <td>Last name</td>
       <td><asp:Literal ID="litLastanme" runat="server"/></td>
     </tr>
     <tr>
@@ -16,7 +17,7 @@
       <td><asp:Literal ID="litUsername" runat="server"/></td>
     </tr>
     <tr>
-      <td>Email</td>
+      <td>Email address</td>
       <td><asp:Literal ID="litEmail" runat="server"/></td>
     </tr>
     <tr>
@@ -41,4 +42,5 @@
      { %>
   <asp:Button ID="btnPassword" Text="Change Password" runat="server" OnClick="btnPassword_Click" />
   <% } %>
+          </div>
 </asp:Content>

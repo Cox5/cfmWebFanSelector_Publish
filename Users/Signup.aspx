@@ -8,21 +8,27 @@
             <h3>Your details</h3>
             <table width="100%">
                 <tr>
-                    <td>Firstname</td>
+                    <td>First name</td>
                     <td>
                         <asp:TextBox ID="txtFirstname" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
-                    <td>Lastname</td>
+                    <td>Last name</td>
                     <td>
                         <asp:TextBox ID="txtLastname" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
-                    <td>Email</td>
+                    <td>Email address</td>
                     <td>
                         <asp:TextBox ID="txtEmail" runat="server" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Confirm email address</td>
+                    <td>
+                        <asp:TextBox ID="txtEmailConfirm" runat="server" required="true" />
                     </td>
                 </tr>
                 <tr>
@@ -44,8 +50,15 @@
                     </td>
                 </tr>
                 <tr>
-                    <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>
+                    <td>
+                        <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>
+                    </td>
+                    <td>
+                        <asp:CompareValidator runat="server" ID="Comp2" ControlToValidate="txtEmailConfirm" ControlToCompare="txtEmail" Operator="Equal" Type="String" ErrorMessage="Email mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>
+                    </td>
+                   
                 </tr>
+
             </table>
         </div>
         <div class="rightcolumn">

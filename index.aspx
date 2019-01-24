@@ -9,8 +9,8 @@
             <asp:Label ID="lblLoginMessage" runat="server" />
             <%--<p id="pLoginError" style="display:block; color: #dd0000;"></p>--%>
             <table>
-                <tr><td>Email address:</td><td><asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox></td></tr>
-                 <tr><td>Password:</td><td><asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox></td></tr>
+                <tr><td>Email address:</td><td><asp:TextBox ID="txtEmailAddress" runat="server" required="true"></asp:TextBox></td></tr>
+                 <tr><td>Password:</td><td><asp:TextBox ID="txtPassword" TextMode="Password" runat="server" required="true"></asp:TextBox></td></tr>
                 <tr><td><a href="ForgotPassword.aspx">Forgot password?</a></td></tr>
                 <tr><td><asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="btnLogin_Click"/></td></tr>
             </table>

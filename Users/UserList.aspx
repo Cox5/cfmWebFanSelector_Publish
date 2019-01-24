@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+      <div class="content-wrapper">
   <h1>Users</h1>
   <% if(canCreate())
      { %>
@@ -20,4 +21,5 @@
      { %>
   <asp:Button ID="btnCreate2" Text="Create" runat="server" OnClick="btnCreate_Click" />
   <% } %>
+          </div>
 </asp:Content>
