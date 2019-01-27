@@ -42,17 +42,18 @@
     <tr>
       <td>User class</td>
       <td><asp:DropDownList runat="server" ID="ddlUserClass">
-          <asp:ListItem Text="Administrator" Value="0"></asp:ListItem>
-          <asp:ListItem Text="Sales" Value="1"></asp:ListItem>
-          <asp:ListItem Text="Engineer" Value="2"></asp:ListItem>
-          <asp:ListItem Text="Unapproved" Value="3"></asp:ListItem>
-          <asp:ListItem Text="Deleted" Value="4"></asp:ListItem>
+          <asp:ListItem Text="Superadmin" Value="0"></asp:ListItem>
+          <asp:ListItem Text="Administrator" Value="1"></asp:ListItem>
+          <asp:ListItem Text="Sales" Value="2"></asp:ListItem>
+          <asp:ListItem Text="Engineer" Value="3"></asp:ListItem>
+          <asp:ListItem Text="Unapproved" Value="4"></asp:ListItem>
+          <asp:ListItem Text="Deleted" Value="5"></asp:ListItem>
       </asp:DropDownList></td>
       <%--<td><asp:TextBox ID="txtUser_Class" runat="server" /></td>--%>
     </tr>
     <tr>
-      <td>Company owner/admin</td>
-      <td><asp:CheckBox ID="chkAdmin_CompanyOwner" runat="server" /></td>
+      <td>Is company owner</td>
+      <td><asp:CheckBox ID="chkCompanyOwner" runat="server" /></td>
     </tr>
   </table>
   <asp:Button ID="btnSave" Text="Submit" runat="server" OnClick="btnSave_Click" />
