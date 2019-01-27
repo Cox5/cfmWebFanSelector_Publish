@@ -6,8 +6,9 @@
            <div class="leftcolumn">
             <h1 id="h1" runat="server"></h1>
             <h3>Project details</h3>
+               <p>Enter the details of your new construction project</p>
             <asp:Label ID="lblMessage" runat="server" />
-            <table width="100%">
+            <table >
                 <tr>
                     <td>Project Name</td>
                     <td>
@@ -44,34 +45,45 @@
                         <asp:TextBox ID="txtCountry" runat="server" />
                     </td>
                 </tr>
-                <tr>
+                 <!-- Eng Comp, Sales Consultant, Quote Number, Status and PriceAdj should only appear if user is admin or superadmin -->
+                <tr id="trEngComp" runat="server" >
                     <td>Engineering Company</td>
                     <td>
                         <asp:TextBox ID="txtEngineeringCompany" runat="server" />
                     </td>
                 </tr>
-                <tr>
+               
+                <tr id="trSalesConsultant" runat="server" >
                     <td>Sales Consultant</td>
                     <td>
                         <asp:TextBox ID="txtSalesConsultant" runat="server" />
                     </td>
                 </tr>
-                <tr>
+                <tr id="trQuoteNumber" runat="server">
                     <td>Quote Number</td>
                     <td>
                         <asp:TextBox ID="txtQuoteNo" runat="server" />
                     </td>
                 </tr>
-                <tr>
+                <tr id="trStatus" runat="server">
                     <td>Status</td>
                     <td>
-                        <asp:TextBox ID="TextBox4" runat="server" />
+                        <asp:TextBox ID="txtStatus" runat="server" />
                     </td>
                 </tr>
+                <tr id="trPriceAdj" runat="server">
+                    <td>PriceAdjustment</td>
+                    <td>
+                        <asp:TextBox ID="txtPriceAdj" runat="server" />
+                    </td>
+                </tr>
+ 
                 
                 </table>
 
                <asp:Button ID="btnSubmit" Text="Create Project" runat="server" OnClick="btnSubmit_Click" />
+
+               </div>
 
 
 </asp:Content>
