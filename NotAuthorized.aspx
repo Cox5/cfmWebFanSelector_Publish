@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FanHome.Master" AutoEventWireup="true" CodeBehind="NotAuthorized.aspx.cs" Inherits="CFM_Web.WebForm1" %>
+﻿<%@ Page Title="Not Authorized" Language="C#" MasterPageFile="~/FanHome.Master" AutoEventWireup="true" CodeBehind="NotAuthorized.aspx.cs" Inherits="CFM_Web.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
