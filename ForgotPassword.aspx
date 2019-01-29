@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FanHome.Master" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="CFM_Web.ForgotPassword" %>
+﻿<%@ Page Title="Forgot Password" Language="C#" MasterPageFile="~/FanHome.Master" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="CFM_Web.ForgotPassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -19,9 +19,9 @@
             <p>Registration is free, but subject to approval.</p>
             <asp:Button ID="btnRegister" Text="Register" runat="server"/>
         </div>
-        <div class="homepagefl" style="display:block; color: #00dd00; font-weight: bold">
+        <%--<div class="homepagefl" style="display:block; color: #00dd00; font-weight: bold">
                    If your email address matches one already registered, a new password will be sent to you.
-        </div>
+        </div>--%>
     </form>
     </div>
 </asp:Content>

@@ -1,12 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="CFM_Web.Projects.CreateProject" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+﻿<%@ Page Title="Create project" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="CFM_Web.Projects.CreateProject" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
         <div class="content-wrapper">
-           <div class="leftcolumn">
             <h1 id="h1" runat="server"></h1>
             <h3>Project details</h3>
                <p>Enter the details of your new construction project</p>
+           <div class="leftcolumn">
             <asp:Label ID="lblMessage" runat="server" />
             <table >
                 <tr>
@@ -45,11 +43,30 @@
                         <asp:TextBox ID="txtCountry" runat="server" />
                     </td>
                 </tr>
+                </table>
+               </div>
+            <div class="rightcolumn" id="rightCol" runat="server">
+                <table>
                  <!-- Eng Comp, Sales Consultant, Quote Number, Status and PriceAdj should only appear if user is admin or superadmin -->
                 <tr id="trEngComp" runat="server" >
                     <td>Engineering Company</td>
                     <td>
                         <asp:TextBox ID="txtEngineeringCompany" runat="server" />
+                    </td>
+                </tr>
+                <tr id="trEngDropDown" runat="server">
+                    <td>Engineering Company</td>
+                    <td>
+                        <asp:DropDownList ID="ddlEngComp" AppendDataBoundItems="true" runat="server">
+                            <asp:ListItem Text="Select company" Value="0" />
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+
+                <tr id="trConsultingEng" runat="server" >
+                    <td>Consulting Engineer</td>
+                    <td>
+                        <asp:TextBox ID="txtConsultingEng" runat="server" />
                     </td>
                 </tr>
                
@@ -77,13 +94,11 @@
                         <asp:TextBox ID="txtPriceAdj" runat="server" />
                     </td>
                 </tr>
- 
-                
-                </table>
-
-               <asp:Button ID="btnSubmit" Text="Create Project" runat="server" OnClick="btnSubmit_Click" />
+            </table>
 
                </div>
+               <asp:Button ID="btnSubmit" Text="Create Project" runat="server" OnClick="btnSubmit_Click" />
+            </div>
 
 
 </asp:Content>
