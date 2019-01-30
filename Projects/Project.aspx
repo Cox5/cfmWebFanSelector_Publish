@@ -57,7 +57,7 @@
                 <tr id="trEngDropDown" runat="server">
                     <td>Engineering Company</td>
                     <td>
-                        <asp:DropDownList ID="ddlEngComp" AppendDataBoundItems="true" runat="server">
+                        <asp:DropDownList ID="ddlEngComp" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlEngComp_SelectedIndexChanged">
                             <asp:ListItem Text="Select company" Value="0" />
                         </asp:DropDownList>
                     </td>
@@ -67,6 +67,15 @@
                     <td>Consulting Engineer</td>
                     <td>
                         <asp:TextBox ID="txtConsultingEng" runat="server" />
+                    </td>
+                </tr>
+
+                <tr id="trConsEngDropDown" runat="server">
+                    <td>Consulting Engineer</td>
+                    <td>
+                        <asp:DropDownList ID="ddlConsEng" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlConsEng_SelectedIndexChanged">
+                            <asp:ListItem Text="Select engineer" Value="0" />
+                        </asp:DropDownList>
                     </td>
                 </tr>
                
