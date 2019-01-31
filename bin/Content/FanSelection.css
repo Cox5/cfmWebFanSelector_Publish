@@ -434,7 +434,7 @@ table.dashboard{
 table.dashboard tr td
 {
     padding: 15px;
-    border: 1px solid #880000;
+    /*border: 1px solid #880000; */
 }
 table.dashboard tr td a {
     font-size: 2em;

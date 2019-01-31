@@ -10,7 +10,7 @@
                 <tr>
                     <td>Project Name</td>
                     <td>
-                        <asp:TextBox ID="txtProjectname" runat="server" />
+                        <asp:TextBox ID="txtProjectname" runat="server" Required="true" />
                     </td>
                 </tr>
                 <tr>
@@ -23,6 +23,12 @@
                     <td>Address 2</td>
                     <td>
                         <asp:TextBox ID="txtAddress2" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Suburb/City</td>
+                    <td>
+                        <asp:TextBox ID="txtSuburb" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -47,15 +53,15 @@
                </div>
             <div class="rightcolumn" id="rightCol" runat="server">
                 <table>
-                 <!-- Eng Comp, Sales Consultant, Quote Number, Status and PriceAdj should only appear if user is admin or superadmin -->
+                 <!-- Eng Comp, Sales Consultant, Quote Number, Status and PriceAdj should only appear if user is sales, admin or superadmin -->
                 <tr id="trEngComp" runat="server" >
-                    <td>Engineering Company</td>
+                    <td>User's Company</td>
                     <td>
                         <asp:TextBox ID="txtEngineeringCompany" runat="server" />
                     </td>
                 </tr>
                 <tr id="trEngDropDown" runat="server">
-                    <td>Engineering Company</td>
+                    <td>User's Company</td>
                     <td>
                         <asp:DropDownList ID="ddlEngComp" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlEngComp_SelectedIndexChanged">
                             <asp:ListItem Text="Select company" Value="0" />
@@ -98,7 +104,7 @@
                     </td>
                 </tr>
                 <tr id="trPriceAdj" runat="server">
-                    <td>PriceAdjustment</td>
+                    <td>Price Adjustment</td>
                     <td>
                         <asp:TextBox ID="txtPriceAdj" runat="server" />
                     </td>
@@ -107,6 +113,7 @@
 
                </div>
                <asp:Button ID="btnSubmit" Text="Create Project" runat="server" OnClick="btnSubmit_Click" />
+               <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" />
             </div>
 
 
