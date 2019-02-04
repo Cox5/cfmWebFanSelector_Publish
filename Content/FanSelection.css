@@ -509,3 +509,8 @@ div.buttons {
     font-size: 90%;
     padding: 3px 6px 3px 4px; /* Links */
 }
+td.icons img {
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+}
