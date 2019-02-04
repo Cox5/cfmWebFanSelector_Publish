@@ -3,16 +3,17 @@
         <div class="content-wrapper">
             <h1 id="h1" runat="server"></h1>
             <h3>Project details</h3>
-               <p>Enter the details of your new construction project</p>
+               <h4><asp:Label ID="lblMessage" runat="server" /></h4>
            <div class="leftcolumn">
-            <asp:Label ID="lblMessage" runat="server" />
+            
             <table >
                 <tr>
                     <td>Project Name</td>
                     <td>
-                        <asp:TextBox ID="txtProjectname" runat="server" Required="true" />
+                        <asp:TextBox ID="txtProjectname" runat="server" />
                     </td>
                 </tr>
+                <%--<asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtProjectname" MinimumValue="2" MaximumValue="35" ErrorMessage="Enter a valid name" ForeColor="Red" /> --%>
                 <tr>
                     <td>Address 1</td>
                     <td>
@@ -64,23 +65,23 @@
                     <td>User's Company</td>
                     <td>
                         <asp:DropDownList ID="ddlEngComp" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlEngComp_SelectedIndexChanged">
-                            <asp:ListItem Text="Select company" Value="0" />
+                            <asp:ListItem Text="Please select..." Value="0" />
                         </asp:DropDownList>
                     </td>
                 </tr>
-
+                    <%--<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="ddlEngComp" ValueToCompare="0" Operator="Equal" Type="Integer" ErrorMessage="Please select a value" ForeColor="Red" />--%>
                 <tr id="trConsultingEng" runat="server" >
-                    <td>Consulting Engineer</td>
+                    <td>Project Owner</td>
                     <td>
                         <asp:TextBox ID="txtConsultingEng" runat="server" />
                     </td>
                 </tr>
 
                 <tr id="trConsEngDropDown" runat="server">
-                    <td>Consulting Engineer</td>
+                    <td>Project Owner</td>
                     <td>
                         <asp:DropDownList ID="ddlConsEng" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlConsEng_SelectedIndexChanged">
-                            <asp:ListItem Text="Select engineer" Value="0" />
+                            <asp:ListItem Text="Please select..." Value="0" />
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -94,9 +95,10 @@
                 <tr id="trQuoteNumber" runat="server">
                     <td>Quote Number</td>
                     <td>
-                        <asp:TextBox ID="txtQuoteNo" runat="server" />
+                        <asp:TextBox ID="txtQuoteNo" runat="server" Placeholder="1000.00" />
                     </td>
                 </tr>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtQuoteNo" ValidationExpression="([0-9])[0-9]*[.]?[0-9]*" ErrorMessage="Please enter a number" ForeColor="Red"></asp:RegularExpressionValidator>
                 <tr id="trStatus" runat="server">
                     <td>Status</td>
                     <td>
@@ -113,7 +115,7 @@
 
                </div>
                <asp:Button ID="btnSubmit" Text="Create Project" runat="server" OnClick="btnSubmit_Click" />
-               <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" />
+               <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
             </div>
 
 

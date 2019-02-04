@@ -13,18 +13,21 @@
                         <asp:TextBox ID="txtFirstname" runat="server" required="true" />
                     </td>
                 </tr>
+                <asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" /> 
                 <tr>
                     <td>Last name</td>
                     <td>
                         <asp:TextBox ID="txtLastname" runat="server" required="true" />
                     </td>
                 </tr>
+                <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s]{1,30}" ErrorMessage="Enter a valid last name" ForeColor="Red" /> 
                 <tr>
                     <td>Email address</td>
                     <td>
                         <asp:TextBox ID="txtEmail" runat="server" required="true" />
                     </td>
                 </tr>
+                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
                 <tr>
                     <td>Confirm email address</td>
                     <td>
@@ -37,6 +40,7 @@
                         <asp:TextBox ID="txtUserPhone" runat="server"  required="true"/>
                     </td>
                 </tr>
+                <%--<asp:RegularExpressionValidator ID="regexPhoneValid" runat="server" ErrorMessage="Enter valid Phone number" ControlToValidate="txtUserPhone" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" ForeColor="Red" ></asp:RegularExpressionValidator>--%>
                 <tr>
                     <td>Password</td>
                     <td>
@@ -119,9 +123,10 @@
                 <tr>
                     <td>Website</td>
                     <td>
-                        <asp:TextBox ID="txtCompanyWebsite" runat="server" required="true" />
+                        <asp:TextBox ID="txtCompanyWebsite" runat="server" required="true" Placeholder="example.com" />
                     </td>
                 </tr>
+                <asp:RegularExpressionValidator ID="regUrl" runat="server" ControlToValidate="txtCompanyWebsite" ValidationExpression="^((http|https)://)?([\w-]+\.)+[\w]+(/[\w- ./?]*)?$" ErrorMessage="Enter a valid URL" ForeColor="Red" /> 
             </table>
             <asp:Button ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
             <asp:Label ID="lblMessage" runat="server" />
