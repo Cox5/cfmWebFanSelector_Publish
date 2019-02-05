@@ -15,7 +15,7 @@
             <asp:Label ID="lblMessage" runat="server" />
 
             <table>
-                <tr><td class="tabletitle">Add Fan Locations</td><td colspan="4"><span id="projectName" runat="server"><i>Project Name set at Page_Load</i></span></td></tr>
+                <tr><td class="tabletitle">Add Fan Locations</td><td colspan="4"><span id="projectName" runat="server"><asp:Label ID="lblProjectName" Font-Bold="true" runat="server"></asp:Label></span></td></tr>
                 <tr>
                     <td class="thirty">Location</td>
                     <td class="fifteen">Airflow</td>
@@ -60,6 +60,9 @@
                 </tr>
                 <tr><td colspan="5" align="right">
                <asp:Button ID="btnSubmit" Text="Add Locations" runat="server" OnClick="btnSubmit_Click" />
+                    </td></tr>
+                <tr><td colspan="5" align="right">
+                    <asp:Button ID="btnFinish" Text="Finish" runat="server" OnClick="btnFinish_Click" />
                     </td></tr>
                 </table>
 
