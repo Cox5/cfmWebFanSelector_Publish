@@ -95,7 +95,7 @@
                 <tr id="trQuoteNumber" runat="server">
                     <td>Quote Number</td>
                     <td>
-                        <asp:TextBox ID="txtQuoteNo" runat="server" Placeholder="1000.00" />
+                        <asp:TextBox ID="txtQuoteNo" runat="server" />
                     </td>
                 </tr>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtQuoteNo" ValidationExpression="([0-9])[0-9]*[.]?[0-9]*" ErrorMessage="Please enter a number" ForeColor="Red"></asp:RegularExpressionValidator>
