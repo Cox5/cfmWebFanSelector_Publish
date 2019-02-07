@@ -12,6 +12,9 @@
 
          <%= getProjects() %>
 
+        <td>
+            <td colspan="4" align="right"><div class="buttons"><a href="/Dashboard.aspx">Go Back</a></div></td>
+        </td>
     </table>
   </div>
 </asp:Content>

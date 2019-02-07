@@ -9,6 +9,8 @@
         <tr><td width="35%">Name</td><td width="35%">Company</td><td width="20%">User class</td><td></td></tr>
 
         <%= getUsers() %>
+
+        <tr><td colspan="4" align="right"><div class="buttons"><a href="/Dashboard.aspx">Go Back</a></div></td></tr>
     </table>
   </div>
 </asp:Content>
