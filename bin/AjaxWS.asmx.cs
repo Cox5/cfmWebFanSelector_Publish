@@ -64,6 +64,8 @@ namespace CFM_Web
             selectedFanData.powerDataTable = buildPowerDataTable(fanData, airflow, staticPressure);
             selectedFanData.acousticTable = buildAcousticTable(fanData);
 
+            FanSelection.PartNumber = fan.partNumber;
+
             // Set fan data for PDF generate process
             pdfData.FanCode = fan.partNumber;
             pdfData.Volume = Convert.ToString(airflow);

@@ -243,6 +243,8 @@
                             <asp:Button ID="btn_fanPDF" runat="server" Text="Get Fan PDF" OnClick="btn_getFanPdf_Click" />
                             <%--<asp:Button ID="btn_print" runat="server" Text="Print" OnClientClick="return false" OnClick="btn_print_Click" />--%>
                             <asp:Button ID="btn_addToSchedule" runat="server" Text="Add to Schedule" OnClick="btn_addToSchedule_Click" Width="150px"  />
+                            <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" />
+                            <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
                         </div>
 
                         <div id="div_schedule" style="display: none">
