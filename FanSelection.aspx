@@ -58,7 +58,7 @@
                         <br />
                         <table id="selectTable" style="width: 100%;">
                             <tr>
-                                <td>Fan Part Number</td>
+                                <td>Fan Model Number</td>
                                 <td>
                                     <asp:TextBox ID="txt_partno" runat="server" Width="90" CssClass="txtInput" />
                                 </td>
