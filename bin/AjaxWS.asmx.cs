@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
+using CFM_Web.DB;
+using MySql.Data.MySqlClient;
 
 namespace CFM_Web
 {
@@ -33,15 +35,45 @@ namespace CFM_Web
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public fanData GetFanData(int fanDataID, double airflow, double staticPressure, int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
-            if (double.IsNaN(airflow) && double.IsNaN(staticPressure))
-            {
-                airflow = 2000;
-                staticPressure = 80;
-            }
+
             var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
             var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
             fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
             fanData.fanObject = fan;
+
+            if (double.IsNaN(airflow) && double.IsNaN(staticPressure))
+            {
+                // get airflow and st pressure from datapoint table by using JOIN
+                using (var connection = DBController.CreateOpenConnection())
+                {
+                    string query = "SELECT fan.fanID,partNumber,airflow,staticPressure FROM cfm_web.fan JOIN fandata ON fan.fanID=fandata.fanID JOIN datapoint ON fandata.fandataID=datapoint.datapointID WHERE fan.fanID=@fanID;";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                    cmd.Parameters.AddWithValue("@fanID", fan.fanID);
+
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    if (dataReader.HasRows)
+                    {
+                        while (dataReader.Read())
+                        {
+                            //dataReader.Read();
+                            airflow = Convert.ToDouble(dataReader["airflow"]);
+                            staticPressure = Convert.ToDouble(dataReader["staticPressure"]);
+
+                            if (airflow != 0 && staticPressure != 0)
+                            {
+                                break;
+                            }
+                        }
+
+                    }
+
+
+                }
+                //airflow = 2000;
+                //staticPressure = 80;
+            }
+
             fanData = FansBackend.BusinessLogic.FanController.FillRestOfFanData(fanData, airflow, staticPressure);
           
             Tuple<double, double> max = GetDataMax(fanData.dataPointList);
