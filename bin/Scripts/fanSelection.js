@@ -134,6 +134,9 @@ function getFanDataSucceed(fanImageData) {
     $("#div_performanceDataTable").html(fanImageData.d.performanceDataTable);
     $("#div_powerDataTable").html(fanImageData.d.powerDataTable);
     $("#fanName").html(fanImageData.d.fanName);
+
+    // Populate airflow and st pressure text boxes with given values from datapoint table
+    //$("#txt_airFlow").text(fanImageData.d.fanDataID.)
 }
 
   // Clears all the information on the form and returns it to it's default state
