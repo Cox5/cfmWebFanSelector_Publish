@@ -60,7 +60,7 @@
                             <tr>
                                 <td>Fan Model Number</td>
                                 <td>
-                                    <asp:TextBox ID="txt_partno" runat="server" Width="90" CssClass="txtInput" />
+                                    <asp:TextBox ID="txt_modelName" runat="server" Width="90" CssClass="txtInput" />
                                 </td>
                             </tr>
                             <tr>
