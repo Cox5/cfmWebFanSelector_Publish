@@ -46,7 +46,7 @@ namespace CFM_Web
                 // get airflow and st pressure from datapoint table by using JOIN
                 using (var connection = DBController.CreateOpenConnection())
                 {
-                    string query = "SELECT fan.fanID,partNumber,airflow,staticPressure FROM cfm_web.fan JOIN fandata ON fan.fanID=fandata.fanID JOIN datapoint ON fandata.fandataID=datapoint.datapointID WHERE fan.fanID=@fanID;";
+                    string query = "SELECT fan.fanID,partNumber,airflow,staticPressure FROM cfm_web.fan JOIN fandata ON fan.fanID=fandata.fanID JOIN datapoint ON fandata.fandataID=datapoint.fandataID  WHERE fan.fanID=@fanID;";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     cmd.Parameters.AddWithValue("@fanID", fan.fanID);

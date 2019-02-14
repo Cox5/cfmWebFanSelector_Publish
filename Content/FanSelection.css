@@ -252,6 +252,8 @@
     overflow: scroll;
 }
 
+    #fanTable tr { height: 27px; }
+
     #fanTable td {
         cursor: pointer;
         overflow: hidden;
