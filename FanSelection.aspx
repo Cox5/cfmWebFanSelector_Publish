@@ -146,6 +146,7 @@
 
                     <div id="div_clearButton" style="bottom: 0px; position: absolute">
                         <asp:Button ID="btn_clear" Text="Clear" runat="server" OnClientClick="return false" />
+                        <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClientClick="return false" />
                         <asp:Label ID="lbl_versionNumber" Text="" runat="server" ForeColor="DarkGray" Style="bottom: 0px; position: absolute; right: 10px; left: auto; text-align: right" />
                     </div>
 

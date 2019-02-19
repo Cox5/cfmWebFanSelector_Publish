@@ -16,6 +16,17 @@
                     <asp:TextBox ID="txtDesignation" runat="server" /></td>
             </tr>
             <tr>
+                <td>Fan Model</td>
+                <td>
+                    <asp:TextBox ID="txtModelNum" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblModelNumMsg" runat="server"></asp:Label>
+                </td>
+                <td>
+
+                </td>
+                
+            </tr>
+            <tr>
                 <td>Airflow</td>
                 <td>
                     <asp:TextBox ID="txtAirflow" runat="server" /></td>
