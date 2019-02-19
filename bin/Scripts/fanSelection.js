@@ -50,6 +50,10 @@ $(document).ready(function () {
       clear();
     });
 
+    $("#body_btnCancel").click(function () {
+        window.history.back();
+    });
+
     dialog = $("#printDialog").dialog({
       autoOpen: false,
       height: 200,
