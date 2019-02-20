@@ -1,0 +1,120 @@
+	<div class="row">
+		<hr style="height: 2px; border:none; background-color: #333">
+		<center><b><h2>FAN DATA FOR MODEL %%FAN_CODE%%</h2></b></center>
+		<hr style="height: 2px; border:none; background-color: #333">
+	</div>
+
+    <div class="row">
+        <div class="col-2 left">
+			<p><h3>Fan Code: <span class="fan_code">%%FAN_CODE%%</span></br>
+			Fan Reference:</h3>
+			<h3>Requirements</h3>
+			<table class="requirementsTbl" border="0" >
+				<tr>
+					<td>Volume:</td>
+					<td>%%VOLUME%%</td>
+				</tr>
+				<tr>
+					<td>Static Pressure:</td>
+					<td>%%STATIC_PRESSURE%%</td>
+				</tr>
+				<tr>
+					<td>Installation Category:</td>
+					<td>%%INSTALLATION_CATEGORY%%</td>
+				</tr>
+			</table>
+			<h3>Fan Data (at STP)</h3>
+			<table class="fanDataTbl" border="0" >
+				<tr>
+					<td>W/l:</td>
+					<td>%%W/l%%</td>
+				</tr>
+				<tr>
+					<td>Diameter:</td>
+					<td>%%DIAMETER%%</td>
+				</tr>
+				<tr>
+					<td>Speed:</td>
+					<td>%%SPEED%%</td>
+				</tr>
+				<tr>
+					<td>Mass:</td>
+					<td>%%MASS%%</td>
+				</tr>
+			</table>
+
+			<h3>Motor Data (at STP)</h3>
+			<table class="motorDataTbl" border="0" >
+				<tr>
+					<td>Electrical Supply:</td>
+					<td>%%ELECTRICAL_SUPPLY%%</td>
+				</tr>
+				<tr>
+					<td>Motor Power:</td>
+					<td>%%MOTOR_POWER%%</td>
+				</tr>
+				<tr>
+					<td>Current FLC:</td>
+					<td>%%CURRENT_FLC%%</td>
+				</tr>
+				<tr>
+					<td>Motor Speed:</td>
+					<td>%%MOTOR_SPEED%%</td>
+				</tr>
+			</table>
+                        
+        </div>
+		<div class="col-2 right">
+		<center>
+			<svg>%%SVG_PERF_CURVE%%</svg></br>
+			<b>BCA Compliance: Complies with Section J5.2 2009</b>
+		</center>
+		</div>
+	</div>
+	<div class="row">
+	
+		<h3>Inlet SWL</h3>
+		<table class="acoustic_data_table" border="0">
+			<tr>
+				<td>Spectrum (Hz)</td>
+				<td>63</td>
+				<td>125</td>
+				<td>250</td>
+				<td>500</td>
+				<td>1K</td>
+				<td>2K</td>
+				<td>4K</td>
+				<td>8K</td>
+				<td>dBW</td>
+				<td>dBA</td>
+				<td>@ 3m</td>
+			</tr>
+			<tr>
+				<td>SWL (dB)</td>
+				<td>%%HZ63%%</td>
+				<td>%%HZ125%%</td>
+				<td>%%HZ250%%</td>
+				<td>%%HZ500%%</td>
+				<td>%%HZ1K%%</td>
+				<td>%%HZ2K%%</td>
+				<td>%%HZ4K%%</td>
+				<td>%%HZ8K%%</td>
+				<td>%%dBW%%</td>
+				<td>%%dBA%%</td>
+				
+			</tr>
+		</table>
+
+		</br>
+		</br>
+		<center>
+			<img id="fan_img" src="%%FAN_IMG%%">
+		</center>
+		</br>
+		<hr style="height: 4px; border:none; background-color: #333;">
+		
+		
+    </div>
+
+
+</html>
