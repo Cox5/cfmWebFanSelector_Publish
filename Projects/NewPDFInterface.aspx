@@ -46,7 +46,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td colspan="2">
                     <asp:Label ID="lblMessage" runat="server"></asp:Label>
                 </td>
             </tr>
