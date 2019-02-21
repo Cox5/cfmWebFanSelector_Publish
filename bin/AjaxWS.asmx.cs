@@ -144,7 +144,7 @@ namespace CFM_Web
         /// </summary>
         /// <param name="dataPointList"></param>
         /// <returns>Item1 = MaxX, Item2 = MaxY</returns>
-        private Tuple<double, double> GetDataMax(List<FansBackend.Entities.DataPoint> dataPointList)
+        public static Tuple<double, double> GetDataMax(List<FansBackend.Entities.DataPoint> dataPointList)
         {
             double maxX = 0;
             double maxY = 0;
