@@ -17,7 +17,7 @@
         <div class="homepagefl" style="border: 1px solid black; background-color:antiquewhite">
             <p>To request access to the CFM Fan Selector you must first register.</p>
             <p>Registration is free, but subject to approval.</p>
-            <asp:Button ID="btnRegister" Text="Register" runat="server"/>
+            <asp:Button ID="btnRegister" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
         </div>
         <%--<div class="homepagefl" style="display:block; color: #00dd00; font-weight: bold">
                    If your email address matches one already registered, a new password will be sent to you.
