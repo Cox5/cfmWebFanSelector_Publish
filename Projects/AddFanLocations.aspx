@@ -26,6 +26,9 @@
                     <td class="thirty"></td>
                 </tr>
                 <tr>
+                     <%= getFanLocations() %>
+                </tr>
+                <tr>
                     <td><asp:TextBox ID="txtLocation1" class="txtLocation" runat="server" /></td>
 					<td><asp:TextBox ID="txtDesignation1" class="txtDesignation" runat="server" /></td>
                     <td><asp:TextBox ID="txtAirflow1" class="txtAirflow" runat="server" /></td>
@@ -69,7 +72,7 @@
                <asp:Button ID="btnSubmit" Text="Add Locations" runat="server" OnClick="btnSubmit_Click" />
                     </td>
                     <td align="right">
-                        <asp:Button ID="btnCancel" Text="Cancel" OnClick="btnCancel_Click" runat="server" />
+                        <asp:Button ID="btnCancel" Text="Finished" OnClick="btnCancel_Click" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -78,6 +81,10 @@
                 </tr>
                 </table>
         </div>
+    </div>
+
+    <div >
+        <table id="table1"></table>
     </div>
 
 
