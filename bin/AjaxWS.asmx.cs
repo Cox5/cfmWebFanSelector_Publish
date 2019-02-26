@@ -113,7 +113,7 @@ namespace CFM_Web
             pdfData.FanDataMass = Convert.ToString(fanData.mass);
 
             pdfData.PerformanceCurveSVG = selectedFanData.performanceCurve;
-            //pdfData.PowerCurveSVG = selectedFanData.powerCurve;
+            pdfData.PowerCurveSVG = selectedFanData.powerCurve;
 
             pdfData.MotorType = "normal"; // check this out later
             pdfData.MotorPower = Convert.ToString(fanData.motorkW);
