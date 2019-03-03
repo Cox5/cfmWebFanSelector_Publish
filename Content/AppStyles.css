@@ -1,0 +1,224 @@
+/* Variables */
+:root {
+
+    /* text */
+    --main-text-color: rgb(78, 78, 78);
+    --main-font-size: 0.9em;
+
+    /* colors */
+    --header-bg-color: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
+    
+    --gradient-blue: linear-gradient(to bottom, rgb(255, 255, 255), rgb(249, 250, 253));
+    --gradient-gold: linear-gradient(to bottom, rgba(250, 244, 234, 0.4), rgba(255, 246, 231, 0.9));
+    --blue-primary: rgb(53, 124, 255);
+    --blue-secondary: rgb(0, 162, 255);
+    --blue-tertiary: rgb(1, 59, 126);
+    
+
+    
+
+}
+
+h1 {
+    line-height: 1.9;
+}
+
+body {
+    font-family: "Fira Sans", sans-serif;
+    font-size: var(--main-font-size);
+    
+    color: var(--main-text-color);
+}
+
+.header {
+    padding: 20px 40px;
+    background: var(--header-bg-color);
+    box-shadow: 4px 2px 19px 0px rgba(0,0,0,0.15);
+    margin-bottom: 50px;
+    
+}
+
+.welcome-text {
+    margin-bottom: 50px;
+    font-size: 1.9em;
+    letter-spacing: -0.1px;
+    font-weight: 500;
+    color: var(--main-text-color) !important;
+}
+
+.heading-secondary {
+    font-size: 1.6em;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+.bolder {
+    font-weight: 600;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.mt-big {
+    margin-top: 40px;
+}
+
+.mb-medium {
+    margin-bottom: 25px;
+}
+
+input[type="text"], input[type="password"], input[type="number"], select {
+    width: 100%;
+    padding: 8px 10px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    
+    box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.10);
+}
+
+.button-main {
+    font-size: 1.2em;
+    font-family:  "Fira Sans", sans-serif;
+    padding: 8px 10px !important;
+    border-radius: 8px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    
+    transition: all 0.4s;
+}
+
+.button-main:hover {
+    transition: all 0.4s;
+    box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
+    cursor: pointer;
+}
+
+.button-main:active, input[type="submit"]:focus {
+    box-shadow: 0px 2px 5px 0.5px rgba(0,0,0,0.16);
+}
+
+.primary-btn {
+    background: var(--blue-primary) !important;
+}
+
+.primary-btn:hover {
+    background: var(--blue-secondary) !important;
+}
+
+.primary-btn:active, .primary-btn:focus {
+    background: var(--blue-tertiary) !important;
+}
+
+
+.secondary-btn {
+    background: rgb(140, 110, 71) !important;
+    width: 130px ;
+}
+
+.secondary-btn:hover {
+    background: rgb(168, 126, 66) !important;
+    box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
+}
+
+.secondary-btn:active, .secondary-btn:focus {
+    background: rgb(124, 96, 58) !important;
+    box-shadow: 0px 2px 5px 0.5px rgba(0,0,0,0.16);
+}
+
+.login-btn {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 100% !important;
+    
+    transition: all 0.4s;
+}
+
+  
+.form-box {
+    margin: 0 auto;
+    padding: 20px 50px;
+    width: 490px;
+    background: var(--gradient-blue);
+    border-radius: 10px;
+    box-shadow: 1px 1px 9px 1px rgba(0,0,0,0.11);
+    
+    box-sizing: border-box;
+}
+
+.form-box-reduced-padding {
+    padding: 5px 10px;
+}
+
+.fa-user-title {
+    font-size: 0.86em;
+    margin-right: 3px;
+}
+
+a {
+    color: var(--blue-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--blue-secondary);
+    text-decoration: underline;
+}
+
+
+.registration-info-box {
+    width: 490px;
+    
+    padding: 20px 30px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: var(--gradient-gold);
+    border-radius: 10px;
+    
+    box-shadow: 1px 1px 9px 1px rgba(0,0,0,0.11);
+    
+    box-sizing: border-box;
+}
+
+.error-msg {
+    text-align: center;
+
+}
+
+
+
+/* Media queries */
+
+
+@media (max-width: 670px) {
+
+    .login-form-box {
+        width: 95% !important;
+        padding: 10px 30px;
+    }
+
+    .registration-info-box {
+        width: 95% !important;
+
+    }   
+
+    .leftcolumn {
+        margin: 0 auto !important;
+        width: 92% !important;
+    }
+
+    .rightcolumn {
+        margin: 0 auto !important;
+        width: 92% !important;
+    }
+}
