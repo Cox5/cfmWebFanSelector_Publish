@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="NewPDFInterface.aspx.cs" Inherits="CFM_Web.Projects.NewPDFInterface" %>
+﻿<%@ Page Title="New PDF List" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="NewPDFInterface.aspx.cs" Inherits="CFM_Web.Projects.NewPDFInterface" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
