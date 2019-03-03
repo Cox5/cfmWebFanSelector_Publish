@@ -315,6 +315,7 @@ input[type="checkbox"] {
     width: auto;
 }
 
+/*
 input[type="submit"],
 input[type="button"],
 button {
@@ -327,7 +328,7 @@ button {
     margin-right: 8px;
     width: 100px;
     border-radius: 0px;
-}
+} 
 
 td input[type="submit"],
 td input[type="button"],
@@ -336,6 +337,7 @@ td button {
     padding: 4px;
 }
 
+*/
 
 /* main layout
 ----------------------------------------------------------*/
@@ -423,11 +425,12 @@ div.homepagefl {
 }
 div.leftcolumn {
     float: left; 
-    width:49%;
+    width: 47%;
+    margin-right: 40px;
 }
 div.rightcolumn {
     float: left;
-    width: 49%;
+    width: 47%;
 }
 
 table.dashboard{

@@ -4,14 +4,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200,300,300i,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+
     <link href="Content/FanSelection.css" rel="stylesheet" />
+    <link href="Content/AppStyles.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server" />
 </head>
 <body>
- 
-      <a href="/index.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
+      <div class="header">
+
+        <a href="/index.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
+      </div>
    
-    <div id="divBody" style="margin-left: 20px;">
+    <div id="divBody">
       <asp:ContentPlaceHolder ID="body" runat="server" />
     </div>
  

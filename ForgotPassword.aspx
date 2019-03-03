@@ -3,22 +3,38 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
-    <h2>Password Reset</h2>
-    <p>Enter your email address and a new password will be emailed to you.</p>
+    
     <form id="formReset" runat="server">
-        <div class="homepagefl" style="border: 1px solid white; background-color:white">
-         
-            <table>
-                <tr><td>Email address:</td><td><asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox></td></tr>           
-                <tr><td><asp:Button ID="btnResetPassword" Text="Reset Password" runat="server" OnClick="btnResetPassword_Click"/></td></tr>
-            </table>
-            <asp:Label ID="lblResetMsg" runat="server"></asp:Label>
-        </div>
-        <div class="homepagefl" style="border: 1px solid black; background-color:antiquewhite">
-            <p>To request access to the CFM Fan Selector you must first register.</p>
-            <p>Registration is free, but subject to approval.</p>
-            <asp:Button ID="btnRegister" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
-        </div>
+      
+            <div class="form-box">
+                    <div class="center-text">
+                        <h2 class="heading-secondary mb-medium">Password Reset</h2>
+                    </div>
+                    <p>Enter your email address and a new password will be emailed to you.</p>
+    
+                <asp:TextBox ID="txtEmailAddress" placeholder="Your Email Address" runat="server"></asp:TextBox>    
+
+                
+                <asp:Label ID="lblResetMsg" runat="server"></asp:Label>
+
+                <asp:Button ID="btnResetPassword" class="button-main primary-btn login-btn" Text="Reset Password" runat="server" OnClick="btnResetPassword_Click"/>
+
+                <div class="center-text">
+                    <a href="index.aspx"> <i class="fas fa-angle-left"></i> Login</a>
+                </div>
+
+            </div>
+
+
+                
+            <div class="registration-info-box">
+                    <p>To request access to the CFM Fan Selector you must first  <a href="/Users/Signup.aspx">register</a>.</p>
+                    <p>Registration is free, but subject to approval.</p>
+                    <div class="center-text">
+                        <asp:Button ID="btnRegister" class="button-main secondary-btn" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
+    
+                    </div>
+                </div>
         <%--<div class="homepagefl" style="display:block; color: #00dd00; font-weight: bold">
                    If your email address matches one already registered, a new password will be sent to you.
         </div>--%>
