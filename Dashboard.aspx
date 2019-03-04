@@ -12,6 +12,7 @@
         <tr><td><a href="/projects">Company info</a></td></tr>
         <tr><td><a href="/projects">Quotations</a></td></tr>
         <tr><td><a href="/FanSelection.aspx">Browse fans</a></td></tr>
+        <tr><td><a href="/ImportPrices.aspx">Import prices</a></td></tr>
     </table>
         </div>
 </asp:Content>
