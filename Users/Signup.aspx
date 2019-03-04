@@ -5,7 +5,7 @@
     <div class="content-wrapper">
 
         <div class="center-text">
-            <h1 class="mb-medium">Fan Selector User Registration</h1>
+            <h1 class="heading-primary mb-medium">Fan Selector User Registration</h1>
         </div>
             <div class="leftcolumn">
                     <h3><i class="fas fa-user-alt"></i> Your details</h3>
@@ -17,21 +17,22 @@
                                 <asp:TextBox ID="txtFirstname" runat="server" required="true" />
                             </td>
                         </tr>
-                        <asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" /> 
+                        
+                        
                         <tr>
                             <td>Last name</td>
                             <td>
                                 <asp:TextBox ID="txtLastname" runat="server" required="true" />
                             </td>
                         </tr>
-                        <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s]{1,30}" ErrorMessage="Enter a valid last name" ForeColor="Red" /> 
+                        
                         <tr>
                             <td>Email address</td>
                             <td>
                                 <asp:TextBox ID="txtEmail" runat="server" required="true" />
                             </td>
                         </tr>
-                        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+                        
                         <tr>
                             <td>Confirm email address</td>
                             <td>
@@ -44,7 +45,7 @@
                                 <asp:TextBox ID="txtUserPhone" runat="server"  required="true"/>
                             </td>
                         </tr>
-                        <%--<asp:RegularExpressionValidator ID="regexPhoneValid" runat="server" ErrorMessage="Enter valid Phone number" ControlToValidate="txtUserPhone" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" ForeColor="Red" ></asp:RegularExpressionValidator>--%>
+                        
                         <tr>
                             <td>Password</td>
                             <td>
@@ -59,15 +60,41 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>
+                                
                             </td>
                             <td>
-                                <asp:CompareValidator runat="server" ID="Comp2" ControlToValidate="txtEmailConfirm" ControlToCompare="txtEmail" Operator="Equal" Type="String" ErrorMessage="Email mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>
+                                
                             </td>
                             
                         </tr>
         
                     </table>
+
+                    <p class="validation-msg">
+                        <asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" /> 
+                    </p>
+
+
+                    <p class="validation-msg">
+                        <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s]{1,30}" ErrorMessage="Enter a valid last name" ForeColor="Red" /> 
+                    </p>
+
+                    <p class="validation-msg">
+                        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+                    </p>
+
+                    
+                    <p class="validation-msg">
+                        <asp:CompareValidator runat="server" ID="Comp2" ControlToValidate="txtEmailConfirm" ControlToCompare="txtEmail" Operator="Equal" Type="String" ErrorMessage="Email mismatch" ForeColor="Red"></asp:CompareValidator>
+                    </p>
+                    
+                    
+                    <p class="validation-msg">
+                        <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch"  ForeColor="Red"></asp:CompareValidator>
+                    </p>
+                   
+
+                    
             </div>
             <div class="rightcolumn">
                 <h3><i class="far fa-building"></i> Your company details</h3>
@@ -131,6 +158,8 @@
                     </tr>
                     <asp:RegularExpressionValidator ID="regUrl" runat="server" ControlToValidate="txtCompanyWebsite" ValidationExpression="^((http|https)://)?([\w-]+\.)+[\w]+(/[\w- ./?]*)?$" ErrorMessage="Enter a valid URL" ForeColor="Red" /> 
                 </table>
+
+                
                 
             </div>
 

@@ -10,7 +10,7 @@
             <div class="form-box">
 
                 <div class="center-text">
-                    <h2 class="heading-secondary mb-medium"><i class="fas fa-user-title"></i> Member Login</h2>
+                    <h2 class="heading-secondary mb-medium"><i class="fas fa-user fa-user-title"></i> Member Login</h2>
                 </div>
 
                 <div class="f-group">

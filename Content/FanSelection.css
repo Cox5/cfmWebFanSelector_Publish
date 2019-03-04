@@ -424,13 +424,16 @@ div.homepagefl {
     float: left;
 }
 div.leftcolumn {
-    float: left; 
+    display: inline-block; 
     width: 47%;
     margin-right: 40px;
+    
+    vertical-align: top;
 }
 div.rightcolumn {
-    float: left;
+    display: inline-block;
     width: 47%;
+    
 }
 
 table.dashboard{
