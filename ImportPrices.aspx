@@ -11,6 +11,10 @@
         <br />
         <br />
         <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
+
+        <asp:GridView ID="gridView" runat="server">
+
+        </asp:GridView>
         
     </div>
 

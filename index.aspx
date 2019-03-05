@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
-        <h2 class="welcome-text center-text">Welcome to <span class="bolder">CFM Airsystems Fan Selection</span> Tool!</h2>
+        <h2 class="welcome-text center-text mb-huge">Welcome to <span class="bold">CFM Airsystems Fan Selection</span> Tool!</h2>
         <form id="formLogin" runat="server">
         
 

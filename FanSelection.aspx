@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Fan Selection" Language="C#" AutoEventWireup="true" CodeBehind="FanSelection.aspx.cs" Inherits="CFM_Web.FanSelection" MasterPageFile="~/fanselection.Master" %>
+﻿<%@ Page Title="Fan Selection" Language="C#" AutoEventWireup="true" CodeBehind="FanSelection.aspx.cs" Inherits="CFM_Web.FanSelection" MasterPageFile="~/fanselectionNoStylesheet.Master" %>
 
 <asp:Content ID="headerSection" ContentPlaceHolderID="head" runat="server">
     <%-- Local Style Sheets --%>

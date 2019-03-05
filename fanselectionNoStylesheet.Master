@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="fanselectionNoStylesheet.master.cs" Inherits="CFM_Web.fanselectionNoStylesheet" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200,300,300i,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <link href="Content/FanSelection.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+  <form id="form1" runat="server">
+    <div class="header">
+        <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
+    </div>
+    <div id="divHeader" style="float:right; padding-top: 10px;">
+        <div class="buttons"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
+        <div class="buttons"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
+        <div class="buttons"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>
+        <div class="buttons"><a href="/Users/AccountsDashboard.aspx" class="topbar">Account</a></div>
+        <div class="buttons"><a href="/Users/Logout.aspx" class="topbar">Logout</a></div>
+    </div>
+    <div id="divBody">
+      <asp:ContentPlaceHolder ID="body" runat="server" />
+    </div>
+  </form>
+</body>
+</html>
+
