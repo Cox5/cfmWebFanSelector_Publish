@@ -4,15 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     
     <div class="content-wrapper">
-        <h3>Welcome back,  <asp:Label ID="lbl_logged_user" runat="server"></asp:Label></h3>
-        <h3>Your level: <asp:Label ID="lbl_user_level" runat="server"></asp:Label></h3>
-    <table class="dashboard">
-        <tr><td><a href="/Projects/ProjectsDashboard.aspx">Projects</a></td></tr>
-        <tr><td><a href="/Users/AccountsDashboard.aspx">User accounts</a></td></tr>
-        <tr><td><a href="/projects">Company info</a></td></tr>
-        <tr><td><a href="/projects">Quotations</a></td></tr>
-        <tr><td><a href="/FanSelection.aspx">Browse fans</a></td></tr>
-        <tr><td><a href="/ImportPrices.aspx">Import prices</a></td></tr>
-    </table>
-        </div>
+		<span class="welcome-text">Welcome back,  <asp:Label class="bold" ID="lbl_logged_user" runat="server"></asp:Label>!</span>
+		<h3>Your level: <asp:Label class="bold" ID="lbl_user_level" runat="server"></asp:Label></h3>
+		<hr/>
+
+
+		<a class="dashboard-link" href="/Projects/ProjectsDashboard.aspx">Projects</a>
+		<a class="dashboard-link" href="/Users/AccountsDashboard.aspx">User accounts</a>
+		<a class="dashboard-link" href="/projects">Company info</a>
+		<a class="dashboard-link" href="/projects">Quotations</a>
+		<a class="dashboard-link" href="/FanSelection.aspx">Browse fans</a>
+        <a class="dashboard-link" href="/ImportPrices.aspx">Import prices</a>
+	</div>
 </asp:Content>

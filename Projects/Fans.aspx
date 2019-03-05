@@ -11,6 +11,7 @@
         </tr>
          <%= getProjectFans() %>
         <tr>
+            <td colspan="2" align="left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label></td>
             <td colspan="7" align="right">
                 <div class="buttons"><a href="/Projects/ProjectsDashboard.aspx">Finished</a></div>
             </td>

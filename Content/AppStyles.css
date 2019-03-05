@@ -23,6 +23,11 @@ h1 {
     line-height: 1.9;
 }
 
+h3 {
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
 body {
     font-family: "Fira Sans", sans-serif;
     font-size: var(--main-font-size);
@@ -39,10 +44,9 @@ body {
 }
 
 .welcome-text {
-    margin-bottom: 50px;
     font-size: 1.9em;
     letter-spacing: -0.1px;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--main-text-color) !important;
 }
 
@@ -78,6 +82,10 @@ body {
 
 .mb-medium {
     margin-bottom: 25px;
+}
+
+.mb-huge {
+    margin-bottom: 50px;
 }
 
 input[type="text"], input[type="password"], input[type="number"], select {
@@ -181,6 +189,12 @@ a:hover {
     text-decoration: underline;
 }
 
+.dashboard-link {
+    font-size: 1.9em;
+    font-weight: 500;
+    display: block;
+    line-height: 1.9;
+}
 
 .registration-info-box {
     width: 490px;
