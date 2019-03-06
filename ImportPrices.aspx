@@ -9,8 +9,11 @@
         <asp:FileUpload ID="FileUploadControl" runat="server" />
         <asp:Button runat="server" ID="UploadButton" Text="Upload" OnClick="UploadButton_Click" />
         <br />
+        <asp:Label ID="lblMessage" runat="server"></asp:Label>
         <br />
         <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
+
+        <h4>Pricelist ready for import</h4>
 
         <asp:GridView ID="gridView" runat="server">
 
