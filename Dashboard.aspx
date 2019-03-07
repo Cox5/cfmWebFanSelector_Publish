@@ -14,6 +14,6 @@
 		<a class="dashboard-link" href="/projects">Company info</a>
 		<a class="dashboard-link" href="/projects">Quotations</a>
 		<a class="dashboard-link" href="/FanSelection.aspx">Browse fans</a>
-        <a class="dashboard-link" href="/ImportPrices.aspx">Import prices</a>
+        <a id="importPricesLink" class="dashboard-link" href="/ImportPrices.aspx" runat="server">Import prices</a>
 	</div>
 </asp:Content>
