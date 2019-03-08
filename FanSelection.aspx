@@ -212,7 +212,7 @@
                                             <td><%= getEfficiency(fanData) %></td>
                                             <td><%= getNoise(fanData) %></td>
                                             <td><%= getConsumedPowerOverAirflow(fanData) %></td>
-                                            <td></td>
+                                            <td><%= CalculatePricePercentage(fanData) %></td>
                                             <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
                                             <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
                                             <!--<td><%= fanData.angle.ToString() %></td> -->
