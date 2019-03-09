@@ -16,12 +16,12 @@
             <table>
                 <tr><td class="tabletitle">Add Fan Locations</td><td colspan="4"><span id="projectName" runat="server"><asp:Label ID="lblProjectName" Font-Bold="true" runat="server"></asp:Label></span></td></tr>
                 <tr>
-                    <td class="thirty">Location Description*</td>
-                    <td class="thirty">Location Designation</td>
-                    <td class="fifteen">Airflow*</td>
-                    <td class="fifteen">Static<br />Press.*</td>
-                    <td class="ten">Qty</td>
-                    <td class="thirty"></td>
+                    <th class="thirty">Location Description*</th>
+                    <th class="thirty">Location Designation</th>
+                    <th class="fifteen">Airflow*</th>
+                    <th class="fifteen">Static<br />Press.*</th>
+                    <th class="ten">Qty</th>
+                    <th class="thirty"></th>
                 </tr>
                 <tr>
                      <%= getFanLocations() %>
