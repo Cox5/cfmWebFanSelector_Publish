@@ -1,0 +1,93 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+			}
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			th {
+				text-align: left;
+			}
+			.cover_table {
+				width: 100%;
+			}
+
+
+
+		</style>
+    </head>
+
+    <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
+
+
+    <div class="row">
+        <div class="column">
+                <b><u>Address</u></b></br>
+                106-108 Fairbank Road<br>Clayton South Victoria 3169
+        </div>
+        <div class="column">
+                <b><u>Phone</u></b></br>
+                03-9551-4878
+        </div>
+        <div class="column">
+                <b><u>Email</u></b></br>
+                mail@cfmairsystems.com.au
+        </div>
+        <div class="column">
+                <b><u>Website</u></b></br>
+                cfmairsystems.com.au
+        </div>
+    </div>
+
+	<table class="cover_table">
+		<tr>
+			<td>To:</td>
+			<td>%%COMPANY%%</td>
+			<td>Date:</td>
+			<td>%%DATE%%</td>
+		</tr>
+		
+		<tr>
+			<td>Attention:</td>
+			<td>%%ATTN%%</td>
+			<td>From:</td>
+			<td>%%SALES%%</br>%%SALESMAIL%%</td>
+		</tr>
+		
+		<tr>
+			<td>Re:</td>
+			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+			<td>Quote number:</td>
+			<td>%%QUOTENUM%%</td>
+		</tr>
+		
+	</table>
+	
+	<div>
+		<p>Thank you for contacting CFM Airsystems regaring fans for your project at %%PROJADDR%%.</p>
+		<p>Please find below a quotation for your project which includes:</br> prices%DATA%%DIMS%%WIRING%
+	</div>
+	
+	<p>Please telephone or email our sales staff, or request pricing from our portal and we will be happy to supply a quotation for the job</p>
+	
+
+	<p align="right">Page: %%PAGE%% of %%PAGETOTAL%%</p>
+
+
+
+</html>
