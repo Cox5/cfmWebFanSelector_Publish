@@ -16,23 +16,24 @@
   <form id="form1" runat="server">
     <div class="header">
         <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
+        <div id="divHeader" style="float:right; padding-top: 10px;">
+            <div class="buttons button-nav"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
+            <div class="buttons button-nav"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
+            <div class="buttons button-nav"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>
+            <div class="buttons button-nav"><a href="/Users/AccountsDashboard.aspx" class="topbar">Account</a></div>
+            <div class="buttons button-nav"><a href="/Users/Logout.aspx" class="topbar">Logout</a></div>
+            <%--<asp:Button ID="btnSelection" Text="Selection" runat="server" OnClick="btnSelection_Click" />--%>
+                <%--<asp:Button ID="btnSchedule" Text="Schedule" runat="server" OnClick="btnSchedule_Click" />--%>
+            <%-- %><asp:Button ID="btnFans" Text="Fans" runat="server" OnClick="btnFans_Click" />
+            <asp:Button ID="btnProjects" Text="Projects" runat="server" OnClick="btnProjects_Click" />
+            <asp:Button ID="btnAccount" Text="Account" runat="server" OnClick="btnAccount_Click" />
+                <%--<asp:Button ID="btnRanges" Text="Ranges" runat="server" />--%>
+                <%--<asp:Button ID="btnTypes" Text="Types" runat="server" />--%>
+                <%--<asp:Button ID="btnUsers" Text="Users" runat="server" OnClick="btnUsers_Click" />--%>
+                <%--<asp:Button ID="btnLogout" Text="Logout" runat="server" />--%>
+        </div>
     </div>
-    <div id="divHeader" style="float:right; padding-top: 10px;">
-        <div class="buttons"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
-        <div class="buttons"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
-        <div class="buttons"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>
-        <div class="buttons"><a href="/Users/AccountsDashboard.aspx" class="topbar">Account</a></div>
-        <div class="buttons"><a href="/Users/Logout.aspx" class="topbar">Logout</a></div>
-        <%--<asp:Button ID="btnSelection" Text="Selection" runat="server" OnClick="btnSelection_Click" />--%>
-            <%--<asp:Button ID="btnSchedule" Text="Schedule" runat="server" OnClick="btnSchedule_Click" />--%>
-        <%-- %><asp:Button ID="btnFans" Text="Fans" runat="server" OnClick="btnFans_Click" />
-        <asp:Button ID="btnProjects" Text="Projects" runat="server" OnClick="btnProjects_Click" />
-        <asp:Button ID="btnAccount" Text="Account" runat="server" OnClick="btnAccount_Click" />
-            <%--<asp:Button ID="btnRanges" Text="Ranges" runat="server" />--%>
-            <%--<asp:Button ID="btnTypes" Text="Types" runat="server" />--%>
-            <%--<asp:Button ID="btnUsers" Text="Users" runat="server" OnClick="btnUsers_Click" />--%>
-            <%--<asp:Button ID="btnLogout" Text="Logout" runat="server" />--%>
-    </div>
+   
     <div id="divBody">
       <asp:ContentPlaceHolder ID="body" runat="server" />
     </div>

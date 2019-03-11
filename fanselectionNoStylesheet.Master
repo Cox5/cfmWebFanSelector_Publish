@@ -15,13 +15,13 @@
   <form id="form1" runat="server">
     <div class="header">
         <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
-    </div>
-    <div id="divHeader" style="float:right; padding-top: 10px;">
-        <div class="buttons"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
-        <div class="buttons"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
-        <div class="buttons"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>
-        <div class="buttons"><a href="/Users/AccountsDashboard.aspx" class="topbar">Account</a></div>
-        <div class="buttons"><a href="/Users/Logout.aspx" class="topbar">Logout</a></div>
+        <div id="divHeader" style="float:right; padding-top: 10px;">
+            <div class="buttons button-nav"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
+            <div class="buttons button-nav"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
+            <div class="buttons button-nav"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>
+            <div class="buttons button-nav"><a href="/Users/AccountsDashboard.aspx" class="topbar">Account</a></div>
+            <div class="buttons button-nav"><a href="/Users/Logout.aspx" class="topbar">Logout</a></div>
+        </div>
     </div>
     <div id="divBody">
       <asp:ContentPlaceHolder ID="body" runat="server" />
