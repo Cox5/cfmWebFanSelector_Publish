@@ -6,16 +6,36 @@
 
   <div class="content-wrapper">
 
-    <table style="width: 700px">
-        <tr><td colspan="2" align="left" class="tabletitle">Projects</td><td colspan="2" align="right"><div class="buttons"><a href="/Projects/Project.aspx" >New Project</a></div></td></tr>
-        <tr><td width="27%">Project</td><td width="27%">Location</td><td width="27%">Company</td><td></td></tr>
+      <div class="table-controls mt-solid mb-solid">
+        <h1 class="table-title">Projects</h1>
+  
+        <a href="/Projects/Project.aspx" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> New Project</a>
+      </div>
 
+     
+
+
+
+    <table class="table project">
+        <thead>
+          <tr>
+            <td width="27%">Project</td>
+            <td width="27%">Location</td>
+            <td width="27%">Company</td>
+            <td ></td>
+          </tr>
+        </thead>
+          
          <%= getProjects() %>
 
-        <td>
-            <td colspan="4" align="right"><div class="buttons"><a href="/Dashboard.aspx">Go Back</a></div></td>
-        </td>
+        
     </table>
+
+    <div class="table-controls">
+      <a href="/Dashboard.aspx"><i class="fas fa-angle-left"></i> Go Back</a>
+    </div>    
+    
+
   </div>
 </asp:Content>
 

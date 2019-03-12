@@ -11,18 +11,27 @@
         
     </style>
     <div class="content-wrapper">
-        <div class="leftcolumn">
+       
+        
+            <div class="mb-solid mt-solid">
+                <div class="table-controls">
+                    <h1 class="table-title sub">Add Fan Locations</h1>
+                </div>
+                
+                <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+            </div>
 
-            <table>
-                <tr><td class="tabletitle">Add Fan Locations</td><td colspan="4"><span id="projectName" runat="server"><asp:Label ID="lblProjectName" Font-Bold="true" runat="server"></asp:Label></span></td></tr>
-                <tr>
-                    <th class="thirty">Location Description*</th>
-                    <th class="thirty">Location Designation</th>
-                    <th class="fifteen">Airflow*</th>
-                    <th class="fifteen">Static<br />Press.*</th>
-                    <th class="ten">Qty</th>
-                    <th class="thirty"></th>
-                </tr>
+            <table class="table table-form">
+               
+                <thead>
+                    <tr>
+                        <td>Location Description*</td>
+                        <td class="medium-td">Location Designation</td>
+                        <td class="medium-td" >Airflow*</td>
+                        <td class="small-td">Static<br />Press.*</td>
+                        <td class="small-td">Qty</td>
+                    </tr>
+                </thead>
                 <tr>
                      <%= getFanLocations() %>
                 </tr>
@@ -67,10 +76,10 @@
                     <td><asp:Label ID="lblMsg5" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr><td colspan="4" align="right">
-               <asp:Button ID="btnSubmit" Text="Add Locations" runat="server" OnClick="btnSubmit_Click" />
+               <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Add Locations" runat="server" OnClick="btnSubmit_Click" />
                     </td>
                     <td align="right">
-                        <asp:Button ID="btnCancel" Text="Finished" OnClick="btnCancel_Click" runat="server" />
+                        <asp:Button ID="btnCancel"  class="button-main primary-btn" Text="Finished" OnClick="btnCancel_Click" runat="server" style="width: 100%"/>
                     </td>
                 </tr>
                 <tr>
@@ -79,7 +88,7 @@
                 </tr>
                 <tr><td><asp:Label ID="lblMessage" runat="server" /></td></tr>
                 </table>
-        </div>
+        
     </div>
 
     <div >

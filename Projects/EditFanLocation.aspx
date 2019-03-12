@@ -4,7 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
-        <table>
+
+        <div class="mb-solid mt-solid">
+            <div class="table-controls">
+                <h1 class="table-title sub">Edit Fan Location</h1>
+            </div>
+        </div>
+
+        <table class="table table-form">
             <tr>
                 <td>Location Description</td>
                 <td>
@@ -42,8 +49,11 @@
                     <asp:TextBox ID="txtQuantity" runat="server" /></td>
             </tr>
         </table>
-        <asp:Button ID="btnSave" Text="Submit" runat="server" OnClick="btnSave_Click" />
-        <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" /><br />
-        <asp:Label ID="lblEditFanLocMsg" runat="server" />
+        <div class="mb-solid mt-solid mr-small right">
+            <asp:Button ID="btnSave"  class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
+            <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" /><br />
+        </div>
+
+        <asp:Label class="mt-solid" ID="lblEditFanLocMsg" runat="server" />
     </div>
 </asp:Content>
