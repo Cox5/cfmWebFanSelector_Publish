@@ -5,7 +5,7 @@
    <div class="content-wrapper" style="text-align:center">
   
             <h2 >You are not authorized to access the page you have requested.</h2>
-            <a href="Dashboard.aspx">Return to the dashboard.</a>
+            <a href="Dashboard.aspx"><i class="fas fa-angle-left"></i> Return to the dashboard</a>
         
 
    </div>

@@ -10,8 +10,8 @@
     
     --gradient-blue: linear-gradient(to bottom, rgb(255, 255, 255), rgb(249, 250, 253));
     --gradient-gold: linear-gradient(to bottom, rgba(250, 244, 234, 0.4), rgba(255, 246, 231, 0.9));
-    --blue-primary: rgb(53, 124, 255);
-    --blue-secondary: rgb(0, 162, 255);
+    --blue-secondary: rgb(0, 153, 255);
+    --blue-primary: rgb(0, 132, 209);
     
     --blue-secondary-low-op: rgba(0, 162, 255, 0.2);
     --blue-tertiary: rgb(1, 59, 126);
@@ -23,11 +23,22 @@
 
 h1 {
     line-height: 1.9;
+    font-weight: 600;
 }
 
 h3 {
     font-size: 1.3em;
     font-weight: 400;
+}
+
+.project-name {
+    font-size: 1.4em;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.paragraph-large {
+    font-size: 1.3em;
 }
 
 body {
@@ -78,8 +89,24 @@ body {
     text-align: center;
 }
 
+.right {
+    float: right;
+}
+
+.mr-small {
+    margin-right: 10px;
+}
+
 .mt-big {
     margin-top: 40px;
+}
+
+.mb-solid {
+    margin-top: 35px;
+}
+
+.mt-solid {
+    margin-bottom: 35px;
 }
 
 .mb-medium {
@@ -99,7 +126,7 @@ input[type="text"], input[type="password"], input[type="number"], select {
     border-radius: 8px;
     box-sizing: border-box;
     
-    box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.10);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.10);
 }
 
 /* BUTONS */
@@ -109,7 +136,7 @@ input[type="submit"] {
 }
 
 .button-main {
-    font-size: 1.2em;
+    font-size: 1.15em;
     font-family:  "Fira Sans", sans-serif;
     padding: 8px 10px !important;
     border-radius: 8px;
@@ -117,11 +144,13 @@ input[type="submit"] {
     color: white;
     border: none;
     
-    transition: all 0.4s;
+    transition: background 0.4s;
 }
 
 .button-main:hover {
     transition: all 0.4s;
+    
+    color: white;
     box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
     cursor: pointer;
 }
@@ -158,6 +187,27 @@ input[type="submit"] {
     box-shadow: 0px 2px 5px 0.5px rgba(0,0,0,0.16);
 }
 
+.tertiary-btn {
+    background: rgb(170, 0, 0);
+    color: white;
+}
+
+.tertiary-btn:hover {
+     background: rgb(230, 0, 0);
+     box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
+}
+
+.quarternary-btn {
+    background: rgb(168, 168, 168);
+    color: white;
+}
+
+.quarternary-btn:hover {
+     background: rgb(77, 77, 77);
+     box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
+}
+
+
 .login-btn {
     margin-top: 15px;
     margin-bottom: 20px;
@@ -169,20 +219,20 @@ input[type="submit"] {
 .button-nav a {
   
     font-weight: 500;
-    padding: 7px 10px;
+    padding: 5px 8px;
     font-family: "Fira Sans", sans-serif;
     background: white !important;
     border-radius: 20px;
+    border: 2px solid rgb(254, 255, 255);
     color: var(--blue-primary);
-    transition: background 0.5s;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
     
 }
 
 .button-nav a:hover {
     text-decoration: none;
-    background: var(--blue-primary) !important;
-    color: white;
-    transition: background 0.5s;
+    border: 2px solid var(--blue-primary);
+    transition: border 0.5s;
     
 }
 
@@ -254,6 +304,76 @@ a:hover {
 .validation-msg {
     line-height: 1;
 }
+
+
+/* Tables */
+td.icons {
+    text-align: right !important;
+}
+
+td.small-td {
+    width: 100px;
+}
+
+td.medium-td {
+    width: 200px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table td {
+    padding: 4px 4px 4px 5px;
+}
+
+.table thead > tr {
+    border-bottom: 1px solid gray;
+    font-weight: 600;
+    background: var(--header-bg-color) !important;
+    height: 30px;
+}
+
+.table.project tr:nth-child(even) {
+    background: rgb(251, 251, 251);
+}
+
+.table.project tr:nth-child(odd) {
+    background: white;
+}
+
+
+
+.table-title {
+    display: inline-block;
+    font-size: 2.4em;
+    color: var(--blue-primary);
+    line-height: 0;
+}
+
+.table-title.sub {
+    font-size: 2em;
+}
+
+
+.table-controls .fa-plus-circle {
+    font-size: 14px;
+}
+
+.table-controls > a {
+    text-align: right;
+    float: right;
+    margin-top: 6px;
+
+}
+
+a.button-main {
+    text-decoration: none;
+}
+
 
 
 

@@ -3,10 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
       <div class="content-wrapper">
-  Hi <asp:Literal ID="litUsername" Text="new user" runat="server"/>
-  <p>Thank you for registering.<br />
+  <p class="paragraph-large">Hi <span class="bold"><asp:Literal ID="litUsername" Text="new user" runat="server"/></span>!</p>
+  <p class="paragraph-large">Thank you for registering.<br />
       We have sent an email to you with your registration details</p>
-  <p>We will confirm your registration as soon as it is approved.</p>
-  <p>Return to <a href="/index.aspx">Index</a></p>
+
+  <p class="paragraph-large">We will confirm your registration as soon as it is approved.</p>
+  <p><a href="/index.aspx"><i class="fas fa-angle-left"></i> Return to Index</a></p>
           </div>
 </asp:Content>
