@@ -36,6 +36,7 @@
             <tr>
                 <td colspan="2" align="left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label></td>
                 <td colspan="7" align="right" style="height: 60px">
+                    <a href="<%= getPricelistURL() %>" class="button-main primary-btn">Go to Pricelist</a>
                     <a href="/Projects/ProjectsDashboard.aspx" class="button-main primary-btn">Finished <i class="fas fa-chevron-right"></i></a>
                 </td>
             </tr>
