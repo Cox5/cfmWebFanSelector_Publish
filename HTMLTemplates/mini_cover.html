@@ -23,8 +23,54 @@
 			th {
 				text-align: left;
 			}
+
+			h2 {
+				font-weight: 600;
+				line-height: 1;
+			}
+
+			h3 {
+				font-size: 20px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
 			.cover_table {
 				width: 100%;
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+
+			}
+
+			
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
 			}
 
 
@@ -35,7 +81,7 @@
     <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
 
 
-    <div class="row">
+    <div class="row  mt-small mb-medium">
         <div class="column">
                 <b><u>Address</u></b></br>
                 106-108 Fairbank Road<br>Clayton South Victoria 3169
@@ -53,16 +99,19 @@
                 cfmairsystems.com.au
         </div>
     </div>
-
-	<table class="cover_table">
-		<tr>
-			<td>%%PROJNAME%%,%%PROJADDR%%</br>on behalf of %%COMPANY%%, Attn: %%ATTN%%</td>
-			<td>Quote: %%QUOTENUM%%</br>%%DATE%%</td>
-		</tr>
-		
-
-		
-	</table>
+    <hr />
+    <div class="heading-wrapper">
+    
+	    <h2>%%PROJNAME%%,%%PROJADDR%%</h2>
+	    
+	    <h4>on behalf of <span class="bold">%%COMPANY%%</span> , Attn: <span class="bold">%%ATTN%%</span></h4>
+	    
+	    <h3>Quote: <span class="bold">%%QUOTENUM%%</span></h3>
+	    
+	    <h4 class="bold">%%DATE%%</h4> 
+	    
+    
+    </div>
 
 
 </html>

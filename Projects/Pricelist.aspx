@@ -36,7 +36,7 @@
     <asp:GridView ID="gvPriceList" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False"
         OnRowEditing="gvPriceList_RowEditing" OnRowCancelingEdit="gvPriceList_RowCancelingEdit" 
         OnRowUpdating="gvPriceList_RowUpdating" OnRowDataBound="gvPriceList_RowDataBound" 
-        DataKeyNames="project_fan_id" HorizontalAlign="Center" Width="75%">
+        DataKeyNames="project_fan_id" HorizontalAlign="Center" Width="60%">
         
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <EditRowStyle BackColor="#999999" />
@@ -86,8 +86,8 @@
                     <asp:ImageButton ImageUrl="~/icons/edit.png" runat="server" CommandName="Edit" ToolTip="Edit" Width="20px" Height="20px" />
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:LinkButton Text="Update" runat="server" CommandName="Update"></asp:LinkButton>
-                    <asp:LinkButton Text="Cancel" runat="server" CommandName="Cancel"></asp:LinkButton>
+                    <asp:ImageButton ImageUrl="~/icons/save.png" runat="server" CommandName="Update" ToolTip="Update" Width="20px" Height="20px" />
+                    <asp:ImageButton ImageUrl="~/icons/cancel.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="20px" Height="20px" />
                 </EditItemTemplate>
             </asp:TemplateField>
 

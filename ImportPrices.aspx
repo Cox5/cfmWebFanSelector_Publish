@@ -13,8 +13,8 @@
         <br />
         <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />--%>
 
-        <h4>Pricelist ready for import</h4>
-        <asp:Button ID="btnImportPrices" runat="server" Text="Import Prices" OnClick="btnImportPrices_Click" />
+        <h4>Prices that were imported recently</h4>
+        <%--<asp:Button ID="btnImportPrices" runat="server" Text="Import Prices" OnClick="btnImportPrices_Click" />--%>
         <br />
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
         <br />
