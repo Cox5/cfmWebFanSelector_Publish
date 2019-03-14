@@ -164,7 +164,7 @@
             </div>
 
             <div class="center-text mb-medium">
-                <asp:Button class="button-main primary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
+                <asp:Button class="button-main bigger primary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
                  <asp:Label ID="lblMessage" runat="server" />
 
             </div>

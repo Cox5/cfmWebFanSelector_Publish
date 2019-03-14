@@ -51,16 +51,16 @@
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
 
         <Columns>
-            <asp:BoundField DataField="part_number" HeaderText="Model Number" ReadOnly="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left" >
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+            <asp:BoundField DataField="part_number" HeaderText="Model Number" ReadOnly="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
+                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
 
-<ItemStyle HorizontalAlign="Left"></ItemStyle>
+                <ItemStyle HorizontalAlign="Left"></ItemStyle>
             </asp:BoundField>
-            <asp:BoundField DataField="quantity" HeaderText="Qty" ReadOnly="true" HeaderStyle-HorizontalAlign="Left" >
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+            <asp:BoundField DataField="quantity" HeaderText="Qty" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
             </asp:BoundField>
-            <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left" >
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+            <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
             </asp:BoundField>
             <asp:TemplateField HeaderText="Price Type" HeaderStyle-HorizontalAlign="Left">
                 <ItemTemplate>
@@ -68,18 +68,17 @@
                 </ItemTemplate>
                 <EditItemTemplate>
                     <asp:DropDownList ID="ddlPriceType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPriceType_SelectedIndexChanged">
-
                     </asp:DropDownList>
                 </EditItemTemplate>
 
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="Calculated" ReadOnly="false" HeaderStyle-HorizontalAlign="Left" >
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+            <asp:BoundField HeaderText="Calculated" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
             </asp:BoundField>
-            <asp:BoundField HeaderText="Manual" DataField="price_value" ReadOnly="false" HeaderStyle-HorizontalAlign="Left" >
+            <asp:BoundField HeaderText="Manual" DataField="price_value" ReadOnly="false" HeaderStyle-HorizontalAlign="Left">
 
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
             </asp:BoundField>
 
             <asp:TemplateField>

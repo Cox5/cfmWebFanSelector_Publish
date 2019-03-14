@@ -40,7 +40,7 @@
 
                 <div class="f-group">
                     <div class="f-ctrl center-text">
-                        <asp:Button class="button-main primary-btn login-btn" text="Login" runat="server" OnClick="btnLogin_Click">
+                        <asp:Button class="button-main bigger primary-btn login-btn" text="Login" runat="server" OnClick="btnLogin_Click">
                             
                         </asp:Button>
                     </div>       
@@ -63,7 +63,7 @@
                 <p>To request access to the CFM Fan Selector you must first  <a href="/Users/Signup.aspx">register</a>.</p>
                 <p>Registration is free, but subject to approval.</p>
                 <div class="center-text">
-                    <asp:Button ID="btnRegister" class="button-main secondary-btn" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
+                    <asp:Button ID="btnRegister" class="button-main bigger secondary-btn" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
 
                 </div>
             </div>

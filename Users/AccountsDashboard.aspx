@@ -3,14 +3,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
      <div class="content-wrapper">
+       
+        <div class="table-controls mb-medium">
+          <h1 class="table-title">User Accounts</h1>
+        </div>
 
-    <table style="min-width:50%">
-        <tr><td colspan="2" align="left" class="tabletitle">User Accounts</td></tr>
-        <tr><td width="35%">Name</td><td width="35%">Company</td><td width="20%">User class</td><td></td></tr>
+    <table class="table project">
+        <thead>
+          <tr><td width="35%">Name</td><td width="35%">Company</td><td width="20%">User class</td><td></td></tr>
+        </thead>
 
         <%= getUsers() %>
-
-        <tr><td colspan="4" align="right"><div class="buttons"><a href="/Dashboard.aspx">Go Back</a></div></td></tr>
     </table>
+
+    <div class="right-controls mt-medium">
+      <a href="/Dashboard.aspx" class="button-main primary-btn mt-medium"><i class="fas fa-angle-left"></i> Go Back</a>
+    </div>
+    
   </div>
 </asp:Content>

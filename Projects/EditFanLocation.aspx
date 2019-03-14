@@ -49,7 +49,7 @@
                     <asp:TextBox ID="txtQuantity" runat="server" /></td>
             </tr>
         </table>
-        <div class="mb-solid mt-solid mr-small right">
+        <div class="right-controls mt-medium mr-small">
             <asp:Button ID="btnSave"  class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
             <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" /><br />
         </div>

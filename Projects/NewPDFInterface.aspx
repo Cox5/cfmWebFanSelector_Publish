@@ -4,46 +4,41 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
-        <table>
-            <tr>
-                <td colspan="2" align="left" class="tabletitle"><span id="projectName" runat="server">
-                    <asp:Label ID="lblProjectName" runat="server" Font-Bold="true"></asp:Label></span></td>
-            </tr>
+
+        <div class="table-controls mb-medium">
+            <span class="table-title" id="projectName" runat="server">
+                    <asp:Label ID="lblProjectName" runat="server" Font-Bold="true"></asp:Label>
+            </span>
+        </div>
+
+        <table class="table project" style="width: 400px">
             <tr>
                 <td>Cover Page</td>
-                <td><asp:CheckBox ID="chkCoverPage" runat="server" /></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkCoverPage" runat="server" /></td>
             </tr>
             <tr>
                 <td>Project Fan list</td>
-                <td><asp:CheckBox ID="chkProjectFanList" runat="server" /></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkProjectFanList" runat="server" /></td>
             </tr>
             <tr>
                 <td>Fan Specifications tables</td>
-                <td><asp:CheckBox ID="chkFanSpecTables" runat="server" /></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkFanSpecTables" runat="server" /></td>
             </tr>
             <tr>
                 <td>Fan Technical Datasheets</td>
-                <td><asp:CheckBox ID="chkFanTechDatasheets" runat="server" /></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkFanTechDatasheets" runat="server" /></td>
             </tr>
             <tr>
                 <td>Fan Dimensional Diagrams</td>
-                <td><asp:CheckBox ID="chkFanDimensDiagrams" runat="server" /></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkFanDimensDiagrams" runat="server" /></td>
             </tr>
             <tr>
                 <td>Fan Wiring Diagrams</td>
-                <td><asp:CheckBox ID="chkFanWiringDiagrams" runat="server" /></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkFanWiringDiagrams" runat="server" /></td>
             </tr>
             <tr>
                 <td>Include Prices</td>
-                <td><asp:CheckBox ID="chkIncludePrices" runat="server" /></td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Create" OnClick="btnSubmit_Click" />
-                </td>
-                <td>
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
-                </td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkIncludePrices" runat="server" /></td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -51,4 +46,12 @@
                 </td>
             </tr>
         </table>
+        <div class="mt-medium">
+            
+            <asp:Button ID="btnSubmit" class="button-main primary-btn" runat="server" Text="Create" OnClick="btnSubmit_Click" />
+        
+    
+            <asp:Button ID="btnCancel" class="button-main quarternary-btn" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+            
+        <div>
 </asp:Content>
