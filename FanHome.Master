@@ -23,6 +23,9 @@
     <div id="divBody">
       <asp:ContentPlaceHolder ID="body" runat="server" />
     </div>
+    
+
+  <div class="gutter"></div>
  
 </body>
 </html>

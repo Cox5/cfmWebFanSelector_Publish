@@ -16,7 +16,7 @@
         </tr>
     </table>
 
-        <div class="mb-solid mt-solid mr-small right">
+        <div class="right-controls mt-medium">
                 <td></td><asp:Button ID="btnDelete"  class="button-main tertiary-btn" Text="Delete" runat="server" OnClick="btnDeleteFanLocation" /></td>
                  <td><asp:Button ID="btnCancel" class="button-main quarternary-btn"  Text="Cancel" runat="server" OnClick="btnCancel_Click" /></td>
         </div>

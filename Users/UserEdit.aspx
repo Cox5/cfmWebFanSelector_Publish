@@ -3,7 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
-  <table>
+
+        <div class="table-controls mb-medium">
+            <h1 class="table-title">User Edit</h1>
+        </div>
+
+  <table class="table">
     <tr>
       <td>Firstname</td>
       <td><asp:TextBox ID="txtFirstname" runat="server" /></td>
@@ -56,8 +61,15 @@
       <td><asp:CheckBox ID="chkCompanyOwner" runat="server" /></td>
     </tr>
   </table>
-  <asp:Button ID="btnSave" Text="Submit" runat="server" OnClick="btnSave_Click" />
-  <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" /><br />
+
+  <div class="mt-medium">
+    <asp:Button ID="btnSave" class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
+    <asp:Button ID="btnCancel" class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" />
+  </div>
+
+  
+  
+  <br />
   <asp:Label ID="lblEditUserMsg" runat="server" />
   <asp:Label ID="lblRedirectMsg" runat="server" Visible="false"><br /><a href="AccountsDashboard.aspx">Return to Accounts Dashboard page</a></asp:Label>
   </div>

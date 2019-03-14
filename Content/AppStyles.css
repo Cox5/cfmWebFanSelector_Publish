@@ -78,15 +78,15 @@ body {
 }
 
 .bold {
-    font-weight: 500;
+    font-weight: 500 !important;
 }
 
 .bolder {
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 .center-text {
-    text-align: center;
+    text-align: center !important;
 }
 
 .right {
@@ -94,28 +94,46 @@ body {
 }
 
 .mr-small {
-    margin-right: 10px;
+    margin-right: 15px !important;
+}
+
+.mt-medium {
+    margin-top: 25px !important; 
 }
 
 .mt-big {
-    margin-top: 40px;
+    margin-top: 40px !important;
 }
 
 .mb-solid {
-    margin-top: 35px;
+    margin-top: 35px !important;
 }
 
 .mt-solid {
-    margin-bottom: 35px;
+    margin-bottom: 35px !important;
 }
 
 .mb-medium {
-    margin-bottom: 25px;
+    margin-bottom: 25px !important;
 }
 
 .mb-huge {
-    margin-bottom: 50px;
+    margin-bottom: 50px !important;
 }
+
+.aside {
+    margin-right: 20px;
+    vertical-align: middle;
+
+}
+
+.gutter {
+    height: 50px;
+    width: 100%;
+    background: transparent;
+    position: absolute;
+}
+
 
 input[type="text"], input[type="password"], input[type="number"], select {
     width: 100%;
@@ -135,16 +153,21 @@ input[type="submit"] {
     width: auto;
 }
 
+
 .button-main {
-    font-size: 1.15em;
+    font-size: 1em;
     font-family:  "Fira Sans", sans-serif;
-    padding: 8px 10px !important;
+    padding: 6px 8px !important;
     border-radius: 8px;
     font-weight: 500;
     color: white;
     border: none;
-    
-    transition: background 0.4s;
+    text-transform: uppercase;
+}
+
+.button-main.bigger {
+    padding: 9px !important;
+    font-size: 1.15em;
 }
 
 .button-main:hover {
@@ -206,6 +229,8 @@ input[type="submit"] {
      background: rgb(77, 77, 77);
      box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
 }
+
+
 
 
 .login-btn {
@@ -311,8 +336,16 @@ td.icons {
     text-align: right !important;
 }
 
+td.tiny-td {
+    width: 30px;
+}
+
 td.small-td {
     width: 100px;
+}
+
+td.right {
+    text-align: right;
 }
 
 td.medium-td {
@@ -366,8 +399,12 @@ td.medium-td {
 .table-controls > a {
     text-align: right;
     float: right;
-    margin-top: 6px;
+    margin-top: 10px;
 
+}
+
+.right-controls {
+    text-align: right;
 }
 
 a.button-main {

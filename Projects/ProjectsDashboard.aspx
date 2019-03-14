@@ -31,9 +31,9 @@
         
     </table>
 
-    <div class="table-controls">
-      <a href="/Dashboard.aspx"><i class="fas fa-angle-left"></i> Go Back</a>
-    </div>    
+    <div class="right-controls mt-medium">
+      <a href="/Dashboard.aspx" class="button-main primary-btn mt-medium"><i class="fas fa-angle-left"></i> Go Back</a>
+    </div>
     
 
   </div>
