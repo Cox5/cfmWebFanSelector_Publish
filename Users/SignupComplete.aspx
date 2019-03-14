@@ -8,6 +8,6 @@
       We have sent an email to you with your registration details</p>
 
   <p class="paragraph-large">We will confirm your registration as soon as it is approved.</p>
-  <p><a href="/index.aspx"><i class="fas fa-angle-left"></i> Return to Index</a></p>
+  <p><a href="http://www.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Go to CFM Airsystems Website</a></p>
           </div>
 </asp:Content>

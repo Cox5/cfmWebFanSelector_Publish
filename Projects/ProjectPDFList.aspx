@@ -16,7 +16,7 @@
         <tr>
             <asp:Label ID="lblErrorMsg" runat="server" ForeColor="Red"></asp:Label></tr>
        
-            <td><asp:Label ID="lblWarningFan" runat="server" ForeColor="Red"></asp:Label></td>
+            <td colspan="3"><asp:Label ID="lblWarningFan" runat="server" ForeColor="Red"></asp:Label></td>
         </tr>
         <tr>
             <td><asp:Label ID="lblWarningPrices" runat="server" ForeColor="Red"></asp:Label></td>

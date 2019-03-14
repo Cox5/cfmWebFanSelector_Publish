@@ -23,9 +23,63 @@
 			th {
 				text-align: left;
 			}
+
+			h2 {
+				font-weight: 600;
+				line-height: 1;
+			}
+
+			h3 {
+				font-size: 20px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
 			.cover_table {
 				width: 100%;
+				padding-top: 20px;
+				padding-bottom: 20px;
 			}
+
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+
+			}
+
+			
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+			.details_table {
+				float: left;
+			}
+			.fan_data_table {
+				float: left;
+			}
+			
+			
 
 
 
@@ -35,7 +89,8 @@
     <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
 
 
-    <div class="row">
+
+    <div class="row mt-small mb-medium">
         <div class="column">
                 <b><u>Address</u></b></br>
                 106-108 Fairbank Road<br>Clayton South Victoria 3169
@@ -54,19 +109,63 @@
         </div>
     </div>
 
-	<div>
-	<table class="cover_table">
-		<tr>
-			<td>%%PROJNAME%%,%%PROJADDR%%</br>on behalf of %%COMPANY%%, Attn: %%ATTN%%</td>
-			<td>Quote: %%QUOTENUM%%</br>%%DATE%%</td>
-		</tr>
-	</table>
+    <hr />
+	<div class="heading-wrapper">
+	
+		<h2>%%PROJNAME%%,%%PROJADDR%%</h2>
+		
+		<h4>on behalf of <span class="bold">%%COMPANY%%</span> , Attn: <span class="bold">%%ATTN%%</span></h4>
+		
+		<h3>Quote: <span class="bold">%%QUOTENUM%%</span></h3>
+		
+		<h4 class="bold">%%DATE%%</h4> 
+		
+	
 	</div>
 	
 	<div>
 	<table class="details_table">
-		#TODO
+		<tr><td class="bold">Location</td></tr>
+		<tr><td>Description:</td></tr>
+		<tr><td>Schedule Reference</td></tr>
+		<tr><td class="bold">Fan</td></tr>
+		<tr><td>Model number</td></tr>
+		<tr><td>Model Name</td></tr>
+		<tr><td class="bold">Physical characteristics</td></tr>
+		<tr><td>Nominal Diameter (mm)</td></tr>
+		<tr><td>Hub Size (mm)</td></tr>
+		<tr><td>Impeller</td></tr>
+		<tr><td>Fan Weight (kg)</td></tr>
+		<tr><td class="bold">Notes</td></tr>
+		<tr><td>Airflow characteristics</td></tr>
+		<tr><td>Volume (L/s)</td></tr>
+		<tr><td>Static Pressure (Pa)</td></tr>
+		<tr><td>ABS/LL Power (kW)</td></tr>
+		<tr><td>Fan Speed (r/min)</td></tr>
+		<tr><td>Outlet Velocity (m/s)</td></tr>
+		<tr><td>Sound Pressure (dB(A))</td></tr>
+		<tr><td class="bold">Motor characteristics</td></tr>
+		<tr><td>Motor Power</td></tr>
+		<tr><td>Electrical Supply</td></tr>
+		<tr><td>FLC/Start (A)</td></tr>
+		<tr><td>Motor Frame</td></tr>
+		<tr><td>Motor Type</td></tr>
+		<tr><td>Motor Speed</td></tr>
+		<tr><td class="bold">Quotation details</td></tr>
+		<tr><td>Quantity required</td></tr>
+		<tr><td>Price Per Unit</td></tr>
+		<tr><td>Total</td></tr>
+		<tr><td>Price Extras and Ancillaries</td></tr>
+		<tr><td>Total Including Extras</td></tr>
+		<tr><td>GST</td></tr>
+		<tr><td></td></tr>
+		
+		
 	</table>
+	
+	%%FAN_DATA%%
+
+	
 	</div>
 	
 

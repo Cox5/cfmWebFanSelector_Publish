@@ -58,9 +58,31 @@
 			.requirementsTbl {
 				font-size: 19px;
 			}
+
 			.cover_table {
 				width: 100%;
+				padding-top: 15px;
+				padding-bottom: 15px;
 			}
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+
+			
 
 
 
@@ -70,7 +92,7 @@
     <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
 
 
-    <div class="row">
+    <div class="row mt-small mb-medium">
         <div class="column">
                 <b><u>Address</u></b></br>
                 106-108 Fairbank Road<br>Clayton South Victoria 3169
@@ -87,31 +109,35 @@
                 <b><u>Website</u></b></br>
                 cfmairsystems.com.au
         </div>
-    </div>
+	</div>
+	
+	<hr />
 
 	<table class="cover_table">
 		<tr>
-			<td>To:</td>
+			<td class="bold">To:</td>
 			<td>%%COMPANY%%</td>
-			<td>Date:</td>
+			<td class="bold">Date:</td>
 			<td>%%DATE%%</td>
 		</tr>
 		
 		<tr>
-			<td>Attention:</td>
+			<td class="bold">Attention:</td>
 			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
-			<td>From:</td>
+			<td class="bold">From:</td>
 			<td>%%SALES%%%%SALESMAIL%%</td>
 		</tr>
 		
 		<tr>
-			<td>Re:</td>
+			<td class="bold">Re:</td>
 			<td>%%PROJNAME%%, %%PROJADDR%%</td>
-			<td>Quote number:</td>
+			<td class="bold">Quote number:</td>
 			<td>%%QUOTENUM%%</td>
 		</tr>
 		
 	</table>
+
+	<hr/>
 
 
 </html>
