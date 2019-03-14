@@ -413,6 +413,66 @@ a.button-main {
 
 
 
+/* Dashboard */
+
+.dashboard-panel {
+    margin: 40px auto;
+    text-align: center;
+}
+
+
+.dashboard-panel .dashboard-icon-link {
+    border-radius: 7px;
+    display: inline-block;
+    margin: 7px;
+    width: 137px;
+    height: 137px;
+    background-color: var(--blue-primary);
+    position: relative;
+    transition: border-radius 0.3s, background-color 0.5s, transform 0.7s;
+    font-size: 1.15em;
+    
+    overflow: hidden;
+}
+
+.dashboard-panel .dashboard-icon-link:hover {
+    border-radius: 12px;
+    background: var(--blue-secondary);
+    transform: translateY(-5px);
+    transition: all 0.4s;
+    box-shadow: 0px 1px 1px 2px rgba(0,0,0,0.15);
+}
+
+.dashboard-icon-link .icon {
+    color: white;
+    margin-top: 20px;
+    font-size: 3.5em;
+}
+
+.highlighted {
+    position: absolute;
+    box-sizing: border-box;
+    padding-top: 10px;
+    min-height: 50px;
+    width: 100%;
+    bottom: -10px;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    transition: transform 0.4s;
+    color: white;
+
+}
+
+.dashboard-panel .dashboard-icon-link:hover .highlighted {
+    transform: scale(1.1) translateY(-4px);
+    
+    transition: all 0.5s;
+    
+}
+
+
+
+
 
 /* Media queries */
 

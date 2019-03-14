@@ -1,11 +1,35 @@
-﻿body {
+﻿/* Variables */
+:root {
+
+    /* text */
+    --main-text-color: rgb(78, 78, 78);
+    --main-font-size: 0.9em;
+
+    /* colors */
+    --header-bg-color: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
+    
+    --gradient-blue: linear-gradient(to bottom, rgb(255, 255, 255), rgb(249, 250, 253));
+    --gradient-gold: linear-gradient(to bottom, rgba(250, 244, 234, 0.4), rgba(255, 246, 231, 0.9));
+    --blue-secondary: rgb(0, 153, 255);
+    --blue-primary: rgb(0, 132, 209);
+    
+    --blue-secondary-low-op: rgba(0, 162, 255, 0.2);
+    --blue-tertiary: rgb(1, 59, 126);
+    
+
+    
+
+}
+
+
+body {
     font-family: Verdana;
     font-size: 8pt;
     margin: 0px;
 }
 
 #div_body {
-    top: 60px;
+    top: 100px;
     left: 0px;
     bottom: 0px;
     right: 0px;
@@ -526,4 +550,42 @@ td.icons img {
     height: 20px;
     width: 20px;
     padding: 5px;
+}
+
+
+
+.button-nav a {
+  
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 8px;
+    font-family: "Fira Sans", sans-serif;
+    background: white !important;
+    border-radius: 20px;
+    border: 2px solid rgb(254, 255, 255);
+    color: var(--blue-primary);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
+    
+}
+
+.button-nav a:hover {
+    text-decoration: none;
+    border: 2px solid var(--blue-primary);
+    transition: border 0.5s;
+    
+}
+
+.button-nav a:active, .button-nav a:focus  {
+    background: var(--blue-tertiary) !important;
+    color: white;
+    
+}
+
+
+.header {
+    padding: 20px 40px;
+    background: var(--header-bg-color);
+    box-shadow: 4px 2px 19px 0px rgba(0,0,0,0.15);
+    margin-bottom: 50px;
+    
 }

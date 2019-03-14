@@ -9,11 +9,55 @@
 		<hr/>
 
 
-		<a class="dashboard-link" href="/Projects/ProjectsDashboard.aspx">Projects</a>
+		<div class="dashboard-panel">
+				<a href="/Projects/ProjectsDashboard.aspx" class="dashboard-icon-link">
+					<i class="fas fa-tasks icon"></i>
+					<div class="highlighted">
+						Projects
+					</div>
+				</a>
+
+				<a href="/Users/AccountsDashboard.aspx" class="dashboard-icon-link">
+					<i class="fas fa-users icon"></i>
+					<div class="highlighted">
+						User Accounts
+					</div>
+				</a>
+
+				<a href="/projects" class="dashboard-icon-link">
+					<i class="fas fa-building icon"></i>
+					<div class="highlighted">
+						Company Info
+					</div>
+				</a>
+
+				<a href="/projects" class="dashboard-icon-link">
+					<i class="fas fa-quote-left icon"></i>
+					<div class="highlighted">
+						Quotations
+					</div>
+				</a>
+
+				<a href="/FanSelection.aspx" class="dashboard-icon-link">
+					<i class="fab fa-centercode icon"></i>
+					<div class="highlighted">
+						Browse Fans
+					</div>
+				</a>
+				
+				<a id="importPricesLink" class="dashboard-icon-link" href="/ImportPrices.aspx" runat="server">
+					<i class="fas fa-dollar-sign icon"></i>
+					<div class="highlighted">
+						Import Prices
+					</div>
+				</a>
+
+		</div>
+
+		<!-- <a class="dashboard-link" href="/Projects/ProjectsDashboard.aspx">Projects</a>
 		<a class="dashboard-link" href="/Users/AccountsDashboard.aspx">User accounts</a>
 		<a class="dashboard-link" href="/projects">Company info</a>
 		<a class="dashboard-link" href="/projects">Quotations</a>
-		<a class="dashboard-link" href="/FanSelection.aspx">Browse fans</a>
-        <a id="importPricesLink" class="dashboard-link" href="/ImportPrices.aspx" runat="server">Import prices</a>
+		<a class="dashboard-link" href="/FanSelection.aspx">Browse fans</a>-->
 	</div>
 </asp:Content>
