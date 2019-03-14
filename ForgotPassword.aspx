@@ -17,7 +17,7 @@
                 
                 <asp:Label ID="lblResetMsg" runat="server"></asp:Label>
 
-                <asp:Button ID="btnResetPassword" class="button-main primary-btn login-btn" Text="Reset Password" runat="server" OnClick="btnResetPassword_Click"/>
+                <asp:Button ID="btnResetPassword" class="button-main bigger primary-btn login-btn" Text="Reset Password" runat="server" OnClick="btnResetPassword_Click"/>
 
                 <div class="center-text">
                     <a href="index.aspx"> <i class="fas fa-angle-left"></i> Login</a>
@@ -31,7 +31,7 @@
                     <p>To request access to the CFM Fan Selector you must first  <a href="/Users/Signup.aspx">register</a>.</p>
                     <p>Registration is free, but subject to approval.</p>
                     <div class="center-text">
-                        <asp:Button ID="btnRegister" class="button-main secondary-btn" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
+                        <asp:Button ID="btnRegister" class="button-main biiger secondary-btn" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
     
                     </div>
                 </div>
