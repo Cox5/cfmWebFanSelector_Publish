@@ -1,0 +1,251 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+				font-size: 13px;
+			}
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			th {
+				text-align: left;
+			}
+			.cover_table {
+				width: 100%;
+				font-size: 14px;
+			}
+			
+			h2 {
+				font-weight: 600;
+				line-height: 1;
+			}
+
+			h3 {
+				font-size: 20px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			.cover_table {
+				width: 100%;
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+
+			}
+
+			.center-item {
+				margin: 0 auto;
+			}
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+				font-size: 14px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+
+			#quotation_table {
+				width: 85%;
+				border-collapse: collapse;
+				font-size: 14px;
+			}
+
+			#quotation_table thead {
+				font-weight: 600;
+			}
+
+			#quotation_table td {
+				padding: 5px;
+			}
+
+			#quotation_table .bottom-border {
+				border-bottom: 1px solid gray;
+			}
+
+			#quotation_table .quantity {
+				width: 15%;
+			}
+
+			#quotation_table .cost {
+				width: 15%;
+				text-align: right;
+			}
+
+			#quotation_table .separator {
+				height: 50px;
+				vertical-align: bottom;
+			}
+
+			#quotation_table .separator-small {
+				height: 40px;
+				vertical-align: bottom;
+			}
+
+			#quotation_table .hl {
+				font-weight: 600;
+
+			}
+
+			.comments p {
+				line-height: 0.5;
+				font-size: 14px;
+			}
+
+
+
+		</style>
+    </head>
+
+    <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
+
+
+
+    <div class="row row mt-small mb-medium">
+        <div class="column">
+                <b><u>Address</u></b></br>
+                106-108 Fairbank Road<br>Clayton South Victoria 3169
+        </div>
+        <div class="column">
+                <b><u>Phone</u></b></br>
+                03-9551-4878
+        </div>
+        <div class="column">
+                <b><u>Email</u></b></br>
+                mail@cfmairsystems.com.au
+        </div>
+        <div class="column">
+                <b><u>Website</u></b></br>
+                cfmairsystems.com.au
+        </div>
+	</div>
+	
+	<hr />
+
+	<table class="cover_table">
+		<tr>
+			<td class="bold">To:</td>
+			<td>%%COMPANY%%</td>
+			<td class="bold">Date:</td>
+			<td>%%DATE%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Attention:</td>
+			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
+			<td class="bold">From:</td>
+			<td>%%SALES%%%%SALESMAIL%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Re:</td>
+			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+			<td class="bold">Quote number:</td>
+			<td>%%QUOTENUM%%</td>
+		</tr>
+		
+	</table>
+	
+	<hr />
+		
+	
+	<div class="mt-medium">
+		<p>Thank you for contacting CFM Airsystems regaring fans for your project at <span class="bold">%%PROJADDR%%</span> .</p>
+		<p>Please find below a quotation for your project which includes:</br> %%PRICES%%%%DATA%%%%DIMS%%%%WIRING%%
+	</div>
+	
+	<div>
+		<table id="quotation_table" class="center-item mt-medium">
+			<thead>
+				
+				<tr class="bottom-border">
+					<td class="quantity">Quantity</td>
+					<td>Item</td>
+					<td class="cost">Cost</td>
+				</tr>
+			
+			</thead>
+
+			<tbody>
+				<tr>
+					<td class="quantity">%%FANCOUNT%%</td>
+					<td>Fans:</td>
+					<td class="cost">%%FANCOST%%</td>
+				</tr>
+				<tr>
+					<td>%%EXTRACOUNT%%</td>
+					<td>Ancillary and other items:</td>
+					<td class="cost">%%EXTRACOST%%</td>
+				</tr>
+				<tr class="separator">
+					<td></td>
+					<td>Freight:</td>
+					<td class="cost">%%FREIGHT%%</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="hl">Subtotal excluding GST:</td>
+					<td class="cost hl">%%SUBTOTAL%%</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>GST:</td>
+					<td class="cost">%%GST%%</td>
+				</tr>
+				<tr class="separator-small">
+					<td></td>
+					<td class="hl bottom-border">Total:</td>
+					<td class="cost hl bottom-border">%%TOTAL%%</td>
+				</tr>		
+			</tbody>		
+		</table>
+	</div>
+	
+	<div class="mt-medium">
+		<p>All goods are ex warehouse in Clayton South.</br>Estimated time to delivery: <span class="bold">%%DELIVTIME%%</span> </p>
+	</div>
+
+	<div class="comments">
+			<p class="bold">Comments:</p>
+			<p>%%COMMENTS%%</p> 
+	</div>
+
+
+
+</html>

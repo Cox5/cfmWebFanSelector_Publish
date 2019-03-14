@@ -11,20 +11,19 @@
             <td id="addPDF" runat="server"><a href="<%= getNewPDFURL() %>" class="button-main primary-btn"><i class="fas fa-file-pdf"></i> New PDF</a></td>
         </div>
     
+            <asp:Label ID="lblErrorMsg" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblWarningPrices" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblWarningFan" runat="server" ForeColor="Red"></asp:Label>
 
-    <table style="width: 700px">
-        <tr>
-            <asp:Label ID="lblErrorMsg" runat="server" ForeColor="Red"></asp:Label></tr>
-       
-            <td colspan="3"><asp:Label ID="lblWarningFan" runat="server" ForeColor="Red"></asp:Label></td>
-        </tr>
-        <tr>
-            <td><asp:Label ID="lblWarningPrices" runat="server" ForeColor="Red"></asp:Label></td>
-        </tr>
+    <table style="width: 750px" class="table project">  
+
+        <thead>
+            <tr>
+                <td >PDF Name</td><td>Options</td><td ></td><td>&nbsp;</td>
+            </tr>
+        </thead>
             
-        <tr>
-            <td >PDF Name</td><td>Options</td><td ></td><td>&nbsp;</td>
-        </tr>
+        
          <%= getProjectPDFs() %>
        
     </table>
