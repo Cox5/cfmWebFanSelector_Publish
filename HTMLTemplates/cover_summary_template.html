@@ -1,0 +1,143 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+				font-size: 13px;
+			}
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			th {
+				text-align: left;
+			}
+
+			h2 {
+				font-weight: 600;
+				line-height: 1;
+			}
+
+			h3 {
+				font-size: 20px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			.cover_table {
+				width: 100%;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				font-size: 14px;
+			}
+
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+			}
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+				font-size: 14px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+			.contact_paragraph {
+				font-size: 14px;
+			}
+
+
+
+		</style>
+    </head>
+
+    <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
+
+
+    <div class="row  mt-small mb-medium">
+		<div class="column">
+				<b><u>Address</u></b></br>
+				106-108 Fairbank Road<br>Clayton South Victoria 3169
+		</div>
+		<div class="column">
+				<b><u>Phone</u></b></br>
+				03-9551-4878
+		</div>
+		<div class="column">
+				<b><u>Email</u></b></br>
+				mail@cfmairsystems.com.au
+		</div>
+		<div class="column">
+				<b><u>Website</u></b></br>
+				cfmairsystems.com.au
+		</div>
+	</div>
+	<hr />
+
+	<table class="cover_table">
+		<tr>
+			<td class="bold">To:</td>
+			<td>%%COMPANY%%</td>
+			<td class="bold">Date:</td>
+			<td>%%DATE%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Attention:</td>
+			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
+			<td class="bold">From:</td>
+			<td>%%SALES%%%%SALESMAIL%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Re:</td>
+			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+			<td class="bold">Quote number:</td>
+			<td>%%QUOTENUM%%</td>
+		</tr>
+		
+	</table>
+	
+	<hr />
+	
+	<div class="mt-medium">
+		<p>Thank you for contacting CFM Airsystems regaring fans for your project at <span class="bold">%%PROJADDR%%.</span></p>
+		<p>Please find below a quotation for your project which includes:</br> %%PRICES%%%%DATA%%%%DIMS%%%%WIRING%%
+	</div>
+	
+	<p class="contact_paragraph">Please telephone or email our sales staff, or request pricing from our portal and we will be happy to supply a quotation for the job</p>
+	
+
+
+
+</html>
