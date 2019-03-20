@@ -67,19 +67,33 @@
                     <asp:Label ID="lblPriceType" runat="server" Text='<%#Eval("price_type") %>'></asp:Label>
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:DropDownList ID="ddlPriceType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPriceType_SelectedIndexChanged">
+                    <asp:Label ID="lblPriceTypeEdit" runat="server" Visible="false" Text='<%#Eval("price_type") %>'></asp:Label>
+                    <asp:DropDownList ID="ddlPriceType" runat="server" AutoPostBack="true">
                     </asp:DropDownList>
                 </EditItemTemplate>
 
                 <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="Calculated" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+            <asp:TemplateField HeaderText="Calculated Price" HeaderStyle-HorizontalAlign="Left">
+                <ItemTemplate>
+                    <asp:Label ID="lblCalculatedPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Manual Price" HeaderStyle-HorizontalAlign="Left">
+                <ItemTemplate>
+                    <asp:Label ID="lblManualPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>'></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
+<%--            <asp:BoundField HeaderText="Calculated" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
                 <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-            </asp:BoundField>
-            <asp:BoundField HeaderText="Manual" DataField="price_value" ReadOnly="false" HeaderStyle-HorizontalAlign="Left">
+            </asp:BoundField>--%>
+<%--            <asp:BoundField HeaderText="Manual" DataField="price_value" ReadOnly="false" HeaderStyle-HorizontalAlign="Left">
 
                 <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-            </asp:BoundField>
+            </asp:BoundField>--%>
 
             <asp:TemplateField>
                 <ItemTemplate>

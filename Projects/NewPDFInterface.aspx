@@ -36,7 +36,7 @@
                 <td>Fan Wiring Diagrams</td>
                 <td class="tiny-td right"><asp:CheckBox ID="chkFanWiringDiagrams" runat="server" /></td>
             </tr>
-            <tr>
+            <tr id="pricesTd" runat="server">
                 <td>Include Prices</td>
                 <td class="tiny-td right"><asp:CheckBox ID="chkIncludePrices" runat="server" /></td>
             </tr>
