@@ -15,11 +15,11 @@
 
       <table style="margin: auto;">
           <tr>
-              <td>Search</td>
+             
               <td>
                   <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for project name, company or address"></asp:TextBox></td>
               <td>
-                  <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" /></td>
+                  <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn" /></td>
           </tr>
       </table>
 

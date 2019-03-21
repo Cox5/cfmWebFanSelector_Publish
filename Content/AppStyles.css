@@ -336,6 +336,11 @@ td.icons {
     text-align: right !important;
 }
 
+td.icons img {
+    width: 22px !important;
+
+}
+
 td.tiny-td {
     width: 30px;
 }
@@ -402,7 +407,7 @@ td.medium-td {
 
 }
 
-td.icons > a {
+td.icons > a, td.icons > i.pricing {
     padding: 5px;
     font-size: 19px;
 }
@@ -424,7 +429,7 @@ a.button-main {
   
   .tooltip .tooltiptext {
     visibility: hidden;
-    width: 100px;
+    width: 90px;
     background-color: rgba(0, 0, 0, 0.836);
     color: #fff;
     text-align: center;
@@ -446,6 +451,40 @@ a.button-main {
     visibility: visible;
   }
 
+  .pricing {
+      text-decoration: none;
+  }
+
+  .orange {
+      color: orange !important;
+  }
+
+  .green {
+      color: green !important;
+  }
+
+  .red {
+      color: red !important;
+  }
+
+  .svg-par {
+    width: 17px;
+  }
+
+  .svg {
+    position: relative;
+    top: 7px;
+    right: 8px;
+    height: 19px !important;
+  }
+
+  .svg.bigger {
+      height: 20px !important;
+  }
+
+  .svg:hover {
+      opacity: 0.8;
+  }
 
 /* Dashboard */
 
