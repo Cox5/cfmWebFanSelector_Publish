@@ -486,6 +486,41 @@ a.button-main {
       opacity: 0.8;
   }
 
+
+.gridview {
+    margin-top: 30px;
+    border-collapse: collapse !important;
+    border: 0px solid;
+}
+
+.gridview input[type="text"] {
+    width: 100px !important;
+    padding: 1px;
+    height: 28px;
+    font-size: 14px;
+}
+
+.gridview input[type="image"] {
+    border: none;
+    background: transparent;
+}
+
+.gridview input[type="image"]:hover {
+    opacity: 0.8;
+}
+
+
+.gridview input[type="image"]:active, .gridview input[type="image"]:focus {
+    outline: none;
+}
+
+.gridview th {
+    border-bottom: 1px solid gray;
+    font-weight: 600;
+    background: var(--header-bg-color) !important;
+    height: 30px;
+}
+
 /* Dashboard */
 
 .dashboard-panel {

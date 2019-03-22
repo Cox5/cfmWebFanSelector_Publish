@@ -17,109 +17,108 @@
         </div>
 
 
-    </div>
-        <table style="margin: auto;">
-            <tr>
-                <td>Standard price adjustment (%) </td>
-                <td>
-                    <asp:TextBox ID="txtPercentage" runat="server" Placeholder="20"></asp:TextBox></td>
-                <td>
-                    <asp:DropDownList runat="server" ID="ddlPriceAdjustment">
+        <div class="table-controls center-text">
+            <span class="mr-small">Standard price adjustment (%) </span>
+            <asp:TextBox class="mr-small" ID="txtPercentage" runat="server" Placeholder="20" Height="32px" Width="100px"></asp:TextBox>
+            <asp:DropDownList  class="mr-small" runat="server" ID="ddlPriceAdjustment"  Height="32px" Width="150px">
                         <asp:ListItem Text="Discount" Value="0"></asp:ListItem>
                         <asp:ListItem Text="Premium" Value="1"></asp:ListItem>
-                    </asp:DropDownList></td>
-                <td>
-                    <asp:Button ID="btnUpdatePriceAdjustment" runat="server" Text="Update" OnClick="btnUpdatePriceAdjustment_Click" /></td>
-            </tr>
-        </table>
+            </asp:DropDownList>
+            <asp:Button  ID="btnUpdatePriceAdjustment" runat="server" Text="Update" OnClick="btnUpdatePriceAdjustment_Click" class="button-main primary-btn mr-small" />
 
-    <asp:GridView ID="gvPriceList" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False"
-        OnRowEditing="gvPriceList_RowEditing" OnRowCancelingEdit="gvPriceList_RowCancelingEdit" 
-        OnRowUpdating="gvPriceList_RowUpdating" OnRowDataBound="gvPriceList_RowDataBound" 
-        DataKeyNames="project_fan_id" HorizontalAlign="Center" Width="60%">
-        
-        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-        <EditRowStyle BackColor="#999999" />
-        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </div>
+    
+       
 
-        <Columns>
-            <asp:BoundField DataField="part_number" HeaderText="Model Number" ReadOnly="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
-                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+    
 
-                <ItemStyle HorizontalAlign="Left"></ItemStyle>
-            </asp:BoundField>
-            <asp:BoundField DataField="quantity" HeaderText="Qty" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
-                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-            </asp:BoundField>
-            <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
-                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-            </asp:BoundField>
-            <asp:TemplateField HeaderText="Price Type" HeaderStyle-HorizontalAlign="Left">
-                <ItemTemplate>
-                    <asp:Label ID="lblPriceType" runat="server" Text='<%#Eval("price_type") %>'></asp:Label>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:Label ID="lblPriceTypeEdit" runat="server" Visible="false" Text='<%#Eval("price_type") %>'></asp:Label>
-                    <asp:DropDownList ID="ddlPriceType" runat="server" AutoPostBack="true">
-                    </asp:DropDownList>
-                </EditItemTemplate>
+        <asp:GridView ID="gvPriceList" runat="server" AutoGenerateColumns="False"
+            OnRowEditing="gvPriceList_RowEditing" OnRowCancelingEdit="gvPriceList_RowCancelingEdit" 
+            OnRowUpdating="gvPriceList_RowUpdating" OnRowDataBound="gvPriceList_RowDataBound" 
+            DataKeyNames="project_fan_id" HorizontalAlign="Center" Gridlines="None" CssClass="table project" OnSelectedIndexChanged="gvPriceList_SelectedIndexChanged">
+            
+        <%-- <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle CssClass="thead" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />--%>
 
-                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Calculated Price" HeaderStyle-HorizontalAlign="Left">
-                <ItemTemplate>
-                    <asp:Label ID="lblCalculatedPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Manual Price" HeaderStyle-HorizontalAlign="Left">
-                <ItemTemplate>
-                    <asp:Label ID="lblManualPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>'></asp:TextBox>
-                </EditItemTemplate>
-            </asp:TemplateField>
-<%--            <asp:BoundField HeaderText="Calculated" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
-                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-            </asp:BoundField>--%>
-<%--            <asp:BoundField HeaderText="Manual" DataField="price_value" ReadOnly="false" HeaderStyle-HorizontalAlign="Left">
+            <Columns>
+                <asp:BoundField DataField="part_number" HeaderText="Model Number" ReadOnly="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
 
-                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-            </asp:BoundField>--%>
+                    <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="quantity" HeaderText="Qty" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>
+                <asp:TemplateField HeaderText="Price Type" HeaderStyle-HorizontalAlign="Left">
+                    <ItemTemplate>
+                        <asp:Label ID="lblPriceType" runat="server" Text='<%#Eval("price_type") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:Label ID="lblPriceTypeEdit" runat="server" Visible="false" Text='<%#Eval("price_type") %>'></asp:Label>
+                        <asp:DropDownList ID="ddlPriceType" runat="server" AutoPostBack="true">
+                        </asp:DropDownList>
+                    </EditItemTemplate>
 
-            <asp:TemplateField>
-                <ItemTemplate>
-                    <asp:ImageButton ImageUrl="~/icons/edit.png" runat="server" CommandName="Edit" ToolTip="Edit" Width="20px" Height="20px" />
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:ImageButton ImageUrl="~/icons/save.png" runat="server" CommandName="Update" ToolTip="Update" Width="20px" Height="20px" />
-                    <asp:ImageButton ImageUrl="~/icons/cancel.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="20px" Height="20px" />
-                </EditItemTemplate>
-            </asp:TemplateField>
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Calculated Price" HeaderStyle-HorizontalAlign="Left">
+                    <ItemTemplate>
+                        <asp:Label ID="lblCalculatedPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField ItemStyle-Width="120px" HeaderText="Manual Price" HeaderStyle-HorizontalAlign="Left">
+                    <ItemTemplate>
+                        <asp:Label ID="lblManualPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                </asp:TemplateField>
+    <%--            <asp:BoundField HeaderText="Calculated" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>--%>
+    <%--            <asp:BoundField HeaderText="Manual" DataField="price_value" ReadOnly="false" HeaderStyle-HorizontalAlign="Left">
 
-        </Columns>
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>--%>
+
+                <asp:TemplateField ItemStyle-Width="70px" HeaderStyle-HorizontalAlign="Right">
+                    <ItemTemplate>
+                        <asp:ImageButton ImageUrl="~/icons/editblue.png" runat="server" CommandName="Edit" ToolTip="Edit" Width="18px" Height="18px" >
+                        </asp:ImageButton>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:ImageButton ImageUrl="~/icons/saveblue.png" runat="server" CommandName="Update" ToolTip="Update" Width="18px" Height="18px" />
+                        <asp:ImageButton ImageUrl="~/icons/cancelblue.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="18px" Height="18px" />
+                    </EditItemTemplate>
+                </asp:TemplateField>
+
+            </Columns>
 
 
-    </asp:GridView>
+        </asp:GridView>
 
     <br />
     
-    <div align="center">
+    <div class="right-controls mt-medium mr-small">
+    
         <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
-        <br />
+        <br/>
         <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
-        <br />
-        <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click" />
+        <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click"  class="button-main primary-btn"/>
     </div>
 
-
-
+</div>
 </asp:Content>
