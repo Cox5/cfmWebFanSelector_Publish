@@ -25,8 +25,8 @@
                         <asp:ListItem Text="Premium" Value="1"></asp:ListItem>
             </asp:DropDownList>
             <asp:Button  ID="btnUpdatePriceAdjustment" runat="server" Text="Update" OnClick="btnUpdatePriceAdjustment_Click" class="button-main primary-btn mr-small" />
-
         </div>
+            <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtPercentage" Type="Integer" MinimumValue="0" MaximumValue="100" ErrorMessage="Please enter discount value between 0 and 100 percent" ForeColor="Red"></asp:RangeValidator>
     
        
 
@@ -34,20 +34,9 @@
 
         <asp:GridView ID="gvPriceList" runat="server" AutoGenerateColumns="False"
             OnRowEditing="gvPriceList_RowEditing" OnRowCancelingEdit="gvPriceList_RowCancelingEdit" 
-            OnRowUpdating="gvPriceList_RowUpdating" OnRowDataBound="gvPriceList_RowDataBound" 
+            OnRowUpdating="gvPriceList_RowUpdating" OnRowDataBound="gvPriceList_RowDataBound"
             DataKeyNames="project_fan_id" HorizontalAlign="Center" Gridlines="None" CssClass="table project" OnSelectedIndexChanged="gvPriceList_SelectedIndexChanged">
             
-        <%-- <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle CssClass="thead" />
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />--%>
 
             <Columns>
                 <asp:BoundField DataField="part_number" HeaderText="Model Number" ReadOnly="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
@@ -55,29 +44,33 @@
 
                     <ItemStyle HorizontalAlign="Left"></ItemStyle>
                 </asp:BoundField>
+
                 <asp:BoundField DataField="quantity" HeaderText="Qty" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                 </asp:BoundField>
+
                 <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                 </asp:BoundField>
+
                 <asp:TemplateField HeaderText="Price Type" HeaderStyle-HorizontalAlign="Left">
                     <ItemTemplate>
                         <asp:Label ID="lblPriceType" runat="server" Text='<%#Eval("price_type") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:Label ID="lblPriceTypeEdit" runat="server" Visible="false" Text='<%#Eval("price_type") %>'></asp:Label>
-                        <asp:DropDownList ID="ddlPriceType" runat="server" AutoPostBack="true">
+                        <asp:DropDownList ID="ddlPriceType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPriceType_SelectedIndexChanged">
                         </asp:DropDownList>
                     </EditItemTemplate>
-
                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                 </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Calculated Price" HeaderStyle-HorizontalAlign="Left">
                     <ItemTemplate>
                         <asp:Label ID="lblCalculatedPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+
                 <asp:TemplateField ItemStyle-Width="120px" HeaderText="Manual Price" HeaderStyle-HorizontalAlign="Left">
                     <ItemTemplate>
                         <asp:Label ID="lblManualPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
@@ -86,13 +79,6 @@
                         <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
-    <%--            <asp:BoundField HeaderText="Calculated" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
-                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                </asp:BoundField>--%>
-    <%--            <asp:BoundField HeaderText="Manual" DataField="price_value" ReadOnly="false" HeaderStyle-HorizontalAlign="Left">
-
-                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                </asp:BoundField>--%>
 
                 <asp:TemplateField ItemStyle-Width="70px" HeaderStyle-HorizontalAlign="Right">
                     <ItemTemplate>
@@ -117,7 +103,7 @@
         <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
         <br/>
         <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
-        <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click"  class="button-main primary-btn"/>
+        <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click"  class="button-main primary-btn" CausesValidation="false"/>
     </div>
 
 </div>

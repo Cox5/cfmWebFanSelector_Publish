@@ -14,7 +14,10 @@
     
                 <asp:TextBox ID="txtEmailAddress" placeholder="Your Email Address" runat="server"></asp:TextBox>    
 
-                
+                <asp:RequiredFieldValidator class="mt-small" ID="requiredEmailValidator" runat="server" ErrorMessage="Email field is empty" ForeColor="Red" ControlToValidate="txtEmailAddress"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RegularExpressionValidator class="mt-small" ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmailAddress" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+                <br />
                 <asp:Label ID="lblResetMsg" runat="server"></asp:Label>
 
                 <asp:Button ID="btnResetPassword" class="button-main bigger primary-btn login-btn" Text="Reset Password" runat="server" OnClick="btnResetPassword_Click"/>

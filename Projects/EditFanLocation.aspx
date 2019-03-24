@@ -16,6 +16,9 @@
                 <td>Location Description</td>
                 <td>
                     <asp:TextBox ID="txtLocation" runat="server" /></td>
+                <td>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Location description is empty" ForeColor="Red" ControlToValidate="txtLocation"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td>Location Designation</td>
@@ -36,22 +39,36 @@
             <tr>
                 <td>Airflow</td>
                 <td>
-                    <asp:TextBox ID="txtAirflow" runat="server" /></td>
+                    <asp:TextBox ID="txtAirflow" runat="server" />
+
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="AirflowRequiredValidator" runat="server" ErrorMessage="Airflow is empty" ForeColor="Red" ControlToValidate="txtAirflow"></asp:RequiredFieldValidator>
+                </td>
+
             </tr>
             <tr>
                 <td>Static Pressure</td>
                 <td>
                     <asp:TextBox ID="txtStPressure" runat="server" /></td>
+                <td>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="StPressRequiredValidator" runat="server" ErrorMessage="Static Pressure is empty" ForeColor="Red" ControlToValidate="txtStPressure"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td>Quantity</td>
                 <td>
-                    <asp:TextBox ID="txtQuantity" runat="server" /></td>
+                    <asp:TextBox ID="txtQuantity" runat="server" />
+
+                </td>
+                <td>
+                    <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtQuantity" Type="Integer" MinimumValue="1" MaximumValue="10000" ErrorMessage="Please enter valid quantity number" ForeColor="Red"></asp:RangeValidator>
+                </td>
             </tr>
         </table>
         <div class="right-controls mt-medium mr-small">
             <asp:Button ID="btnSave"  class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
-            <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" /><br />
+            <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" /><br />
         </div>
 
         <asp:Label class="mt-solid" ID="lblEditFanLocMsg" runat="server" />
