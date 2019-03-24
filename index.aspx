@@ -29,6 +29,8 @@
                 </div>
 
                 <asp:RegularExpressionValidator class="mt-small" ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmailAddress" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+                <br />
+                <asp:RequiredFieldValidator class="mt-small" ID="passRequiredValidator" runat="server" ErrorMessage="Password field is empty" ForeColor="Red" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
 
 
                 <div class="f-group">
@@ -63,8 +65,8 @@
                 <p>To request access to the CFM Fan Selector you must first  <a href="/Users/Signup.aspx">register</a>.</p>
                 <p>Registration is free, but subject to approval.</p>
                 <div class="center-text">
-                    <asp:Button ID="btnRegister" class="button-main bigger secondary-btn" Text="Register" runat="server" PostBackUrl="~/Users/Signup.aspx"/>
-
+                    <br />
+                    <a href="/Users/Signup.aspx" class="button-main bigger secondary-btn">Register</a>
                 </div>
             </div>
         </form>
