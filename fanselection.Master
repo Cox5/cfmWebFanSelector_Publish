@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200,300,300i,400,500" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="shortcut icon" href="~/Content/favicon.ico">
+    <link rel="shortcut icon" href="~/Content/favicon.png">
     
     <link href="Content/FanSelection.css" rel="stylesheet" />
     <link href="Content/AppStyles.css" rel="stylesheet" />
@@ -17,7 +17,7 @@
   <form id="form1" runat="server">
     <div class="header">
         <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
-        <div id="divHeader" style="float:right; padding-top: 10px;">
+        <div id="divHeader" class="nav-position">
             <div class="buttons button-nav"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
             <div class="buttons button-nav"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
             <div class="buttons button-nav"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>

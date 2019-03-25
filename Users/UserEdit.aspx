@@ -11,11 +11,20 @@
   <table class="table">
     <tr>
       <td>Firstname</td>
-      <td><asp:TextBox ID="txtFirstname" runat="server" /></td>
+      <td><asp:TextBox ID="txtFirstname" runat="server"/></td>
+        <td>
+            <asp:RegularExpressionValidator ID="regName" runat="server" Display="Dynamic" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" />
+            <br /><asp:RequiredFieldValidator class="mt-small" Display="Dynamic" ID="firstNameRequiredValidator" runat="server" ErrorMessage="Name field is empty" ForeColor="Red" ControlToValidate="txtFirstname"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
       <td>Lastname</td>
       <td><asp:TextBox ID="txtLastname" runat="server" /></td>
+        <td>
+            <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid last name" ForeColor="Red" />
+            <br /><asp:RequiredFieldValidator class="mt-small"  ID="regLastNameRequired" runat="server" ErrorMessage="Last name field is empty" ForeColor="Red" ControlToValidate="txtLastname"></asp:RequiredFieldValidator>
+      
+        </td>
     </tr>
     <tr>
       <td>Company</td>
@@ -28,6 +37,11 @@
     <tr>
         <td>Email address</td>
         <td><asp:TextBox ID="txtEmail" runat="server"/></td>
+        <td>
+            <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+            <br />
+            <asp:RequiredFieldValidator class="mt-small"  ID="regEmailRequiredValidator" runat="server" ErrorMessage="Email field is empty" ForeColor="Red" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
         <td>Password</td>
@@ -62,9 +76,14 @@
     </tr>
   </table>
 
+<%--        <asp:ValidationSummary ID="vsSample" runat="server"
+            DisplayMode="BulletList" ShowMessageBox="false"
+            ShowSummary="true" ForeColor="Red"
+            HeaderText="Correct the following errors." />--%>
+
   <div class="mt-medium">
     <asp:Button ID="btnSave" class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
-    <asp:Button ID="btnCancel" class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" />
+    <asp:Button ID="btnCancel" class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
   </div>
 
   

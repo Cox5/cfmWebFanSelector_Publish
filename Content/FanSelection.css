@@ -589,3 +589,24 @@ td.icons img {
     margin-bottom: 50px;
     
 }
+
+.fs-ctrl {
+    width: 48% !important;
+    margin: 1px;
+}
+
+
+@media (max-width: 730px) {
+
+    html,body {
+        width: 100%;
+    }
+    
+    #div_body {
+        top: 135px;
+    }
+
+    .header {
+        padding-bottom: 50px;
+    }
+}
