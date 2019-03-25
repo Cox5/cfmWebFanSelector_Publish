@@ -1,0 +1,86 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+				font-size: 13px;
+			}
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			th {
+				text-align: left;
+			}
+			#project_fan_table {
+				font-size: 13px;
+			}
+			
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+			.mb-medium {
+				margin-bottom: 30px;
+			}			
+
+
+
+
+		</style>
+    </head>
+
+    <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
+
+
+    <div class="row  mt-small mb-medium">
+		<div class="column">
+				<b><u>Address</u></b></br>
+				106-108 Fairbank Road<br>Clayton South Victoria 3169
+		</div>
+		<div class="column">
+				<b><u>Phone</u></b></br>
+				03-9551-4878
+		</div>
+		<div class="column">
+				<b><u>Email</u></b></br>
+				mail@cfmairsystems.com.au
+		</div>
+		<div class="column">
+				<b><u>Website</u></b></br>
+				cfmairsystems.com.au
+		</div>
+	</div>
+	<hr />
+
+    <div class="row" id="project_fan_div">
+        <table style="font-size: 13px; width: 90%;">
+			<tr>
+				<th>Location description</th>
+				<th>Reference</th> 
+				<th>Model number</th>
+				<th>Airflow</th>
+				<th>Static pressure</th>
+				<th>Price</th>
+		    </tr>
+			
+				%%TABLE_ROW%%
+			
+		</table>
+	</div>
+	
+	<hr />
+	
+</html>
