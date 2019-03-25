@@ -15,10 +15,6 @@
     
     --blue-secondary-low-op: rgba(0, 162, 255, 0.2);
     --blue-tertiary: rgb(1, 59, 126);
-    
-
-    
-
 }
 
 h1 {
@@ -83,6 +79,18 @@ body {
 
 .bolder {
     font-weight: 600 !important;
+}
+
+.orange {
+    color: orange !important;
+}
+
+.green {
+    color: green !important;
+}
+
+.red {
+    color: red !important;
 }
 
 .center-text {
@@ -230,9 +238,6 @@ input[type="submit"] {
      box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
 }
 
-
-
-
 .login-btn {
     margin-top: 15px;
     margin-bottom: 20px;
@@ -240,6 +245,14 @@ input[type="submit"] {
     
     transition: all 0.4s;
 }
+
+/* Navbar */
+
+.nav-position {
+    float:right;
+    padding-top: 10px;
+}
+
 
 .button-nav a {
   
@@ -266,7 +279,6 @@ input[type="submit"] {
     color: white;
     
 }
-
 
   
 .form-box {
@@ -422,70 +434,64 @@ a.button-main {
 }
 
 
+/* Tooltip */
+
 .tooltip {
     position: relative;
     display: inline-block;
 }
   
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 90px;
-    background-color: rgba(0, 0, 0, 0.836);
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    font-size: 13px;
-    font-weight: 400;
-    
-    font-family: "Fira Sans", sans-serif;
+.tooltip .tooltiptext {
+visibility: hidden;
+width: 90px;
+background-color: rgba(0, 0, 0, 0.836);
+color: #fff;
+text-align: center;
+border-radius: 6px;
+padding: 5px;
+font-size: 13px;
+font-weight: 400;
 
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-    left: 112%;
-  }
+font-family: "Fira Sans", sans-serif;
+
+/* Position the tooltip */
+position: absolute;
+z-index: 1;
+top: -5px;
+left: 120%;
+}
+
+.tooltip .tooltiptext.tooltip-svg {
+    top: 6px;
+}
   
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
+.tooltip:hover .tooltiptext {
+visibility: visible;
+}
 
-  .pricing {
-      text-decoration: none;
-  }
+/* Svg icons */
 
-  .orange {
-      color: orange !important;
-  }
+.svg-par {
+width: 17px;
+}
 
-  .green {
-      color: green !important;
-  }
+.svg {
+position: relative;
+top: 7px;
+right: 8px;
+height: 19px !important;
+}
 
-  .red {
-      color: red !important;
-  }
+.svg.bigger {
+    height: 20px !important;
+}
 
-  .svg-par {
-    width: 17px;
-  }
+.svg:hover {
+    opacity: 0.8;
+}
 
-  .svg {
-    position: relative;
-    top: 7px;
-    right: 8px;
-    height: 19px !important;
-  }
 
-  .svg.bigger {
-      height: 20px !important;
-  }
-
-  .svg:hover {
-      opacity: 0.8;
-  }
-
+/* Gridview table */
 
 .gridview {
     margin-top: 30px;
@@ -520,6 +526,12 @@ a.button-main {
     background: var(--header-bg-color) !important;
     height: 30px;
 }
+
+
+.pricing {
+    text-decoration: none;
+}
+
 
 /* Dashboard */
 
@@ -585,7 +597,7 @@ a.button-main {
 /* Media queries */
 
 
-@media (max-width: 670px) {
+@media (max-width: 800px) {
 
 
     .form-box {
@@ -601,8 +613,9 @@ a.button-main {
 
     .header {
         width: 100%;
-        padding: 5px;
+        padding: 20px;
         text-align: center;
+        padding-bottom: 20px;
     }
 
     .header img {
@@ -623,12 +636,12 @@ a.button-main {
         font-size: 11px;
     }
 
-}
 
-
-
-@media (max-width: 800px) {
-
+    .nav-position {
+        margin-top: 10px;
+        float: unset;
+        padding-top: 10px;
+    }
     
 
     .leftcolumn {
@@ -641,4 +654,14 @@ a.button-main {
         
         margin-left: 30px;
     }
+
+}
+
+
+
+@media (max-width: 1050px) {
+    .content-wrapper {
+        padding: 0px 10px;
+    }
+    
 }

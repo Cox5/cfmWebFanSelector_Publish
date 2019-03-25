@@ -17,7 +17,7 @@
   <form id="form1" runat="server">
     <div class="header">
         <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
-        <div id="divHeader" style="float:right; padding-top: 10px;">
+        <div id="divHeader" class="nav-position">
             <div class="buttons button-nav"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
             <div class="buttons button-nav"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
             <div class="buttons button-nav"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>

@@ -26,16 +26,21 @@
     <asp:PlaceHolder ID="plcHeadingColor" runat="server" />
 
     <script>
-        $(document).ready(function () {
-            var options = {
-                widthFixed: true,
-                showProcessing: true,
-            };
 
-            $("#fanTable").tablesorter(options);
+        // puts POA values of "Price%" column on top
+        $( document ).ready(function() {
+            $("#fanTable").tablesorter({
+                // initial sort of the 8th column
+                sortList: [[8,0]],
+                // sets the non-digit content to min, so it is placed on top when ordered asc 
+                headers: { 8: { sorter: "digit", string: "min" }}
+
+            });
         });
 
     </script>
+
+   
 
 </asp:Content>
 
@@ -145,8 +150,8 @@
                     </div>
 
                     <div id="div_clearButton" style="bottom: 0px; position: absolute">
-                        <asp:Button ID="btn_clear" Text="Clear" runat="server" OnClientClick="return false" />
-                        <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClientClick="return false" />
+                        <asp:Button ID="btn_clear" Text="Clear" runat="server" OnClientClick="return false" class="fs-ctrl"/>
+                        <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClientClick="return false" class="fs-ctrl" />
                         <asp:Label ID="lbl_versionNumber" Text="" runat="server" ForeColor="DarkGray" Style="bottom: 0px; position: absolute; right: 10px; left: auto; text-align: right" />
                     </div>
 
@@ -193,7 +198,7 @@
                                             <th>TEff%</th>
                                             <th>dBA</th>
                                             <th>W/(..</th>
-                                            <th>Price%</th>
+                                            <th class="string-max">Price%</th>
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
