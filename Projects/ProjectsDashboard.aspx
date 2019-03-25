@@ -13,15 +13,13 @@
         <a href="/Projects/Project.aspx" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> New Project</a>
       </div>
 
-      <table style="margin: auto;">
-          <tr>
-             
-              <td>
-                  <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for project name, company or address"></asp:TextBox></td>
-              <td>
-                  <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn" /></td>
-          </tr>
-      </table>
+   
+
+      
+      <div class="table-controls center-text mb-medium">
+          <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for project name, company or address" Width="430px" Height="32px" class="mr-small"></asp:TextBox>
+          <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn" />
+      </div>
 
      
 
