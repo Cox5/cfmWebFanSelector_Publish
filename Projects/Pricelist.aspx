@@ -26,7 +26,7 @@
             </asp:DropDownList>
             <asp:Button  ID="btnUpdatePriceAdjustment" runat="server" Text="Update" OnClick="btnUpdatePriceAdjustment_Click" class="button-main primary-btn mr-small" />
         </div>
-            <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtPercentage" Type="Integer" MinimumValue="0" MaximumValue="100" ErrorMessage="Please enter discount value between 0 and 100 percent" ForeColor="Red"></asp:RangeValidator>
+            <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtPercentage" Type="Integer" MinimumValue="0" MaximumValue="25" ErrorMessage="Please enter discount or premium value between 0 and 25 percent" ForeColor="Red"></asp:RangeValidator>
     
        
 
