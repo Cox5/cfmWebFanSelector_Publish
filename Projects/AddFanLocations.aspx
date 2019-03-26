@@ -76,15 +76,11 @@
                     <td><asp:Label ID="lblMsg5" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr><td colspan="4" align="right">
-               <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Add Locations" runat="server" OnClick="btnSubmit_Click" />
+               <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Save" runat="server" OnClick="btnSubmit_Click" />
                     </td>
                     <td align="right">
-                        <asp:Button ID="btnCancel"  class="button-main primary-btn" Text="Finished" OnClick="btnCancel_Click" runat="server" style="width: 100%"/>
+                        <asp:Button ID="btnCancel"  class="button-main primary-btn" Text="Exit" OnClick="btnCancel_Click" runat="server" style="width: 100%"/>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="4" align="right"><asp:Button ID="btnAddMore" Text="Add More" runat="server" OnClick="btnAddMore_Click" /></td>
-                    <td colspan="5" align="right"><asp:Button ID="btnFinish" Text="Finish" runat="server" OnClick="btnFinish_Click" /></td>
                 </tr>
                 <tr><td><asp:Label ID="lblMessage" runat="server" /></td></tr>
                 </table>

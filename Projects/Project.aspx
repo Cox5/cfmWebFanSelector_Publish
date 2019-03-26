@@ -45,6 +45,7 @@
                         <asp:TextBox ID="txtState" runat="server" />
                     </td>
                 </tr>
+                <asp:RequiredFieldValidator class="mt-small" ID="stateReqValidator" runat="server" ErrorMessage="State field is empty" ForeColor="Red" ControlToValidate="txtState"></asp:RequiredFieldValidator>
                 <tr>
                     <td>Postcode</td>
                     <td>
@@ -57,6 +58,7 @@
                         <asp:TextBox ID="txtCountry" runat="server" />
                     </td>
                 </tr>
+                <asp:RequiredFieldValidator class="mt-small" ID="countryReqValidator" runat="server" ErrorMessage="Country field is empty" ForeColor="Red" ControlToValidate="txtCountry"></asp:RequiredFieldValidator>
                 </table>
                </div>
 

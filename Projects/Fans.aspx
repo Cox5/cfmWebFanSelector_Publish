@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Fan Locations" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="Fans.aspx.cs" Inherits="CFM_Web.Projects.Fans" %>
+﻿<%@ Page Title="Fan Locations Schedule" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="Fans.aspx.cs" Inherits="CFM_Web.Projects.Fans" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type = "text/javascript">
@@ -49,14 +49,17 @@
             </thead>
                 <%= getProjectFans() %>
             <tr>
-                <td colspan="2" align="left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label></td>
+                <td colspan="2" align="left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label>
+                </td>
                 <td colspan="7" align="right" style="height: 60px">
                     <%--<a href="<%= getPricelistURL() %>" id="pricelistHref" runat="server" class="button-main primary-btn">Go to Pricelist</a>--%>
                     <asp:Button CssClass="button-main primary-btn" ID="btnRequestPricing" runat="server"
                       OnClientClick = "Confirm()"
                       OnClick="OnConfirm" 
                       Text="Request Pricing" Visible="false"/>
+                    <asp:Button ID="btnExtraItems" runat="server" CssClass="button-main primary-btn" Text="Extras" OnClick="btnExtraItems_Click" />
                     <asp:Button ID="btnGoToPricelist" runat="server" CssClass="button-main primary-btn" Text="Go to Pricelist" OnClick="btnGoToPricelist_Click" />
+                    <%--<asp:Button ID="btnFinished" runat="server"  CssClass="button-main primary-btn" Text="Finished" />--%>
                     <a href="/Projects/ProjectsDashboard.aspx" class="button-main primary-btn">Finished <i class="fas fa-chevron-right"></i></a>
                 </td>
             </tr>
