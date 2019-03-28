@@ -23,7 +23,7 @@
 
         <div class="mb-solid mt-solid">
             <div class="table-controls">
-                <h1 class="table-title sub">Fan Locations</h1>
+                <h1 class="table-title maintitle">Fan Locations</h1>
                 
                 <td id="addFanCol" align="right" runat="server"><a href="<%= getAddFanLocationsURL() %>" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> Add Fan Locations</a></td>
             </div>

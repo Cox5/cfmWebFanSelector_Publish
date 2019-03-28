@@ -28,25 +28,25 @@
                         <asp:Label Text='<%#Eval("note") %>' runat="server"></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtNote" Text='<%#Eval("note") %>' runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNote" Text='<%#Eval("note") %>' runat="server"  CssClass="input-small"></asp:TextBox>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtNoteFooter" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNoteFooter" runat="server"  CssClass="input-small"></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
 
 
-                <asp:TemplateField ItemStyle-Width="70px" HeaderStyle-HorizontalAlign="Right">
+                <asp:TemplateField ItemStyle-Width="70px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                     <ItemTemplate>
-                        <asp:ImageButton ImageUrl="~/icons/editblue.png" runat="server" CommandName="Edit" ToolTip="Edit" Width="18px" Height="18px"></asp:ImageButton>
-                        <asp:ImageButton ImageUrl="~/icons/deleteblue.png" runat="server" CommandName="Delete" ToolTip="Delete" Width="18px" Height="18px" />
+                        <asp:LinkButton runat="server" CommandName="Edit"><i class="tooltip fas fa-pencil-alt"><span class="tooltiptext">Edit</span></i></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Delete"><i class="tooltip far fa-trash-alt"><span class="tooltiptext">Delete</span></i></asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:ImageButton ImageUrl="~/icons/saveblue.png" runat="server" CommandName="Update" ToolTip="Update" Width="18px" Height="18px" />
-                        <asp:ImageButton ImageUrl="~/icons/cancelblue.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="18px" Height="18px" />
+                        <asp:LinkButton runat="server" CommandName="Update" ><i class="tooltip far fa-save"><span class="tooltiptext">Update</span></i></asp:LinkButton>
+                        <asp:LinkButton  runat="server" CommandName="Cancel" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
                     </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:ImageButton ImageUrl="~/icons/addblue.png" runat="server" CommandName="Add" ToolTip="Add" Width="18px" Height="18px" />
+                    <FooterTemplate >
+                            <asp:LinkButton runat="server" CommandName="Add" CssClass="button-main primary-btn"><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -57,12 +57,15 @@
 
         <br />
 
-        <div class="right-controls mt-medium mr-small">
+        <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
+        <br />
+        <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
+        <br />
 
-            <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
-            <br />
-            <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
-            <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click" class="button-main primary-btn" CausesValidation="false" />
+        <div class="right-controls mt-medium">
+
+            <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Finished <i class="fas fa-chevron-right"></i></asp:LinkButton>
+            <!-- <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click" class="button-main primary-btn" CausesValidation="false" /> -->
         </div>
 
     </div>
