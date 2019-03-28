@@ -26,7 +26,11 @@
             </asp:DropDownList>
             <asp:Button  ID="btnUpdatePriceAdjustment" runat="server" Text="Update" OnClick="btnUpdatePriceAdjustment_Click" class="button-main primary-btn mr-small" />
         </div>
-            <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtPercentage" Type="Integer" MinimumValue="0" MaximumValue="25" ErrorMessage="Please enter discount or premium value between 0 and 25 percent" ForeColor="Red"></asp:RangeValidator>
+
+        <div class="center-text mt-medium">
+            <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtPercentage" Type="Integer" MinimumValue="0" MaximumValue="25" ErrorMessage="Please enter discount or premium value between 0 and 25 percent (without % sign)" ForeColor="Red"></asp:RangeValidator>
+
+        </div>
     
        
 
@@ -76,18 +80,17 @@
                         <asp:Label ID="lblManualPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>' CssClass="input-small"></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="70px" HeaderStyle-HorizontalAlign="Right">
+                <asp:TemplateField ItemStyle-CssClass="icons" ItemStyle-Width="70px"  HeaderStyle-HorizontalAlign="Right">
                     <ItemTemplate>
-                        <asp:ImageButton ImageUrl="~/icons/editblue.png" runat="server" CommandName="Edit" ToolTip="Edit" Width="18px" Height="18px" >
-                        </asp:ImageButton>
+                        <asp:LinkButton runat="server" CommandName="Edit"><i class="tooltip fas fa-pencil-alt"><span class="tooltiptext">Edit</span></i></asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:ImageButton ImageUrl="~/icons/saveblue.png" runat="server" CommandName="Update" ToolTip="Update" Width="18px" Height="18px" />
-                        <asp:ImageButton ImageUrl="~/icons/cancelblue.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="18px" Height="18px" />
+                        <asp:LinkButton runat="server" CommandName="Update" ><i class="tooltip far fa-save"><span class="tooltiptext">Update</span></i></asp:LinkButton>
+                        <asp:LinkButton  runat="server" CommandName="Cancel" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -97,13 +100,16 @@
         </asp:GridView>
 
     <br />
-    
-    <div class="right-controls mt-medium mr-small">
-    
-        <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
-        <br/>
-        <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
-        <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click"  class="button-main primary-btn" CausesValidation="false"/>
+
+    <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
+    <br/>
+    <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
+    <br />
+
+    <div class="right-controls mt-medium">
+        <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" CausesValidation="false" class="button-main primary-btn" >Finished <i class="fas fa-chevron-right"></i></asp:LinkButton>
+        <!-- <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click"  class="button-main primary-btn" CausesValidation="false"/> -->
+
     </div>
 
 </div>

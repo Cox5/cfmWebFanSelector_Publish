@@ -15,6 +15,8 @@
     
     --blue-secondary-low-op: rgba(0, 162, 255, 0.2);
     --blue-tertiary: rgb(1, 59, 126);
+
+    --dark-grey: rgb(65, 65, 65);
 }
 
 h1 {
@@ -25,6 +27,18 @@ h1 {
 h3 {
     font-size: 1.3em;
     font-weight: 400;
+}
+
+.maintitle {
+    font-size: 2.4em;
+    font-weight: 600;
+    color: var(--dark-grey);
+}
+
+.subtitle {
+    font-size: 1.4em;
+    line-height: 1.4;
+    font-weight: 500;
 }
 
 .project-name {
@@ -105,6 +119,10 @@ body {
     margin-right: 15px !important;
 }
 
+.mb-small {
+    margin-bottom: 15px !important;
+}
+
 .mt-medium {
     margin-top: 25px !important; 
 }
@@ -171,6 +189,7 @@ input[type="submit"] {
     color: white;
     border: none;
     text-transform: uppercase;
+    min-width: 85px;
 }
 
 .button-main.bigger {
@@ -375,9 +394,11 @@ td.medium-td {
     border-radius: 10px;
 }
 
-.table td {
+.table td, .table th {
     padding: 4px 4px 4px 5px;
 }
+
+
 
 .table thead > tr {
     border-bottom: 1px solid gray;
@@ -398,8 +419,6 @@ td.medium-td {
 
 .table-title {
     display: inline-block;
-    font-size: 2.4em;
-    color: var(--blue-primary);
     line-height: 0;
 }
 
@@ -500,10 +519,20 @@ height: 19px !important;
 }
 
 .gridview input[type="text"] {
+    
+}
+
+.gridview .input-smaller {
     width: 100px !important;
     padding: 1px;
     height: 28px;
     font-size: 14px;
+}
+
+.input-small {
+    height: 30px;
+    font-size: 14px;
+    padding: 2px;
 }
 
 .gridview input[type="image"] {
@@ -549,14 +578,13 @@ height: 19px !important;
     height: 137px;
     background-color: var(--blue-primary);
     position: relative;
-    transition: border-radius 0.3s, background-color 0.5s, transform 0.7s;
+    transition:  background-color 0.5s, transform 0.7s;
     font-size: 1.15em;
     
     overflow: hidden;
 }
 
 .dashboard-panel .dashboard-icon-link:hover {
-    border-radius: 12px;
     background: var(--blue-secondary);
     transform: translateY(-5px);
     transition: all 0.4s;
@@ -584,14 +612,58 @@ height: 19px !important;
 }
 
 .dashboard-panel .dashboard-icon-link:hover .highlighted {
-    transform: scale(1.1) translateY(-4px);
+    transform: scale(1.05) translateY(-2px);
+    backface-visibility: hidden;
     
     transition: all 0.5s;
     
 }
 
 
+/* Specific Project Icons */
 
+.sp-button {
+    text-decoration: none !important;
+}
+
+
+.sp-rect {
+    height: 50px;
+    width: 270px;
+    font-size: 26px;
+    font-weight: 500;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    background: var(--blue-primary);
+    border-radius: 10px;
+    text-decoration: none !important;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-family: 'Fira Sans', sans-serif;
+    transition: background 0.4s, transform 0.4s;
+    box-shadow: 0px 1px 2px 2px rgba(0,0,0,0.15);
+    margin-bottom: 15px;
+}
+
+.sp-rect:hover {
+    background: var(--blue-secondary);
+    transform: translateX(6px);
+    transition: all 0.4s;
+}
+
+
+.sp-svg {
+    height: 31px !important;
+    right: -4px;
+    top: 0px;
+    position: relative;
+}
+
+
+.sp-icon {
+    float: right;
+}
 
 
 /* Media queries */

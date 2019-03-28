@@ -8,7 +8,7 @@
   <div class="content-wrapper">
 
       <div class="table-controls mt-solid mb-solid">
-        <h1 class="table-title">Projects</h1>
+        <h1 class="table-title maintitle">Projects</h1>
   
         <a href="/Projects/Project.aspx" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> New Project</a>
       </div>

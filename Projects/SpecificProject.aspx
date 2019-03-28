@@ -7,24 +7,79 @@
     <div class="content-wrapper">
         <div class="mb-solid mt-solid">
             <div class="table-controls">
-                <h1 class="table-title sub">
+                <span class="maintitle">
                     <asp:Label ID="lblProjectName" runat="server"></asp:Label></h1>
 
             </div>
 
-            <span id="projectAddress" class="project-address" runat="server">
+            <span id="projectAddress" class="subtitle" runat="server">
                 <asp:Label ID="lblProjectAddress" runat="server"></asp:Label></span>
         </div>
+        
 
-        <asp:Button ID="btnEditProject" runat="server" Text="Edit Project" OnClick="btnEditProject_Click" />
-        <asp:Button ID="btnFanLocations" runat="server" Text="Fan Locations" OnClick="btnFanLocations_Click" />
-        <asp:Button ID="btnExtraItems" runat="server" Text="Extra items" OnClick="btnExtraItems_Click" />
-        <asp:Button ID="btnNotes" runat="server" Text="Notes" OnClick="btnNotes_Click" />
-        <asp:Button ID="btnPDFList" runat="server" Text="PDF List" OnClick="btnPDFList_Click" />
-        <asp:Button ID="btnCloneProject" runat="server" Text="Clone Project" OnClick="btnCloneProject_Click" />
+        <asp:LinkButton CommandName="Edit Project" runat="server" OnClick="btnEditProject_Click" class="sp-button">
+            <div class="sp-rect">
+                <span class="sp-text">Edit Project</span>
+                <span class="sp-icon"> 
+                    <i class="fas fa-pencil-alt"></i>
+                </span> 
+            </div>
+        </asp:LinkButton>
+
+
+
+        <asp:LinkButton CommandName="Fan Locations"  runat="server" OnClick="btnFanLocations_Click" class="sp-button">
+            
+            <div class="sp-rect">
+                    <span class="sp-text">Fan Locations</span>
+                    <span class="sp-icon">
+                            <img src='/icons/fanicon.svg' class="sp-svg" alt='Fan Locations'> 
+                    </span>
+            </div>
+        </asp:LinkButton>
+
+        <asp:LinkButton CommandName="Extra Items"  runat="server"  OnClick="btnExtraItems_Click" class="sp-button">
+            <div class="sp-rect">
+                
+                <span class="sp-text">Extra Items</span>
+                <span class="sp-icon">
+                    <i class="far fa-plus-square"></i>
+                </span>
+        
+            </div>
+        </asp:LinkButton>
+
+        <asp:LinkButton CommandName="Notes"   runat="server" Text="Notes" OnClick="btnNotes_Click" class="sp-button">
+            <div class="sp-rect">
+                <span class="sp-text">Notes</span>
+                <span class="sp-icon">
+                    <i class="far fa-sticky-note"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
+        <asp:LinkButton CommandName="PDF List"  runat="server" Text="PDF List" OnClick="btnPDFList_Click" class="sp-button">
+            <div class="sp-rect">
+                <span class="sp-text">PDF List</span>
+                <span class="sp-icon">
+                    <i class="far fa-file-pdf"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
+        <asp:LinkButton CommandName="Clone Project" runat="server" Text="Clone Project" OnClick="btnCloneProject_Click" class="sp-button">
+            <div class="sp-rect">
+               <span class="sp-text">Clone Project</span> 
+               <span class="sp-icon">
+                   <i class="far fa-clone"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
 
         <br />
-        <a href="ProjectsDashboard.aspx">Back to project dashboard</a>
+        <a href="ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
+    
 
     </div>
 

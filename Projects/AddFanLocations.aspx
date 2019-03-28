@@ -75,15 +75,15 @@
                     <td><asp:TextBox ID="txtQuantity5" class="txtQuantity" runat="server" Placeholder="1" /></td>
                     <td><asp:Label ID="lblMsg5" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
-                <tr><td colspan="4" align="right">
-               <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Save" runat="server" OnClick="btnSubmit_Click" />
-                    </td>
-                    <td align="right">
-                        <asp:Button ID="btnCancel"  class="button-main primary-btn" Text="Exit" OnClick="btnCancel_Click" runat="server" style="width: 100%"/>
-                    </td>
-                </tr>
-                <tr><td><asp:Label ID="lblMessage" runat="server" /></td></tr>
+               
                 </table>
+
+
+
+                <div class="right-controls mt-medium mr-small">
+                    <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Save" runat="server" OnClick="btnSubmit_Click" />
+                    <asp:Button ID="btnCancel"  class="button-main primary-btn" Text="Finished" OnClick="btnCancel_Click" runat="server" />
+                </div>
         
     </div>
 
