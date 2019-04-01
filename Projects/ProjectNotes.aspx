@@ -33,7 +33,7 @@
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtNoteFooter" runat="server"  CssClass="input-small"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="noteRequiredValidator" runat="server" ErrorMessage="Note field is empty" ForeColor="Red" ControlToValidate="txtNoteFooter"></asp:RequiredFieldValidator>
+                        <%--<asp:RequiredFieldValidator ID="noteRequiredValidatorFooter" runat="server" ErrorMessage="Note field is empty" ForeColor="Red" ControlToValidate="txtNoteFooter"></asp:RequiredFieldValidator>--%>
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -61,9 +61,9 @@
 
         <br />
 
-        <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
+        <asp:Label ID="lblSuccessMsg" Visible="false" runat="server" ForeColor="Green"></asp:Label>
         <br />
-        <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblErrorMsg" Visible="false" runat="server" ForeColor="Red"></asp:Label>
         <br />
 
         <div class="right-controls mt-medium">
