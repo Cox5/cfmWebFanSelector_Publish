@@ -14,13 +14,13 @@
         <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
         <br />
         <%--<h4>Prices that were imported recently</h4>--%>
-        <asp:Button ID="btnImportPrices" runat="server" Text="Import Prices" OnClick="btnImportPrices_Click" />
+        <asp:Button ID="btnImportPrices" runat="server" Visible="false" Text="Import Prices" OnClick="btnImportPrices_Click" />
         <br />
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
         <br />
-<%--        <asp:GridView ID="gridView" runat="server">
+        <asp:GridView ID="gridView" runat="server">
 
-        </asp:GridView>--%>
+        </asp:GridView>
 
         <%--<h4>Items that were not found in database</h4>--%>
         <%--<asp:GridView ID="gridViewNoMatch" runat="server"></asp:GridView>--%>

@@ -16,7 +16,7 @@
         <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
         <br />
         <%--<h4>Prices that were imported recently</h4>--%>
-        <asp:Button ID="btnImportPrices" runat="server" Text="Import Components" OnClick="btnImportComponents_Click" />
+        <asp:Button ID="btnImportPrices" runat="server" Visible="false" Text="Import Components" OnClick="btnImportComponents_Click" />
         <br />
         <asp:Label ID="lblDBMessage" runat="server"></asp:Label>
         <br />
