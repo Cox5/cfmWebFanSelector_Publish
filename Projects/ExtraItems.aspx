@@ -80,7 +80,7 @@
                         <asp:LinkButton  runat="server" CommandName="Cancel" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:LinkButton runat="server" CommandName="Add"><button class="button-main primary-btn"><i class="tooltip fas fa-plus-circle"></i> Add</button></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Add" CssClass="button-main primary-btn"><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -91,9 +91,9 @@
 
         <br />
 
-        <asp:Label ID="lblSuccessMsg" Text="" runat="server" ForeColor="Green"></asp:Label>
+        <asp:Label ID="lblSuccessMsg" runat="server" ForeColor="Green"></asp:Label>
         <br />
-        <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red" CssClass="mb-small"></asp:Label>
+        <asp:Label ID="lblErrorMsg" runat="server" ForeColor="Red" CssClass="mb-small"></asp:Label>
         <br />
 
         <div class="right-controls mb-small">

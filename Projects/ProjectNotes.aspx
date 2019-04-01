@@ -29,26 +29,30 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtNote" Text='<%#Eval("note") %>' runat="server"  CssClass="input-small"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="noteRequiredValidator" runat="server" ErrorMessage="Note field is empty" ForeColor="Red" ControlToValidate="txtNote"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtNoteFooter" runat="server"  CssClass="input-small"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="noteRequiredValidator" runat="server" ErrorMessage="Note field is empty" ForeColor="Red" ControlToValidate="txtNoteFooter"></asp:RequiredFieldValidator>
                     </FooterTemplate>
                 </asp:TemplateField>
 
 
                 <asp:TemplateField ItemStyle-Width="70px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" CommandName="Edit"><i class="tooltip fas fa-pencil-alt"><span class="tooltiptext">Edit</span></i></asp:LinkButton>
-                        <asp:LinkButton runat="server" CommandName="Delete"><i class="tooltip far fa-trash-alt"><span class="tooltiptext">Delete</span></i></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Edit" CausesValidation="false"><i class="tooltip fas fa-pencil-alt"><span class="tooltiptext">Edit</span></i></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Delete" CausesValidation="false"><i class="tooltip far fa-trash-alt"><span class="tooltiptext">Delete</span></i></asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:LinkButton runat="server" CommandName="Update" ><i class="tooltip far fa-save"><span class="tooltiptext">Update</span></i></asp:LinkButton>
-                        <asp:LinkButton  runat="server" CommandName="Cancel" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
+                        <asp:LinkButton  runat="server" CommandName="Cancel" CausesValidation="false" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
                     </EditItemTemplate>
                     <FooterTemplate >
                             <asp:LinkButton runat="server" CommandName="Add" CssClass="button-main primary-btn"><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                     </FooterTemplate>
                 </asp:TemplateField>
+
+                
 
             </Columns>
 
@@ -64,7 +68,7 @@
 
         <div class="right-controls mt-medium">
 
-            <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Finished <i class="fas fa-chevron-right"></i></asp:LinkButton>
+            <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" CausesValidation="false" class="button-main primary-btn" >Finished <i class="fas fa-chevron-right"></i></asp:LinkButton>
             <!-- <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click" class="button-main primary-btn" CausesValidation="false" /> -->
         </div>
 

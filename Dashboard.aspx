@@ -52,6 +52,13 @@
 					</div>
 				</a>
 
+<%--                <a id="importComponentsLink" class="dashboard-icon-link" href="/ImportComponents.aspx" runat="server">
+                    <i class="fas fa-dollar-sign icon"></i>
+                    <div class="highlighted">
+                        Import Components
+                    </div>
+                </a>--%>
+
 		</div>
 
 

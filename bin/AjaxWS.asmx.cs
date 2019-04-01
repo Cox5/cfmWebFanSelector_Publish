@@ -93,6 +93,7 @@ namespace CFM_Web
             selectedFanData.acousticTable = buildAcousticTable(fanData);
 
             FanSelection.PartNumber = fan.partNumber;
+            FanSelection.FanDataID = fanData.fanDataID;
 
             // Set fan data for PDF generate process
             pdfData.FanCode = fan.partNumber;

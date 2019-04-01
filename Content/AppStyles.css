@@ -461,27 +461,34 @@ a.button-main {
 }
   
 .tooltip .tooltiptext {
-visibility: hidden;
-width: 90px;
-background-color: rgba(0, 0, 0, 0.836);
-color: #fff;
-text-align: center;
-border-radius: 6px;
-padding: 5px;
-font-size: 13px;
-font-weight: 400;
+    visibility: hidden;
+    width: 121px;
+    background-color: rgba(0, 0, 0, 0.836);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Fira Sans", sans-serif;
+    position: absolute;
+    z-index: 1;
+    top: -27px;
+    left: -308%;
+    
+}
 
-font-family: "Fira Sans", sans-serif;
-
-/* Position the tooltip */
-position: absolute;
-z-index: 1;
-top: -5px;
-left: 120%;
+.tooltip .tooltiptext-post-svg {
+    left: -395%;
 }
 
 .tooltip .tooltiptext.tooltip-svg {
-    top: 6px;
+    top: -17px;
+}
+
+.tooltip .tooltiptext-pricing {
+    top: -22px;
+    left: -270%;
 }
   
 .tooltip:hover .tooltiptext {
