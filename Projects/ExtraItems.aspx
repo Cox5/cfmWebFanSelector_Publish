@@ -28,56 +28,60 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtDescription" Text='<%#Eval("description") %>' runat="server"  CssClass="input-small"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="descRequiredValidator" runat="server" ErrorMessage="Description field is empty" ForeColor="Red" ControlToValidate="txtDescription"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtDescriptionFooter" runat="server" CssClass="input-small"></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Catalogue Number" HeaderStyle-HorizontalAlign="Left">
+                <asp:TemplateField HeaderText="Catalogue Number" ItemStyle-Width="160px" HeaderStyle-Width="160px"  HeaderStyle-HorizontalAlign="Left">
                     <ItemTemplate>
                         <asp:Label Text='<%#Eval("catalogue_id") %>' runat="server"></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtCatalogueNumber" Text='<%#Eval("catalogue_id") %>' runat="server"  CssClass="input-small"></asp:TextBox>
+                        <asp:CustomValidator ID="catalogueNumCustomValidator" runat="server" ErrorMessage="..."></asp:CustomValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtCatalogueNumberFooter" runat="server" CssClass="input-small"></asp:TextBox>
+                        <asp:TextBox ID="txtCatalogueNumberFooter" runat="server" Width="160px" CssClass="input-small"></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Qty" HeaderStyle-HorizontalAlign="Left">
+                <asp:TemplateField ItemStyle-Width="70px"  HeaderStyle-Width="70px"  HeaderText="Qty" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:Label Text='<%#Eval("quantity") %>' runat="server"></asp:Label>
+                        <asp:Label Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center"></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtQuantity" Text='<%#Eval("quantity") %>' runat="server"  CssClass="input-small"></asp:TextBox>
+                        <asp:TextBox ID="txtQuantity" Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center" CssClass="input-small center-text"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="qtyRequiredValidator" runat="server" ErrorMessage="Qty field is empty" ForeColor="Red" ControlToValidate="txtQuantity"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtQuantityFooter" runat="server" CssClass="input-small"></asp:TextBox>
+                        <asp:TextBox ID="txtQuantityFooter" runat="server" Width="70px" CssClass="input-small center-text"></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Unit Price ($)" HeaderStyle-HorizontalAlign="Left">
+                <asp:TemplateField HeaderText="Unit Price ($)" ItemStyle-Width="140px" HeaderStyle-Width="140px" HeaderStyle-HorizontalAlign="Left">
                     <ItemTemplate>
                         <asp:Label Text='<%#Eval("unit_price") %>' runat="server"></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtUnitPrice" Text='<%#Eval("unit_price") %>' runat="server" CssClass="input-small"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="priceRequiredValidator" runat="server" ErrorMessage="Price field is empty" ForeColor="Red" ControlToValidate="txtUnitPrice"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtUnitPriceFooter" runat="server" CssClass="input-small"></asp:TextBox>
+                        <asp:TextBox ID="txtUnitPriceFooter" runat="server" Width="140px" CssClass="input-small"></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="70px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
+                <asp:TemplateField ItemStyle-Width="70px"  HeaderStyle-Width="70px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" CommandName="Edit"><i class="tooltip fas fa-pencil-alt"><span class="tooltiptext">Edit</span></i></asp:LinkButton>
-                        <asp:LinkButton runat="server" CommandName="Delete"><i class="tooltip far fa-trash-alt"><span class="tooltiptext">Delete</span></i></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Edit" CausesValidation="false"><i class="tooltip fas fa-pencil-alt"><span class="tooltiptext">Edit</span></i></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Delete" CausesValidation="false"><i class="tooltip far fa-trash-alt"><span class="tooltiptext">Delete</span></i></asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:LinkButton runat="server" CommandName="Update" ><i class="tooltip far fa-save"><span class="tooltiptext">Update</span></i></asp:LinkButton>
-                        <asp:LinkButton  runat="server" CommandName="Cancel" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
+                        <asp:LinkButton  runat="server" CommandName="Cancel" CausesValidation="false" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:LinkButton runat="server" CommandName="Add" CssClass="button-main primary-btn"><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
