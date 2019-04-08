@@ -34,7 +34,7 @@
 
 
         <br />
-        <a href="ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
+        <a href="Projects/ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
     
 
     </div>
