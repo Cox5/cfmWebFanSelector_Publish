@@ -23,7 +23,7 @@
         </asp:GridView>
 
         <%--<h4>Items that were not found in database</h4>--%>
-        <%--<asp:GridView ID="gridViewNoMatch" runat="server"></asp:GridView>--%>
+        <asp:GridView ID="gridViewNoMatch" runat="server"></asp:GridView>
         
     </div>
 

@@ -84,14 +84,25 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-CssClass="icons" ItemStyle-Width="70px"  HeaderStyle-HorizontalAlign="Right">
+            
+
+                <asp:TemplateField ItemStyle-Width="70px"  HeaderStyle-Width="70px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" CommandName="Edit"><i class="tooltip fas fa-pencil-alt"><span class="tooltiptext">Edit</span></i></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Edit" CausesValidation="false">
+                            <span class="tooltip"><i class="fas fa-pencil-alt"></i><span class="tooltiptext tooltip-i">Edit</span></span>
+                        </asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:LinkButton runat="server" CommandName="Update" ><i class="tooltip far fa-save"><span class="tooltiptext">Update</span></i></asp:LinkButton>
-                        <asp:LinkButton  runat="server" CommandName="Cancel" ><i class="tooltip fas fa-times-circle"><span class="tooltiptext">Cancel</span></i></asp:LinkButton>
+                        <asp:LinkButton runat="server" CommandName="Update" >
+                            <span class="tooltip"><i class="far fa-save"></i><span class="tooltiptext tooltip-i">Update</span></span>
+                        </asp:LinkButton>
+                        <asp:LinkButton  runat="server" CommandName="Cancel" CausesValidation="false" >
+                            <span class="tooltip"><i class="tooltip fas fa-times-circle"></i><span class="tooltiptext tooltip-i">Cancel</span></span>
+                        </asp:LinkButton>
                     </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:LinkButton runat="server" CommandName="Add" CssClass="button-main primary-btn"><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
+                    </FooterTemplate>
                 </asp:TemplateField>
 
             </Columns>

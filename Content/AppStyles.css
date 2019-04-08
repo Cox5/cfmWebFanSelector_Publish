@@ -369,6 +369,7 @@ td.icons {
 
 td.icons img {
     width: 22px !important;
+    padding: 0px !important;
 
 }
 
@@ -438,7 +439,7 @@ td.medium-td {
 
 }
 
-td.icons > a, td.icons > i.pricing {
+td.icons > a {
     padding: 5px;
     font-size: 19px;
 }
@@ -458,9 +459,10 @@ a.button-main {
 .tooltip {
     position: relative;
     display: inline-block;
+    width: 17px;
 }
   
-.tooltip .tooltiptext {
+.tooltiptext {
     visibility: hidden;
     width: 121px;
     background-color: rgba(0, 0, 0, 0.836);
@@ -478,34 +480,42 @@ a.button-main {
     
 }
 
+.tooltip-svg {
+    top: -25px;
+}
+
+.tooltip-i {
+    top: -31px;
+}
+
+
+/* 
 .tooltip .tooltiptext-post-svg {
     left: -395%;
 }
 
-.tooltip .tooltiptext.tooltip-svg {
-    top: -17px;
-}
 
 .tooltip .tooltiptext-pricing {
     top: -22px;
     left: -270%;
 }
-  
+   */
 .tooltip:hover .tooltiptext {
 visibility: visible;
 }
 
 /* Svg icons */
 
-.svg-par {
-width: 17px;
+.icons .fa, .icons .fas, .icons .far {
+    vertical-align: top !important;
+    line-height: 0;
+    margin-top: 8.5px;
 }
 
+
 .svg {
-position: relative;
-top: 7px;
-right: 8px;
-height: 19px !important;
+    height: 19px !important;
+    margin-top: 5px;
 }
 
 .svg.bigger {
@@ -561,10 +571,18 @@ height: 19px !important;
     font-weight: 600;
     background: var(--header-bg-color) !important;
     height: 30px;
+    vertical-align: unset;
+}
+
+.gridview tr {
+    vertical-align: unset;
+    height: 30px;
 }
 
 
+
 .pricing {
+    font-size: 18px !important;
     text-decoration: none;
 }
 
