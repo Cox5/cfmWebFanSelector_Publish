@@ -38,7 +38,7 @@
             </div>
         </asp:LinkButton>
 
-        <asp:LinkButton CommandName="Extra Items"  runat="server"  OnClick="btnExtraItems_Click" class="sp-button">
+        <asp:LinkButton CommandName="Extra Items" ID="linkExtraItems" runat="server"  OnClick="btnExtraItems_Click" class="sp-button">
             <div class="sp-rect">
                 
                 <span class="sp-text">Extra Items</span>
@@ -49,7 +49,7 @@
             </div>
         </asp:LinkButton>
 
-        <asp:LinkButton CommandName="Notes"   runat="server" Text="Notes" OnClick="btnNotes_Click" class="sp-button">
+        <asp:LinkButton CommandName="Notes" ID="linkNotes"  runat="server" Text="Notes" OnClick="btnNotes_Click" class="sp-button">
             <div class="sp-rect">
                 <span class="sp-text">Notes</span>
                 <span class="sp-icon">
@@ -67,7 +67,7 @@
             </div>
         </asp:LinkButton>
 
-        <asp:LinkButton CommandName="Clone Project" runat="server" Text="Clone Project" OnClick="btnCloneProject_Click" class="sp-button">
+        <asp:LinkButton CommandName="Clone Project" runat="server" ID="linkCloneProject" Text="Clone Project" OnClick="btnCloneProject_Click" class="sp-button">
             <div class="sp-rect">
                <span class="sp-text">Clone Project</span> 
                <span class="sp-icon">
