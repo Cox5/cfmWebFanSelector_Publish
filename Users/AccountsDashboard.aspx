@@ -8,6 +8,11 @@
           <h1 class="table-title">User Accounts</h1>
         </div>
 
+         <div class="table-controls mt-solid mb-solid">
+             <%--<asp:Button CssClass="button-main primary-btn" ID="btnAddUser" runat="server" Text="Add New User" OnClick="btnAddUser_Click" />--%>
+             <a href="RegisterUser.aspx" id="addUserHref" class="button-main primary-btn" runat="server"><i class="fas fa-plus-circle"></i>Add New User</a>
+         </div>
+
     <table class="table project">
         <thead>
           <tr><td width="35%">Name</td><td width="35%">Company</td><td width="20%">User class</td><td></td></tr>

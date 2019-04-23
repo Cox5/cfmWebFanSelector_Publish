@@ -29,7 +29,8 @@
     </table>
 
     <div class="right-controls mt-medium mr-small">
-        <a class="button-main primary-btn" href="/Projects/ProjectsDashboard.aspx">Finished <i class="fas fa-chevron-right"></i></a>
+        <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" CausesValidation="false" class="button-main primary-btn" >Finished <i class="fas fa-chevron-right"></i></asp:LinkButton>
+        <%--<a class="button-main primary-btn" href="/Projects/ProjectsDashboard.aspx">Finished <i class="fas fa-chevron-right"></i></a>--%>
     </div>
 
   </div>

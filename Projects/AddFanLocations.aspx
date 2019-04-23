@@ -78,7 +78,7 @@
                
                 </table>
 
-
+                <asp:Label ID="lblMessage" runat="server" />
 
                 <div class="right-controls mt-medium mr-small">
                     <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Save" runat="server" OnClick="btnSubmit_Click" />

@@ -59,8 +59,8 @@
                       Text="Request Pricing" Visible="false"/>
                     <asp:Button ID="btnExtraItems" runat="server" CssClass="button-main primary-btn" Text="Extras" OnClick="btnExtraItems_Click" />
                     <asp:Button ID="btnGoToPricelist" runat="server" CssClass="button-main primary-btn" Text="Go to Pricelist" OnClick="btnGoToPricelist_Click" />
-                    <%--<asp:Button ID="btnFinished" runat="server"  CssClass="button-main primary-btn" Text="Finished" />--%>
-                    <a href="/Projects/ProjectsDashboard.aspx" class="button-main primary-btn">Finished <i class="fas fa-chevron-right"></i></a>
+                    <asp:Button ID="btnFinished" runat="server"  CssClass="button-main primary-btn" Text="Finished" OnClick="btnFinished_Click" />
+                    <%--<a href="javascript: history.go(-1)" class="button-main primary-btn">Finished <i class="fas fa-chevron-right"></i></a>--%>
                 </td>
             </tr>
         </table>
