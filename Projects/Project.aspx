@@ -136,7 +136,7 @@
 
             <div class="right-controls mt-medium mr-small">
                 <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Create Project" runat="server" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" OnClientClick="javascript:window.location.href='ProjectsDashboard.aspx'; return false;" />
+                <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
             </div>
 
         </div>
