@@ -3,9 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
-    <h3>Calculated prices based on impeller for MUA fans</h3>
-    <br />
-    <asp:GridView ID="gridView" runat="server">
-    </asp:GridView>
+    <div class="content-wrapper">
 
+        <h3>Calculated prices based on impeller code for MUA fans</h3>
+        <br />
+        <asp:GridView ID="gridView" runat="server">
+        </asp:GridView>
+
+    </div>
 </asp:Content>
