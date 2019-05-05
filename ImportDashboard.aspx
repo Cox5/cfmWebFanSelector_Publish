@@ -31,10 +31,27 @@
                 </span>
             </div>
         </asp:LinkButton>
+        <asp:LinkButton CommandName="Build Fan Prices" runat="server" Text="Build Fan Prices" class="sp-button" OnClick="btnBuildFanPrices_Click">
+            <div class="sp-rect" style="width: 320px;">
+               <span class="sp-text">Build Fan Prices</span> 
+               <span class="sp-icon">
+                   <i class="fas fa-dollar-sign icon"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
+        <asp:LinkButton CommandName="Import Impeller" runat="server" Text="Import Impeller" class="sp-button" OnClick="btnImportImpeller_Click" >
+            <div class="sp-rect" style="width: 320px;">
+               <span class="sp-text">Import Impeller</span> 
+               <span class="sp-icon">
+                   <i class="fas fa-dollar-sign icon"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
 
 
         <br />
-        <a href="Projects/ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
+        <a href="Dashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to dashboard</a>
     
 
     </div>
