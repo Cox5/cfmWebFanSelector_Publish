@@ -49,6 +49,15 @@
             </div>
         </asp:LinkButton>
 
+        <asp:LinkButton CommandName="Import Motor Prices" runat="server" Text="Import Motor Prices" class="sp-button" OnClick="btnImportMotorPrices_Click">
+            <div class="sp-rect" style="width: 320px;">
+               <span class="sp-text">Import Motor Prices</span> 
+               <span class="sp-icon">
+                   <i class="fas fa-dollar-sign icon"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
 
         <br />
         <a href="Dashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to dashboard</a>
