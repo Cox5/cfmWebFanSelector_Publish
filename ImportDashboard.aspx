@@ -14,9 +14,9 @@
         </div>
        
 
-        <asp:LinkButton CommandName="Import Prices" runat="server" Text="Import Prices"  OnClick="btnImportPrices_Click" class="sp-button">
-            <div class="sp-rect">
-                <span class="sp-text">Import Prices</span>
+        <asp:LinkButton CommandName="Import Fan Prices" runat="server" Text="Import Fan Prices"  OnClick="btnImportPrices_Click" class="sp-button">
+            <div class="sp-rect" style="width: 320px;>
+                <span class="sp-text">Import Fan Prices</span>
                 <span class="sp-icon">
                     <i class="fas fa-dollar-sign icon"></i>
                 </span>

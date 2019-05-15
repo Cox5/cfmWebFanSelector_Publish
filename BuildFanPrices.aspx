@@ -7,6 +7,13 @@
 
         <h3>Calculated prices based on impeller code for MUA fans</h3>
         <br />
+
+        <p>
+            Notes: <br />
+            1. Impeller Code, FanModelNumber columns are fethced from fan/fandata JOINED tables<br />
+            2. Hub, BladeShape, BladeMaterial, ImpellerPrice are fethed from impeller_price table
+        </p>
+
         <asp:GridView ID="gridView" runat="server">
         </asp:GridView>
 

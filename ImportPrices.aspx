@@ -25,8 +25,12 @@
         <%--<h4>Items that were not found in database</h4>--%>
         <asp:GridView ID="gridViewNoMatch" runat="server"></asp:GridView>
 
-        Components
-        <asp:GridView ID="gridViewComponents" runat="server"></asp:GridView>
+<%--        Components
+        <asp:GridView ID="gridViewComponents" runat="server"></asp:GridView>--%>
+
+        
+        <h4>Fan prices which are already imported:</h4>
+        <asp:GridView ID="gridViewImported" runat="server"></asp:GridView>
         
     </div>
 
