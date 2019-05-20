@@ -19,7 +19,7 @@
 
         <div class="table-controls center-text">
             <span class="mr-small">Standard price adjustment (%) </span>
-            <asp:TextBox class="mr-small" ID="txtPercentage" runat="server" Placeholder="20" Height="32px" Width="100px"></asp:TextBox>
+            <asp:TextBox class="mr-small" ID="txtPercentage" runat="server" Placeholder="20" Height="32px" Width="100px"></asp:TextBox>%
             <asp:DropDownList  class="mr-small" runat="server" ID="ddlPriceAdjustment"  Height="32px" Width="150px">
                         <asp:ListItem Text="Discount" Value="0"></asp:ListItem>
                         <asp:ListItem Text="Premium" Value="1"></asp:ListItem>

@@ -13,12 +13,13 @@
                 <tr>
                     <td>Project Name</td>
                     <td>
-                        <asp:TextBox ID="txtProjectname" runat="server" Required="true"/>
+                        <asp:TextBox ID="txtProjectname" runat="server"/>
                     </td>
                 </tr>
 
 
                 <%--<asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtProjectname" MinimumValue="2" MaximumValue="35" ErrorMessage="Enter a valid name" ForeColor="Red" /> --%>
+                <asp:RequiredFieldValidator class="mt-small" ID="RequiredProjectNamevalidator" runat="server" ErrorMessage="Project name field is empty" ForeColor="Red" ControlToValidate="txtProjectname"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "txtProjectname" ID="RegularExpressionValidator2" ValidationExpression = "^[\s\S]{2,30}$" runat="server" ErrorMessage="Minimum 2 and maximum 30 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
   
                 <tr>
