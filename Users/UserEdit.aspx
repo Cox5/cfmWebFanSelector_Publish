@@ -26,10 +26,17 @@
       
         </td>
     </tr>
-    <tr>
+<%--    <tr runat="server" id="trTxtCompanyName">
       <td>Company</td>
       <td><asp:TextBox ID="txtCompany_Name" runat="server" /></td>
-    </tr>
+    </tr>--%>
+    <tr runat="server" id="trDdlCompany">
+          <td>Company (select)</td>
+          <td><asp:DropDownList runat="server" ID="ddlCompanyName">
+              </asp:DropDownList> 
+
+          </td>
+      </tr>
     <tr>
       <td>Mobile</td>
       <td><asp:TextBox ID="txtUser_Mobile" runat="server" /></td>

@@ -8,9 +8,11 @@
           <h1 class="table-title">User Accounts</h1>
         </div>
 
+         <a href="/Company/CompanyDetails.aspx" class="button-main primary-btn mt-medium"><i class="fas fa-angle-up"></i> Company Accounts</a>
+
          <div class="table-controls mt-solid mb-solid">
              <%--<asp:Button CssClass="button-main primary-btn" ID="btnAddUser" runat="server" Text="Add New User" OnClick="btnAddUser_Click" />--%>
-             <a href="RegisterUser.aspx" id="addUserHref" class="button-main primary-btn" runat="server"><i class="fas fa-plus-circle"></i>Add New User</a>
+             <a href="RegisterUser.aspx" id="addUserHref" class="button-main primary-btn" runat="server"><i class="fas fa-plus-circle"></i> Add New User</a>
          </div>
 
     <table class="table project">
