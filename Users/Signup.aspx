@@ -88,9 +88,9 @@
                         <asp:CompareValidator runat="server" ID="Comp2" ControlToValidate="txtEmailConfirm" ControlToCompare="txtEmail" Operator="Equal" Type="String" ErrorMessage="Email mismatch" ForeColor="Red"></asp:CompareValidator>
                     </p>
                     
-                    <p class="validation-msg">
+<%--                    <p class="validation-msg">
                         <asp:RegularExpressionValidator ID="regPhone" runat="server" ControlToValidate="txtUserPhone" ValidationExpression="" ErrorMessage="Enter a valid phone number" ForeColor="Red" /> 
-                    </p>
+                    </p>--%>
                     
                     <p class="validation-msg">
                         <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch"  ForeColor="Red"></asp:CompareValidator>
