@@ -14,7 +14,7 @@
                 <td>
                     <asp:TextBox ID="txtCompany" runat="server" />
                 </td>
-            </tr>
+            </tr>    
             <tr>
                 <td>Address 1</td>
                 <td>
@@ -67,6 +67,7 @@
             </tr>
 
         </table>
+        <asp:RequiredFieldValidator class="mt-small"  ID="regCompanyNameRequired" runat="server" ErrorMessage="Company name is empty" ForeColor="Red" ControlToValidate="txtCompany"></asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="regUrl" runat="server" ControlToValidate="txtCompanyWebsite" ValidationExpression="^((http|https)://)?([\w-]+\.)+[\w]+(/[\w- ./?]*)?$" ErrorMessage="Enter a valid URL" ForeColor="Red" />
 
 
