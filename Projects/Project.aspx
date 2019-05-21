@@ -19,7 +19,7 @@
 
 
                 <%--<asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtProjectname" MinimumValue="2" MaximumValue="35" ErrorMessage="Enter a valid name" ForeColor="Red" /> --%>
-                <asp:RequiredFieldValidator class="mt-small" ID="RequiredProjectNamevalidator" runat="server" ErrorMessage="Project name field is empty" ForeColor="Red" ControlToValidate="txtProjectname"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator class="mt-small" ID="RequiredProjectNamevalidator" runat="server" ErrorMessage="Project name field is empty " ForeColor="Red" ControlToValidate="txtProjectname"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "txtProjectname" ID="RegularExpressionValidator2" ValidationExpression = "^[\s\S]{2,30}$" runat="server" ErrorMessage="Minimum 2 and maximum 30 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
   
                 <tr>
@@ -46,7 +46,7 @@
                         <asp:TextBox ID="txtState" runat="server" />
                     </td>
                 </tr>
-                <asp:RequiredFieldValidator class="mt-small" ID="stateReqValidator" runat="server" ErrorMessage="State field is empty" ForeColor="Red" ControlToValidate="txtState"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator class="mt-small" ID="stateReqValidator" runat="server" ErrorMessage=" State field is empty" ForeColor="Red" ControlToValidate="txtState"></asp:RequiredFieldValidator>
                 <tr>
                     <td>Postcode</td>
                     <td>
@@ -65,6 +65,7 @@
 
 
             <div class="rightcolumn" id="rightCol" runat="server">
+                <br />
                 <table class="table">
                     <!-- Eng Comp, Sales Consultant, Quote Number, Status and PriceAdj should only appear if user is sales, admin or superadmin -->
                     <tr id="trEngComp" runat="server" >
