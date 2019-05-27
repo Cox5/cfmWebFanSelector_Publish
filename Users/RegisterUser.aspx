@@ -64,8 +64,10 @@
                         <tr>
                       <td>User class</td>
                       <td><asp:DropDownList runat="server" ID="ddlUserClass">
-                          <asp:ListItem Text="Sales" Value="2"></asp:ListItem>
+                          <asp:ListItem Text="Unapproved" Value="4"></asp:ListItem>
                           <asp:ListItem Text="User" Value="3"></asp:ListItem>
+                          <asp:ListItem Text="Sales" Value="2"></asp:ListItem>
+                          <asp:ListItem Text="Admin" Value="1"></asp:ListItem>
                       </asp:DropDownList></td>
                     </tr>
                     <tr>
