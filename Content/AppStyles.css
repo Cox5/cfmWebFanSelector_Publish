@@ -33,6 +33,7 @@ h3 {
     font-size: 2.4em;
     font-weight: 600;
     color: var(--dark-grey);
+    line-height: 2;
 }
 
 .subtitle {
@@ -44,6 +45,16 @@ h3 {
 .project-name {
     font-size: 1.4em;
     line-height: 1.4;
+    font-weight: 500;
+}
+
+.projOtherDetails {
+    font-size: 1.3em;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.projOtherDetails .lblOtherDetails {
     font-weight: 500;
 }
 
@@ -64,6 +75,10 @@ body {
     box-shadow: 4px 2px 19px 0px rgba(0,0,0,0.15);
     margin-bottom: 50px;
     
+}
+
+.content-wrapper.projects-wrapper {
+    max-width: 1020px;
 }
 
 .welcome-text {
@@ -691,6 +706,14 @@ visibility: visible;
 }
 
 
+
+.success-lbl {
+    padding-bottom: 25px;
+}
+
+
+
+
 /* Media queries */
 
 
@@ -762,3 +785,4 @@ visibility: visible;
     }
     
 }
+

@@ -22,6 +22,18 @@
 
             <Columns>
 
+                <asp:TemplateField HeaderText="Fan Location" HeaderStyle-HorizontalAlign="Left">
+                    <ItemTemplate>
+                        <asp:Label Text='<%#Eval("location_designation") %>' runat="server"></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtFanLocation" Text='<%#Eval("location_designation") %>' runat="server"  CssClass="input-small"></asp:TextBox>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:TextBox ID="txtFanLocationFooter" runat="server" CssClass="input-small"></asp:TextBox>
+                    </FooterTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Item Description" HeaderStyle-HorizontalAlign="Left">
                     <ItemTemplate>
                         <asp:Label Text='<%#Eval("description") %>' runat="server"></asp:Label>

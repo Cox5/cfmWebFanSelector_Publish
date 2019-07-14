@@ -8,12 +8,24 @@
         <div class="mb-solid mt-solid">
             <div class="table-controls">
                 <span class="maintitle">
-                    <asp:Label ID="lblProjectName" runat="server"></asp:Label></h1>
+                    <asp:Label ID="lblProjectName" runat="server"></asp:Label></span>
 
             </div>
 
             <span id="projectAddress" class="subtitle" runat="server">
                 <asp:Label ID="lblProjectAddress" runat="server"></asp:Label></span>
+
+            <div class="projOtherDetails" runat="server">
+                    
+                Quote number: <asp:Label ID="lblProjectQuoteNumber" runat="server" class="lblOtherDetails"></asp:Label>
+            
+            </div>
+
+            <div class="projOtherDetails" runat="server">
+                    
+                Salesperson: <asp:Label ID="lblProjectSalesperson" runat="server" class="lblOtherDetails"></asp:Label>
+            
+            </div>
         </div>
         
 

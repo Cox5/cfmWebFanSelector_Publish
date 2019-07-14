@@ -175,8 +175,10 @@
             </div>
 
             <div class="center-text mb-medium">
-                <asp:Label ID="lblMessage" runat="server" />
-                <br />
+                <div class="success-lbl">
+                    <asp:Label ID="lblMessage" runat="server" />
+                </div>
+
                 <asp:Button class="button-main bigger primary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
                 <a href="AccountsDashboard.aspx" id="dashHref" runat="server" class="button-main bigger primary-btn mt-big">Cancel</a>
                 <a href="AccountsDashboard.aspx" id="dashFinishedHref" runat="server" class="button-main bigger primary-btn mt-big" visible="false">Finished</a>
