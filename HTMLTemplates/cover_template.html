@@ -13,7 +13,6 @@
 				float: left;
 				width: 25%;
 				padding: 0;
-				font-size: 13px;
 			}
 			/* Clear floats after the columns */
 			.row:after {
@@ -21,25 +20,43 @@
 				display: table;
 				clear: both;
 			}
+			.col-2 {
+				float: left;
+				width: 50%;
+			}
+			.left {
+				width: 30%;
+			}
+			.right {
+				width: 70%;
+				display: inline-block;
+			}
 			th {
 				text-align: left;
 			}
-
-			h2 {
-				font-weight: 600;
-				line-height: 1;
+			.motorDataTbl {
+				table-layout: fixed;
+				width: 90%;
+				font-size: 19px;
 			}
-
-			h3 {
-				font-size: 20px;
-				line-height: 0.7;
-				font-weight: 500;
+			.acoustic_data_table {
+				table-layout: fixed;
+				width: 80%;
+				font-size: 19px;
 			}
-
-			h4 {
-				font-size: 18px;
-				line-height: 0.7;
-				font-weight: 500;
+			.acoustic_data_table tbody tr td:first-child {
+				width: 8em;
+				min-width: 8em;
+				max-width: 8em;
+				word-break: break-all;
+			}
+			.fanDataTbl {
+				table-layout: fixed;
+				width: 100%;
+				font-size: 19px;
+			}
+			.requirementsTbl {
+				font-size: 19px;
 			}
 
 			.cover_table {
@@ -47,15 +64,6 @@
 				padding-top: 15px;
 				padding-bottom: 15px;
 			}
-
-			.heading-wrapper {
-				padding-top: 15px;
-				padding-bottom: 10px;
-				text-align: center;
-
-			}
-
-			
 
 			/* Helpers */
 			.mt-small {
@@ -74,16 +82,19 @@
 				font-weight: 600;
 			}
 
+			
+
 
 
 		</style>
     </head>
 
-    
+	
 	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
 
 
-    <div class="row  mt-small mb-medium">
+
+    <div class="row mt-small mb-medium">
         <div class="column">
                 <b><u>Address</u></b></br>
                 106-108 Fairbank Road<br>Clayton South Victoria 3169
@@ -100,20 +111,35 @@
                 <b><u>Website</u></b></br>
                 cfmairsystems.com.au
         </div>
-    </div>
-    <hr />
-    <div class="heading-wrapper">
-    
-	    <h2>%%PROJNAME%%, %%PROJADDR%%</h2>
-	    
-	    <h4>on behalf of <span class="bold">%%COMPANY%%</span> , Attn: <span class="bold">%%ATTN%%</span></h4>
-	    
-	    <h3>Quote: <span class="bold">%%QUOTENUM%%</span></h3>
-	    
-	    <h4 class="bold">%%DATE%%</h4> 
-	    
-    
-    </div>
+	</div>
+	
+	<hr />
+
+	<table class="cover_table">
+		<tr>
+			<td class="bold">To:</td>
+			<td>%%COMPANY%%</td>
+			<td class="bold">Date:</td>
+			<td>%%DATE%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Attention:</td>
+			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
+			<td class="bold">From:</td>
+			<td>%%SALES%%%%SALESMAIL%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Re:</td>
+			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+			<td class="bold">Quote number:</td>
+			<td>%%QUOTENUM%%</td>
+		</tr>
+		
+	</table>
+
+	<hr/>
 
 
 </html>

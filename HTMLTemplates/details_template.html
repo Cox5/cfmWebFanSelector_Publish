@@ -53,7 +53,6 @@
 				padding-top: 15px;
 				padding-bottom: 10px;
 				text-align: center;
-				font-size: 
 
 			}
 
@@ -77,11 +76,18 @@
 			}
 			.details_table {
 				float: left;
-				font-size: 14px;
+				font-size: 13px;
+				display: inline-block;
 			}
 			.fan_data_table {
 				float: left;
-				font-size: 14px;
+				font-size: 13px;
+				width: 17%;
+				display: inline-block;
+			}
+			
+			.fan_data_table td {
+				white-space: nowrap;
 			}
 			
 			
@@ -91,7 +97,8 @@
 		</style>
     </head>
 
-	<img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
+	
+	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
 
 
 
@@ -117,9 +124,9 @@
     <hr />
 	<div class="heading-wrapper">
 	
-		<h2>%%PROJNAME%%,%%PROJADDR%%</h2>
+		<h2>%%PROJNAME%%, %%PROJADDR%%</h2>
 		
-		<h4>on behalf of <span class="bold">%%COMPANY%%</span> , Attn: <span class="bold">%%ATTN%%</span></h4>
+		<h4>on behalf of <span class="bold">%%COMPANY%%</span>, Attn: <span class="bold">%%ATTN%%</span></h4>
 		
 		<h3>Quote: <span class="bold">%%QUOTENUM%%</span></h3>
 		
@@ -127,51 +134,53 @@
 		
 	
 	</div>
+	<hr />
 	
 	<div>
-	<table class="details_table">
-		<tr><td class="bold">Location</td></tr>
-		<tr><td>Description:</td></tr>
-		<tr><td>Schedule Reference</td></tr>
-		<tr><td class="bold">Fan</td></tr>
-		<tr><td>Model number</td></tr>
-		<tr><td>Model Name</td></tr>
-		<tr><td class="bold">Physical characteristics</td></tr>
-		<tr><td>Nominal Diameter (mm)</td></tr>
-		<tr><td>Hub Size (mm)</td></tr>
-		<tr><td>Impeller</td></tr>
-		<tr><td>Fan Weight (kg)</td></tr>
-		<tr><td class="bold">Notes</td></tr>
-		<tr><td>Airflow characteristics</td></tr>
-		<tr><td>Volume (L/s)</td></tr>
-		<tr><td>Static Pressure (Pa)</td></tr>
-		<tr><td>ABS/LL Power (kW)</td></tr>
-		<tr><td>Fan Speed (r/min)</td></tr>
-		<tr><td>Outlet Velocity (m/s)</td></tr>
-		<tr><td>Sound Pressure (dB(A))</td></tr>
-		<tr><td class="bold">Motor characteristics</td></tr>
-		<tr><td>Motor Power</td></tr>
-		<tr><td>Electrical Supply</td></tr>
-		<tr><td>FLC/Start (A)</td></tr>
-		<tr><td>Motor Frame</td></tr>
-		<tr><td>Motor Type</td></tr>
-		<tr><td>Motor Speed</td></tr>
-		<tr><td class="bold">Quotation details</td></tr>
-		<tr><td>Quantity required</td></tr>
-		<tr><td>Price Per Unit</td></tr>
-		<tr><td>Total</td></tr>
-		<tr><td>Price Extras and Ancillaries</td></tr>
-		<tr><td>Total Including Extras</td></tr>
-		<tr><td>GST</td></tr>
-		<tr><td></td></tr>
-		
-		
-	</table>
+		<table class="details_table">
+			<tr><td class="bold">Location</td></tr>
+			<tr><td>Description:</td></tr>
+			<tr><td>Schedule Reference</td></tr>
+			<tr><td class="bold">Fan</td></tr>
+			<tr><td>Model number</td></tr>
+			<tr><td>Model Name</td></tr>
+			<tr><td class="bold">Physical characteristics</td></tr>
+			<tr><td>Nominal Diameter (mm)</td></tr>
+			<tr><td>Hub Size (mm)</td></tr>
+			<tr><td>Impeller</td></tr>
+			<tr><td>Fan Weight (kg)</td></tr>
+			<tr><td class="bold">Notes</td></tr>
+			<tr><td class="bold">Airflow characteristics</td></tr>
+			<tr><td>Volume (L/s)</td></tr>
+			<tr><td>Static Pressure (Pa)</td></tr>
+			<tr><td>ABS/LL Power (kW)</td></tr>
+			<tr><td>Fan Speed (r/min)</td></tr>
+			<tr><td>Outlet Velocity (m/s)</td></tr>
+			<tr><td>Sound Pressure (dB(A))</td></tr>
+			<tr><td class="bold">Motor characteristics</td></tr>
+			<tr><td>Motor Power</td></tr>
+			<tr><td>Electrical Supply</td></tr>
+			<tr><td>FLC/Start (A)</td></tr>
+			<tr><td>Motor Frame</td></tr>
+			<tr><td>Motor Type</td></tr>
+			<tr><td>Motor Speed</td></tr>
+			<tr><td class="bold">Quotation details</td></tr>
+			<tr><td>Quantity required</td></tr>
+			<tr><td>Price Per Unit</td></tr>
+			<tr><td>Total</td></tr>
+			<tr><td>Price Extras and Ancillaries</td></tr>
+			<tr><td>Total Including Extras</td></tr>
+			<tr><td>GST</td></tr>
+			<tr><td></td></tr>
+			
+			
+		</table>
 	
-	%%FAN_DATA%%
+		%%FAN_DATA%%
 
 	
 	</div>
+	
 	
 
 

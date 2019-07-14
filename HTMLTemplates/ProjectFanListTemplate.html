@@ -21,12 +21,20 @@
 				display: table;
 				clear: both;
 			}
-			th {
+			.right {
+				text-align: right;
+			}
+			.left {
 				text-align: left;
 			}
 			#project_fan_table {
 				font-size: 13px;
 			}
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+			}	
 			
 			/* Helpers */
 			.mt-small {
@@ -34,6 +42,10 @@
 			}
 			.mb-medium {
 				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
 			}			
 
 
@@ -42,38 +54,61 @@
 		</style>
     </head>
 
-    <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
-
+        
+	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
 
     <div class="row  mt-small mb-medium">
-		<div class="column">
-				<b><u>Address</u></b></br>
-				106-108 Fairbank Road<br>Clayton South Victoria 3169
-		</div>
-		<div class="column">
-				<b><u>Phone</u></b></br>
-				03-9551-4878
-		</div>
-		<div class="column">
-				<b><u>Email</u></b></br>
-				mail@cfmairsystems.com.au
-		</div>
-		<div class="column">
-				<b><u>Website</u></b></br>
-				cfmairsystems.com.au
-		</div>
-	</div>
-	<hr />
+        <div class="column">
+                <b><u>Address</u></b></br>
+                106-108 Fairbank Road<br>Clayton South Victoria 3169
+        </div>
+        <div class="column">
+                <b><u>Phone</u></b></br>
+                03-9551-4878
+        </div>
+        <div class="column">
+                <b><u>Email</u></b></br>
+                mail@cfmairsystems.com.au
+        </div>
+        <div class="column">
+                <b><u>Website</u></b></br>
+                cfmairsystems.com.au
+        </div>
+    </div>
+    <hr />
+    <div class="heading-wrapper">
+    
+	    <h2>%%PROJNAME%%,%%PROJADDR%%</h2>
+	    
+	    <h4>on behalf of <span class="bold">%%COMPANY%%</span> , Attn: <span class="bold">%%ATTN%%</span></h4>
+	    
+	    <h3>Quote: <span class="bold">%%QUOTENUM%%</span></h3>
+	    
+	    <h4 class="bold">%%DATE%%</h4> 
+	    
+    
+    </div>
 
+	<hr />
+	
     <div class="row" id="project_fan_div">
-        <table style="font-size: 13px; width: 90%;">
+        <table style="font-size: 13px; width: 100%;">
 			<tr>
-				<th>Location description</th>
-				<th>Reference</th> 
-				<th>Model number</th>
-				<th>Airflow</th>
-				<th>Static pressure</th>
-				<th>Price</th>
+				<th class='left'>Location description</th>
+				<th class='left'>Reference</th> 
+				<th class='left'>Model number</th>
+				<th class='right'>Airflow</th>
+				<th class='right'>Static pressure</th>
+				<th class='right'>Hz63</th>
+				<th class='right'>Hz125</th>
+				<th class='right'>Hz250</th>
+				<th class='right'>Hz500</th>
+				<th class='right'>Hz1K</th>
+				<th class='right'>Hz2K</th>
+				<th class='right'>Hz4K</th>
+				<th class='right'>Hz8K</th>
+				<th class='right'>totalLwAtotal</th>
+				<th class='right'>SPL3m</th>
 		    </tr>
 			
 				%%TABLE_ROW%%

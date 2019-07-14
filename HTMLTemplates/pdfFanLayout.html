@@ -1,0 +1,206 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+			}
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			.col-2 {
+				float: left;
+				width: 50%;
+			}
+			.left {
+				width: 30%;
+			}
+			.right {
+				width: 70%;
+				display: inline-block;
+			}
+			th {
+				text-align: left;
+			}
+			.motorDataTbl {
+				table-layout: fixed;
+				width: 90%;
+				font-size: 19px;
+			}
+			.acoustic_data_table {
+				table-layout: fixed;
+				width: 80%;
+				font-size: 19px;
+			}
+			.acoustic_data_table tbody tr td:first-child {
+				width: 8em;
+				min-width: 8em;
+				max-width: 8em;
+				word-break: break-all;
+			}
+			.fanDataTbl {
+				table-layout: fixed;
+				width: 100%;
+				font-size: 19px;
+			}
+			.requirementsTbl {
+				font-size: 19px;
+			}
+			.last_td {
+				width: 30%;
+			}
+
+
+
+		</style>
+    </head>
+
+    
+	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
+
+    <div class="row">
+        <div class="column">
+                <b><u>Address</u></b></br>
+                106-108 Fairbank Road<br>Clayton South Victoria 3169
+        </div>
+        <div class="column">
+                <b><u>Phone</u></b></br>
+                03-9551-4878
+        </div>
+        <div class="column">
+                <b><u>Email</u></b></br>
+                mail@cfmairsystems.com.au
+        </div>
+        <div class="column">
+                <b><u>Website</u></b></br>
+                cfmairsystems.com.au
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 left">
+			<p><h2>Fan Code: <span class="fan_code">%%FAN_CODE%%</span></br>
+			Fan Ref: <span class="fan_ref">%%FAN_REF%%</span></h2>
+			<h3>Requirements</h3>
+			<table class="requirementsTbl" border="0" >
+				<tr>
+					<td>Volume:</td>
+					<td>%%VOLUME%%</td>
+				</tr>
+				<tr>
+					<td>Static Pressure:</td>
+					<td>%%STATIC_PRESSURE%%</td>
+				</tr>
+				<tr>
+					<td>Installation Category:</td>
+					<td>%%INSTALLATION_CATEGORY%%</td>
+				</tr>
+			</table>
+			<h3>Fan Data (at STP)</h3>
+			<table class="fanDataTbl" border="0" >
+				<tr>
+					<td>W/l:</td>
+					<td>%%W/l%%</td>
+				</tr>
+				<tr>
+					<td>Diameter:</td>
+					<td>%%DIAMETER%%</td>
+				</tr>
+				<tr>
+					<td>Speed:</td>
+					<td>%%SPEED%%</td>
+				</tr>
+				<tr>
+					<td>Mass:</td>
+					<td>%%MASS%%</td>
+				</tr>
+			</table>
+                        
+        </div>
+		<div class="col-2 right">
+		<center>
+			<svg>%%SVG_PERF_CURVE%%</svg>
+		</center>
+		</div>
+	</div>
+	<div class="row">
+		<b><h3>BCA Compliance: Complies with Section J5.2 2009</h3></b>
+		<p style="font-size: 19px;">All fans tested in compliance with ISO:5801-2017 standards. Airflow performances subject to change without notice. Please see sales for updated datashets and further information</p>
+		<hr style="height: 2px; border:none; background-color: #333;">
+		<p><h3>Motor Data (at STP)</h3></p>
+		<table class="motorDataTbl" border="0">
+			<tr>
+				<td>Motor Type:</td>
+				<td>%%MOTOR_TYPE%%</td>
+				
+				<td>Motor Power:</td>
+				<td>%%MOTOR_POWER%%</td>
+				
+				<td>Current FLC:</td>
+				<td>%%CURRENT_FLC%%</td>
+			</tr>
+			<tr>
+				<td>Motor Frame:</td>
+				<td>%%MOTOR_FRAME%%</td>
+				
+				<td>Motor Speed:</td>
+				<td>%%MOTOR_SPEED%%</td>
+				
+				<td>Electrical Supply:</td>
+				<td>%%ELECTRICAL_SUPPLY%%</td>
+			</tr>
+		</table>
+		
+		<center>
+			<svg>%%SVG_PWR_CURVE%%</svg>
+		</center>
+		
+		<hr style="height: 2px; border:none; background-color: #333;">
+		<h3>Acoustic Performance Data</h3>
+		<table class="acoustic_data_table" border="0">
+			<tr>
+				<td>Spectrum (Hz)</td>
+				<td>63</td>
+				<td>125</td>
+				<td>250</td>
+				<td>500</td>
+				<td>1K</td>
+				<td>2K</td>
+				<td>4K</td>
+				<td>8K</td>
+				<td>dBW</td>
+				<td class="last_td">dBA @ 3m</td>
+			</tr>
+			<tr>
+				<td>SWL (dB)</td>
+				<td>%%HZ63%%</td>
+				<td>%%HZ125%%</td>
+				<td>%%HZ250%%</td>
+				<td>%%HZ500%%</td>
+				<td>%%HZ1K%%</td>
+				<td>%%HZ2K%%</td>
+				<td>%%HZ4K%%</td>
+				<td>%%HZ8K%%</td>
+				<td>%%dBW%%</td>
+				<td>%%dBA%%</td>
+				
+			</tr>
+		</table>
+		<hr style="height: 2px; border:none; background-color: #333;">
+		
+    </div>
+
+
+</html>

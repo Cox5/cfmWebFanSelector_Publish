@@ -15,12 +15,37 @@
 				padding: 0;
 				font-size: 13px;
 			}
+
 			/* Clear floats after the columns */
 			.row:after {
 				content: "";
 				display: table;
 				clear: both;
 			}
+			.right {
+				text-align: right;
+			}
+			.left {
+				text-align: left;
+			}
+
+			.huge {
+				width: 45%;
+			}
+
+			.big {
+				width: 25%;
+			}
+
+			.small {
+				width: 10%;
+			}
+
+			#project_fan_table {
+				font-size: 13px;
+				clear: both;
+			}
+			
 			th {
 				text-align: left;
 			}
@@ -101,9 +126,15 @@
 
 			#quotation_table .quantity {
 				width: 15%;
+				text-align: center;
 			}
 
 			#quotation_table .cost {
+				width: 17%;
+				text-align: right;
+			}
+
+			#quotation_table .cost-sm {
 				width: 15%;
 				text-align: right;
 			}
@@ -123,9 +154,23 @@
 
 			}
 
+			.comments {
+				margin-bottom: 40px;
+				margin-top: 40px;
+			}
+
 			.comments p {
 				line-height: 0.5;
 				font-size: 14px;
+			}
+			.comments li {
+				font-size: 14px;
+			}
+			ul     	     {
+				list-style: none;
+			}
+			ul li:before {
+				content: "\00BB \0020";
 			}
 
 
@@ -133,7 +178,8 @@
 		</style>
     </head>
 
-    <img src="C:\Users\Milan\Desktop\Work\Upwork\Projects\Daniel O'Callaghan\CFM\cfmWebFanSelector\CFMWeb\Content\CFMLogo.png">
+    
+	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
 
 
 
@@ -186,7 +232,7 @@
 		
 	
 	<div class="mt-medium">
-		<p>Thank you for contacting CFM Airsystems regarding fans for your project at <span class="bold">%%PROJADDR%%</span> .</p>
+		<p>Thank you for contacting CFM Airsystems regarding fans for your project at <span class="bold">%%PROJADDR%%</span></p>
 		<p>Please find below a quotation for your project which includes:</br> %%PDFOPTIONS%%
 	</div>
 	
@@ -195,43 +241,46 @@
 			<thead>
 				
 				<tr class="bottom-border">
-					<td class="quantity">Quantity</td>
 					<td>Item</td>
-					<td class="cost">Cost</td>
+					<td class="quantity">Quantity</td>
+					<td class="cost">Cost ex GST</td>
+					<td class="cost-sm">GST</td>
+					<td class="cost">Cost Inc GST</td>
 				</tr>
 			
 			</thead>
 
 			<tbody>
 				<tr>
-					<td class="quantity">%%FANCOUNT%%</td>
 					<td>Fans:</td>
-					<td class="cost">%%FANCOST%%</td>
+					<td class="quantity">%%FANCOUNT%%</td>
+					<td class="cost">%%FANCOST_EX_GST%%</td>
+					<td class="cost-sm">%%FANCOST_GST%%</td>
+					<td class="cost">%%FANCOST_INC_GST%%</td>
 				</tr>
 				<tr>
-					<td>%%EXTRACOUNT%%</td>
 					<td>Ancillary and other items:</td>
-					<td class="cost">%%EXTRACOST%%</td>
+					<td class="quantity">%%EXTRACOUNT%%</td>
+					<td class="cost">%%EXTRACOST_EX_GST%%</td>
+					<td class="cost-sm">%%EXTRACOST_GST%%</td>
+					<td class="cost">%%EXTRACOST_INC_GST%%</td>
 				</tr>
 				<tr class="separator">
-					<td></td>
 					<td>Freight:</td>
-					<td class="cost">%%FREIGHT%%</td>
-				</tr>
-				<tr>
 					<td></td>
-					<td class="hl">Subtotal excluding GST:</td>
-					<td class="cost hl">%%SUBTOTAL%%</td>
+					<td class="cost">%%FREIGHT_EX_GST%%</td>
+					<td class="cost-sm">%%FREIGHT_GST%%</td>
+					<td class="cost">%%FREIGHT_INC_GST%%</td>
 				</tr>
-				<tr>
-					<td></td>
-					<td>GST:</td>
-					<td class="cost">%%GST%%</td>
-				</tr>
+
+				%%DISCOUNT_ROW%%
+
 				<tr class="separator-small">
-					<td></td>
 					<td class="hl bottom-border">Total:</td>
-					<td class="cost hl bottom-border">%%TOTAL%%</td>
+					<td class="bottom-border"></td>
+					<td class="cost bottom-border">%%TOTAL_EX_GST%%</td>
+					<td class="cost-sm bottom-border">%%TOTAL_GST%%</td>
+					<td class="cost hl bottom-border">%%TOTAL_INC_GST%%</td>
 				</tr>		
 			</tbody>		
 		</table>
@@ -242,9 +291,22 @@
 	</div>
 
 	<div class="comments">
+		<p class="bold">Ancillary and other items:</p>
+		<p>	
+			<div class="row" id="project_fan_div">
+				%%EXTRADETAILS%%
+			</div>
+		</p>
+
+	</div>
+
+	<div class="comments">
 			<p class="bold">Comments:</p>
 			<p>%%COMMENTS%%</p> 
 	</div>
+
+
+	<hr />
 
 
 
