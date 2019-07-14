@@ -34,8 +34,7 @@
         <table id="fanLocationsTable" class="table project">
             <thead>
                 <tr>
-                    <td >Description</td>
-                    <td>Designation</td>
+                    <td>Fan Location</td>
                     <td >Airflow</td>
                     <td >St.Pr.</td>
                     <td>CFM Fan</td>

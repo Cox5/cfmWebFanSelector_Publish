@@ -192,7 +192,9 @@
                                             <th style="width: 60px">Prod</th>
                                             <!-- <th>Type</th> -->
                                             <th>Dia</th>
-                                            <th>Spd</th>
+                                            <th>RPM</th>
+                                            <th>AF</th>
+                                            <th>SP</th>
                                             <th>MkW</th>
                                             <th>Vts</th>
                                             <th>TEff%</th>
@@ -208,10 +210,15 @@
                                         <% foreach (var fanData in fanDataList)
                                             {  %>
                                         <tr data-fandataid="<%= fanData.fanDataID.ToString() %>">
-                                            <td><%= truncateString(fanData.fanObject.partNumber, 12) %></td>
+                                            <td title="<%=fanData.fanObject.partNumber  %>"> 
+                                                 <%= truncateString(fanData.fanObject.partNumber, 12) %>
+                                            </td> 
+                                                
                                             <!-- <td><%= truncateString(fanData.fanObject.fanType.category + " " + fanData.fanObject.fanType.description, 12) %></td> -->
-                                            <td><%= fanData.fanObject.diameter %></td>
+                                            <td style="text-align: center"><%= fanData.fanObject.diameter %></td>
                                             <td><%= fanData.RPM %></td>
+                                            <td>AF</td>
+                                            <td>SP</td>
                                             <td><%= fanData.motorkW %></td>
                                             <td><%= getVoltage(fanData.fanObject) %></td>
                                             <td><%= getEfficiency(fanData) %></td>
@@ -260,31 +267,32 @@
                             <asp:CheckBox Text="Alternative" ID="ckb_alternative" runat="server" />
                         </div>
 
-                        <div id="div_nominalData" style="background-color: #E3E3E3; padding: 20px;">
+                        <div id="div_nominalData" style="background-color: #E3E3E3; padding: 20px; ">
                             Nominal Data
                         <hr />
                             <div id="div_fanImage" style="display: inline-block"></div>
-                            <div id="div_nominalDataTable" style="display: inline-block; vertical-align: top;"></div>
+                            <div id="div_nominalDataTable" style="display: inline-block; vertical-align: top; margin-left: 28px;"></div>
                         </div>
 
                         <div id="div_performanceData" style="background-color: #E3E3E3; padding: 20px;">
                             Performance Data
                         <hr />
+                            <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>
                             <div id="div_performanceCurve" style="height: 500px; width: 70%; display: inline-block; vertical-align: top; min-width: 500px">
                                 <asp:Literal ID="lit_performanceCurve" runat="server" />
                             </div>
-                            <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>
                         </div>
 
                         <div id="div_powerData" style="background-color: #E3E3E3; padding: 20px;">
                             Motor/Power Data
                         <hr />
-                            <div id="div_powerCurve" style="height: 500px; width: 70%; display: inline-block; vertical-align: top; min-width: 500px">
-                                <asp:Literal ID="lit_powerCurve" runat="server" />
-                            </div>
+                            
                             <div id="div_powerRight" style="display: inline-block; vertical-align: top; padding-top: 30px; width: 25%;">
                                 <div id="div_powerDataTable" style="display: inline-block; vertical-align: top; min-width: 500px"></div>
                                 <div id="div_wiring" style="padding-top: 20px;"></div>
+                            </div>
+                            <div id="div_powerCurve" style="height: 500px; width: 70%; display: inline-block; vertical-align: top; min-width: 500px">
+                                <asp:Literal ID="lit_powerCurve" runat="server" />
                             </div>
                         </div>
 

@@ -13,17 +13,12 @@
 
         <table class="table table-form">
             <tr>
-                <td>Location Description</td>
-                <td>
-                    <asp:TextBox ID="txtLocation" runat="server" /></td>
-                <td>
-                    <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Location description is empty" ForeColor="Red" ControlToValidate="txtLocation"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>Location Designation</td>
+                <td>Fan Location</td>
                 <td>
                     <asp:TextBox ID="txtDesignation" runat="server" /></td>
+                <td>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Fan Location is empty" ForeColor="Red" ControlToValidate="txtDesignation"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td>Fan Model</td>

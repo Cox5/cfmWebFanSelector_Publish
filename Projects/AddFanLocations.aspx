@@ -25,8 +25,7 @@
                
                 <thead>
                     <tr>
-                        <td>Location Description*</td>
-                        <td class="medium-td">Location Designation</td>
+                        <td>Fan Location*</td>
                         <td class="medium-td" >Airflow*</td>
                         <td class="small-td">Static<br />Press.*</td>
                         <td class="small-td">Qty</td>
@@ -36,7 +35,6 @@
                      <%= getFanLocations() %>
                 </tr>
                 <tr>
-                    <td><asp:TextBox ID="txtLocation1" class="txtLocation" runat="server" /></td>
 					<td><asp:TextBox ID="txtDesignation1" class="txtDesignation" runat="server" /></td>
                     <td><asp:TextBox ID="txtAirflow1" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure1" class="txtStaticPressure" runat="server" /></td>
@@ -44,7 +42,6 @@
                     <td><asp:Label ID="lblMsg1" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
-                    <td><asp:TextBox ID="txtLocation2" class="txtLocation" runat="server" /></td>
 					<td><asp:TextBox ID="txtDesignation2" class="txtDesignation" runat="server" /></td>
                     <td><asp:TextBox ID="txtAirflow2" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure2" class="txtStaticPressure" runat="server" /></td>
@@ -52,7 +49,6 @@
                     <td><asp:Label ID="lblMsg2" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
-                    <td><asp:TextBox ID="txtLocation3" class="txtLocation" runat="server" /></td>
 					<td><asp:TextBox ID="txtDesignation3" class="txtDesignation" runat="server" /></td>
                     <td><asp:TextBox ID="txtAirflow3" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure3" class="txtStaticPressure" runat="server" /></td>
@@ -60,7 +56,6 @@
                     <td><asp:Label ID="lblMsg3" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
-                    <td><asp:TextBox ID="txtLocation4" class="txtLocation" runat="server" /></td>
 					<td><asp:TextBox ID="txtDesignation4" class="txtDesignation" runat="server" /></td>
                     <td><asp:TextBox ID="txtAirflow4" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure4" class="txtStaticPressure" runat="server" /></td>
@@ -68,7 +63,6 @@
                     <td><asp:Label ID="lblMsg4" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
-                    <td><asp:TextBox ID="txtLocation5" class="txtLocation" runat="server" /></td>
 					<td><asp:TextBox ID="txtDesignation5" class="txtDesignation" runat="server" /></td>
                     <td><asp:TextBox ID="txtAirflow5" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure5" class="txtStaticPressure" runat="server" /></td>
