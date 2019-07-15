@@ -30,7 +30,9 @@
                         <asp:TextBox ID="txtFanLocation" Text='<%#Eval("location_designation") %>' runat="server"  CssClass="input-small"></asp:TextBox>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtFanLocationFooter" runat="server" CssClass="input-small"></asp:TextBox>
+                        <asp:DropDownList ID="ddlFanLocations"   CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                                <asp:ListItem Text="Please select..." Value="Null" />
+                         </asp:DropDownList>
                     </FooterTemplate>
                 </asp:TemplateField>
 

@@ -28,10 +28,10 @@
     <table class="table project">
         <thead>
           <tr>
+            <td width="10%">Quote No.</td>
             <td width="23%">Project</td>
             <td width="22%">Location</td>
             <td width="18%">Company</td>
-            <td width="10%">Quote No.</td>
             <td width="12%">Salesperson</td>
             <td ></td>
           </tr>

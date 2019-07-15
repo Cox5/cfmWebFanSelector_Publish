@@ -217,8 +217,8 @@
                                             <!-- <td><%= truncateString(fanData.fanObject.fanType.category + " " + fanData.fanObject.fanType.description, 12) %></td> -->
                                             <td style="text-align: center"><%= fanData.fanObject.diameter %></td>
                                             <td><%= fanData.RPM %></td>
-                                            <td>AF</td>
-                                            <td>SP</td>
+                                            <td><%= Math.Floor(fanData.intercept.airflow) %></td>
+                                            <td><%= Math.Floor(fanData.intercept.staticPressure) %></td>
                                             <td><%= fanData.motorkW %></td>
                                             <td><%= getVoltage(fanData.fanObject) %></td>
                                             <td><%= getEfficiency(fanData) %></td>
