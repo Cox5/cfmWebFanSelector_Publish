@@ -102,7 +102,10 @@
                     <tr id="trSalesConsultant" runat="server" >
                         <td>Sales Consultant</td>
                         <td>
-                            <asp:TextBox ID="txtSalesConsultant" runat="server" />
+                            <%--  %><asp:TextBox ID="txtSalesConsultant" runat="server" /> --%>
+                            <asp:DropDownList ID="ddlSalesCons" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                                <asp:ListItem Text="Please select..." Value="Null" />
+                            </asp:DropDownList>
                         </td>
                     </tr>
                     <tr id="trQuoteNumber" runat="server">
