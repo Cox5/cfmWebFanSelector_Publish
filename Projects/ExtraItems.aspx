@@ -30,7 +30,7 @@
                         <asp:TextBox ID="txtFanLocation" Text='<%#Eval("location_designation") %>' runat="server"  CssClass="input-small"></asp:TextBox>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="ddlFanLocations"   CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                        <asp:DropDownList ID="ddlFanLocations"  OnSelectedIndexChanged="ddlFanLocations_SelectedIndexChanged"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                 <asp:ListItem Text="Please select..." Value="Null" />
                          </asp:DropDownList>
                     </FooterTemplate>
@@ -67,7 +67,7 @@
                         <asp:Label Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center"></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtQuantity" Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center" CssClass="input-small center-text"></asp:TextBox>
+                        <asp:TextBox ID="txtQuantity" Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" CssClass="input-small center-text"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="qtyRequiredValidator" runat="server" ErrorMessage="Qty field is empty" ForeColor="Red" ControlToValidate="txtQuantity"></asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>

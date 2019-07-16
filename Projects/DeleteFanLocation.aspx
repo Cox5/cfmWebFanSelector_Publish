@@ -8,7 +8,7 @@
         <tr><td><asp:Label ID="lblWarning" runat="server" Font-Bold="true">Warning: Deleting a fan location affects existing PDFs. Existing PDFs will be flagged as out of date</asp:Label></td></tr>
         <tr style="height: 50px"><td><b>Are you sure you wish to delete?</b></td></tr>
         <tr>
-            <td id="locationDescCol"></td>
+            <td id="fanLocationCol"></td>
             <td id="airflowCol"></td>
             <td id="stPressCol"></td>
             <td id="modelNumCol"></td>
