@@ -16,30 +16,23 @@ $(document).ready(function () {
     var selectedFanID;
        
     if ($("#fanTable tr").length > 1) {
-        $("#fanTable tr").eq(1).children("td").css("background-color", "#F69690");
         selectedFanID = $("#body_selectedFanID").val();
         updateFanCurve(selectedFanID);
     }    
 
     $("#fanTable tr").click(function () {
-        $("#fanTable tr").children("td").css("background-color", "#FFFFFF");
-        $(this).children("td").css("background-color", "#F69690");
 
         selectedFanID = $(this).attr("data-fanDataID");
         updateFanCurve(selectedFanID);
+        $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
     });
 
     $("#fanTable tr").mouseover(function () {
-        $(this).children("td").css("background-color", "#7FBBE0");
     });
 
     $("#fanTable tr").mouseout(function () {
-        if ($(this).attr("data-fanDataID") === selectedFanID) {
-            $(this).children("td").css("background-color", "#F69690");
-        } else {
-            $(this).children("td").css("background-color", "white");
-        }
+        
     });
 
     $("#btn_selectAll").click(function () {

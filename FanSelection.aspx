@@ -189,7 +189,7 @@
                                 <table id="fanTable" class="tablesorter-default" style="table-layout: fixed">
                                     <thead>
                                         <tr>
-                                            <th style="width: 60px">Prod</th>
+                                            <th style="width: 15%; text-align: left;">Prod</th>
                                             <!-- <th>Type</th> -->
                                             <th>Dia</th>
                                             <th>RPM</th>
@@ -200,7 +200,7 @@
                                             <th>TEff%</th>
                                             <th>dBA</th>
                                             <th>W/(..</th>
-                                            <th class="string-max">Price%</th>
+                                            <th class="string-max" style="text-align: right;">Price%</th>
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
@@ -210,24 +210,32 @@
                                         <% foreach (var fanData in fanDataList)
                                             {  %>
                                         <tr data-fandataid="<%= fanData.fanDataID.ToString() %>">
-                                            <td title="<%=fanData.fanObject.partNumber  %>"> 
+                                            <td title="<%=fanData.fanObject.partNumber  %>"
+                                                 style="text-align: left;"> 
                                                  <%= truncateString(fanData.fanObject.partNumber, 12) %>
                                             </td> 
                                                 
                                             <!-- <td><%= truncateString(fanData.fanObject.fanType.category + " " + fanData.fanObject.fanType.description, 12) %></td> -->
                                             <td style="text-align: center"><%= fanData.fanObject.diameter %></td>
                                             <td><%= fanData.RPM %></td>
-                                            <td><%= fanData.intercept != null ? Math.Floor(fanData.intercept.airflow) : 0 %></td>
-                                            <td><%= fanData.intercept != null ? Math.Floor(fanData.intercept.staticPressure) : 0 %></td>
+
+                                            <td style='<%= fanData.intercept != null ? getAFbgcolor(fanData.intercept.airflow) : getAFbgcolor(0)%>'>
+                                                <%= fanData.intercept != null ? Math.Floor(fanData.intercept.airflow).ToString() : "-" %>
+                                            </td>
+                                            <td style='<%= fanData.intercept != null ? getSPbgcolor(fanData.intercept.staticPressure) : getSPbgcolor(0)%>'>
+                                                <%= fanData.intercept != null ? Math.Floor(fanData.intercept.staticPressure).ToString() : "-" %>
+                                            </td>
                                             <td><%= fanData.motorkW %></td>
                                             <td><%= getVoltage(fanData.fanObject) %></td>
                                             <td><%= getEfficiency(fanData) %></td>
                                             <td><%= getNoise(fanData) %></td>
                                             <td><%= getConsumedPowerOverAirflow(fanData) %></td>
-                                            <td><%= CalculatePricePercentage(fanData) %></td>
+                                            <td style="text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
                                             <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
                                             <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
                                             <!--<td><%= fanData.angle.ToString() %></td> -->
+                                            
+
                                         </tr>
                                         <% } %>
                                     </tbody>

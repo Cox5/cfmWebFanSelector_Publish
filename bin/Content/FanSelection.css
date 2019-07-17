@@ -688,3 +688,19 @@ td.icons img {
     }
 }
 
+#fanTable td, #fanTable th {
+    text-align: center;
+    padding: 0px 4px;
+}
+
+#fanTable tr:hover td {
+    background-color: #c2d9ff !important;
+}
+
+
+#fanTable tr.selected-tr td {
+    background-color: #0078C1 !important;
+    color: white;
+    font-weight: 500;
+    transition: all 0.2s;
+}
