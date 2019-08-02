@@ -49,22 +49,22 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr style="display: none">
                         <td>Password</td>
                         <td>
-                            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" required="true" />
+                            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" value="nopassword" required="true" />
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="display: none">
                         <td>Confirm Password</td>
                         <td>
-                            <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" required="true" />
+                            <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" value="nopassword" required="true"  />
                         </td>
                     </tr>
                         <tr>
                       <td>User class</td>
                       <td><asp:DropDownList runat="server" ID="ddlUserClass">
-                          <asp:ListItem Text="Unapproved" Value="4"></asp:ListItem>
+                          <asp:ListItem Text="Unapproved" Value="4">User who cannot log in</asp:ListItem>
                           <asp:ListItem Text="User" Value="3"></asp:ListItem>
                           <asp:ListItem Text="Sales" Value="2"></asp:ListItem>
                           <asp:ListItem Text="Admin" Value="1"></asp:ListItem>
@@ -96,6 +96,7 @@
                     <asp:DropDownList ID="ddlCompany" AutoPostBack="true" AppendDataBoundItems="true" runat="server"  onselectedindexchanged="ddlCompany_SelectedIndexChanged">
                     <asp:ListItem>New Company/business</asp:ListItem>
                     <asp:ListItem>Sole trader</asp:ListItem>
+                    <asp:ListItem disabled>-------------</asp:ListItem>
                     </asp:DropDownList>
 
                         </td>
@@ -124,6 +125,22 @@
                         <td>Suburb/City</td>
                         <td>
                             <asp:TextBox ID="txtCompanySubCity" runat="server"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>
+                            <asp:TextBox ID="txtState" runat="server" />
+                            <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server">
+                                <asp:ListItem Value="ACT">Australian Capital Territory</asp:ListItem>
+                                <asp:ListItem Value="NSW">New South Wales</asp:ListItem>
+                                <asp:ListItem Value="NT">Northern Territory</asp:ListItem>
+                                <asp:ListItem Value="QLD">Queensland</asp:ListItem>
+                                <asp:ListItem Value="SA">South Australia</asp:ListItem>
+                                <asp:ListItem Value="TAS">Tasmania</asp:ListItem>
+                                <asp:ListItem Value="VIC">Victoria</asp:ListItem>
+                                <asp:ListItem Value="WA">Western Australia</asp:ListItem>
+                            </asp:DropDownList>
                         </td>
                     </tr>
                    <tr>
@@ -369,23 +386,7 @@
                             </asp:DropDownList>
                     </td>
                 </tr>
-                <tr>
-                    <td>State</td>
-                    <td>
-                        <asp:TextBox ID="txtState" runat="server" />
-                        <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server">
-                            <asp:ListItem Value="ACT">Australian Capital Territory</asp:ListItem>
-                            <asp:ListItem Value="NSW">New South Wales</asp:ListItem>
-                            <asp:ListItem Value="NT">Northern Territory</asp:ListItem>
-                            <asp:ListItem Value="QLD">Queensland</asp:ListItem>
-                            <asp:ListItem Value="SA">South Australia</asp:ListItem>
-                            <asp:ListItem Value="TAS">Tasmania</asp:ListItem>
-                            <asp:ListItem Value="VIC">Victoria</asp:ListItem>
-                            <asp:ListItem Value="WA">Western Australia</asp:ListItem>
 
-                        </asp:DropDownList>
-                    </td>
-                </tr>
                     <tr>
                         <td>Postcode</td>
                         <td>
@@ -404,7 +405,7 @@
                     <tr>
                         <td>Website</td>
                         <td>
-                            <asp:TextBox ID="txtCompanyWebsite" runat="server" required="true" Placeholder="example.com" />
+                            <asp:TextBox ID="txtCompanyWebsite" runat="server" Placeholder="example.com" />
                         </td>
                     </tr>
 
