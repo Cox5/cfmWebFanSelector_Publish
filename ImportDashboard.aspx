@@ -31,6 +31,16 @@
                 </span>
             </div>
         </asp:LinkButton>
+
+         <asp:LinkButton CommandName="Import Extra Items" runat="server" Text="Import Extra Items" OnClick="btnImportExtraItems_Click" class="sp-button">
+            <div class="sp-rect" style="width: 320px;">
+               <span class="sp-text">Import Extra Items</span> 
+               <span class="sp-icon">
+                   <i class="fas fa-dollar-sign icon"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
         <asp:LinkButton CommandName="Build Fan Prices" runat="server" Text="Build Fan Prices" class="sp-button" OnClick="btnBuildFanPrices_Click">
             <div class="sp-rect" style="width: 320px;">
                <span class="sp-text">Build Fan Prices</span> 

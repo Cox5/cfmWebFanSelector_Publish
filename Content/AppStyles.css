@@ -563,8 +563,8 @@ visibility: visible;
 
 .input-small {
     height: 30px;
-    font-size: 14px;
-    padding: 2px;
+    font-size: 13px !important;
+    padding: 1px;
 }
 
 .gridview input[type="image"] {

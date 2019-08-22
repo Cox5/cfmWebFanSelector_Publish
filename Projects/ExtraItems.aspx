@@ -27,7 +27,7 @@
 
                 <Columns>
 
-                    <asp:TemplateField HeaderText="Fan Location" HeaderStyle-HorizontalAlign="Left">
+                    <asp:TemplateField  HeaderText="Fan Location" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:Label Text='<%#Eval("location_designation") %>' runat="server"></asp:Label>
                         </ItemTemplate>
@@ -41,16 +41,39 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
+                    <asp:TemplateField HeaderText="Category" HeaderStyle-HorizontalAlign="Left">
+                        <ItemTemplate>
+                            <asp:Label ID="categoryName" Text='<%#Eval("category_name") %>'  runat="server" ></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                             <asp:DropDownList ID="ddlCategoryEdit"  OnSelectedIndexChanged="ddlCategoryEdit_SelectedIndexChanged"  ItemStyle-Width="160px" HeaderStyle-Width="160px"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                                    
+                             </asp:DropDownList>
+                            <asp:HiddenField ID="categoryNameHidden" Value='<%#Eval("category_name") %>'  runat="server" ></asp:HiddenField>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:DropDownList ID="ddlCategory"  OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" Width="160px" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                                    <asp:ListItem Text="Please select..." Value="Null" />
+                             </asp:DropDownList>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="Item Description" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:Label Text='<%#Eval("description") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtDescription" Text='<%#Eval("description") %>' runat="server"  CssClass="input-small"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="descRequiredValidator" runat="server" ErrorMessage="Description field is empty" ForeColor="Red" ControlToValidate="txtDescription"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtDescription" Text='<%#Eval("description") %>' runat="server" ItemStyle-Width="200px" HeaderStyle-Width="200px"  CssClass="input-small"></asp:TextBox>
+                           
+                            <asp:DropDownList ID="ddlDescriptionEdit"  OnSelectedIndexChanged="ddlDescriptionEdit_SelectedIndexChanged" Visible="false" Width="200px" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                                    <asp:ListItem Text="Please select..." Value="Null" />
+                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtDescriptionFooter" runat="server" CssClass="input-small"></asp:TextBox>
+                            <asp:DropDownList ID="ddlDescription"  OnSelectedIndexChanged="ddlDescription_SelectedIndexChanged" Visible="false" Width="200px" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                                    <asp:ListItem Text="Please select..." Value="Null" />
+                             </asp:DropDownList>
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -80,7 +103,7 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Unit Price ($)" ItemStyle-Width="140px" HeaderStyle-Width="140px" HeaderStyle-HorizontalAlign="Left">
+                    <asp:TemplateField HeaderText="Unit Price ($)" ItemStyle-Width="90px" HeaderStyle-Width="90px" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:Label Text='<%#Eval("unit_price") %>' runat="server"></asp:Label>
                         </ItemTemplate>
@@ -89,7 +112,7 @@
                             <asp:RequiredFieldValidator ID="priceRequiredValidator" runat="server" ErrorMessage="Price field is empty" ForeColor="Red" ControlToValidate="txtUnitPrice"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtUnitPriceFooter" runat="server" Width="140px" CssClass="input-small"></asp:TextBox>
+                            <asp:TextBox ID="txtUnitPriceFooter" runat="server" Width="90px" CssClass="input-small"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
 

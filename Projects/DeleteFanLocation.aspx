@@ -5,7 +5,8 @@
    <div class="content-wrapper">
     <table class="table table-form" id="fanLocationsTable" runat="server">
         <tr><td colspan="2" align="left" class="tabletitle">Delete Fan Location</td><td colspan="4"><span id="projectName" runat="server"><asp:Label ID="lblProjectName" runat="server" Font-Bold="true"></asp:Label></span></td></tr>
-        <tr><td><asp:Label ID="lblWarning" runat="server" Font-Bold="true">Warning: Deleting a fan location affects existing PDFs. Existing PDFs will be flagged as out of date</asp:Label></td></tr>
+        
+        <tr><td><asp:Label ID="lblWarning" runat="server" Font-Bold="true">Warning: Deleting a fan location affects existing PDFs. Existing PDFs will be flagged as out of date.</asp:Label></td></tr>
         <tr style="height: 50px"><td><b>Are you sure you wish to delete?</b></td></tr>
         <tr>
             <td id="fanLocationCol"></td>

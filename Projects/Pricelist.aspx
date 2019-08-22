@@ -119,9 +119,11 @@
     <br />
 
     <div class="right-controls mt-medium">
-        <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" CausesValidation="false" class="button-main primary-btn" >Finished <i class="fas fa-chevron-right"></i></asp:LinkButton>
-        <!-- <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click"  class="button-main primary-btn" CausesValidation="false"/> -->
-
+        <asp:DropDownList runat="server" ID="ddlPricelistAction" style="width: 50%" AutoPostBack="true" OnSelectedIndexChanged="ddlPricelistAction_SelectedIndexChanged">
+                <asp:ListItem Text="Return to Fan List" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Mark pricing as completed" Value="2"></asp:ListItem>
+                <asp:ListItem Text="Mark pricing as completed and email project owner" Value="3"></asp:ListItem>
+        </asp:DropDownList> <asp:LinkButton runat="server" CommandName="Exit" OnClick="btnGo_Click" CausesValidation="false" class="button-main primary-btn" >Go <i class="fas fa-chevron-right"></i></asp:LinkButton>
     </div>
 
 </div>
