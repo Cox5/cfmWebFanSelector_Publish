@@ -15,6 +15,36 @@
 				padding: 0;
 				font-size: 13px;
 			}
+
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
+
 			/* Clear floats after the columns */
 			.row:after {
 				content: "";
@@ -79,28 +109,10 @@
 		</style>
     </head>
 
-    
-	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
+	<div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
+	</div>
 
-
-    <div class="row  mt-small mb-medium">
-        <div class="column">
-                <b><u>Address</u></b></br>
-                106-108 Fairbank Road<br>Clayton South Victoria 3169
-        </div>
-        <div class="column">
-                <b><u>Phone</u></b></br>
-                03-9551-4878
-        </div>
-        <div class="column">
-                <b><u>Email</u></b></br>
-                mail@cfmairsystems.com.au
-        </div>
-        <div class="column">
-                <b><u>Website</u></b></br>
-                cfmairsystems.com.au
-        </div>
-    </div>
     <hr />
     <div class="heading-wrapper">
     
@@ -113,7 +125,13 @@
 	    <h4 class="bold">%%DATE%%</h4> 
 	    
     
-    </div>
+	</div>
+	
+	
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+	
 
 
 </html>

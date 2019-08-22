@@ -15,6 +15,36 @@
 				padding: 0;
 				font-size: 13px;
 			}
+
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
+
 			/* Clear floats after the columns */
 			.row:after {
 				content: "";
@@ -33,7 +63,7 @@
 			h3 {
 				font-size: 20px;
 				line-height: 0.7;
-				font-weight: 500;
+				font-weight: 600;
 			}
 
 			h4 {
@@ -44,9 +74,11 @@
 
 			.cover_table {
 				width: 100%;
+				font-size: 14px;
 				padding-top: 15px;
 				padding-bottom: 15px;
-				font-size: 14px;
+				border-collapse: separate; 
+                border-spacing:0 15px; 
 			}
 
 			.heading-wrapper {
@@ -56,13 +88,18 @@
 			}
 
 			/* Helpers */
+
+			.block {
+				font-size: 14px;
+				margin: 35px 0;
+			}
+
 			.mt-small {
 				margin-top: 15px;
 			}
 
 			.mt-medium {
 				margin-top: 30px;
-				font-size: 14px;
 			}
 
 			.mb-medium {
@@ -72,57 +109,54 @@
 			.bold {
 				font-weight: 600;
 			}
-			.contact_paragraph {
-				font-size: 14px;
-			}
 
+			ul {
+				padding-left: 10px;
+				margin-bottom: 20px;
+			}
+			ul li{
+				width:33.333333%; 
+				float:left;
+			}
+			li:before {
+				content: '\2022 ';
+				font-size: 16px !important;
+				margin-right: 5px;
+			}
 
 
 		</style>
     </head>
-
-   
-	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
-
-
-    <div class="row  mt-small mb-medium">
-		<div class="column">
-				<b><u>Address</u></b></br>
-				106-108 Fairbank Road<br>Clayton South Victoria 3169
-		</div>
-		<div class="column">
-				<b><u>Phone</u></b></br>
-				03-9551-4878
-		</div>
-		<div class="column">
-				<b><u>Email</u></b></br>
-				mail@cfmairsystems.com.au
-		</div>
-		<div class="column">
-				<b><u>Website</u></b></br>
-				cfmairsystems.com.au
-		</div>
+	<body>
+	 <!-- cover_summary_template used for cover page when prices are not available  -->
+	<div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
 	</div>
+
 	<hr />
 
 	<table class="cover_table">
-		<tr>
+		<tr valign="top">
 			<td class="bold">To:</td>
 			<td>%%COMPANY%%</td>
 			<td class="bold">Date:</td>
 			<td>%%DATE%%</td>
 		</tr>
 		
-		<tr>
+		<tr valign="top">
 			<td class="bold">Attention:</td>
 			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
 			<td class="bold">From:</td>
 			<td>%%SALES%%%%SALESMAIL%%</td>
 		</tr>
 		
-		<tr>
+		<tr valign="top">
 			<td class="bold">Re:</td>
 			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+		</tr>
+
+		<tr valign="top">
+			
 			<td class="bold">Quote number:</td>
 			<td>%%QUOTENUM%%</td>
 		</tr>
@@ -131,12 +165,31 @@
 	
 	<hr />
 	
-	<div class="mt-medium">
-		<p>Thank you for contacting CFM Airsystems regarding fans for your project at <span class="bold">%%PROJADDR%%</span></p>
-		<p>Please find below a quotation for your project which includes:</br> %%PDFOPTIONS%%
+	<div class="block">
+		<p>Thank you for contacting CFM Airsystems regarding fans for your project at</p>
+
+		<p class="bold">%%PROJADDR%%</p>
+	</div>
+
+	<div class="block">
+		<p>Please find below a summary of your project which includes:</p>
+		<div class="clearfix">
+
+			%%PDFOPTIONS%%
+		</div>
 	</div>
 	
-	<p class="contact_paragraph">Please telephone or email our sales staff, or request pricing from our portal and we will be happy to supply a quotation for the job</p>
+	<div class="block">
+		<p>Please contact our sales staff by telephone on <strong>03 9551 4878</strong> or email at <strong></strong><a href="mailto:sales@cfmairsystems.com.au">sales@cfmairsystems.com.au</a></strong>, or request pricing from our portal and we will be happy to supply a quotation for	the job.</p>
+
+	</div>
+
+	
+
+
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
 	
 
 

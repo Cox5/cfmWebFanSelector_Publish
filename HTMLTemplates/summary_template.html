@@ -14,6 +14,36 @@
 				width: 25%;
 				padding: 0;
 			}
+
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
+
 			/* Clear floats after the columns */
 			.row:after {
 				content: "";
@@ -45,6 +75,8 @@
 				width: 100%;
 				padding-top: 15px;
 				padding-bottom: 15px;
+				border-collapse: separate; 
+                border-spacing:0 15px; 
 			}
 
 			.heading-wrapper {
@@ -75,45 +107,28 @@
 		</style>
     </head>
 
-    
-	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
-
-    <div class="row  mt-small mb-medium">
-		<div class="column">
-				<b><u>Address</u></b></br>
-				106-108 Fairbank Road<br>Clayton South Victoria 3169
-		</div>
-		<div class="column">
-				<b><u>Phone</u></b></br>
-				03-9551-4878
-		</div>
-		<div class="column">
-				<b><u>Email</u></b></br>
-				mail@cfmairsystems.com.au
-		</div>
-		<div class="column">
-				<b><u>Website</u></b></br>
-				cfmairsystems.com.au
-		</div>
+    <div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
 	</div>
+
 	<hr />
 
 	<table class="cover_table">
-		<tr>
+		<tr valign="top">
 			<td class="bold">To:</td>
 			<td>%%COMPANY%%</td>
 			<td class="bold">Date:</td>
 			<td>%%DATE%%</td>
 		</tr>
 		
-		<tr>
+		<tr valign="top">
 			<td class="bold">Attention:</td>
 			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
 			<td class="bold">From:</td>
 			<td>%%SALES%%%%SALESMAIL%%</td>
 		</tr>
 		
-		<tr>
+		<tr valign="top">
 			<td class="bold">Re:</td>
 			<td>%%PROJNAME%%, %%PROJADDR%%</td>
 			<td class="bold">Quote number:</td>
@@ -133,5 +148,9 @@
 	
 
 
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+	
 
 </html>

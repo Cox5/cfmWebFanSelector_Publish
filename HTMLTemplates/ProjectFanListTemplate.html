@@ -15,6 +15,36 @@
 				padding: 0;
 				font-size: 13px;
 			}
+
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 35%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
+
 			/* Clear floats after the columns */
 			.row:after {
 				content: "";
@@ -53,39 +83,16 @@
 
 		</style>
     </head>
+	<body>
+	 <!-- ProjectFanListTemplate used for many columns of fan acoustic details  -->
+	<div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
+	</div>
 
-        
-	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
-
-    <div class="row  mt-small mb-medium">
-        <div class="column">
-                <b><u>Address</u></b></br>
-                106-108 Fairbank Road<br>Clayton South Victoria 3169
-        </div>
-        <div class="column">
-                <b><u>Phone</u></b></br>
-                03-9551-4878
-        </div>
-        <div class="column">
-                <b><u>Email</u></b></br>
-                mail@cfmairsystems.com.au
-        </div>
-        <div class="column">
-                <b><u>Website</u></b></br>
-                cfmairsystems.com.au
-        </div>
-    </div>
     <hr />
     <div class="heading-wrapper">
     
 	    <h2>%%PROJNAME%%,%%PROJADDR%%</h2>
-	    
-	    <h4>on behalf of <span class="bold">%%COMPANY%%</span> , Attn: <span class="bold">%%ATTN%%</span></h4>
-	    
-	    <h3>Quote: <span class="bold">%%QUOTENUM%%</span></h3>
-	    
-	    <h4 class="bold">%%DATE%%</h4> 
-	    
     
     </div>
 
@@ -116,5 +123,11 @@
 	</div>
 	
 	<hr />
+
 	
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+	
+	</body>
 </html>

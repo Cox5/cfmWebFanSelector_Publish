@@ -16,6 +16,34 @@
 				font-size: 13px;
 			}
 
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
 			/* Clear floats after the columns */
 			.row:after {
 				content: "";
@@ -52,8 +80,15 @@
 			.cover_table {
 				width: 100%;
 				font-size: 14px;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				border-collapse: separate; 
+                border-spacing:0 15px; 
 			}
 			
+			.cover-table tr {
+				vertical-align:top; 
+			}
 			h2 {
 				font-weight: 600;
 				line-height: 1;
@@ -69,12 +104,6 @@
 				font-size: 18px;
 				line-height: 0.7;
 				font-weight: 500;
-			}
-
-			.cover_table {
-				width: 100%;
-				padding-top: 15px;
-				padding-bottom: 15px;
 			}
 
 			.heading-wrapper {
@@ -120,8 +149,12 @@
 				padding: 5px;
 			}
 
-			#quotation_table .bottom-border {
+			.bottom-border {
 				border-bottom: 1px solid gray;
+			}
+
+			#quotation_table .bottom-border.red {
+				border-bottom: 2px solid red;
 			}
 
 			#quotation_table .quantity {
@@ -155,8 +188,8 @@
 			}
 
 			.comments {
-				margin-bottom: 40px;
-				margin-top: 40px;
+				margin-bottom: 45px;
+				margin-top: 45px;
 			}
 
 			.comments p {
@@ -166,62 +199,55 @@
 			.comments li {
 				font-size: 14px;
 			}
-			ul     	     {
-				list-style: none;
+			
+			ul {
+				padding-left: 10px;
 			}
-			ul li:before {
-				content: "\00BB \0020";
+			ul li{
+				width:33.333333%; 
+				float:left;
 			}
+			li:before {
+				content: '\2022 ';
+				font-size: 16px !important;
+				margin-right: 5px;
+			} 
 
+			li {
+				margin-top: 7px;
+			}
 
 
 		</style>
     </head>
-
-    
-	<img src="C:\inetpub\fans\cfmWebFanSelector_Publish\Content\CFMLogo_new.png">
-
-
-
-    <div class="row row mt-small mb-medium">
-        <div class="column">
-                <b><u>Address</u></b></br>
-                106-108 Fairbank Road<br>Clayton South Victoria 3169
-        </div>
-        <div class="column">
-                <b><u>Phone</u></b></br>
-                03-9551-4878
-        </div>
-        <div class="column">
-                <b><u>Email</u></b></br>
-                mail@cfmairsystems.com.au
-        </div>
-        <div class="column">
-                <b><u>Website</u></b></br>
-                cfmairsystems.com.au
-        </div>
+	<body>
+	<!-- cover_quotation_template used for cover page when prices are available -->
+    <div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
 	</div>
-	
 	<hr />
 
 	<table class="cover_table">
-		<tr>
+		<tr valign="top">
 			<td class="bold">To:</td>
 			<td>%%COMPANY%%</td>
 			<td class="bold">Date:</td>
 			<td>%%DATE%%</td>
 		</tr>
 		
-		<tr>
+		<tr valign="top">
 			<td class="bold">Attention:</td>
 			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
 			<td class="bold">From:</td>
 			<td>%%SALES%%%%SALESMAIL%%</td>
 		</tr>
 		
-		<tr>
+		<tr valign="top">
 			<td class="bold">Re:</td>
 			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+		</tr>
+
+		<tr valign="top">
 			<td class="bold">Quote number:</td>
 			<td>%%QUOTENUM%%</td>
 		</tr>
@@ -231,9 +257,10 @@
 	<hr />
 		
 	
-	<div class="mt-medium">
-		<p>Thank you for contacting CFM Airsystems regarding fans for your project at <span class="bold">%%PROJADDR%%</span></p>
-		<p>Please find below a quotation for your project which includes:</br> %%PDFOPTIONS%%
+	<div class="block">
+		<p>Thank you for contacting CFM Airsystems regarding fans for your project at</p>
+
+		<p class="bold">%%PROJADDR%%</p>
 	</div>
 	
 	<div>
@@ -259,35 +286,31 @@
 					<td class="cost">%%FANCOST_INC_GST%%</td>
 				</tr>
 				<tr>
-					<td>Ancillary and other items:</td>
+					<td>Extras and ancillary items:</td>
 					<td class="quantity">%%EXTRACOUNT%%</td>
-					<td class="cost">%%EXTRACOST_EX_GST%%</td>
-					<td class="cost-sm">%%EXTRACOST_GST%%</td>
-					<td class="cost">%%EXTRACOST_INC_GST%%</td>
+					<td class="cost bottom-border">%%EXTRACOST_EX_GST%%</td>
+					<td class="cost-sm bottom-border">%%EXTRACOST_GST%%</td>
+					<td class="cost bottom-border">%%EXTRACOST_INC_GST%%</td>
 				</tr>
 				<tr class="separator">
 					<td>Freight:</td>
 					<td></td>
-					<td class="cost">%%FREIGHT_EX_GST%%</td>
-					<td class="cost-sm">%%FREIGHT_GST%%</td>
-					<td class="cost">%%FREIGHT_INC_GST%%</td>
+					<td class="cost bottom-border">%%FREIGHT_EX_GST%%</td>
+					<td class="cost-sm bottom-border">%%FREIGHT_GST%%</td>
+					<td class="cost bottom-border">%%FREIGHT_INC_GST%%</td>
 				</tr>
 
 				%%DISCOUNT_ROW%%
 
 				<tr class="separator-small">
-					<td class="hl bottom-border">Total:</td>
-					<td class="bottom-border"></td>
-					<td class="cost bottom-border">%%TOTAL_EX_GST%%</td>
-					<td class="cost-sm bottom-border">%%TOTAL_GST%%</td>
-					<td class="cost hl bottom-border">%%TOTAL_INC_GST%%</td>
+					<td class="hl">Total:</td>
+					<td></td>
+					<td class="cost bottom-border red">%%TOTAL_EX_GST%%</td>
+					<td class="cost-sm bottom-border red">%%TOTAL_GST%%</td>
+					<td class="cost hl bottom-border red">%%TOTAL_INC_GST%%</td>
 				</tr>		
 			</tbody>		
 		</table>
-	</div>
-	
-	<div class="mt-medium">
-		<p>All goods are ex warehouse in Clayton South.</br>Estimated time to delivery: <span class="bold">%%DELIVTIME%%</span> </p>
 	</div>
 
 	<div class="comments">
@@ -300,14 +323,39 @@
 
 	</div>
 
+	
+
+	
+	<div class="block">
+		<p> <span class="bold">All goods are ex warehouse in Clayton South.</span></p>
+	
+		<p>Estimated time to delivery: <span class="bold">%%DELIVTIME%%</span> </p>
+	</div>
+	
+
 	<div class="comments">
 			<p class="bold">Comments:</p>
-			<p>%%COMMENTS%%</p> 
+
+		    <div class="clearfix">%%COMMENTS%%</div> 
 	</div>
 
 
-	<hr />
 
+
+	<div class="block">
+		<p>Please find below a summary of your project which includes:</p>
+		<div class="clearfix">
+
+			%%PDFOPTIONS%%
+		</div>
+	</div>
+	
+
+	
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+	</body>
 
 
 </html>
