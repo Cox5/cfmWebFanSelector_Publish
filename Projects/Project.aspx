@@ -376,6 +376,12 @@
                             <asp:TextBox ID="txtPriceAdj" runat="server" />
                         </td>
                     </tr>
+                    <tr id="tr1" runat="server">
+                        <td>Estimated Delivery Time</td>
+                        <td>
+                            <asp:TextBox ID="txtDelivery" runat="server" size="4" style="width: auto" /> business days
+                        </td>
+                    </tr>
                 </table>
 
                 <p class="validation-msg">

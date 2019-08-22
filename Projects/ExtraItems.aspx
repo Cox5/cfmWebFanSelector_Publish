@@ -68,6 +68,7 @@
                             <asp:DropDownList ID="ddlDescriptionEdit"  OnSelectedIndexChanged="ddlDescriptionEdit_SelectedIndexChanged" Visible="false" Width="200px" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     <asp:ListItem Text="Please select..." Value="Null" />
                              </asp:DropDownList>
+                            <asp:HiddenField ID="descriptionHidden" Value='<%#Eval("description") %>'  runat="server" ></asp:HiddenField>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtDescriptionFooter" runat="server" CssClass="input-small"></asp:TextBox>

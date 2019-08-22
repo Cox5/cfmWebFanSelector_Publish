@@ -119,7 +119,7 @@
     <br />
 
     <div class="right-controls mt-medium">
-        <asp:DropDownList runat="server" ID="ddlPricelistAction" style="width: 50%" AutoPostBack="true" OnSelectedIndexChanged="ddlPricelistAction_SelectedIndexChanged">
+        <asp:DropDownList runat="server" ID="ddlPricelistAction" style="width: auto" AutoPostBack="true" OnSelectedIndexChanged="ddlPricelistAction_SelectedIndexChanged">
                 <asp:ListItem Text="Return to Fan List" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Mark pricing as completed" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Mark pricing as completed and email project owner" Value="3"></asp:ListItem>
