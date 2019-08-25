@@ -126,7 +126,7 @@
                                 <td>Below:
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtLowerLimit" Width="40" Text="5" runat="server" />
+                                    <asp:TextBox ID="txtLowerLimit" Width="40" Text="-10" runat="server" />
                                     %
                                 </td>
                             </tr>
@@ -134,7 +134,7 @@
                                 <td>Above:
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="20" runat="server" />
+                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="30" runat="server" />
                                     %
                                 </td>
                             </tr>
