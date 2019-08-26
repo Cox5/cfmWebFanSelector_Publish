@@ -60,6 +60,9 @@
             <div id="div_topLeft" runat="server">
                 <div class="sectionBorder">
                     <div id="div_select">
+                        <div class="flfs-container">
+                            <%= getFanLocation()  %>
+                        </div>
                         <br />
                         <table id="selectTable" style="width: 100%;">
                             <tr>

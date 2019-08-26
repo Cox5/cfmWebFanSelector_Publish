@@ -704,3 +704,16 @@ td.icons img {
     font-weight: 500;
     transition: all 0.2s;
 }
+
+.flfs-container {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 18px;   
+}
+
+.flfs-value {
+    font-size: 19px;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: #e01b0d;
+}

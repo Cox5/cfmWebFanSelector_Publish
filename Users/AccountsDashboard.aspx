@@ -15,12 +15,29 @@
              <a href="RegisterUser.aspx" id="addUserHref" class="button-main primary-btn" runat="server"><i class="fas fa-plus-circle"></i> Add New User</a>
          </div>
 
+    <asp:HiddenField ID="howIsSortedName" runat="server" />
+    <asp:HiddenField ID="howIsSortedClass" runat="server" />
+
     <table class="table project">
         <thead>
-          <tr><td width="35%">Name</td><td width="35%">Company</td><td width="20%">User class</td><td></td></tr>
+          <tr>
+              <td width="35%">Name <asp:linkbutton ID="sortingNameButton" runat="server" onclick="SortName_Click" /></td>
+              <td width="35%">Company</td>
+              <td width="20%">User class  <asp:linkbutton ID="sortingClassButton" runat="server" onclick="SortClass_Click" /></td>
+              <td></td>
+          </tr>
         </thead>
 
-        <%= getUsers() %>
+         <% foreach (var u in users) { %>
+             <tr>
+                 <td><%= u.FirstName + " " + u.LastName %></td>
+                 <td><%= u.CompanyName %></td>
+                 <td><%= u.UserClassString %></td>
+                 <td class="icons"><%= getControls(u.ID) %></td>
+
+
+             </tr>
+         <% } %>
     </table>
 
     <div class="right-controls mt-medium">
