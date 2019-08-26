@@ -17,12 +17,13 @@
 
     <asp:HiddenField ID="howIsSortedName" runat="server" />
     <asp:HiddenField ID="howIsSortedClass" runat="server" />
+    <asp:HiddenField ID="howIsSortedCompany" runat="server" />
 
     <table class="table project">
         <thead>
           <tr>
               <td width="35%">Name <asp:linkbutton ID="sortingNameButton" runat="server" onclick="SortName_Click" /></td>
-              <td width="35%">Company</td>
+              <td width="35%">Company <asp:linkbutton ID="sortingCompanyButton" runat="server" onclick="SortCompany_Click" /></td>
               <td width="20%">User class  <asp:linkbutton ID="sortingClassButton" runat="server" onclick="SortClass_Click" /></td>
               <td></td>
           </tr>
