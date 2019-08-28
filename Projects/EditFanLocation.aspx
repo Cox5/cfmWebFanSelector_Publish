@@ -23,7 +23,7 @@
             <tr>
                 <td>Fan Model</td>
                 <td>
-                    <asp:TextBox ID="txtModelNum" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtModelNum" runat="server" ReadOnly></asp:TextBox>
                     <asp:Label ID="lblModelNumMsg" runat="server"></asp:Label>
                 </td>
                 <td>
