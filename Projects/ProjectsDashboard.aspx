@@ -17,7 +17,7 @@
 
       
       <div class="table-controls center-text mb-medium">
-          <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for project name, company or address" Width="430px" Height="32px" class="mr-small"></asp:TextBox>
+          <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for quotation number, project name, company or address" Width="430px" Height="32px" class="mr-small"></asp:TextBox>
           <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn" />
       </div>
 
@@ -32,7 +32,7 @@
             <td width="23%">Project</td>
             <td width="22%">Location</td>
             <td width="18%">Company</td>
-            <td width="12%">Salesperson</td>
+            <td width="12%">Contact</td>
             <td ></td>
           </tr>
         </thead>

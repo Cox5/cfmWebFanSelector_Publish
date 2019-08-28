@@ -270,13 +270,13 @@ namespace CFM_Web
         /// <param name="airflow"></param>
         /// <param name="staticPressure"></param>
         /// <returns></returns>
-        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure)
+        private string buildPerformanceDataTable_Old(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure)
         {
             FansBackend.Entities.DataPoint dpIntercept = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
             
             System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
 
-            performanceDataTable.AppendLine("<table id=\"performanceDataTable\" class=\"dataTable\" style=\"width:300px\">");
+            performanceDataTable.AppendLine("<table id=\"performanceDataTable\" class=\"dataTable\" xstyle=\"width:300px\">");
 
             performanceDataTable.Append("<tr>");
             performanceDataTable.AppendFormat("<th colspan=\"2\" >Required Performance</th>");
@@ -380,6 +380,50 @@ namespace CFM_Web
        
             powerDataTable.AppendLine("</table>");
             return powerDataTable.ToString();
+        }
+
+        /// <summary>
+        /// Builds a HTML table with performance data for a fanData object
+        /// </summary>
+        /// <param name="fanData"></param>
+        /// <param name="airflow"></param>
+        /// <param name="staticPressure"></param>
+        /// <returns></returns>
+        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double staticPressure)
+        {
+            FansBackend.Entities.DataPoint dpIntercept = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
+
+            System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
+
+            performanceDataTable.AppendLine("<table id=\"performanceDataTable\" class=\"dataTable\" xstyle=\"width:300px\">");
+
+            performanceDataTable.Append("<tr>");
+            performanceDataTable.AppendFormat("<th></th><th>Required</th><th>Actual</th>");
+            performanceDataTable.AppendLine("</tr>");
+
+            if (dpIntercept == null)
+            {
+                performanceDataTable.AppendFormat("<th align=left>Air Flow: (l/s)</th><td>{0}</td><td>{1}</td></tr>", airflow.ToString(), "N/A");
+                performanceDataTable.AppendFormat("<th align=left>Static Pressure: (Pa)</th><td>{0}</td><td>{1}</td></tr>", staticPressure.ToString(), "N/A");
+                performanceDataTable.AppendFormat("<th align=left>Total Pressure: (Pa)</th><td></td><td>{0}</td></tr>",  "N/A");
+                performanceDataTable.AppendFormat("<th align=left>Outlet Velocity: (m/s)</th><td></td><td>{0}</td></tr>", "N/A");
+            }
+            else
+            {
+                performanceDataTable.AppendFormat("<th align=left>Air Flow: (L/s)</th><td>{0}</td><td>{1}</td></tr>", airflow.ToString("0.0"), dpIntercept.airflow.ToString("0.0"));
+                performanceDataTable.AppendFormat("<th align=left>Static Pressure: (Pa)</th><td>{0}</td><td>{1}</td></tr>", staticPressure.ToString("0.0"), dpIntercept.staticPressure.ToString("0.0"));
+                performanceDataTable.AppendFormat("<th align=left>Total Pressure: (Pa)</th><td></td><td>{0}</td></tr>",
+                    FansBackend.BusinessLogic.FanSelector.CalculateTotalPressure(dpIntercept.staticPressure, fanData.fanObject.fanSize / 1000.0, dpIntercept.airflow / 1000.0).ToString("0.00")
+                    );
+                performanceDataTable.AppendFormat("<th align=left>Outlet Velocity: (m/s)</th><td></td><td>{0}</td>", 
+                    FansBackend.BusinessLogic.FanSelector.calculateOutletVelocity(fanData.fanObject.fanSize / 1000.0, dpIntercept.airflow / 1000.0).ToString("0.00")
+                    );
+
+            }
+
+
+            performanceDataTable.AppendLine("</table>");
+            return performanceDataTable.ToString();
         }
 
     }

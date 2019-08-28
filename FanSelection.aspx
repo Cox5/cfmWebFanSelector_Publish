@@ -259,7 +259,7 @@
         <div id="div_right">
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
                 <div class="sectionBorder">
-                    <div id="div_fanData">
+                    <div id="div_fanData" style="padding-top: 0px">
                         <div id="div_fanName">
                             <h3></h3>
                         </div>
@@ -278,20 +278,20 @@
                             <asp:CheckBox Text="Alternative" ID="ckb_alternative" runat="server" />
                         </div>
 
+                        <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px;">
+                            Performance Data
+                        <hr />
+                            <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>
+                            <div id="div_performanceCurve" style="height: 500px; width: 70%; display: inline-block; vertical-align: top; xmin-width: 500px">
+                                <asp:Literal ID="lit_performanceCurve" runat="server" />
+                            </div>
+                        </div>
+
                         <div id="div_nominalData" style="background-color: #E3E3E3; padding: 20px; ">
                             Nominal Data
                         <hr />
                             <div id="div_fanImage" style="display: inline-block"></div>
                             <div id="div_nominalDataTable" style="display: inline-block; vertical-align: top; margin-left: 28px;"></div>
-                        </div>
-
-                        <div id="div_performanceData" style="background-color: #E3E3E3; padding: 20px;">
-                            Performance Data
-                        <hr />
-                            <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>
-                            <div id="div_performanceCurve" style="height: 500px; width: 70%; display: inline-block; vertical-align: top; min-width: 500px">
-                                <asp:Literal ID="lit_performanceCurve" runat="server" />
-                            </div>
                         </div>
 
                         <div id="div_powerData" style="background-color: #E3E3E3; padding: 20px;">
