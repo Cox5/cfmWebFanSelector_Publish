@@ -43,9 +43,9 @@
         <asp:LinkButton CommandName="Fan Locations"  runat="server" OnClick="btnFanLocations_Click" class="sp-button">
             
             <div class="sp-rect">
-                    <span class="sp-text">Fan Locations</span>
+                    <span class="sp-text">Fan References</span>
                     <span class="sp-icon">
-                            <img src='/icons/fanicon.svg' class="sp-svg" alt='Fan Locations'> 
+                            <img src='/icons/fanicon.svg' class="sp-svg" alt='Fan References'> 
                     </span>
             </div>
         </asp:LinkButton>

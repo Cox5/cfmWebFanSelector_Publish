@@ -23,9 +23,9 @@
 
         <div class="mb-solid mt-solid">
             <div class="table-controls">
-                <h1 class="table-title maintitle">Fan Locations</h1>
+                <h1 class="table-title maintitle">Fan References</h1>
                 
-                <td id="addFanCol" align="right" runat="server"><a href="<%= getAddFanLocationsURL() %>" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> Add Fan Locations</a></td>
+                <td id="addFanCol" align="right" runat="server"><a href="<%= getAddFanLocationsURL() %>" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> Add Fan References</a></td>
             </div>
             
             <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
@@ -34,8 +34,8 @@
         <table id="fanLocationsTable" class="table project">
             <thead>
                 <tr>
-                    <td>Fan Location</td>
-                    <td >Airflow</td>
+                    <td>Fan Reference</td>
+                    <td >Airflow Rate</td>
                     <td >St.Pr.</td>
                     <td>CFM Fan</td>
                     <td align="right">Qty</td>

@@ -27,7 +27,7 @@
 
                 <Columns>
 
-                    <asp:TemplateField  HeaderText="Fan Location" HeaderStyle-HorizontalAlign="Left">
+                    <asp:TemplateField  HeaderText="Fan Reference" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:Label Text='<%#Eval("location_designation") %>' runat="server"></asp:Label>
                         </ItemTemplate>
@@ -38,6 +38,31 @@
                             <asp:DropDownList ID="ddlFanLocations"  OnSelectedIndexChanged="ddlFanLocations_SelectedIndexChanged"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     <asp:ListItem Text="Please select..." Value="Null" />
                              </asp:DropDownList>
+                            <asp:HiddenField ID="projectFanIdHidden" Value='<%#Eval("pfid") %>'  runat="server" ></asp:HiddenField>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+
+                     <asp:TemplateField  HeaderText="MkW" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" FooterStyle-HorizontalAlign="Center" >
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("mkw") %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtMkW" Text='<%#Eval("mkw") %>' runat="server" Enabled="false" CssClass="input-small"></asp:TextBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:Label ID="txtMkWFooter" runat="server" AutoPostBack="true"></asp:Label>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+
+                     <asp:TemplateField  HeaderText="Diameter" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" FooterStyle-HorizontalAlign="Center">
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("diameter") %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtDiameter" Text='<%#Eval("diameter") %>' runat="server" Enabled="false" CssClass="input-small"></asp:TextBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:Label ID="txtDiameterFooter" runat="server" AutoPostBack="true"></asp:Label>
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -46,13 +71,13 @@
                             <asp:Label ID="categoryName" Text='<%#Eval("category_name") %>'  runat="server" ></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                             <asp:DropDownList ID="ddlCategoryEdit"  OnSelectedIndexChanged="ddlCategoryEdit_SelectedIndexChanged"  ItemStyle-Width="160px" HeaderStyle-Width="160px"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                             <asp:DropDownList ID="ddlCategoryEdit"  OnSelectedIndexChanged="ddlCategoryEdit_SelectedIndexChanged"   HeaderStyle-Width="160px"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     
                              </asp:DropDownList>
                             <asp:HiddenField ID="categoryNameHidden" Value='<%#Eval("category_name") %>'  runat="server" ></asp:HiddenField>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlCategory"  OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" Width="160px" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                            <asp:DropDownList ID="ddlCategory"  OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     <asp:ListItem Text="Please select..." Value="Null" />
                              </asp:DropDownList>
                         </FooterTemplate>
@@ -63,22 +88,22 @@
                             <asp:Label Text='<%#Eval("description") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtDescription" Text='<%#Eval("description") %>' runat="server" ItemStyle-Width="200px" HeaderStyle-Width="200px"  CssClass="input-small"></asp:TextBox>
+                            <asp:TextBox ID="txtDescription" Text='<%#Eval("description") %>' runat="server" HeaderStyle-Width="200px"  CssClass="input-small"></asp:TextBox>
                            
-                            <asp:DropDownList ID="ddlDescriptionEdit"  OnSelectedIndexChanged="ddlDescriptionEdit_SelectedIndexChanged" Visible="false" Width="200px" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                            <asp:DropDownList ID="ddlDescriptionEdit"  OnSelectedIndexChanged="ddlDescriptionEdit_SelectedIndexChanged" Visible="false"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     <asp:ListItem Text="Please select..." Value="Null" />
                              </asp:DropDownList>
                             <asp:HiddenField ID="descriptionHidden" Value='<%#Eval("description") %>'  runat="server" ></asp:HiddenField>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtDescriptionFooter" runat="server" CssClass="input-small"></asp:TextBox>
-                            <asp:DropDownList ID="ddlDescription"  OnSelectedIndexChanged="ddlDescription_SelectedIndexChanged" Visible="false" Width="200px" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                            <asp:DropDownList ID="ddlDescription"  OnSelectedIndexChanged="ddlDescription_SelectedIndexChanged" Visible="false"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     <asp:ListItem Text="Please select..." Value="Null" />
                              </asp:DropDownList>
                         </FooterTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Catalogue Number" ItemStyle-Width="160px" HeaderStyle-Width="160px"  HeaderStyle-HorizontalAlign="Left">
+                    <asp:TemplateField HeaderText="Catalogue Number" ItemStyle-Width="160px" HeaderStyle-Width="160px"  HeaderStyle-HorizontalAlign="Left" Visible="false">
                         <ItemTemplate>
                             <asp:Label Text='<%#Eval("catalogue_id") %>' runat="server"></asp:Label>
                         </ItemTemplate>
@@ -87,7 +112,7 @@
                             <asp:CustomValidator ID="catalogueNumCustomValidator" runat="server" ErrorMessage="..."></asp:CustomValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtCatalogueNumberFooter" runat="server" Width="160px" CssClass="input-small"></asp:TextBox>
+                            <asp:TextBox ID="txtCatalogueNumberFooter" runat="server"  CssClass="input-small"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
 

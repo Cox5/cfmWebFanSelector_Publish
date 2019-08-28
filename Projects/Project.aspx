@@ -5,7 +5,18 @@
             <h1 class="table-title" id="h1" runat="server"></h1>
             <h3>Project details</h3>
             <p><asp:Label ID="lblMessage" runat="server" /></p>
-
+<style>
+        td.optional {color: #888888;}
+        td.required {color: #000000;}
+        td.optional input[type="text"], td.optional select {
+            color: #888888;
+            border: 1px solid #eee;
+        }
+        td.required input[type="text"] {
+            color: #000000;
+            border: 1px solid #555;
+        }
+</style>
            <div class="leftcolumn">
             
             <table class="table">
@@ -20,23 +31,23 @@
 
                 <%--<asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtProjectname" MinimumValue="2" MaximumValue="35" ErrorMessage="Enter a valid name" ForeColor="Red" /> --%>
                 <asp:RequiredFieldValidator class="mt-small" ID="RequiredProjectNamevalidator" runat="server" ErrorMessage="Project name field is empty " ForeColor="Red" ControlToValidate="txtProjectname"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "txtProjectname" ID="RegularExpressionValidator2" ValidationExpression = "^[\s\S]{2,30}$" runat="server" ErrorMessage="Minimum 2 and maximum 30 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "txtProjectname" ID="RegularExpressionValidator2" ValidationExpression = "^[\s\S]{2,100}$" runat="server" ErrorMessage="Minimum 2 and maximum 100 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
   
                 <tr>
-                    <td>Address 1</td>
-                    <td>
+                    <td class="optional">Address 1</td>
+                    <td class="optional">
                         <asp:TextBox ID="txtAddress1" runat="server" />
                     </td>
                 </tr>
                 <tr>
-                    <td>Address 2</td>
-                    <td>
+                    <td class="optional">Address 2</td>
+                    <td class="optional">
                         <asp:TextBox ID="txtAddress2" runat="server" />
                     </td>
                 </tr>
                 <tr>
-                    <td>Suburb/City</td>
-                    <td>
+                    <td class="optional">Suburb/City</td>
+                    <td class="optional">
                         <asp:TextBox ID="txtSuburb" runat="server" />
                     </td>
                 </tr>
@@ -302,7 +313,7 @@
                 </tr>
                 
                 <tr>
-                    <td>Postcode</td>
+                    <td class="optional">Postcode</td>
                     <td>
                         <asp:TextBox ID="txtPostcode" runat="server" />
                     </td>
@@ -365,20 +376,20 @@
                     </tr>
                     <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtQuoteNo" ValidationExpression="([0-9])[0-9]*[.]?[0-9]*" ErrorMessage="Please enter a number" ForeColor="Red"></asp:RegularExpressionValidator>--%>
                     <tr id="trStatus" runat="server">
-                        <td>Status</td>
-                        <td>
+                        <td class="optional">Status</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtStatus" runat="server" />
                         </td>
                     </tr>
                     <tr id="trPriceAdj" runat="server">
-                        <td>Price Adjustment</td>
-                        <td>
+                        <td  class="optional">Price Adjustment</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtPriceAdj" runat="server" />
                         </td>
                     </tr>
                     <tr id="tr1" runat="server">
-                        <td>Estimated Delivery Time</td>
-                        <td>
+                        <td class="optional">Estimated Delivery Time</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtDelivery" runat="server" size="4" style="width: auto" /> business days
                         </td>
                     </tr>
