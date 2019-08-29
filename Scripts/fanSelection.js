@@ -132,8 +132,24 @@ function getFanDataSucceed(fanImageData) {
     $("#div_powerDataTable").html(fanImageData.d.powerDataTable);
     $("#fanName").html(fanImageData.d.fanName);
 
+    transferActualValues();
+
     // Populate airflow and st pressure text boxes with given values from datapoint table
     //$("#txt_airFlow").text(fanImageData.d.fanDataID.)
+}
+
+function transferActualValues() {
+
+    let ac_af = $("#ac_af").text();
+    let ac_sp = $("#ac_sp").text();
+    let ac_tp = $("#ac_tp").text();
+    let ac_ov = $("#ac_ov").text();
+
+    document.getElementById("body_hidden_ac_af").value = ac_af;
+    document.getElementById("body_hidden_ac_sp").value = ac_sp;
+    document.getElementById("body_hidden_ac_tp").value = ac_tp;
+    document.getElementById("body_hidden_ac_ov").value = ac_ov;
+   
 }
 
   // Clears all the information on the form and returns it to it's default state

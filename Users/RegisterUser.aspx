@@ -3,7 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
+<style>
+        td.optional {color: #888888;}
+        td.required {color: #000000;}
+        td.optional input[type="text"], td.optional select {
+            color: #888888;
+            border: 1px solid #eee;
+        }
+        td.required input[type="text"] {
+            color: #000000;
+            border: 1px solid #555;
+        }
+</style>
     <%--<form id="formSignUp" runat="server">--%>
         <div class="content-wrapper">
 
@@ -15,36 +26,36 @@
                 <hr />
                 <table width="100%">
                     <tr>
-                        <td>First name</td>
-                        <td>
+                        <td class="required">First name</td>
+                        <td class="required">
                             <asp:TextBox ID="txtFirstname" runat="server" required="true" />
                         </td>
                     </tr>
 
 
                     <tr>
-                        <td>Last name</td>
-                        <td>
+                        <td class="required">Last name</td>
+                        <td class="required">
                             <asp:TextBox ID="txtLastname" runat="server" required="true" />
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>Email address</td>
-                        <td>
+                    <tr class="required">
+                        <td class="required">Email address</td>
+                        <td class="required">
                             <asp:TextBox ID="txtEmail" runat="server" required="true" />
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Confirm email address</td>
-                        <td>
+                        <td class="required">Confirm email address</td>
+                        <td class="required">
                             <asp:TextBox ID="txtEmailConfirm" runat="server" required="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Telephone</td>
-                        <td>
+                        <td class="optional">Telephone</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtUserPhone" runat="server" required="true" />
                         </td>
                     </tr>
@@ -62,8 +73,8 @@
                         </td>
                     </tr>
                         <tr>
-                      <td>User class</td>
-                      <td><asp:DropDownList runat="server" ID="ddlUserClass">
+                      <td class="optional">User class</td>
+                      <td class="optional"><asp:DropDownList runat="server" ID="ddlUserClass">
                           <asp:ListItem Text="Unapproved" Value="4">User who cannot log in</asp:ListItem>
                           <asp:ListItem Text="User" Value="3"></asp:ListItem>
                           <asp:ListItem Text="Sales" Value="2"></asp:ListItem>
@@ -104,32 +115,32 @@
                     </table>
                 <table width="100%" id="tblCompanyDetails" runat="server">
                     <tr>
-                        <td>Name</td>
-                        <td>
+                        <td  class="required">Name</td>
+                        <td class="required">
                             <asp:TextBox ID="txtCompany" runat="server" required="true" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Address 1</td>
-                        <td>
+                        <td class="optional">Address 1</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtCompanyAddr1" runat="server"  />
                         </td>
                     </tr>
                     <tr>
-                        <td>Address 2</td>
-                        <td>
+                        <td class="optional">Address 2</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtCompanyAddr2" runat="server" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Suburb/City</td>
-                        <td>
+                        <td class="optional">Suburb/City</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtCompanySubCity" runat="server"  />
                         </td>
                     </tr>
                     <tr>
-                        <td>State</td>
-                        <td>
+                        <td class="optional">State</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtState" runat="server" />
                             <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server">
                                 <asp:ListItem Value="">Please select...</asp:ListItem>
@@ -145,8 +156,8 @@
                         </td>
                     </tr>
                    <tr>
-                    <td>Country</td>
-                    <td>
+                    <td class="optional">Country</td>
+                    <td class="optional">
                            <asp:DropDownList ID="ddlCountry" AutoPostBack="true" AppendDataBoundItems="true" runat="server"
                                onselectedindexchanged="ddlCountry_SelectedIndexChanged">
                     <asp:ListItem Text="Australia" Value="Australia" />
@@ -389,23 +400,23 @@
                 </tr>
 
                     <tr>
-                        <td>Postcode</td>
-                        <td>
+                        <td class="optional">Postcode</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtCompanyPostcode" runat="server" />
                         </td>
                     </tr>
                     
                     <tr>
-                        <td>Telephone</td>
-                        <td>
+                        <td class="optional">Telephone</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtCompanyTelephone" runat="server" />
                         </td>
 
                     </tr>
 
                     <tr>
-                        <td>Website</td>
-                        <td>
+                        <td class="optional">Website</td>
+                        <td class="optional">
                             <asp:TextBox ID="txtCompanyWebsite" runat="server" Placeholder="example.com" />
                         </td>
                     </tr>

@@ -34,19 +34,32 @@
         <table id="fanLocationsTable" class="table project">
             <thead>
                 <tr>
+                    <td>&nbsp;</td>
                     <td>Fan Reference</td>
                     <td >Airflow Rate</td>
                     <td >St.Pr.</td>
                     <td>CFM Fan</td>
-                    <td align="right">Qty</td>
-                    <td id="tdPrice" align="right">
-                        <asp:Label ID="lblPrice" runat="server" >Price</asp:Label>
+                    <td align="center">Qty</td>
+                    <td id="tdPrice" align="right">Price
                     </td>
                     <td>&nbsp;</td>
                 </tr>
 
             </thead>
-                <%= getProjectFans() %>
+
+              <% for (int i = 0; i < fanReferences.Count; i++) { %>
+                 <tr>
+                     <%--todo: make link and UPDATE table on page load based on URL params--%>
+                     <td></td>
+                     <td><%= fanReferences[i].FanReferenceCode %></td>
+                     <td><%= fanReferences[i].AirFlow %></td>
+                     <td><%= fanReferences[i].StaticPressure %></td>
+                     <td><%= fanReferences[i].PartNumber %></td>
+                     <td align="center"><%= fanReferences[i].Qty %></td>
+                     <td align="right"><%= Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") %></td>
+                     <td class="icons"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure) %></td>
+                 </tr>
+             <% } %>
             <tr>
                 <td colspan="2" align="left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label>
                 </td>

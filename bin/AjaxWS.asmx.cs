@@ -264,7 +264,7 @@ namespace CFM_Web
         }
 
         /// <summary>
-        /// Builds a HTML table with performance data for a fanData object
+        /// NOT USED - Builds a HTML table with performance data for a fanData object
         /// </summary>
         /// <param name="fanData"></param>
         /// <param name="airflow"></param>
@@ -403,19 +403,19 @@ namespace CFM_Web
 
             if (dpIntercept == null)
             {
-                performanceDataTable.AppendFormat("<th align=left>Air Flow: (l/s)</th><td>{0}</td><td>{1}</td></tr>", airflow.ToString(), "N/A");
-                performanceDataTable.AppendFormat("<th align=left>Static Pressure: (Pa)</th><td>{0}</td><td>{1}</td></tr>", staticPressure.ToString(), "N/A");
-                performanceDataTable.AppendFormat("<th align=left>Total Pressure: (Pa)</th><td></td><td>{0}</td></tr>",  "N/A");
-                performanceDataTable.AppendFormat("<th align=left>Outlet Velocity: (m/s)</th><td></td><td>{0}</td></tr>", "N/A");
+                performanceDataTable.AppendFormat("<th align=left>Air Flow: (l/s)</th><td>{0}</td><td id=ac_af style='align:right'>{1}</td></tr>", airflow.ToString(), "N/A");
+                performanceDataTable.AppendFormat("<th align=left>Static Pressure: (Pa)</th><td id=ac_sp>{0}</td ><td style='align:right'>{1}</td></tr>", staticPressure.ToString(), "N/A");
+                performanceDataTable.AppendFormat("<th align=left>Total Pressure: (Pa)</th><td></td><td id=ac_tp style='align:right'>{0}</td></tr>",  "N/A");
+                performanceDataTable.AppendFormat("<th align=left>Outlet Velocity: (m/s)</th><td></td><td id=ac_ov style='align:right' >{0}</td></tr>", "N/A");
             }
             else
             {
-                performanceDataTable.AppendFormat("<th align=left>Air Flow: (L/s)</th><td>{0}</td><td>{1}</td></tr>", airflow.ToString("0.0"), dpIntercept.airflow.ToString("0.0"));
-                performanceDataTable.AppendFormat("<th align=left>Static Pressure: (Pa)</th><td>{0}</td><td>{1}</td></tr>", staticPressure.ToString("0.0"), dpIntercept.staticPressure.ToString("0.0"));
-                performanceDataTable.AppendFormat("<th align=left>Total Pressure: (Pa)</th><td></td><td>{0}</td></tr>",
+                performanceDataTable.AppendFormat("<th align=left>Air Flow: (L/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>", airflow.ToString("0.0"), dpIntercept.airflow.ToString("0.0"));
+                performanceDataTable.AppendFormat("<th align=left>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>", staticPressure.ToString("0.0"), dpIntercept.staticPressure.ToString("0.0"));
+                performanceDataTable.AppendFormat("<th align=left>Total Pressure: (Pa)</th><td></td><td ID=ac_tp style='align:right'>{0}</td></tr>",
                     FansBackend.BusinessLogic.FanSelector.CalculateTotalPressure(dpIntercept.staticPressure, fanData.fanObject.fanSize / 1000.0, dpIntercept.airflow / 1000.0).ToString("0.00")
                     );
-                performanceDataTable.AppendFormat("<th align=left>Outlet Velocity: (m/s)</th><td></td><td>{0}</td>", 
+                performanceDataTable.AppendFormat("<th align=left>Outlet Velocity: (m/s)</th><td></td><td ID=ac_ov style='align:right' >{0}</td>", 
                     FansBackend.BusinessLogic.FanSelector.calculateOutletVelocity(fanData.fanObject.fanSize / 1000.0, dpIntercept.airflow / 1000.0).ToString("0.00")
                     );
 
