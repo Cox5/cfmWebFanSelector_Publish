@@ -50,7 +50,7 @@
               <% for (int i = 0; i < fanReferences.Count; i++) { %>
                  <tr>
                      <%--todo: make link and UPDATE table on page load based on URL params--%>
-                     <td></td>
+                     <td>    <%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
                      <td><%= fanReferences[i].FanReferenceCode %></td>
                      <td><%= fanReferences[i].AirFlow %></td>
                      <td><%= fanReferences[i].StaticPressure %></td>
