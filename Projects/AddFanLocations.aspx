@@ -25,10 +25,10 @@
                
                 <thead>
                     <tr>
-                        <td>Fan Location</td>
-                        <td class="medium-td" >Airflow Rate (l/s)</td>
-                        <td class="small-td">Static<br />Press.(Pa)</td>
-                        <td class="small-td">Qty</td>
+                        <td>Fan Reference</td>
+                        <td style="text-align:center" class="medium-td" >Airflow Rate (l/s)</td>
+                        <td style="text-align:center" class="small-td">Static<br />Press.(Pa)</td>
+                        <td style="text-align:center" class="small-td">Qty</td>
                     </tr>
                 </thead>
                 <tr>

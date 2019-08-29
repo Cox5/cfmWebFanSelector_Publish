@@ -270,6 +270,12 @@
                             <asp:Button ID="btn_addToSchedule" runat="server" Text="Add to Schedule" OnClick="btn_addToSchedule_Click" Width="150px"  class="button-main primary-btn"/>
                             <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main primary-btn" />
                             <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
+
+                            <asp:HiddenField ID="hidden_ac_af" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_ac_sp" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_ac_tp" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
+
                         </div>
 
                         <div id="div_schedule" style="display: none">

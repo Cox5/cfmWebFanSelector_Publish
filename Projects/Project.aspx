@@ -299,6 +299,7 @@
                     <td>
                         <asp:TextBox ID="txtState" runat="server" />
                         <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server">
+                            <asp:ListItem Value="unselected">Please select...</asp:ListItem>
                             <asp:ListItem Value="ACT">Australian Capital Territory</asp:ListItem>
                             <asp:ListItem Value="NSW">New South Wales</asp:ListItem>
                             <asp:ListItem Value="NT">Northern Territory</asp:ListItem>
@@ -320,6 +321,7 @@
                 </tr>
                 
                 <asp:RequiredFieldValidator class="mt-small" ID="countryReqValidator" runat="server" ErrorMessage="Country field is empty" ForeColor="Red" ControlToValidate="ddlCountry"></asp:RequiredFieldValidator>
+
                 </table>
                </div>
 

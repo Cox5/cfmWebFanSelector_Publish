@@ -15,7 +15,7 @@
             <asp:Label ID="lblWarningPrices" runat="server" ForeColor="Red"></asp:Label>
             <asp:Label ID="lblWarningFan" runat="server" ForeColor="Red"></asp:Label>
 
-    <table style="width: 750px" class="table project">  
+    <table class="table project">  
 
         <thead>
             <tr>
