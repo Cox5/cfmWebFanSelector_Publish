@@ -1,0 +1,368 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+				font-size: 13px;
+			}
+
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			.right {
+				text-align: right;
+			}
+			.left {
+				text-align: left;
+			}
+
+			.huge {
+				width: 45%;
+			}
+
+			.big {
+				width: 25%;
+			}
+
+			.small {
+				width: 10%;
+			}
+
+			#project_fan_table {
+				font-size: 13px;
+				clear: both;
+			}
+			
+			th {
+				text-align: left;
+			}
+			.cover_table {
+				width: 100%;
+				font-size: 14px;
+				padding-top: 4px;
+				padding-bottom: 4px;
+				border-collapse: separate; 
+                border-spacing:0 15px; 
+			}
+			
+			.cover-table tr {
+				vertical-align:top; 
+			}
+			h2 {
+				font-weight: 600;
+				line-height: 1;
+			}
+
+			h3 {
+				font-size: 20px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			p {
+				margin: 8px 0;
+			}
+
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+
+			}
+
+			.center-item {
+				margin: 0 auto;
+			}
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+				font-size: 14px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+			.quotenum {
+				font-weight: 600;
+				font-size: 16px;
+			}
+
+
+			#quotation_table {
+				width: 85%;
+				border-collapse: collapse;
+				font-size: 14px;
+			}
+
+			#quotation_table thead {
+				font-weight: 600;
+			}
+
+			#quotation_table td {
+				padding: 5px;
+			}
+
+			.bottom-border {
+				border-bottom: 1px solid gray;
+			}
+
+			#quotation_table .bottom-border.red {
+				border-bottom: 2px solid red;
+			}
+
+			#quotation_table .quantity {
+				width: 15%;
+				text-align: center;
+			}
+
+			#quotation_table .cost {
+				width: 17%;
+				text-align: right;
+			}
+
+			#quotation_table .cost-sm {
+				width: 15%;
+				text-align: right;
+			}
+
+			#quotation_table .separator {
+				height: 50px;
+				vertical-align: bottom;
+			}
+
+			#quotation_table .separator-small {
+				height: 40px;
+				vertical-align: bottom;
+			}
+
+			#quotation_table .hl {
+				font-weight: 600;
+
+			}
+
+			.comments {
+				margin-bottom: 45px;
+				margin-top: 45px;
+			}
+
+			.comments p {
+				line-height: 0.5;
+				font-size: 14px;
+			}
+			.comments li {
+				font-size: 14px;
+			}
+			
+			ul {
+				padding-left: 10px;
+			}
+			ul li{
+				width:33.333333%; 
+				float:left;
+			}
+			li:before {
+				content: '\2022 ';
+				font-size: 16px !important;
+				margin-right: 5px;
+			} 
+
+			li {
+				margin-top: 7px;
+			}
+
+
+		</style>
+    </head>
+	<body>
+	<!-- cover_quotation_template used for cover page when prices are available -->
+    <div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
+	</div>
+	<hr />
+
+	<table class="cover_table">
+		<tr valign="top">
+			<td class="bold">To:</td>
+			<td>%%COMPANY%%</td>
+			<td class="bold">Date:</td>
+			<td>%%DATE%%</td>
+		</tr>
+		
+		<tr valign="top">
+			<td class="bold">Attention:</td>
+			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
+			<td class="bold">From:</td>
+			<td>%%SALES%%%%SALESMAIL%%</td>
+		</tr>
+		<tr valign="top">
+			<td class="bold">Quote number:</td>
+			<td class="quotenum">%%QUOTENUM%%</td>
+		</tr>		
+		<tr valign="top">
+			<td class="bold">Re:</td>
+			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+		</tr>
+		
+	</table>
+	
+	<hr />
+		
+	
+	<div class="block">
+		<p>Thank you for contacting CFM Airsystems regarding fans for your project at</p>
+
+		<p class="bold">%%PROJADDR%%</p>
+	</div>
+	
+	<div>
+		<table id="quotation_table" class="center-item mt-medium">
+			<thead>
+				
+				<tr class="bottom-border">
+					<td>Item</td>
+					<td class="quantity">Quantity</td>
+					<td class="cost">Cost ex GST</td>
+					<td class="cost-sm">GST</td>
+					<td class="cost">Cost Inc GST</td>
+				</tr>
+			
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Fans:</td>
+					<td class="quantity">%%FANCOUNT%%</td>
+					<td class="cost">%%FANCOST_EX_GST%%</td>
+					<td class="cost-sm">%%FANCOST_GST%%</td>
+					<td class="cost">%%FANCOST_INC_GST%%</td>
+				</tr>
+				<tr>
+					<td>Extras and ancillary items:</td>
+					<td class="quantity">%%EXTRACOUNT%%</td>
+					<td class="cost bottom-border">%%EXTRACOST_EX_GST%%</td>
+					<td class="cost-sm bottom-border">%%EXTRACOST_GST%%</td>
+					<td class="cost bottom-border">%%EXTRACOST_INC_GST%%</td>
+				</tr>
+				<tr class="separator">
+					<td>Freight:</td>
+					<td></td>
+					<td class="cost bottom-border">%%FREIGHT_EX_GST%%</td>
+					<td class="cost-sm bottom-border">%%FREIGHT_GST%%</td>
+					<td class="cost bottom-border">%%FREIGHT_INC_GST%%</td>
+				</tr>
+
+				%%DISCOUNT_ROW%%
+
+				<tr class="separator-small">
+					<td class="hl">Total:</td>
+					<td></td>
+					<td class="cost bottom-border red">%%TOTAL_EX_GST%%</td>
+					<td class="cost-sm bottom-border red">%%TOTAL_GST%%</td>
+					<td class="cost hl bottom-border red">%%TOTAL_INC_GST%%</td>
+				</tr>		
+			</tbody>		
+		</table>
+	</div>
+
+	<div class="comments">
+		<p class="bold">Ancillary and other items:</p>
+		<p>	
+			<div class="row" id="project_fan_div">
+				%%EXTRADETAILS%%
+			</div>
+		</p>
+
+	</div>
+
+	
+
+	
+	<div class="block">
+		<p> <span class="bold">All goods are ex warehouse in Clayton South.</span></p>
+		<p>Estimated time to delivery: <span class="bold">%%DELIVTIME%%</span> </p>
+		<p>Quotation is valid for 90 days from date of issue.</p>
+	</div>
+	
+
+	<div class="comments">
+			<p class="bold">Comments:</p>
+
+		    <div class="clearfix">%%COMMENTS%%</div> 
+	</div>
+
+
+
+
+	<div class="block">
+		<p>Please find below a summary of your project which includes:</p>
+		<div class="clearfix">
+
+			%%PDFOPTIONS%%
+		</div>
+	</div>
+	
+
+	
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+	</body>
+
+
+</html>

@@ -13,7 +13,6 @@
 				float: left;
 				width: 25%;
 				padding: 0;
-				font-size: 13px;
 			}
 
 			.clearfix {
@@ -27,7 +26,7 @@
 			}
 
 			img.logo {
-				width: 35%;
+				width: 60%;
 				height: auto;
 				margin-bottom: 10px;
 				float: right;
@@ -51,83 +50,112 @@
 				display: table;
 				clear: both;
 			}
-			.right {
-				text-align: right;
+			.col-2 {
+				float: left;
+				width: 50%;
 			}
 			.left {
+				width: 30%;
+			}
+			.right {
+				width: 70%;
+				display: inline-block;
+			}
+			th {
 				text-align: left;
 			}
-			#project_fan_table {
-				font-size: 13px;
+			.motorDataTbl {
+				table-layout: fixed;
+				width: 90%;
+				font-size: 19px;
 			}
-			.heading-wrapper {
+			.acoustic_data_table {
+				table-layout: fixed;
+				width: 80%;
+				font-size: 19px;
+			}
+			.acoustic_data_table tbody tr td:first-child {
+				width: 8em;
+				min-width: 8em;
+				max-width: 8em;
+				word-break: break-all;
+			}
+			.fanDataTbl {
+				table-layout: fixed;
+				width: 100%;
+				font-size: 19px;
+			}
+			.requirementsTbl {
+				font-size: 19px;
+			}
+
+			.cover_table {
+				width: 100%;
 				padding-top: 15px;
-				padding-bottom: 10px;
-				text-align: center;
-			}	
-			
+				padding-bottom: 15px;
+			}
+
 			/* Helpers */
 			.mt-small {
 				margin-top: 15px;
 			}
+
+			.mt-medium {
+				margin-top: 30px;
+			}
+
 			.mb-medium {
 				margin-bottom: 30px;
 			}
 
 			.bold {
 				font-weight: 600;
-			}			
+			}
 
+			
 
 
 
 		</style>
     </head>
-	<body>
-	 <!-- ProjectFanListTemplate used for many columns of fan acoustic details  -->
+
 	<div class="clearfix">
 			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
 	</div>
 
-    <hr />
-    <div class="heading-wrapper">
-    
-	    <h2>%%PROJNAME%%,%%PROJADDR%%</h2>
-    
-    </div>
+	<hr />
 
-	<hr />
-	
-    <div class="row" id="project_fan_div">
-        <table style="font-size: 13px; width: 100%;">
-			<tr>
-				<th class='left' width="12%">Fan Reference</th>
-				<th class='left'>Model number</th>
-				<th class='right'>Airflow</th>
-				<th class='right'>Static pressure</th>
-				<th class='right'>Hz63</th>
-				<th class='right'>Hz125</th>
-				<th class='right'>Hz250</th>
-				<th class='right'>Hz500</th>
-				<th class='right'>Hz1K</th>
-				<th class='right'>Hz2K</th>
-				<th class='right'>Hz4K</th>
-				<th class='right'>Hz8K</th>
-				<th class='right'>SWL</th>
-				<th class='right'>SPL@3m</th>
-		    </tr>
-			
-				%%TABLE_ROW%%
-			
-		</table>
-	</div>
-	
-	<hr />
+	<table class="cover_table">
+		<tr>
+			<td class="bold">To:</td>
+			<td>%%COMPANY%%</td>
+			<td class="bold">Date:</td>
+			<td>%%DATE%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Attention:</td>
+			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
+			<td class="bold">From:</td>
+			<td>%%SALES%%%%SALESMAIL%%</td>
+		</tr>
+		
+		<tr>
+			<td class="bold">Re:</td>
+			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+			<td class="bold">Quote number:</td>
+			<td>%%QUOTENUM%%</td>
+		</tr>
+		
+	</table>
+
+	<hr/>
 
 	
 	<div class="footer">
 			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
 	</div>
 	
-	</body>
+
+
 </html>

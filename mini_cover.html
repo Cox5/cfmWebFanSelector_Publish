@@ -27,7 +27,7 @@
 			}
 
 			img.logo {
-				width: 35%;
+				width: 60%;
 				height: auto;
 				margin-bottom: 10px;
 				float: right;
@@ -51,40 +51,64 @@
 				display: table;
 				clear: both;
 			}
-			.right {
-				text-align: right;
-			}
-			.left {
+			th {
 				text-align: left;
 			}
-			#project_fan_table {
-				font-size: 13px;
+
+			h2 {
+				font-weight: 600;
+				line-height: 1;
 			}
+
+			h3 {
+				font-size: 20px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			.cover_table {
+				width: 100%;
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+
 			.heading-wrapper {
 				padding-top: 15px;
 				padding-bottom: 10px;
 				text-align: center;
-			}	
+
+			}
+
 			
+
 			/* Helpers */
 			.mt-small {
 				margin-top: 15px;
 			}
+
+			.mt-medium {
+				margin-top: 30px;
+			}
+
 			.mb-medium {
 				margin-bottom: 30px;
 			}
 
 			.bold {
 				font-weight: 600;
-			}			
-
+			}
 
 
 
 		</style>
     </head>
-	<body>
-	 <!-- ProjectFanListTemplate used for many columns of fan acoustic details  -->
+
 	<div class="clearfix">
 			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
 	</div>
@@ -92,42 +116,22 @@
     <hr />
     <div class="heading-wrapper">
     
-	    <h2>%%PROJNAME%%,%%PROJADDR%%</h2>
+	    <h2>%%PROJNAME%%, %%PROJADDR%%</h2>
+	    
+	    <h4>on behalf of <span class="bold">%%COMPANY%%</span> , Attn: <span class="bold">%%ATTN%%</span></h4>
+	    
+	    <h3>Quote: <span class="bold">%%QUOTENUM%%</span></h3>
+	    
+	    <h4 class="bold">%%DATE%%</h4> 
+	    
     
-    </div>
-
-	<hr />
-	
-    <div class="row" id="project_fan_div">
-        <table style="font-size: 13px; width: 100%;">
-			<tr>
-				<th class='left' width="12%">Fan Reference</th>
-				<th class='left'>Model number</th>
-				<th class='right'>Airflow</th>
-				<th class='right'>Static pressure</th>
-				<th class='right'>Hz63</th>
-				<th class='right'>Hz125</th>
-				<th class='right'>Hz250</th>
-				<th class='right'>Hz500</th>
-				<th class='right'>Hz1K</th>
-				<th class='right'>Hz2K</th>
-				<th class='right'>Hz4K</th>
-				<th class='right'>Hz8K</th>
-				<th class='right'>SWL</th>
-				<th class='right'>SPL@3m</th>
-		    </tr>
-			
-				%%TABLE_ROW%%
-			
-		</table>
 	</div>
 	
-	<hr />
-
 	
 	<div class="footer">
 			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
 	</div>
 	
-	</body>
+
+
 </html>

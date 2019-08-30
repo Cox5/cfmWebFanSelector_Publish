@@ -1,0 +1,202 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: sans-serif;
+			}
+
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
+			.title {
+				font-size: 1.3rem;
+			}
+
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+				font-size: 13px;
+			}
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			th {
+				text-align: left;
+			}
+
+			h2 {
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 1;
+				
+			}
+
+			h3 {
+				font-size: 22px;
+				line-height: 0.9;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			td:not(:first-child) {
+				padding-left: 10px;
+			}
+
+			td:first-child {
+				width: 300px;
+			}
+
+			.cover_table {
+				width: 100%;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+
+			}
+
+			
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+
+			.underline {
+				text-decoration: underline;
+			}
+
+			.details_table {
+				float: left;
+				font-size: 13px;
+				display: inline-block;
+			}
+			.fan_data_table {
+				float: left;
+				font-size: 13px;
+				width: 17%;
+				display: inline-block;
+			}
+			
+			.fan_data_table td {
+				white-space: nowrap;
+			}
+
+			.space {
+				height: 30px !important;
+				vertical-align: bottom;
+			}
+
+			.heading-title {
+				height: 35 !important;
+				vertical-align: bottom;
+				text-decoration: underline;
+			}
+			
+			
+
+			td {
+				width: 230px;
+			}
+			
+			.left {
+				text-align: left !important; 
+			}
+			
+
+
+
+		</style>
+    </head>
+	<body>
+	 <!-- details_template used for 4 columns of fan details  -->
+	<div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
+	</div>
+
+    <hr />
+	
+
+	<div class="title">
+		<div>
+			<strong>Project: </strong>%%PROJNAME%%
+		</div>
+		<div>
+			<strong>Quote Number:</strong> %%QUOTENUM%%
+		</div>
+	</div>
+
+
+	<h3 class="mt-medium">Fan Specification</h3>
+	
+	<div>
+		
+	
+		%%FAN_DATA%%
+
+	
+	</div>
+
+
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+	
+	
+</body>
+
+</html>
