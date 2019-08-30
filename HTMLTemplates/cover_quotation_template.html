@@ -138,6 +138,11 @@
 			.bold {
 				font-weight: 600;
 			}
+			.quotenum {
+				font-weight: 600;
+				font-size: 16px;
+			}
+
 
 			#quotation_table {
 				width: 85%;
@@ -245,18 +250,13 @@
 			<td class="bold">From:</td>
 			<td>%%SALES%%%%SALESMAIL%%</td>
 		</tr>
-		
+		<tr valign="top">
+			<td class="bold">Quote number:</td>
+			<td class="quotenum">%%QUOTENUM%%</td>
+		</tr>		
 		<tr valign="top">
 			<td class="bold">Re:</td>
 			<td>%%PROJNAME%%, %%PROJADDR%%</td>
-		</tr>
-
-		<tr valign="top">
-			<td class="bold">Quote number:</td>
-			<td>%%QUOTENUM%%</td>
-		</tr>
-		<tr valign="top">
-			<td class="bold" colspan="3">Quotation is valid for 90 days from date of issue.</td>
 		</tr>
 		
 	</table>
@@ -335,8 +335,8 @@
 	
 	<div class="block">
 		<p> <span class="bold">All goods are ex warehouse in Clayton South.</span></p>
-	
 		<p>Estimated time to delivery: <span class="bold">%%DELIVTIME%%</span> </p>
+		<p>Quotation is valid for 90 days from date of issue.</p>
 	</div>
 	
 
