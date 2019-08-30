@@ -22,22 +22,33 @@
       </div>
 
      
-
+      
+    <asp:HiddenField ID="howIsSortedProjectName" runat="server" />
     
 
     <table class="table project">
         <thead>
           <tr>
             <td width="10%">Quote No.</td>
-            <td width="23%">Project</td>
-            <td width="22%">Location</td>
-            <td width="18%">Company</td>
+            <td width="20%">Project <asp:linkbutton ID="sortingProjectNameButton" runat="server" onclick="SortProjectName_Click" /></td>
+            <td width="21%">Location</td>
+            <td width="17%">Company</td>
             <td width="12%">Contact</td>
             <td ></td>
           </tr>
         </thead>
           
-         <%= getProjects() %>
+         <% foreach (var p in projects) { %>
+                 <tr>
+                     <td> <%= p.QuoteNumber %> </td>
+                     <td> <a href="<%= getSpecificProjectUrl(p.ProjectID) %>"> <%= p.ProjectName %> </a></td>
+                     <td> <%= p.Address1 + ", " + p.Suburb + ", " + p.Postcode  %> </td>
+                     <td> <%= p.EngineeringCompany  %> </td>
+                     <td> <%= p.SalesConsultant  %> </td>
+                     <td class="icons"> <%= getIcons(p.ProjectID, p.Status) %> </td>
+
+                 </tr>
+             <% } %>
 
         
     </table>
