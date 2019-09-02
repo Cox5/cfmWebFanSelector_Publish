@@ -57,7 +57,7 @@
                      <td><%= fanReferences[i].PartNumber %></td>
                      <td align="center"><%= fanReferences[i].Qty %></td>
                      <td align="right"><%= Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") %></td>
-                     <td class="icons"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure) %></td>
+                     <td class="icons"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
                  </tr>
              <% } %>
             <tr>

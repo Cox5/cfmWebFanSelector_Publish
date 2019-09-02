@@ -55,6 +55,7 @@
 
     <div class="right-controls mt-medium">
       <a href="/Dashboard.aspx" class="button-main primary-btn mt-medium"><i class="fas fa-angle-left"></i> Go Back</a>
+      <a href="/Projects/DeletedProjects.aspx" class="button-main primary-btn mt-medium">Restore projects</a>
     </div>
     
 

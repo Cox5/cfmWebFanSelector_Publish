@@ -711,7 +711,18 @@ visibility: visible;
     padding-bottom: 25px;
 }
 
+.label-success {
+    color: green;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
+
+.label-error {
+    color: red;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
 
 /* Media queries */

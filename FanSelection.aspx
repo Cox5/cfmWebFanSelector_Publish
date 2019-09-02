@@ -212,7 +212,8 @@
                                     <tbody>
                                         <% foreach (var fanData in fanDataList)
                                             {  %>
-                                        <tr data-fandataid="<%= fanData.fanDataID.ToString() %>">
+                                        <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"
+                                            style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
                                             <td title="<%=fanData.fanObject.partNumber  %>"
                                                  style="text-align: left;"> 
                                                  <%= truncateString(fanData.fanObject.partNumber, 12) %>
