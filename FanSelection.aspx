@@ -68,13 +68,13 @@
                             <tr>
                                 <td>Fan Model Number</td>
                                 <td>
-                                    <asp:TextBox ID="txt_modelName" runat="server" Width="90" CssClass="txtInput" />
+                                    <asp:TextBox ID="txt_modelName" runat="server" Width="90" CssClass="txtInput" autocomplete="off" />
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width: 20px">Airflow</td>
                                 <td>
-                                    <asp:TextBox ID="txt_airFlow" runat="server" Width="35" CssClass="txtInput" />
+                                    <asp:TextBox ID="txt_airFlow" runat="server" Width="35" CssClass="txtInput" autocomplete="off" />
                                     L/s
                   <asp:TextBox ID="txt_percentage" runat="server" Width="25" CssClass="txtInput" />
                                     %
@@ -83,7 +83,7 @@
                             <tr>
                                 <td>Static Pressure</td>
                                 <td>
-                                    <asp:TextBox ID="txt_static" runat="server" Width="35" CssClass="txtInput" />
+                                    <asp:TextBox ID="txt_static" runat="server" Width="35" CssClass="txtInput" autocomplete="off" />
                                     Pa
                                 </td>
                             </tr>
@@ -289,12 +289,12 @@
                             Performance Data
                         <hr />
                             <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>
-                            <div id="div_performanceCurve" style="height: 500px; width: 70%; display: inline-block; vertical-align: top; xmin-width: 500px">
+                            <div id="div_performanceCurve" style="height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top; min-width: 500px">
                                 <asp:Literal ID="lit_performanceCurve" runat="server" />
                             </div>
                         </div>
 
-                        <div id="div_nominalData" style="background-color: #E3E3E3; padding: 20px; ">
+                        <div id="div_nominalData" style="background-color: #E3E3E3; padding-left: 0px 20px 0px 20px ; margin-top: -20px;">
                             Nominal Data
                         <hr />
                             <div id="div_fanImage" style="display: inline-block"></div>

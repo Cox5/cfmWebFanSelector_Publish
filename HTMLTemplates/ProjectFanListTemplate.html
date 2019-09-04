@@ -2,13 +2,12 @@
 
     <head>
         <style>
-			
 			* {
 				box-sizing: border-box;
-				font-family: Verdana, sans-serif;
+				font-family: 'Open Sans Condensed', Verdana, sans-serif;
 			}
 
-			/* Create four equal columns that floats next to each other */
+			/* Create four equal columns that float next to each other */
 			.column {
 				float: left;
 				width: 25%;
@@ -80,6 +79,7 @@
 			.bold {
 				font-weight: 600;
 			}			
+			th { padding: 0px; }
 
 
 
@@ -102,32 +102,52 @@
 	<hr />
 	
     <div class="row" id="project_fan_div">
-        <table style="font-size: 13px; width: 100%;">
+        <table style="font-size: 11px; width: 100%;">
 			<tr>
-				<th class='left' width="8%">Fan</th>
-				<th class='center' width="13%">Model</th>
+				<th class='left' width="5%"></th>
+				<th class='center' width="10%"></th>
 				<th class='center'></th>
 				<th class='center'></th>
-				<th class='center' colspan=2>Airflow</th>
-				<th class='center' colspan=2>Static Pressure (Pa)</th>
+				<th class='center'></th>
+				<th class='center' colspan=2>Airflow Rate</th>
+				<th class='center' colspan=2>Static Pressure</th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center' colspan=8></th>
+
+				<th class='center'></th>
+				<th class='center'></th>
+			</tr>
+			<tr>
+				<th class='left' width="5%">Fan</th>
+				<th class='center' width="10%">Model</th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center' colspan=2>(l/s)</th>
+				<th class='center' colspan=2>(Pa)</th>
 				<th class='center'>Speed</th>
 				<th class='center'>Motor</th>
 				<th class='center'>Motor</th>
 				<th class='center'>Electrical</th>
-				<th class='center' colspan=8>Sound Power Level SWL (db)</th>
+				<th class='center' colspan=8>Sound Power Level SWL (dB)</th>
 
 				<th class='center'>All Band</th>
 				<th class='center'>SPL</th>
-				</tr>
-				<tr>
+			</tr>
+			<tr>
 				<th class='left'>Reference</th>
 				<th class='center'>number</th>
+				<th class='center'>Angle</th>
 				<th class='center'>Description</th>
 				<th class='center'>Qty</th>
-				<th class='center'>Actual</th>
 				<th class='center'>Requ.</th>
 				<th class='center'>Actual</th>
 				<th class='center'>Requ.</th>
+				<th class='center'>Actual</th>
+
 				<th class='center'>(RPM)</th>
 				<th class='center'>Power(kW)</th>
 				<th class='center'>Type</th>
@@ -153,7 +173,7 @@
 
 	
 	<div class="footer">
-			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/footer-landscape.jpg">
 	</div>
 	
 	</body>

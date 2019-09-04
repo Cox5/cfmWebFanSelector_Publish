@@ -28,7 +28,12 @@
 				padding: 0px;
 				margin-bottom: 10px;
 			}
-
+			.fan_code {
+				font-size: 1.4rem;
+				font-weight: 400;
+				padding: 0px;
+				margin-bottom: 0px;
+			}
 			.model {
 				font-weight: 500;
 				font-size: 1.8rem;
@@ -122,6 +127,7 @@
 			}
 			h3 {
 				padding: 0px;
+				margin-top: 8px;
 				margin-bottom: 8px;
 			}	
 
@@ -133,11 +139,11 @@
 	</div>
 
     <div class="row">
+				<h3>Project Name: %%PROJNAME%%</h3>
         <div class="col-2 left">
 			<h3>Quotation Number: %%QUOTENUM%%</span></h3>
-			<h3>Project Name: %%PROJNAME%%</h3>
 			<h3>Reference:</h3><h2 class="location"><span class="fan_ref">%%FAN_REF%%</span></h2>
-			<h3>Selected Model:</h3><h2 class="model"><span class="fan_code">%%FAN_CODE%%</span></h2>
+			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%% / %%ANGLE%%</span></h3>
 			<table class="requirementsTbl" border="0" >
 				<tr>
 					<th>Performance</th>
@@ -146,13 +152,13 @@
 				</tr>
 				<tr>
 					<td>Airflow (l/s):</td>
-					<td style='text-align: right'>%%VOLUME%%</td>
-					<td style='text-align: right'>%%ACTUAL_VOLUME%%</td>
+					<td style='text-align: left'>%%VOLUME%%</td>
+					<td style='text-align: left'>%%ACTUAL_VOLUME%%</td>
 				</tr>
 				<tr>
 					<td>Static Pressure (Pa):</td>
-					<td style='text-align: right'>%%STATIC_PRESSURE%%</td>
-					<td style='text-align: right'>%%ACTUAL_STATIC_PRESSURE%%</td>
+					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
+					<td style='text-align: left'>%%ACTUAL_STATIC_PRESSURE%%</td>
 				</tr>
 			</table>
 			<table class="fanDataTbl" border="0" >

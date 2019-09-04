@@ -19,6 +19,7 @@
         <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
         <div id="divHeader" class="nav-position">
             <div class="buttons button-nav"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
+            <div ID="scheduleLink" runat="server" class="buttons button-nav"><a href="/Projects/Fans.aspx?projectID=<%# projectID %>" class="topbar">Schedule</a></div>
             <div class="buttons button-nav"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
             <div class="buttons button-nav"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>
             <div class="buttons button-nav"><a href="/Users/AccountsDashboard.aspx" class="topbar">Account</a></div>
