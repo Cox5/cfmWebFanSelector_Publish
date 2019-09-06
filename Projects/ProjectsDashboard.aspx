@@ -22,18 +22,19 @@
       </div>
 
      
-      
+    <asp:HiddenField ID="howIsSortedQuote" runat="server" />
     <asp:HiddenField ID="howIsSortedProjectName" runat="server" />
+    <asp:HiddenField ID="howIsSortedComp" runat="server" />
+    <asp:HiddenField ID="howIsSortedContact" runat="server" />
     
 
     <table class="table project">
         <thead>
           <tr>
-            <td width="10%">Quote No.</td>
-            <td width="20%">Project <asp:linkbutton ID="sortingProjectNameButton" runat="server" onclick="SortProjectName_Click" /></td>
-            <td width="21%">Location</td>
-            <td width="17%">Company</td>
-            <td width="12%">Contact</td>
+            <td width="10%">Quote No. <asp:linkbutton ID="sortingQuoteButton" runat="server" onclick="SortQuote_Click" /></td>
+            <td width="40%">Project <asp:linkbutton ID="sortingProjectNameButton" runat="server" onclick="SortProjectName_Click" /></td>
+            <td width="17%">Company <asp:linkbutton ID="sortingCompButton" runat="server" onclick="SortComp_Click" /></td>
+            <td width="12%">Contact <asp:linkbutton ID="sortingContactButton" runat="server" onclick="SortContact_Click" /></td>
             <td ></td>
           </tr>
         </thead>
@@ -42,7 +43,6 @@
                  <tr>
                      <td> <%= p.QuoteNumber %> </td>
                      <td> <a href="<%= getSpecificProjectUrl(p.ProjectID) %>"> <%= p.ProjectName %> </a></td>
-                     <td> <%= p.Address1 + ", " + p.Suburb + ", " + p.Postcode  %> </td>
                      <td> <%= p.EngineeringCompany  %> </td>
                      <td> <%= p.SalesConsultant  %> </td>
                      <td class="icons"> <%= getIcons(p.ProjectID, p.Status) %> </td>

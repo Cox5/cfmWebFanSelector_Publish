@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add Fan Locations" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="AddFanLocations.aspx.cs" Inherits="CFM_Web.Projects.AddFanLocations" %>
+﻿<%@ Page Title="Add Fan Referemces" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="AddFanLocations.aspx.cs" Inherits="CFM_Web.Projects.AddFanLocations" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -25,9 +25,10 @@
                
                 <thead>
                     <tr>
-                        <td>Fan Reference</td>
-                        <td style="text-align:center" class="medium-td" >Airflow Rate (l/s)</td>
-                        <td style="text-align:center" class="small-td">Static<br />Press.(Pa)</td>
+                        <td style="width:15%">Fan Reference</td>
+                        <td>Selected Fan</td>
+                        <td style="text-align:center" class="medium-td" >Airflow (l/s)</td>
+                        <td style="text-align:center" class="small-td">Static<br />Pressure (Pa)</td>
                         <td style="text-align:center" class="small-td">Qty</td>
                     </tr>
                 </thead>
@@ -35,28 +36,32 @@
                      <%= getFanLocations() %>
                 </tr>
                 <tr>
-					<td><asp:TextBox ID="txtDesignation1" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td><asp:TextBox ID="txtAirflow1" class="txtAirflow" runat="server" /></td>
-                    <td><asp:TextBox ID="txtStaticPressure1" class="txtStaticPressure" runat="server" /></td>
-                    <td><asp:TextBox ID="txtQuantity1" class="txtQuantity" runat="server" Placeholder="1"/></td>
+					<td><asp:TextBox ID="txtDesignation1" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td></td>
+                    <td><asp:TextBox ID="txtAirflow1" CssClass="txtAirflow" runat="server" /></td>
+                    <td><asp:TextBox ID="txtStaticPressure1" CssClass="txtStaticPressure" runat="server" /></td>
+                    <td><asp:TextBox ID="txtQuantity1" CssClass="txtQuantity" runat="server" Placeholder="1"/></td>
                     <td><asp:Label ID="lblMsg1" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
-					<td><asp:TextBox ID="txtDesignation2" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td><asp:TextBox ID="txtAirflow2" class="txtAirflow" runat="server" /></td>
-                    <td><asp:TextBox ID="txtStaticPressure2" class="txtStaticPressure" runat="server" /></td>
-                    <td><asp:TextBox ID="txtQuantity2" class="txtQuantity" runat="server" Placeholder="1" /></td>
+					<td><asp:TextBox ID="txtDesignation2" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                   <td></td>
+                    <td><asp:TextBox ID="txtAirflow2" CssClass="txtAirflow" runat="server" /></td>
+                    <td><asp:TextBox ID="txtStaticPressure2" CssClass="txtStaticPressure" runat="server" /></td>
+                    <td><asp:TextBox ID="txtQuantity2" CssClass="txtQuantity" runat="server" Placeholder="1" /></td>
                     <td><asp:Label ID="lblMsg2" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
-					<td><asp:TextBox ID="txtDesignation3" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td><asp:TextBox ID="txtAirflow3" class="txtAirflow" runat="server" /></td>
-                    <td><asp:TextBox ID="txtStaticPressure3" class="txtStaticPressure" runat="server" /></td>
-                    <td><asp:TextBox ID="txtQuantity3" class="txtQuantity" runat="server" Placeholder="1" /></td>
+					<td><asp:TextBox ID="txtDesignation3" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td></td>
+                    <td><asp:TextBox ID="txtAirflow3" CssClass="txtAirflow" runat="server" /></td>
+                    <td><asp:TextBox ID="txtStaticPressure3" CssClass="txtStaticPressure" runat="server" /></td>
+                    <td><asp:TextBox ID="txtQuantity3" CssClass="txtQuantity" runat="server" Placeholder="1" /></td>
                     <td><asp:Label ID="lblMsg3" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
 					<td><asp:TextBox ID="txtDesignation4" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td></td>
                     <td><asp:TextBox ID="txtAirflow4" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure4" class="txtStaticPressure" runat="server" /></td>
                     <td><asp:TextBox ID="txtQuantity4" class="txtQuantity" runat="server" Placeholder="1" /></td>
@@ -64,6 +69,7 @@
                 </tr>
                 <tr>
 					<td><asp:TextBox ID="txtDesignation5" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td></td>
                     <td><asp:TextBox ID="txtAirflow5" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure5" class="txtStaticPressure" runat="server" /></td>
                     <td><asp:TextBox ID="txtQuantity5" class="txtQuantity" runat="server" Placeholder="1" /></td>

@@ -382,6 +382,10 @@ td.icons {
     text-align: right !important;
 }
 
+.icons-smaller {
+    width: 120px;
+}
+
 td.icons img {
     width: 22px !important;
     padding: 0px !important;

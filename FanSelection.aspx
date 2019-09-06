@@ -72,23 +72,22 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width: 20px">Airflow</td>
-                                <td>
-                                    <asp:TextBox ID="txt_airFlow" runat="server" Width="35" CssClass="txtInput" autocomplete="off" />
-                                    L/s
-                  <asp:TextBox ID="txt_percentage" runat="server" Width="25" CssClass="txtInput" />
-                                    %
-                                </td>
+                                <td >Airflow (l/s)</td>
+                                <td><asp:TextBox ID="txt_airFlow" runat="server" Width="35" CssClass="txtInput" autocomplete="off" /></td>
                             </tr>
                             <tr>
-                                <td>Static Pressure</td>
+                                <td >Additional airflow (%)</td>
+                                <td><asp:TextBox ID="txt_percentage" runat="server" Width="25" CssClass="txtInput" /></td>
+                            </tr>
+                            <tr>
+                                <td>Static Pressure (Pa)</td>
                                 <td>
                                     <asp:TextBox ID="txt_static" runat="server" Width="35" CssClass="txtInput" autocomplete="off" />
                                     Pa
                                 </td>
                             </tr>
                             <tr>
-                                <td>Fan Speed</td>
+                                <td>Fan Speed (rpm)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_fanSpeedMin" runat="server" CssClass="ddlInput">
                                     </asp:DropDownList>
@@ -98,7 +97,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Fan Diameter</td>
+                                <td>Fan Diameter (mm)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput">
                                     </asp:DropDownList>
@@ -108,7 +107,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Electrical Supply</td>
+                                <td>Power phase</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_motorPhase" runat="server" CssClass="ddlInput">
                                         <asp:ListItem Text="Any" Value="Any"></asp:ListItem>

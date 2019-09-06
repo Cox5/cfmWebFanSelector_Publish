@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Fan Locations Schedule" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="Fans.aspx.cs" Inherits="CFM_Web.Projects.Fans" %>
+﻿<%@ Page Title="Fan References Schedule" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="Fans.aspx.cs" Inherits="CFM_Web.Projects.Fans" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type = "text/javascript">
@@ -34,14 +34,15 @@
         <table id="fanLocationsTable" class="table project">
             <thead>
                 <tr>
+                    <%--<td>No</td>--%>
                     <td>&nbsp;</td>
-                    <td>Fan Reference</td>
-                    <td >Airflow Rate</td>
-                    <td >St.Pr.</td>
-                    <td>CFM Fan</td>
-                    <td align="center">Qty</td>
-                    <td id="tdPrice" align="right">Price
-                    </td>
+                    <td style='text-align:center' >Airflow (l/s)</td>
+                    <td  style='text-align:center' >Static Pressure (Pa)</td>
+                    <td style='text-align:left'>CFM Fan</td>
+                    <td style='text-align:center'>Qty</td>
+                    <td id="tdPrice" style='text-align:right'>Price</td>
+                    <td align="right">&nbsp;</td>
+                    <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -50,20 +51,23 @@
               <% for (int i = 0; i < fanReferences.Count; i++) { %>
                  <tr>
                      <%--todo: make link and UPDATE table on page load based on URL params--%>
-                     <td>    <%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
+                     
+<%--                     <td><%= fanReferences[i].Position %></td>--%>
+                     <td><%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
                      <td><%= fanReferences[i].FanReferenceCode %></td>
                      <td><%= fanReferences[i].AirFlow %></td>
                      <td><%= fanReferences[i].StaticPressure %></td>
-                     <td><%= fanReferences[i].PartNumber %></td>
-                     <td align="center"><%= fanReferences[i].Qty %></td>
-                     <td align="right"><%= Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") %></td>
-                     <td class="icons"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
+                     <td><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
+                     <td style='text-align:center'><%= fanReferences[i].Qty %></td>
+                     <td style='text-align:right'><%= Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") %></td>
+                     <td style='text-align:right; width: 50px;'><%= getCopyPaste(fanReferences[i]) %></td>
+                     <td class="icons icones-smaller"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
                  </tr>
              <% } %>
             <tr>
-                <td colspan="2" align="left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label>
+                <td colspan="2" style="text-align:left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label>
                 </td>
-                <td colspan="7" align="right" style="height: 60px">
+                <td colspan="7" style="text-align:right; height: 60px">
                     <%--<a href="<%= getPricelistURL() %>" id="pricelistHref" runat="server" class="button-main primary-btn">Go to Pricelist</a>--%>
                     <asp:Button CssClass="button-main primary-btn" ID="btnRequestPricing" runat="server"
                       OnClientClick = "Confirm()"

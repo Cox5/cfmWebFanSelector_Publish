@@ -33,7 +33,7 @@
     </table>
 
     <div class="right-controls mt-medium">
-      <a href="Projects/ProjectsDashboard.aspx" class="button-main primary-btn mt-medium"><i class="fas fa-angle-left"></i> Go Back</a>
+      <a href="ProjectsDashboard.aspx" class="button-main primary-btn mt-medium"><i class="fas fa-angle-left"></i> Go Back</a>
     </div>
     </div>
 </asp:Content>
