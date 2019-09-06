@@ -36,6 +36,7 @@
                 <tr>
                     <%--<td>No</td>--%>
                     <td>&nbsp;</td>
+                    <td style='text-align:left'>Fan Reference</td>
                     <td style='text-align:center' >Airflow (l/s)</td>
                     <td  style='text-align:center' >Static Pressure (Pa)</td>
                     <td style='text-align:left'>CFM Fan</td>
@@ -55,8 +56,8 @@
 <%--                     <td><%= fanReferences[i].Position %></td>--%>
                      <td><%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
                      <td><%= fanReferences[i].FanReferenceCode %></td>
-                     <td><%= fanReferences[i].AirFlow %></td>
-                     <td><%= fanReferences[i].StaticPressure %></td>
+                     <td style='text-align:center'><%= fanReferences[i].AirFlow %></td>
+                     <td style='text-align:center'><%= fanReferences[i].StaticPressure %></td>
                      <td><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
                      <td style='text-align:center'><%= fanReferences[i].Qty %></td>
                      <td style='text-align:right'><%= Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") %></td>
