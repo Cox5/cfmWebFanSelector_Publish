@@ -76,18 +76,17 @@
                                 <td><asp:TextBox ID="txt_airFlow" runat="server" Width="35" CssClass="txtInput" autocomplete="off" /></td>
                             </tr>
                             <tr>
-                                <td >Additional airflow (%)</td>
+                                <td >Additional Airflow (%)</td>
                                 <td><asp:TextBox ID="txt_percentage" runat="server" Width="25" CssClass="txtInput" /></td>
                             </tr>
                             <tr>
                                 <td>Static Pressure (Pa)</td>
                                 <td>
                                     <asp:TextBox ID="txt_static" runat="server" Width="35" CssClass="txtInput" autocomplete="off" />
-                                    Pa
                                 </td>
                             </tr>
                             <tr>
-                                <td>Fan Speed (rpm)</td>
+                                <td>Fan Speed (RPM)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_fanSpeedMin" runat="server" CssClass="ddlInput">
                                     </asp:DropDownList>
@@ -122,20 +121,20 @@
                 </td>
               </tr>--%>
                             <tr>
-                                <td colspan="2">Selection Envelope</td>
+                                <td colspan="2" style="padding-top: 10px; padding-bottom:0px"> Selection Envelope</td>
                             </tr>
                             <tr>
-                                <td>Below:
+                                <td style="mpadding-bottom:0px">Below:
                                 </td>
-                                <td>
+                                <td style="padding-bottom:0px">
                                     <asp:TextBox ID="txtLowerLimit" Width="40" Text="-10" runat="server" />
                                     %
                                 </td>
                             </tr>
                             <tr>
-                                <td>Above:
+                                <td style="padding-bottom:0px">Above:
                                 </td>
-                                <td>
+                                <td style="padding-bottom:0px">
                                     <asp:TextBox ID="txtUpperLimit" Width="40" Text="30" runat="server" />
                                     %
                                 </td>
