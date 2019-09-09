@@ -10,16 +10,12 @@
             <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Fan Locations</asp:LinkButton>
         </div>
         <div ID="table_view" runat="server" >
-            <div class="mb-solid mt-solid">
-                <div class="table-controls">
-
-                    <h1>
-                        <span id="projectName" class="project-name" runat="server">
-                            <asp:Label ID="lblProjectName" runat="server"></asp:Label></span>
-                    </h1>
-                </div>
-
-            </div>
+        <div class="mb-solid mt-solid">
+            <div class="table-controls">
+                <h1 class="table-title maintitle">Extras and Ancillaries</h1>
+            </div>         
+            <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+        </div>
 
             <asp:GridView ID="gvExtraItems" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="id" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvExtraItems_RowCommand" OnRowEditing="gvExtraItems_RowEditing" OnRowCancelingEdit="gvExtraItems_RowCancelingEdit" OnRowUpdating="gvExtraItems_RowUpdating" OnRowDeleting="gvExtraItems_RowDeleting"> 

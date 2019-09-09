@@ -283,11 +283,11 @@
                             <asp:CheckBox Text="Alternative" ID="ckb_alternative" runat="server" />
                         </div>
 
-                        <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px;">
+                        <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px; width:1250px" comment="1250px causes overflow on smaller screens, but stops the graph from wrapping downwards" >
                             Performance Data
                         <hr />
                             <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>
-                            <div id="div_performanceCurve" style="height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top; min-width: 500px">
+                            <div id="div_performanceCurve" style="height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top">
                                 <asp:Literal ID="lit_performanceCurve" runat="server" />
                             </div>
                         </div>
