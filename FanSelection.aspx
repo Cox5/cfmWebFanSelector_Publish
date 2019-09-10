@@ -77,7 +77,7 @@
                             </tr>
                             <tr>
                                 <td >Additional Airflow (%)</td>
-                                <td><asp:TextBox ID="txt_percentage" runat="server" Width="25" CssClass="txtInput" /></td>
+                                <td><asp:TextBox ID="txt_percentage" runat="server" Width="25" CssClass="txtInput" autocomplete="off" /></td>
                             </tr>
                             <tr>
                                 <td>Static Pressure (Pa)</td>
@@ -106,7 +106,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Power phase</td>
+                                <%--<td>Power phase (ph)</td>--%>
                                 <td>
                                     <asp:DropDownList ID="ddl_motorPhase" runat="server" CssClass="ddlInput">
                                         <asp:ListItem Text="Any" Value="Any"></asp:ListItem>

@@ -42,7 +42,7 @@ body {
     left: 0px;
     bottom: 0px;
     right: auto;
-    width: 650px;
+    width: 600px;
     position: absolute;
     background-color: #404042;
 }
@@ -175,7 +175,7 @@ body {
 #div_right {
     top: 0px;
     /*left:410px;*/
-    left: 650px;
+    left: 600px;
     bottom: 0px;
     right: 0px;
     width: auto;

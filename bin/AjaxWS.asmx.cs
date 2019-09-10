@@ -395,10 +395,10 @@ namespace CFM_Web
 
             System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
 
-            performanceDataTable.AppendLine("<table id=\"performanceDataTable\" class=\"dataTable\" style=\"width:200px\">");
+            performanceDataTable.AppendLine("<table id=\"performanceDataTable\" class=\"dataTable\" style=\"width:220px\">");
 
             performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th style='width:60%'></th><th style='width:20%'>Required</th><th>Actual</th>");
+            performanceDataTable.AppendFormat("<th style='width:49%'></th><th style='width:25%; font-weight: normal'>Required</th><th style='width:25%; font-weight: normal'>Actual</th>");
             performanceDataTable.AppendLine("</tr>");
 
             if (dpIntercept == null)

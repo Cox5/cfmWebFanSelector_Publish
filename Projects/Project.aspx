@@ -323,7 +323,7 @@
                 <asp:RequiredFieldValidator class="mt-small" ID="countryReqValidator" runat="server" ErrorMessage="Country field is empty" ForeColor="Red" ControlToValidate="ddlCountry"></asp:RequiredFieldValidator>
 
                 </table>
-               </div>
+            </div>
 
 
             <div class="rightcolumn" id="rightCol" runat="server">
