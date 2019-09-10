@@ -25,7 +25,6 @@
             <asp:Button  ID="btnUpdatePriceAdjustment" runat="server" Text="Update" OnClick="btnUpdatePriceAdjustment_Click" class="button-main primary-btn mr-small" />
         </div>
 
-
         <div class="center-text mt-medium">
             <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtPercentage" Type="Integer" MinimumValue="0" MaximumValue="25" ErrorMessage="Please enter discount or premium value between 0 and 25 percent (without % sign)" ForeColor="Red"></asp:RangeValidator>
             <asp:Label runat="server" ID="lblUpdateStatus"></asp:Label>

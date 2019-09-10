@@ -19,8 +19,8 @@
         <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a>
         <div id="divHeader" class="nav-position">
             <div ID="mainLink" runat="server" visible="false" class="buttons button-nav"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
-            <div ID="scheduleLink" runat="server" visible="false" class="buttons button-nav"><a href="/Projects/Fans.aspx?projectID=<%# projectID %>" class="topbar" target="_blank">Schedule</a></div>
-            <div ID="browseLink" runat="server" visible="false" class="buttons button-nav"><a href="/FanSelection.aspx?projectID=<%# projectID %>" class="topbar" target="_blank">Browse</a></div>
+            <div ID="scheduleLink" runat="server" visible="false" class="buttons button-nav"><asp:Button text="Schedule" ID="scheduleBtn" runat="server" OnClick="btnSchedule_Click" class="topbar" /></div>
+            <div ID="browseLink" runat="server" visible="false" class="buttons button-nav"><asp:Button text="Browse" ID="browseBtn" runat="server" OnClick="btnBrowse_Click" class="topbar" /></div>
             <div ID="fansLink" runat="server"  visible="false" class="buttons button-nav"><a href="/FanSelection.aspx" class="topbar">Fans</a></div>
             <div ID="projectsLink" runat="server"  visible="false" class="buttons button-nav"><a href="/Projects/ProjectsDashboard.aspx" class="topbar">Projects</a></div>
             <div  class="buttons button-nav"><a href="/Users/Logout.aspx" class="topbar">Logout</a></div>

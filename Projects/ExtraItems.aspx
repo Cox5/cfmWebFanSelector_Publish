@@ -50,7 +50,6 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
-
                      <asp:TemplateField  HeaderText="Diameter" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" FooterStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <asp:Label Text='<%#Eval("diameter") %>' runat="server"></asp:Label>
