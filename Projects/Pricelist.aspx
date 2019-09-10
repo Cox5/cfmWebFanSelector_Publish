@@ -7,15 +7,13 @@
     <div class="content-wrapper">
         <div class="mb-solid mt-solid">
             <div class="table-controls">
-
-                <h1>
-                    <span id="projectName" class="project-name" runat="server">
-                        <asp:Label ID="lblProjectName" runat="server"></asp:Label></span>
-                </h1>
+                <h1 class="table-title maintitle">Fan Pricelist</h1>
             </div>
-
+            
+            <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
         </div>
 
+    
 
         <div class="table-controls center-text">
             <span class="mr-small">Standard price adjustment (%) </span>
@@ -54,7 +52,7 @@
                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                 </asp:BoundField>
 
-                <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left">
+                <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left" >
                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                 </asp:BoundField>
 
@@ -81,7 +79,7 @@
                         <asp:Label ID="lblManualPrice" runat="server" Text='<%#Eval("price_value") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>' CssClass="input-small"></asp:TextBox>
+                        <asp:TextBox ID="txtManualPriceValue" runat="server" Text='<%#Eval("price_value") %>' CssClass="input-small"  autocomplete="off" ></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
 

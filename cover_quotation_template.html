@@ -41,7 +41,7 @@
 			}
 
 			.footer img {
-				width: 100%;
+				width: 99%;
 			}
 
 			/* Clear floats after the columns */
@@ -137,6 +137,10 @@
 
 			.bold {
 				font-weight: 600;
+			}
+			.quotenum {
+				font-weight: 600;
+				font-size: 32px;
 			}
 			.quotenum {
 				font-weight: 600;
@@ -248,7 +252,7 @@
 			<td class="bold">Attention:</td>
 			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
 			<td class="bold">From:</td>
-			<td>%%SALES%%%%SALESMAIL%%</td>
+			<td>%%SALES%% %%SALESEMAIL%%</td>
 		</tr>
 		<tr valign="top">
 			<td class="bold">Quote number:</td>
@@ -256,7 +260,7 @@
 		</tr>		
 		<tr valign="top">
 			<td class="bold">Re:</td>
-			<td>%%PROJNAME%%, %%PROJADDR%%</td>
+			<td class="projaddr">%%PROJNAME%%, %%PROJADDR%%</td>
 		</tr>
 		
 	</table>
@@ -265,9 +269,7 @@
 		
 	
 	<div class="block">
-		<p>Thank you for contacting CFM Airsystems regarding fans for your project at</p>
-
-		<p class="bold">%%PROJADDR%%</p>
+		<p>Thank you for contacting CFM Airsystems regarding fans for your project</p>
 	</div>
 	
 	<div>

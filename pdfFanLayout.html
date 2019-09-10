@@ -28,7 +28,12 @@
 				padding: 0px;
 				margin-bottom: 10px;
 			}
-
+			.fan_code {
+				font-size: 1.4rem;
+				font-weight: 400;
+				padding: 0px;
+				margin-bottom: 0px;
+			}
 			.model {
 				font-weight: 500;
 				font-size: 1.8rem;
@@ -62,7 +67,7 @@
 			}
 
 			.footer img {
-				width: 100%;
+				width: 99%;
 			}
 
 
@@ -85,7 +90,7 @@
 			}
 			th {
 				text-align: left;
-			}
+			}				
 			.motorDataTbl {
 				table-layout: fixed;
 				width: 90%;
@@ -95,6 +100,9 @@
 				table-layout: fixed;
 				width: 80%;
 				font-size: 19px;
+			}
+			.acoustic_data_table td {
+				text-align: center;
 			}
 			.acoustic_data_table tbody tr td:first-child {
 				width: 8em;
@@ -113,9 +121,15 @@
 			.last_td {
 				width: 30%;
 			}
+			h2 {
+				padding: 0px;
+				margin: 8px;
+			}
 			h3 {
 				padding: 0px;
-			}
+				margin-top: 8px;
+				margin-bottom: 8px;
+			}	
 
 		</style>
     </head>
@@ -125,51 +139,32 @@
 	</div>
 
     <div class="row">
+				<h3>Project Name: %%PROJNAME%%</h3>
         <div class="col-2 left">
+			<h3>Quotation Number: %%QUOTENUM%%</span></h3>
 			<h3>Reference:</h3><h2 class="location"><span class="fan_ref">%%FAN_REF%%</span></h2>
-			<h3>Model:</h3><h2 class="model"><span class="fan_code">%%FAN_CODE%%</span></h2>
+			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%% / %%ANGLE%%</span></h3>
 			<table class="requirementsTbl" border="0" >
 				<tr>
-					<th colspan=3 style='text-align: center'>Performance</th>
-				</tr>
-				<tr>
-					<th>&nbsp;</th>
+					<th>Performance</th>
 					<td style='text-align: right'>Required</td>
 					<td style='text-align: right'>Actual</td>
 				</tr>
 				<tr>
-					<td>Volume (l/s):</td>
-					<td style='text-align: right'>%%VOLUME%%</td>
-					<td style='text-align: right'>%%ACTUAL_VOLUME%%</td>
+					<td>Airflow (l/s):</td>
+					<td style='text-align: left'>%%VOLUME%%</td>
+					<td style='text-align: left'>%%ACTUAL_VOLUME%%</td>
 				</tr>
 				<tr>
 					<td>Static Pressure (Pa):</td>
-					<td style='text-align: right'>%%STATIC_PRESSURE%%</td>
-					<td style='text-align: right'>%%ACTUAL_STATIC_PRESSURE%%</td>
-				</tr>
-				<tr>
-					<td>Total Pressure (Pa):</td>
-					<td style='text-align: right'></td>
-					<td style='text-align: right'>%%ACTUAL_TOTAL_PRESSURE%%</td>
-				</tr>
-				<tr>
-					<td>Outlet Velocity (m/s):</td>
-					<td style='text-align: right'></td>
-					<td style='text-align: right'>%%ACTUAL_OV%%</td>
-				</tr>				
-				<tr>
-					<td>Installation Category:</td>
-					<td></td>
-					<td>%%INSTALLATION_CATEGORY%%</td>
+					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
+					<td style='text-align: left'>%%ACTUAL_STATIC_PRESSURE%%</td>
 				</tr>
 			</table>
-			<h3>Fan Data (at STP)</h3>
 			<table class="fanDataTbl" border="0" >
-	<!--		<tr>
-					<td>W/l:</td>
-					<td>%%W/l%%</td>
+				<tr>
+					<th>Fan Data</th>
 				</tr>
-	-->
 				<tr>
 					<td>Diameter:</td>
 					<td>%%DIAMETER%%</td>
@@ -192,8 +187,9 @@
 		</div>
 	</div>
 	<div class="row">
-		<p><b>BCA Compliance: Complies with Section J5.2 2009</b></p>
-		<p style="font-size: 12px;">All fans tested in compliance with ISO:5801-2017 standards. Airflow performances subject to change without notice. Please see Sales for updated datashets and further information.</p>
+		<p style='margin-bottom: 5px'><b>BCA Compliance: Complies with Section J5.2 2009</b></p>
+		<p style="margin-top: 0px;font-size: 12px;">All fans tested in compliance with ISO:5801-2017 standards. Airflow performances subject to 
+		change without notice. Please see Sales for updated datashets and further information</p>
 		<hr style="height: 2px; border:none; background-color: #333;">
 		<p><h3>Motor Data (at STP)</h3></p>
 		<table class="motorDataTbl" border="0">
@@ -224,10 +220,23 @@
 		</center>
 		
 		<hr style="height: 2px; border:none; background-color: #333;">
-		<h3>Acoustic Performance Data</h3>
+		<h3 style='margin-bottom: 0px'>Acoustic Performance Data</h3>
 		<table class="acoustic_data_table" border="0">
 			<tr>
-				<td>Spectrum (Hz)</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>			
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>SWL</td>
+			<td>SPL</td>
+			</tr>
+			<tr>
+				<td style='text-align: left'>Spectrum (Hz)</td>
 				<td>63</td>
 				<td>125</td>
 				<td>250</td>
@@ -240,7 +249,7 @@
 				<td class="last_td">dBA @ 3m</td>
 			</tr>
 			<tr>
-				<td>SWL (dB)</td>
+				<td style='text-align: left'>SWL (dB)</td>
 				<td>%%HZ63%%</td>
 				<td>%%HZ125%%</td>
 				<td>%%HZ250%%</td>
@@ -262,7 +271,4 @@
 	<div class="footer">
 			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
 	</div>
-	
-
-
 </html>
