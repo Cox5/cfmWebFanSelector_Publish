@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Edit Fan Location" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="EditFanLocation.aspx.cs" Inherits="CFM_Web.Projects.EditFanLocation" %>
+﻿<%@ Page Title="Edit Fan Reference" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="EditFanLocation.aspx.cs" Inherits="CFM_Web.Projects.EditFanLocation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,17 +7,17 @@
 
         <div class="mb-solid mt-solid">
             <div class="table-controls">
-                <h1 class="table-title sub">Edit Fan Location</h1>
+                <h1 class="table-title sub">Edit Fan Reference</h1>
             </div>
         </div>
 
         <table class="table table-form">
             <tr>
-                <td>Fan Location</td>
+                <td>Fan Reference</td>
                 <td>
                     <asp:TextBox ID="txtDesignation" runat="server" /></td>
                 <td>
-                    <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Fan Location is empty" ForeColor="Red" ControlToValidate="txtDesignation"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Fan Reference is empty" ForeColor="Red" ControlToValidate="txtDesignation"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

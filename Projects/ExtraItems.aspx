@@ -6,8 +6,8 @@
 
     <div class="content-wrapper">
         <div id="info_view" runat="server">
-            <h3 class="mb-solid">Please add fan locations in order to add extra items.</h3>
-            <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Fan Locations</asp:LinkButton>
+            <h3 class="mb-solid">Please add fan references in order to add extra items.</h3>
+            <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Fan References</asp:LinkButton>
         </div>
         <div ID="table_view" runat="server" >
         <div class="mb-solid mt-solid">
