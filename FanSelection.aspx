@@ -132,10 +132,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding-bottom:0px">Above:
-                                </td>
+                                <td style="padding-bottom:0px">Above: </td>
                                 <td style="padding-bottom:0px">
-                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="30" runat="server" />
+                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="30" runat="server" autocomplete="off" />
                                     %
                                 </td>
                             </tr>
@@ -283,7 +282,7 @@
                             <asp:CheckBox Text="Alternative" ID="ckb_alternative" runat="server" />
                         </div>
 
-                        <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px; width:1250px" comment="1250px causes overflow on smaller screens, but stops the graph from wrapping downwards" >
+                        <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px; min-width:1250px" comment="1250px causes overflow (horizontal scroll bar) on smaller screens, but stops the graph from wrapping downwards" >
                             Performance Data
                         <hr />
                             <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>

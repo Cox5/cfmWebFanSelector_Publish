@@ -76,7 +76,7 @@
                 <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Send Email" runat="server" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
             </div>
-
+        <p><asp:Label ID="lblProgressMessage" runat="server" class="lblmessage"></asp:Label></p>
         <a href="ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
     
 
