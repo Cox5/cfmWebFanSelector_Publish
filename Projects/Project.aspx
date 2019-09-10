@@ -2,7 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
         <div class="content-wrapper">
             
-            <h1 class="table-title" id="h1" runat="server"></h1>
+            <div class="mb-solid mt-solid">
+            <div class="table-controls">
+                <h1 class="table-title maintitle"  id="h1" runat="server"></h1>    
+              
+            </div>
+            
+            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server"  Visible="false"></asp:Label></div>
+            <div class="subtitle darkred regular" id="quoteNumberLine" runat="server" Visible="false" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
+        </div>
+
+
             <h3>Project details</h3>
             <p><asp:Label ID="lblMessage" runat="server" /></p>
 <style>

@@ -10,11 +10,14 @@
             <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Fan References</asp:LinkButton>
         </div>
         <div ID="table_view" runat="server" >
-        <div class="mb-solid mt-solid">
+            <div class="mb-solid mt-solid">
+
             <div class="table-controls">
-                <h1 class="table-title maintitle">Extras and Ancillaries</h1>
-            </div>         
-            <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+                <h1 class="table-title maintitle">Fan Pricelist</h1>
+            </div>
+            
+            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+            <div class="subtitle darkred regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
 
             <asp:GridView ID="gvExtraItems" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"

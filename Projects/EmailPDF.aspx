@@ -5,26 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
     <div class="content-wrapper">
+       
+
+        
         <div class="mb-solid mt-solid">
             <div class="table-controls">
-                <span class="maintitle">
-                    Email PDF as an attachment </span>
-
-            </div>
-            <span class="subtitle">
-                    <asp:Label ID="lblProjectName" runat="server"></asp:Label></span>
-            <span id="projectAddress" class="subtitle" runat="server">
-                <asp:Label ID="lblProjectAddress" runat="server"></asp:Label></span>
-
-            <div id="projQuoteNumber" class="projQuoteNumber" runat="server">
-                    
-                Quote number: <asp:Label ID="lblProjectQuoteNumber" runat="server" class="lblQuote"></asp:Label>
-            
+                <h1 class="table-title maintitle">Email PDF as an attachment</h1>
             </div>
             
-            <div id="projPDFfilename" class="projQuoteNumber" runat="server">
+            <div id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+            <div class="subtitle darkred regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
+            <div id="projPDFfilename"  class="subtitle-sub regular" runat="server">
                     
-                Sending attachment: <asp:Label ID="lblProjectPDFFilename" runat="server" class="lblQuote"></asp:Label>
+                Sending attachment: <asp:Label ID="lblProjectPDFFilename"  runat="server" class="bold"></asp:Label>
             
             </div>
         </div>

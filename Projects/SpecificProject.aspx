@@ -12,18 +12,18 @@
 
             </div>
 
-            <span id="projectAddress" class="subtitle" runat="server">
-                <asp:Label ID="lblProjectAddress" runat="server"></asp:Label></span>
+            <span id="projectAddress" class="subtitle regular" runat="server">
+                Address: <asp:Label ID="lblProjectAddress" runat="server" class="bold"></asp:Label></span>
 
-            <div class="projOtherDetails" runat="server">
+            <div class="subtitle darkred regular" runat="server">
                     
-                Quote number: <asp:Label ID="lblProjectQuoteNumber" runat="server" class="lblOtherDetails"></asp:Label>
+                Quote number: <asp:Label ID="lblProjectQuoteNumber" runat="server" class="bold"></asp:Label>
             
             </div>
 
-            <div class="projOtherDetails" runat="server">
+            <div class="subtitle regular" runat="server">
                     
-                Salesperson: <asp:Label ID="lblProjectSalesperson" runat="server" class="lblOtherDetails"></asp:Label>
+                Salesperson: <asp:Label ID="lblProjectSalesperson" runat="server" class="bold"></asp:Label>
             
             </div>
         </div>

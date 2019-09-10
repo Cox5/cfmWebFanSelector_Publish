@@ -5,12 +5,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
     <div class="content-wrapper">
+        
         <div class="mb-solid mt-solid">
             <div class="table-controls">
                 <h1 class="table-title maintitle">Fan Pricelist</h1>
             </div>
             
-            <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+            <div class="subtitle darkred regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
 
     

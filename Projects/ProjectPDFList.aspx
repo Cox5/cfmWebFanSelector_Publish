@@ -5,10 +5,16 @@
     <div class="content-wrapper">
 
 
-        <div class="mt-solid mb-solid">
-            <td colspan="2" align="left" class="tabletitle"><span class="table-title aside" id="projectName" runat="server"><asp:Label ID="lblProjectName" runat="server" Font-Bold="true"></asp:Label></span></td>
-        
-            <td id="addPDF" runat="server"><a href="<%= getNewPDFURL() %>" class="button-main primary-btn"><i class="fas fa-file-pdf"></i> New PDF</a></td>
+
+        <div class="mb-solid mt-solid">
+            <div class="table-controls">
+                <h1 class="table-title maintitle">PDF List</h1>    
+                <div class="right-button clearfix"><a href="<%= getNewPDFURL() %>" class="button-main primary-btn"><i class="fas fa-file-pdf"></i> New PDF</a></div>
+           
+            </div>
+            
+            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+            <div class="subtitle darkred regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
     
             <asp:Label ID="lblErrorMsg" runat="server" ForeColor="Red"></asp:Label>

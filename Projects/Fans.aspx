@@ -24,11 +24,11 @@
         <div class="mb-solid mt-solid">
             <div class="table-controls">
                 <h1 class="table-title maintitle">Fan References</h1>
-                
-                <td id="addFanCol" align="right" runat="server"><a href="<%= getAddFanLocationsURL() %>" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> Add Fan References</a></td>
+                <div class="right-button clearfix"><a href="<%= getAddFanLocationsURL() %>" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> Add Fan References</a></div>
             </div>
             
-            <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+            <div id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+            <div class="subtitle darkred regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
 
         <table id="fanLocationsTable" class="table project">
@@ -43,7 +43,6 @@
                     <td style='text-align:center'>Qty</td>
                     <td id="tdPrice" style='text-align:right'>Price</td>
                     <td align="right">&nbsp;</td>
-                    <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -60,7 +59,7 @@
                      <td style='text-align:center'><%= fanReferences[i].StaticPressure %></td>
                      <td><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
                      <td style='text-align:center'><%= fanReferences[i].Qty %></td>
-                     <td style='text-align:right'><%= Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") %></td>
+                     <td style='text-align:right'><%= fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" %></td>
                      <td style='text-align:right; width: 50px;'><%= getCopyPaste(fanReferences[i]) %></td>
                      <td class="icons icones-smaller"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
                  </tr>

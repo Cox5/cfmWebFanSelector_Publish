@@ -4,13 +4,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
    <div class="content-wrapper">
-        
-       <h3>Delete project: <asp:Label class="bold" ID="projectName" runat="server"></asp:Label></h3>
+
+       <div class="mb-solid mt-solid">
+            <div class="table-controls">
+                <h1 class="table-title maintitle">Delete project</h1>
+            </div>
+            
+            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+            <div class="subtitle darkred regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
+        </div>
+      
        <div id="deleteContainer" runat="server">
             <p>Are you sure you want to delete this project?</p>
             
            
-            <div class="mt-medium mb-small">
+            <div class="mt-big mb-small">
                 <asp:Button ID="btnDelete"  class="button-main tertiary-btn" Text="Delete" runat="server" OnClick="btnDelete_Click" />
                 <asp:Button ID="btnCancel" class="button-main quarternary-btn"  Text="Cancel" runat="server" OnClick="btnCancel_Click" />
             </div>
