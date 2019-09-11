@@ -138,10 +138,7 @@
 			.bold {
 				font-weight: 600;
 			}
-			.quotenum {
-				font-weight: 600;
-				font-size: 32px;
-			}
+
 			.quotenum {
 				font-weight: 600;
 				font-size: 16px;
@@ -203,6 +200,7 @@
 			.comments {
 				margin-bottom: 45px;
 				margin-top: 45px;
+				width: 100%;
 			}
 
 			.comments p {
@@ -215,8 +213,9 @@
 			
 			ul {
 				padding-left: 10px;
+				margin-top: 0px;
 			}
-			ul li{
+			ul.pdfoptions li{
 				width:33.333333%; 
 				float:left;
 			}
@@ -227,7 +226,9 @@
 			} 
 
 			li {
-				margin-top: 7px;
+				/* margin-top: 7px;*/
+				padding-left: 1em;
+				text-indent: -1em;
 			}
 
 
@@ -242,27 +243,26 @@
 
 	<table class="cover_table">
 		<tr valign="top">
-			<td class="bold">To:</td>
-			<td>%%COMPANY%%</td>
-			<td class="bold">Date:</td>
+			<td class="" style='width:15%'>To:</td>
+			<td style='width:35%'>%%COMPANY%%</td>
+			<td class="">Date:</td>
 			<td>%%DATE%%</td>
 		</tr>
 		
 		<tr valign="top">
-			<td class="bold">Attention:</td>
+			<td class="">Attention:</td>
 			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
-			<td class="bold">From:</td>
+			<td class="">From:</td>
 			<td>%%SALES%% %%SALESEMAIL%%</td>
 		</tr>
 		<tr valign="top">
-			<td class="bold">Quote number:</td>
-			<td class="quotenum">%%QUOTENUM%%</td>
-		</tr>		
-		<tr valign="top">
-			<td class="bold">Re:</td>
-			<td class="projaddr">%%PROJNAME%%, %%PROJADDR%%</td>
+			<td class="">Project:</td>
+			<td class="bold quotenum" colspan=4>%%PROJNAME%%</td>
 		</tr>
-		
+		<tr valign="top">
+			<td class="">Quote number:</td>
+			<td class="bold quotenum" colspan=4>%%QUOTENUM%%</td>
+		</tr>			
 	</table>
 	
 	<hr />
@@ -347,16 +347,9 @@
 
 		    <div class="clearfix">%%COMMENTS%%</div> 
 	</div>
-
-
-
-
-	<div class="block">
-		<p>Please find below a summary of your project which includes:</p>
-		<div class="clearfix">
-
-			%%PDFOPTIONS%%
-		</div>
+	<div class="comments">
+		<p class="bold">Please find below a summary of your project which includes:</p>
+		<div class="clearfix">%%PDFOPTIONS%%</div>
 	</div>
 	
 

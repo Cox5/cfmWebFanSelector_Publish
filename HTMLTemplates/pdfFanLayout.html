@@ -44,6 +44,7 @@
 
 			.clearfix {
  				 overflow: auto;
+				 clear: both;
 			}
 
 			.clearfix::after {
@@ -63,7 +64,7 @@
 			.footer {
 				position: fixed;
 				bottom: 0;
-				width: 100%;
+				width: 99%;
 			}
 
 			.footer img {
@@ -130,24 +131,25 @@
 				margin-top: 8px;
 				margin-bottom: 8px;
 			}	
-
+			div.header h2 {display: inline-block; float: left; margin-left: 0px; font-size: 27px;}
+			div.header h3 {display: inline-block; float: right; font-size: 27px;}
 		</style>
     </head>
 
     <div class="clearfix">
 			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
 	</div>
+	<div class='header'><h2><span style='font-weight: 400;'>Project:</span>%%PROJNAME%%</h2><h3><span style='font-weight: 400;'>Quotation number:</span> %%QUOTENUM%%</h3></div>
+<div class='clearfix'></div>
 
     <div class="row">
-				<h3>Project Name: %%PROJNAME%%</h3>
         <div class="col-2 left">
-			<h3>Quotation Number: %%QUOTENUM%%</span></h3>
-			<h3>Reference:</h3><h2 class="location"><span class="fan_ref">%%FAN_REF%%</span></h2>
+			<h3>Fan Reference:</h3><h2 class="location"><span class="fan_ref">%%FAN_REF%%</span></h2>
 			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%% / %%ANGLE%%</span></h3>
 			<table class="requirementsTbl" border="0" >
 				<tr>
 					<th>Performance</th>
-					<td style='text-align: right'>Required</td>
+					<td style='text-align: right'>Req</td>
 					<td style='text-align: right'>Actual</td>
 				</tr>
 				<tr>
@@ -160,21 +162,19 @@
 					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
 					<td style='text-align: left'>%%ACTUAL_STATIC_PRESSURE%%</td>
 				</tr>
-			</table>
-			<table class="fanDataTbl" border="0" >
 				<tr>
 					<th>Fan Data</th>
 				</tr>
 				<tr>
-					<td>Diameter:</td>
+					<td>Diameter(mm):</td>
 					<td>%%DIAMETER%%</td>
 				</tr>
 				<tr>
-					<td>Speed:</td>
+					<td>Speed (RPM):</td>
 					<td>%%SPEED%%</td>
 				</tr>
 				<tr>
-					<td>Mass:</td>
+					<td>Mass (kg):</td>
 					<td>%%MASS%%</td>
 				</tr>
 			</table>
@@ -194,23 +194,23 @@
 		<p><h3>Motor Data (at STP)</h3></p>
 		<table class="motorDataTbl" border="0">
 			<tr>
-				<td>Motor Type:</td>
-				<td>%%MOTOR_TYPE%%</td>
+				<td style='width: 15%'>Motor Type:</td>
+				<td style='width: 10%'>%%MOTOR_TYPE%%</td>
 				
-				<td>Motor Power:</td>
-				<td>%%MOTOR_POWER%%</td>
+				<td style='width: 20%'>Motor Power (kW):</td>
+				<td style='width: 10%'>%%MOTOR_POWER%%</td>
 				
-				<td>Current FLC:</td>
-				<td>%%CURRENT_FLC%%</td>
+				<td style='width: 25%'>Current FLC (A):</td>
+				<td >%%CURRENT_FLC%%</td>
 			</tr>
 			<tr>
 				<td>Motor Frame:</td>
 				<td>%%MOTOR_FRAME%%</td>
 				
-				<td>Motor Speed:</td>
+				<td>Motor Speed (RPM):</td>
 				<td>%%MOTOR_SPEED%%</td>
 				
-				<td>Electrical Supply:</td>
+				<td>Elec. Supply (V / ph / Hz):</td>
 				<td>%%ELECTRICAL_SUPPLY%%</td>
 			</tr>
 		</table>
@@ -224,16 +224,15 @@
 		<table class="acoustic_data_table" border="0">
 			<tr>
 			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>			
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>SWL</td>
+			<td colspan=8 >&nbsp;</td>		
+			<td style='width: 11%'>All Bands</td>
 			<td>SPL</td>
+			</tr>
+			<tr>
+			<td>&nbsp;</td>
+			<td colspan=8 style='text-align:center'>Sound Power Level SWL (dB)</td>		
+			<td>SWL</td>
+			<td>@3m</td>
 			</tr>
 			<tr>
 				<td style='text-align: left'>Spectrum (Hz)</td>
@@ -245,8 +244,8 @@
 				<td>2K</td>
 				<td>4K</td>
 				<td>8K</td>
-				<td>dBW</td>
-				<td class="last_td">dBA @ 3m</td>
+				<td>(dB)</td>
+				<td class="last_td">(dBA)</td>
 			</tr>
 			<tr>
 				<td style='text-align: left'>SWL (dB)</td>
@@ -269,6 +268,6 @@
 	
 	
 	<div class="footer">
-			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+			<img xsrc="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
 	</div>
 </html>

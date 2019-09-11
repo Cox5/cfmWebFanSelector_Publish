@@ -17,6 +17,7 @@
 
 			.clearfix {
  				 overflow: auto;
+				clear: both; 
 			}
 
 			.clearfix::after {
@@ -81,7 +82,9 @@
 			}			
 			th { padding: 0px; }
 
-
+		h2 {display: inline-block; float: left;}
+		h3 {display: inline-block; float: right;}
+		th.a { font-weight: normal; text-align: center; width:2.3%;}
 
 
 		</style>
@@ -93,11 +96,10 @@
 	</div>
 
     <hr />
-    <div class="heading-wrapper">
-    
-	    <h2>%%PROJNAME%%</h2>
-    
+    <div class="heading-wrapper"> 
+	    <h2><span style='font-weight: 400;'>Project:</span>%%PROJNAME%%</h2><h3><span style='font-weight: 400;'>Quotation number:</span> %%QUOTENUM%%</h3>  
     </div>
+	<div class="clearfix"></div>
 
 	<hr />
 	
@@ -109,16 +111,18 @@
 				<th class='center'></th>
 				<th class='center'></th>
 				<th class='center'></th>
-				<th class='center' colspan=2>Airflow Rate</th>
+				<th class='center' colspan=2>Airflow</th>
+				<th class='center' style='width:1%'>&nbsp;</th>
 				<th class='center' colspan=2>Static Pressure</th>
+				<th class='center'>Motor</th>
+				<th class='center'>Motor</th>
 				<th class='center'></th>
-				<th class='center'></th>
-				<th class='center'></th>
-				<th class='center'></th>
+				<th class='center'>Power</th>
+
 				<th class='center' colspan=8></th>
 
-				<th class='center'></th>
-				<th class='center'></th>
+				<th class='center'>All Bands</th>
+				<th class='center'>SPL</th>
 			</tr>
 			<tr>
 				<th class='left' width="5%">Fan</th>
@@ -127,15 +131,16 @@
 				<th class='center'></th>
 				<th class='center'></th>
 				<th class='center' colspan=2>(l/s)</th>
+				<th class='center'>&nbsp;</th>
 				<th class='center' colspan=2>(Pa)</th>
 				<th class='center'>Speed</th>
+				<th class='center'>Power</th>
 				<th class='center'>Motor</th>
-				<th class='center'>Motor</th>
-				<th class='center'>Electrical</th>
+				<th class='center'>Phase</th>
 				<th class='center' colspan=8>Sound Power Level SWL (dB)</th>
 
-				<th class='center'>All Band</th>
-				<th class='center'>SPL</th>
+				<th class='center'>SWL</th>
+				<th class='center'>@3m</th>
 			</tr>
 			<tr>
 				<th class='left'>Reference</th>
@@ -145,23 +150,24 @@
 				<th class='center'>Qty</th>
 				<th class='center'>Requ.</th>
 				<th class='center'>Actual</th>
+				<th class='center'>&nbsp;</th>
 				<th class='center'>Requ.</th>
 				<th class='center'>Actual</th>
 
 				<th class='center'>(RPM)</th>
-				<th class='center'>Power(kW)</th>
+				<th class='center'>(kW)</th>
 				<th class='center'>Type</th>
-				<th class='center'>Supply</th>
-				<th class='center'>63Hz</th>
-				<th class='center'>125</th>
-				<th class='center'>250</th>
-				<th class='center'>500</th>
-				<th class='center'>1K</th>
-				<th class='center'>2K</th>
-				<th class='center'>4K</th>
-				<th class='center'>8K</th>
-				<th class='center'>SWL (dB)</th>
-				<th class='center'>(dbA)@3m</th>
+				<th class='center'>(ph)</th>
+				<th class='a'>63Hz</th>
+				<th class='a'>125</th>
+				<th class='a'>250</th>
+				<th class='a'>500</th>
+				<th class='a'>1K</th>
+				<th class='a'>2K</th>
+				<th class='a'>4K</th>
+				<th class='a'>8K</th>
+				<th class='center'>(dB)</th>
+				<th class='center'>(dBA)</th>
 		    </tr>
 			
 				%%TABLE_ROW%%
