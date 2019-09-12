@@ -106,7 +106,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <%--<td>Power phase (ph)</td>--%>
+                                <td>Power phase (ph)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_motorPhase" runat="server" CssClass="ddlInput">
                                         <asp:ListItem Text="Any" Value="Any"></asp:ListItem>
