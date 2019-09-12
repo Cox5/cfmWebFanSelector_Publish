@@ -149,18 +149,18 @@
 			<table class="requirementsTbl" border="0" >
 				<tr>
 					<th>Performance</th>
-					<td style='text-align: right'>Req</td>
-					<td style='text-align: right'>Actual</td>
+					<td style='text-align: left'>Req</td>
+					<td style='text-align: right; padding-left: 10px;'>Actual</td>
 				</tr>
 				<tr>
 					<td>Airflow (l/s):</td>
 					<td style='text-align: left'>%%VOLUME%%</td>
-					<td style='text-align: left'>%%ACTUAL_VOLUME%%</td>
+					<td style='text-align: left; padding-left: 10px;'>%%ACTUAL_VOLUME%%</td>
 				</tr>
 				<tr>
 					<td>Static Pressure (Pa):</td>
 					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
-					<td style='text-align: left'>%%ACTUAL_STATIC_PRESSURE%%</td>
+					<td style='text-align: left; padding-left: 10px;'>%%ACTUAL_STATIC_PRESSURE%%</td>
 				</tr>
 				<tr>
 					<th>Fan Data</th>
@@ -194,11 +194,11 @@
 		<p><h3>Motor Data (at STP)</h3></p>
 		<table class="motorDataTbl" border="0">
 			<tr>
-				<td style='width: 15%'>Motor Type:</td>
-				<td style='width: 10%'>%%MOTOR_TYPE%%</td>
+				<td style='width: 12%'>Motor Type:</td>
+				<td style='width: 13%'>%%MOTOR_TYPE%%</td>
 				
-				<td style='width: 20%'>Motor Power (kW):</td>
-				<td style='width: 10%'>%%MOTOR_POWER%%</td>
+				<td style='width: 18%'>Motor Power (kW):</td>
+				<td style='width: 12%'>%%MOTOR_POWER%%</td>
 				
 				<td style='width: 25%'>Current FLC (A):</td>
 				<td >%%CURRENT_FLC%%</td>
@@ -248,7 +248,7 @@
 				<td class="last_td">(dBA)</td>
 			</tr>
 			<tr>
-				<td style='text-align: left'>SWL (dB)</td>
+				<td style='text-align: left'></td>
 				<td>%%HZ63%%</td>
 				<td>%%HZ125%%</td>
 				<td>%%HZ250%%</td>
