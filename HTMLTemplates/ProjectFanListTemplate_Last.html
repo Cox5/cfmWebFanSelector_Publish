@@ -1,0 +1,176 @@
+<html>
+
+    <head>
+        <style>
+			* {
+				box-sizing: border-box;
+				font-family: 'Open Sans Condensed', Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that float next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+				font-size: 13px;
+			}
+
+			.clearfix {
+ 				 overflow: auto;
+				clear: both; 
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 35%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 99%;
+			}
+
+			.footer img {
+				width: 100%;
+			}
+
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			.right {
+				text-align: right;
+			}
+			.left {
+				text-align: left;
+			}
+			.center {
+				text-align: center;
+			}
+			#project_fan_table {
+				font-size: 13px;
+			}
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+			}	
+			
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}			
+			th { padding: 0px; }
+
+		h2 {display: inline-block; float: left;}
+		h3 {display: inline-block; float: right;}
+		th.a { font-weight: normal; text-align: center; width:2.3%;}
+
+
+		</style>
+    </head>
+	<body>
+	 <!-- ProjectFanListTemplate_First used for many columns of fan acoustic details LAST PAGE -->
+	
+	
+    <div class="row" id="project_fan_div">
+        <table style="font-size: 11px; width: 100%; ">
+			<tr>
+				<th class='left' width="7%"></th>
+				<th class='center' width="10%"></th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center' colspan=2>Airflow</th>
+				<th class='center' style='width:1%'>&nbsp;</th>
+				<th class='center' colspan=2>Static Pressure</th>
+				<th class='center'>Motor</th>
+				<th class='center'>Motor</th>
+				<th class='center'></th>
+				<th class='center'>Power</th>
+
+				<th class='center' colspan=8></th>
+
+				<th class='center'>All Bands</th>
+				<th class='center'>SPL</th>
+			</tr>
+			<tr>
+				<th class='left' width="5%">Fan</th>
+				<th class='center' width="10%">Selected</th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center'></th>
+				<th class='center' colspan=2>(l/s)</th>
+				<th class='center'>&nbsp;</th>
+				<th class='center' colspan=2>(Pa)</th>
+				<th class='center'>Speed</th>
+				<th class='center'>Power</th>
+				<th class='center'>Motor</th>
+				<th class='center'>Phase</th>
+				<th class='center' colspan=8>Sound Power Level SWL (dB)</th>
+
+				<th class='center'>SWL</th>
+				<th class='center'>@3m</th>
+			</tr>
+			<tr>
+				<th class='left'>Reference</th>
+				<th class='center'>Model</th>
+				<th class='center'>Angle</th>
+				<th class='center'>Description</th>
+				<th class='center'>Qty</th>
+				<th class='center'>Req</th>
+				<th class='center'>Actual</th>
+				<th class='center'>&nbsp;</th>
+				<th class='center'>Req</th>
+				<th class='center'>Actual</th>
+
+				<th class='center'>(RPM)</th>
+				<th class='center'>(kW)</th>
+				<th class='center'>Type</th>
+				<th class='center'>(ph)</th>
+				<th class='a'>63Hz</th>
+				<th class='a'>125</th>
+				<th class='a'>250</th>
+				<th class='a'>500</th>
+				<th class='a'>1K</th>
+				<th class='a'>2K</th>
+				<th class='a'>4K</th>
+				<th class='a'>8K</th>
+				<th class='center'>(dB)</th>
+				<th class='center'>(dBA)</th>
+		    </tr>
+			
+				%%TABLE_ROW%%
+			
+		</table>
+	</div>
+	
+	<hr />
+
+	
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/footer-landscape.jpg">
+	</div>
+	
+	</body>
+</html>

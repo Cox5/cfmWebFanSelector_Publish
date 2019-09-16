@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 <style>
         td.optional {color: #888888;}
-        td.required {color: #000000;}
+        td.required {color: #dd0000;}
         td.optional input[type="text"], td.optional select {
             color: #888888;
             border: 1px solid #eee;
@@ -40,38 +40,26 @@
                         </td>
                     </tr>
 
-                    <tr class="required">
-                        <td class="required">Email address</td>
-                        <td class="required">
-                            <asp:TextBox ID="txtEmail" runat="server" required="true" />
+                    <tr >
+                        <td class="optional">Email address</td>
+                        <td class="optional">
+                            <asp:TextBox ID="txtEmail" runat="server" />
                         </td>
                     </tr>
 
                     <tr>
-                        <td class="required">Confirm email address</td>
-                        <td class="required">
-                            <asp:TextBox ID="txtEmailConfirm" runat="server" required="true" />
+                        <td class="optional">Confirm email address</td>
+                        <td class="optional">
+                            <asp:TextBox ID="txtEmailConfirm" runat="server" />
                         </td>
                     </tr>
                     <tr>
                         <td class="optional">Telephone</td>
                         <td class="optional">
-                            <asp:TextBox ID="txtUserPhone" runat="server" required="true" />
+                            <asp:TextBox ID="txtUserPhone" runat="server"  />
                         </td>
                     </tr>
 
-                    <tr style="display: none">
-                        <td>Password</td>
-                        <td>
-                            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" value="nopassword" required="true" />
-                        </td>
-                    </tr>
-                    <tr style="display: none">
-                        <td>Confirm Password</td>
-                        <td>
-                            <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" value="nopassword" required="true"  />
-                        </td>
-                    </tr>
                         <tr>
                       <td class="optional">User class</td>
                       <td class="optional"><asp:DropDownList runat="server" ID="ddlUserClass">
@@ -91,10 +79,10 @@
                 <p class="validation-msg">
                     <asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s\-]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" />
                     <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s\-]{1,30}" ErrorMessage="Enter a valid last name" ForeColor="Red" />
-                    <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
-                    <asp:CompareValidator runat="server" ID="Comp2" ControlToValidate="txtEmailConfirm" ControlToCompare="txtEmail" Operator="Equal" Type="String" ErrorMessage="Email mismatch" ForeColor="Red"></asp:CompareValidator>
-                    <%--<asp:RegularExpressionValidator ID="regPhone" runat="server" ControlToValidate="txtUserPhone" ValidationExpression="" ErrorMessage="Enter a valid phone number" ForeColor="Red" />--%>
-                    <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" ForeColor="Red"></asp:CompareValidator>
+                    <%-- <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator> --%>
+                    <%--  %><asp:CompareValidator runat="server" ID="Comp2" ControlToValidate="txtEmailConfirm" ControlToCompare="txtEmail" Operator="Equal" Type="String" ErrorMessage="Email mismatch" ForeColor="Red"></asp:CompareValidator> --%>
+                    <%-- <asp:RegularExpressionValidator ID="regPhone" runat="server" ControlToValidate="txtUserPhone" ValidationExpression="" ErrorMessage="Enter a valid phone number" ForeColor="Red" />--%>
+                    <%--  asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" ForeColor="Red"></%> --%>
                 </p>
             </div>
             <div class="rightcolumn">
@@ -102,8 +90,8 @@
                 <hr />
                 <table width="100%">
                     <tr>
-                        <td>Business</td>
-                        <td>
+                        <td class="required">Business</td>
+                        <td class="required">
                     <asp:DropDownList ID="ddlCompany" AutoPostBack="true" AppendDataBoundItems="true" runat="server"  onselectedindexchanged="ddlCompany_SelectedIndexChanged">
                     <asp:ListItem>New Company/business</asp:ListItem>
                     <asp:ListItem>Sole trader</asp:ListItem>
@@ -139,8 +127,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="optional">State</td>
-                        <td class="optional">
+                        <td class="required">State</td>
+                        <td class="required">
                             <asp:TextBox ID="txtState" runat="server" />
                             <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server">
                                 <asp:ListItem Value="">Please select...</asp:ListItem>

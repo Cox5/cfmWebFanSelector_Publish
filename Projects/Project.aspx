@@ -9,7 +9,7 @@
             </div>
             
             <div class="project-name" ><asp:Label ID="lblProjectName" runat="server"  Visible="false"></asp:Label></div>
-            <div class="subtitle darkred regular" id="quoteNumberLine" runat="server" Visible="false" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
+            <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="false" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
 
 

@@ -15,7 +15,7 @@
             <span id="projectAddress" class="subtitle regular" runat="server">
                 Address: <asp:Label ID="lblProjectAddress" runat="server" class="bold"></asp:Label></span>
 
-            <div class="subtitle darkred regular" runat="server">
+            <div class="subtitle regular" runat="server">
                     
                 Quote number: <asp:Label ID="lblProjectQuoteNumber" runat="server" class="bold"></asp:Label>
             

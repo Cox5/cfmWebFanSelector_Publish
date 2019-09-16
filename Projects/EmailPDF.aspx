@@ -18,51 +18,54 @@
             <div id="projPDFfilename"  class="subtitle-sub regular" runat="server">
                     
                 Sending attachment: <asp:Label ID="lblProjectPDFFilename"  runat="server" class="bold"></asp:Label>
-            
+            <asp:HiddenField ID="lblProjectPDFPath"  runat="server" />
             </div>
         </div>
-        <div class="leftcolumn">
+        <div class="leftcolumn" id="leftcolumn" runat="server">
             
             <table class="table">
 
                 <tr>
                     <td>Sender</td>
                     <td>
-                        <asp:TextBox ID="txtSender" runat="server"/>
+                        <asp:TextBox ID="txtSender" runat="server" readonly="true" AutoCompleteType="Disabled"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Copy to</td>
                     <td>
-                        <asp:TextBox ID="txtCopyTo" runat="server"/>
+                        <asp:TextBox ID="txtCopyTo" runat="server" AutoCompleteType="Disabled"/>
                     </td>
                 </tr>
                 </table>
             </div>
-            <div class="rightcolumn">
+            <div class="rightcolumn"  id="rightcolumn" runat="server">
                     <table class="table">
                 <tr>
-                    <td>Recipient</td>
+                    <td>Recipient email address</td>
                     <td>
-                        <asp:TextBox ID="txtRecipient" runat="server"/>
+                        <asp:TextBox ID="txtRecipient" runat="server" AutoCompleteType="Disabled" />
+                        <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+            ControlToValidate="txtRecipient" ErrorMessage="Please enter a valid email address" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                 </tr>        
                 <tr>
                     <td>Cc:</td>
                     <td>
-                        <asp:TextBox ID="txtCc1" runat="server"/>
+                        <asp:TextBox ID="txtCc1" runat="server"/><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+            ControlToValidate="txtCc1" ErrorMessage="Please enter a valid email address" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>Cc:</td>
                     <td>
-                        <asp:TextBox ID="txtCc2" runat="server"/>
+                        <asp:TextBox ID="txtCc2" runat="server"/><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+            ControlToValidate="txtCc2" ErrorMessage="Please enter a valid email address" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 </table>
         </div>
-        Content<br />
-<asp:TextBox id="txtContent" TextMode="multiline" Columns="70" Rows="10" runat="server" />
+<asp:TextBox id="txtContent" TextMode="multiline" Columns="80" Rows="10" runat="server" />
 
         <br />
                     <div class="right-controls mt-medium mr-small">
@@ -70,6 +73,12 @@
                 <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
             </div>
         <p><asp:Label ID="lblProgressMessage" runat="server" class="lblmessage"></asp:Label></p>
+        <p class="validation-msg">
+        
+        
+        
+                    </p>
+
         <a href="ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
     
 
