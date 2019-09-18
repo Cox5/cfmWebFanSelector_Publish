@@ -11,7 +11,7 @@
   <table class="table">
     <tr>
       <td>Firstname</td>
-      <td><asp:TextBox ID="txtFirstname" runat="server"/></td>
+      <td><asp:TextBox ID="txtFirstname" runat="server" AutoCompleteType="Disabled"/></td>
         <td>
             <asp:RegularExpressionValidator ID="regName" runat="server" Display="Dynamic" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" />
             <br /><asp:RequiredFieldValidator class="mt-small" Display="Dynamic" ID="firstNameRequiredValidator" runat="server" ErrorMessage="Name field is empty" ForeColor="Red" ControlToValidate="txtFirstname"></asp:RequiredFieldValidator>
@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td>Lastname</td>
-      <td><asp:TextBox ID="txtLastname" runat="server" /></td>
+      <td><asp:TextBox ID="txtLastname" runat="server" AutoCompleteType="Disabled" /></td>
         <td>
             <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid last name" ForeColor="Red" />
             <br /><asp:RequiredFieldValidator class="mt-small"  ID="regLastNameRequired" runat="server" ErrorMessage="Last name field is empty" ForeColor="Red" ControlToValidate="txtLastname"></asp:RequiredFieldValidator>
@@ -32,7 +32,7 @@
     </tr>--%>
     <tr runat="server" id="trDdlCompany">
           <td>Company (select)</td>
-          <td><asp:DropDownList runat="server" ID="ddlCompanyName">
+          <td><asp:DropDownList runat="server" ID="ddlCompanyName" AutoCompleteType="Disabled">
               </asp:DropDownList> 
 
           </td>
@@ -43,7 +43,7 @@
     </tr>
     <tr>
         <td>Email address</td>
-        <td><asp:TextBox ID="txtEmail" runat="server"/></td>
+        <td><asp:TextBox ID="txtEmail" runat="server" AutoCompleteType="Disabled" /></td>
         <td>
             <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
             <br />
@@ -53,13 +53,13 @@
     <tr>
         <td>Password</td>
         <td>
-            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="leave blank or type new password" />
+            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="leave blank or type new password"  AutoCompleteType="Disabled"/>
         </td>
     </tr>
     <tr>
         <td>Confirm Password</td>
         <td>
-            <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" Placeholder="leave blank or type new password"/>
+            <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" Placeholder="leave blank or type new password" AutoCompleteType="Disabled"/>
         </td>
         <td>
             <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>
