@@ -51,7 +51,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="optional>Postcode</td>
+                <td class="optional">Postcode</td>
                 <td class="optional">
                     <asp:TextBox ID="txtCompanyPostcode" runat="server" />
                 </td>
