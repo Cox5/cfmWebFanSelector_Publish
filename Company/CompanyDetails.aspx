@@ -15,7 +15,7 @@
 
         <div class="table-controls mt-solid mb-solid">
             <%--<asp:Button CssClass="button-main primary-btn" ID="btnAddUser" runat="server" Text="Add New User" OnClick="btnAddUser_Click" />--%>
-            <a href="RegisterCompany.aspx" id="addCompanyHref" class="button-main primary-btn" runat="server"><i class="fas fa-plus-circle"></i>Add New Company</a>
+            <a href="RegisterCompany.aspx" id="addCompanyHref" class="button-main primary-btn" runat="server"><i class="fas fa-plus-circle"></i> Add New Company</a>
         </div>
 
         <%--      <div class="table-controls center-text mb-medium">
