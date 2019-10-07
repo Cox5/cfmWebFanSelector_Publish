@@ -1,0 +1,271 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family:  Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+			}
+
+			.location {
+				font-size: 1.8rem;
+				font-weight: 500;
+				padding: 0px;
+				margin-bottom: 10px;
+			}
+
+			.fan_ref {
+				font-size: 2.4rem;
+				font-weight: 600;
+				padding: 0px;
+				margin-bottom: 10px;
+			}
+			.fan_code {
+				font-size: 1.7rem;
+				font-weight: 400;
+				padding: 0px;
+				margin-bottom: 0px;
+			}
+			.model {
+				font-weight: 500;
+				font-size: 1.8rem;
+				margin-bottom: 32px;
+				padding: 0px;
+				margin-bottom: 10px;
+			}
+
+			.clearfix {
+ 				 overflow: auto;
+				 clear: both;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 99%;
+			}
+
+			.footer img {
+				width: 99%;
+			}
+			div.row {
+				width: 100%;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			.col-2 {
+				float: left;
+				width: 50%;
+			}
+			.left {
+				width: 30%;
+			}
+			.right {
+				width: 70%;
+				display: inline-block;
+			}
+			th {
+				text-align: left;
+			}				
+			.motorDataTbl {
+				table-layout: fixed;
+				width: 99%;
+				font-size: 19px;
+			}
+			.acoustic_data_table {
+				table-layout: fixed;
+				width: 80%;
+				font-size: 19px;
+			}
+			.acoustic_data_table td {
+				text-align: center;
+			}
+			.acoustic_data_table tbody tr td:first-child {
+				width: 8em;
+				min-width: 8em;
+				max-width: 8em;
+				word-break: break-all;
+			}
+			.fanDataTbl {
+				table-layout: fixed;
+				width: 100%;
+				font-size: 19px;
+			}
+			.requirementsTbl {
+				font-size: 18px;
+			}
+			.last_td {
+				width: 30%;
+			}
+			h2 {
+				padding: 0px;
+				margin: 8px;
+			}
+			h3 {
+				padding: 0px;
+				margin-top: 8px;
+				margin-bottom: 8px;
+			}	
+			div.header h2 {display: inline-block; float: left; margin-left: 0px; font-size: 27px;}
+			div.header h3 {display: inline-block; float: right; font-size: 27px;}
+		</style>
+    </head>
+
+    <div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
+	</div>
+	
+
+    <div class="row">
+        <div class="col-2 left">
+			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%%</span></h3>
+			<table class="requirementsTbl" border="0" >
+				<tr>
+					<th>Performance</th>
+					<td style='text-align: left'>Req</td>
+				</tr>
+				<tr>
+					<td>Airflow (l/s):</td>
+					<td style='text-align: left'>%%VOLUME%%</td>
+				</tr>
+				<tr>
+					<td>Static Pressure (Pa):</td>
+					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
+				</tr>
+				<tr><td>&nbsp;</td><tr>
+				<tr>
+					<th>Fan Data</th>
+				</tr>
+				<tr>
+					<td>Diameter(mm):</td>
+					<td>%%DIAMETER%%</td>
+				</tr>
+				<tr>
+					<td>Speed (RPM):</td>
+					<td>%%SPEED%%</td>
+				</tr>
+				<tr>
+					<td>Mass (kg):</td>
+					<td>%%MASS%%</td>
+				</tr>
+			</table>
+                        
+        </div>
+		<div class="col-2 right">
+		<center>
+			<svg>%%SVG_PERF_CURVE%%</svg>
+		</center>
+		</div>
+	</div>
+	<div class="row">
+		<p style='margin-bottom: 5px'><b>BCA Compliance: Complies with Section J5.2 2009</b></p>
+		<p style="margin-top: 0px;font-size: 12px;">All fans tested in compliance with ISO:5801-2017 standards. Airflow performances subject to 
+		change without notice. Please see Sales for updated datashets and further information</p>
+		<hr style="height: 2px; border:none; background-color: #333;">
+		<p><h3>Motor Data (at STP)</h3></p>
+		<table class="motorDataTbl" border="0">
+			<tr>
+				<td style='width: 11%'>Motor Type:</td>
+				<td style='width: 14%'>%%MOTOR_TYPE%%</td>
+				
+				<td style='width: 17%'>Motor Power (kW):</td>
+				<td style='width: 13%'>%%MOTOR_POWER%%</td>
+				
+				<td style='width: 25%'>Current FLC (A):</td>
+				<td >%%CURRENT_FLC%%</td>
+			</tr>
+			<tr>
+				<td>Motor Frame:</td>
+				<td>%%MOTOR_FRAME%%</td>
+				
+				<td>Motor Speed (RPM):</td>
+				<td>%%MOTOR_SPEED%%</td>
+				
+				<td>Elec. Supply (V / ph / Hz):</td>
+				<td>%%ELECTRICAL_SUPPLY%%</td>
+			</tr>
+		</table>
+		
+		<center>
+			<svg>%%SVG_PWR_CURVE%%</svg>
+		</center>
+		
+		<hr style="height: 2px; border:none; background-color: #333;">
+		<h3 style='margin-bottom: 0px'>Acoustic Performance Data</h3>
+		<table class="acoustic_data_table" border="0">
+			<tr>
+			<td>&nbsp;</td>
+			<td colspan=8 >&nbsp;</td>		
+			<td style='width: 11%'>All Bands</td>
+			<td>SPL</td>
+			</tr>
+			<tr>
+			<td>&nbsp;</td>
+			<td colspan=8 style='text-align:center'>Sound Power Level SWL (dB)</td>		
+			<td>SWL</td>
+			<td>@3m</td>
+			</tr>
+			<tr>
+				<td style='text-align: left'>Spectrum (Hz)</td>
+				<td>63</td>
+				<td>125</td>
+				<td>250</td>
+				<td>500</td>
+				<td>1K</td>
+				<td>2K</td>
+				<td>4K</td>
+				<td>8K</td>
+				<td>(dB)</td>
+				<td class="last_td">(dBA)</td>
+			</tr>
+			<tr>
+				<td style='text-align: left'></td>
+				<td>%%HZ63%%</td>
+				<td>%%HZ125%%</td>
+				<td>%%HZ250%%</td>
+				<td>%%HZ500%%</td>
+				<td>%%HZ1K%%</td>
+				<td>%%HZ2K%%</td>
+				<td>%%HZ4K%%</td>
+				<td>%%HZ8K%%</td>
+				<td>%%dBW%%</td>
+				<td>%%dBA%%</td>
+				
+			</tr>
+		</table>
+		<hr style="height: 2px; border:none; background-color: #333;">
+		
+	</div>
+	
+	
+	<div class="footer">
+			<img xsrc="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+</html>

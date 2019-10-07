@@ -8,10 +8,13 @@
             confirm_value.name = "confirm_value";
             if (confirm("Are you sure you are ready to request pricing for your project?")) {
                 confirm_value.value = "Yes";
+                document.forms[0].appendChild(confirm_value);
+                return true;
             } else {
                 confirm_value.value = "No";
+                document.forms[0].appendChild(confirm_value);
+                return false;
             }
-            document.forms[0].appendChild(confirm_value);
         }
     </script>
 
@@ -41,7 +44,7 @@
                     <td  style='text-align:center' >Static Pressure (Pa)</td>
                     <td style='text-align:left'>CFM Fan</td>
                     <td style='text-align:center'>Qty</td>
-                    <td id="tdPrice" style='text-align:right'>Price</td>
+                    <td id="tdPrice" style='text-align:right'><%= showPrices ? "Price" : "" %></td>
                     <td align="right">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
@@ -59,7 +62,7 @@
                      <td style='text-align:center'><%= fanReferences[i].StaticPressure %></td>
                      <td><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
                      <td style='text-align:center'><%= fanReferences[i].Qty %></td>
-                     <td style='text-align:right'><%= fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" %></td>
+                     <td style='text-align:right'><%= showPrices ? fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" : "" %></td>
                      <td style='text-align:right; width: 50px;'><%= getCopyPaste(fanReferences[i]) %></td>
                      <td class="icons icones-smaller"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
                  </tr>
@@ -70,9 +73,12 @@
                 <td colspan="7" style="text-align:right; height: 60px">
                     <%--<a href="<%= getPricelistURL() %>" id="pricelistHref" runat="server" class="button-main primary-btn">Go to Pricelist</a>--%>
                     <asp:Button CssClass="button-main primary-btn" ID="btnRequestPricing" runat="server"
-                      OnClientClick = "Confirm()"
-                      OnClick="OnConfirm" 
+                      OnClientClick = "if ( !Confirm()) return false;"
+                      OnClick="OnConfirm"
+                      
                       Text="Request Pricing" Visible="false"/>
+                    
+                    <asp:Button ID="lblPricingRequested" runat="server" CssClass="button-main primary-btn" Text="Pricing Requested" Disabled="true" Visible="false"/>
                     <asp:Button ID="btnExtraItems" runat="server" CssClass="button-main primary-btn" Text="Extras" OnClick="btnExtraItems_Click" />
                     <asp:Button ID="btnGoToPricelist" runat="server" CssClass="button-main primary-btn" Text="Go to Pricelist" OnClick="btnGoToPricelist_Click" />
                     <asp:Button ID="btnFinished" runat="server"  CssClass="button-main primary-btn" Text="Finished" OnClick="btnFinished_Click" />

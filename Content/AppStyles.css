@@ -230,9 +230,21 @@ input[type="submit"] {
     min-width: 85px;
 }
 
+.button-main:disabled,
+.button-main:disabled:hover,
+.button-main:disabled:focus,
+.button-main:disabled:active {
+    opacity: 0.6;
+    box-shadow: none !important;    
+    background: var(--blue-primary) !important;
+    cursor: default !important;
+
+}
+
 .button-main.bigger {
     padding: 9px !important;
     font-size: 1.15em;
+    
 }
 
 .button-main:hover {
