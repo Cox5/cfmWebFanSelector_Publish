@@ -261,6 +261,8 @@ input[type="submit"] {
 
 .primary-btn {
     background: var(--blue-primary) !important;
+	margin: 2px 2px 2px 2px;
+	width: 170px;
 }
 
 .primary-btn:hover {
@@ -515,9 +517,26 @@ td.icons > a {
 
 a.button-main {
     text-decoration: none;
+	display: block;
+	width: 170px;
 }
 
+input[type="submit"].button-main {
+	text-decoration: none;
+	display: block;
+	width: 187px;
+}
+input[type="submit"].prevpage {
+	text-decoration: none;
+	display: block;
+	width: 187px;
+	background: #ae4242 !important;
+}
 
+.inline {
+    display: inline-block !important;
+    width: auto !important;
+}
 /* Tooltip */
 
 .tooltip {

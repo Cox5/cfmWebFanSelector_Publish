@@ -27,13 +27,26 @@
         <div class="mb-solid mt-solid">
             <div class="table-controls">
                 <h1 class="table-title maintitle">Fan References</h1>
-                <div class="right-button clearfix"><a href="<%= getAddFanLocationsURL() %>" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> Add Fan References</a></div>
+                <div class="right-button clearfix">
+                    <asp:Button ID="btnFinished" runat="server"  CssClass="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinished_Click" />
+                    <asp:Button ID="btnClose" runat="server"  CssClass="button-main primary-btn prevpage" Text="<< Previous Page" OnClick="btnClose_Click" Visible="false"/>
+                    <a href="<%= getAddFanLocationsURL() %>" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> Add Fan References</a>
+                    <asp:Button ID="btnExtraItems" runat="server" CssClass="button-main primary-btn" Text="Extras" OnClick="btnExtraItems_Click" />
+                    <asp:Button ID="lblPricingRequested" runat="server" CssClass="button-main primary-btn" Text="Pricing Requested" Disabled="true" Visible="false"/>
+                    <asp:Button ID="btnGoToPricelist" runat="server" CssClass="button-main primary-btn" Text="Go to Pricelist" OnClick="btnGoToPricelist_Click" />
+                    <asp:Button CssClass="button-main primary-btn" ID="btnRequestPricing" runat="server" OnClientClick = "if ( !Confirm()) return false;" OnClick="OnConfirm"         
+                      Text="Request Pricing" Visible="false"/>
+                </div>
             </div>
             
             <div id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
             <div class="subtitle regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
-
+<style>
+.sub div { visibility: hidden; }
+.has-sub:hover > .sub div { visibility: visible; } 
+}
+</style>
         <table id="fanLocationsTable" class="table project">
             <thead>
                 <tr>
@@ -52,11 +65,11 @@
             </thead>
 
               <% for (int i = 0; i < fanReferences.Count; i++) { %>
-                 <tr>
+                 <tr class="has-sub">
                      <%--todo: make link and UPDATE table on page load based on URL params--%>
                      
 <%--                     <td><%= fanReferences[i].Position %></td>--%>
-                     <td><%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
+                     <td class="sub"><%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
                      <td><%= fanReferences[i].FanReferenceCode %></td>
                      <td style='text-align:center'><%= fanReferences[i].AirFlow %></td>
                      <td style='text-align:center'><%= fanReferences[i].StaticPressure %></td>
@@ -67,24 +80,10 @@
                      <td class="icons icones-smaller"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
                  </tr>
              <% } %>
-            <tr>
-                <td colspan="2" style="text-align:left"><asp:Label ID="lblSuccessMsg" runat="server"></asp:Label>
-                </td>
-                <td colspan="7" style="text-align:right; height: 60px">
-                    <%--<a href="<%= getPricelistURL() %>" id="pricelistHref" runat="server" class="button-main primary-btn">Go to Pricelist</a>--%>
-                    <asp:Button CssClass="button-main primary-btn" ID="btnRequestPricing" runat="server"
-                      OnClientClick = "if ( !Confirm()) return false;"
-                      OnClick="OnConfirm"
-                      
-                      Text="Request Pricing" Visible="false"/>
-                    
-                    <asp:Button ID="lblPricingRequested" runat="server" CssClass="button-main primary-btn" Text="Pricing Requested" Disabled="true" Visible="false"/>
-                    <asp:Button ID="btnExtraItems" runat="server" CssClass="button-main primary-btn" Text="Extras" OnClick="btnExtraItems_Click" />
-                    <asp:Button ID="btnGoToPricelist" runat="server" CssClass="button-main primary-btn" Text="Go to Pricelist" OnClick="btnGoToPricelist_Click" />
-                    <asp:Button ID="btnFinished" runat="server"  CssClass="button-main primary-btn" Text="Finished" OnClick="btnFinished_Click" />
+
+                    <%--<a href="<%= getPricelistURL() %>" id="pricelistHref" runat="server" class="button-main primary-btn">Go to Pricelist</a>--%>                   
                     <%--<a href="javascript: history.go(-1)" class="button-main primary-btn">Finished <i class="fas fa-chevron-right"></i></a>--%>
-                </td>
-            </tr>
+            <tr><td colspan="9"><asp:Button ID="btnPrevPage" runat="server"  CssClass="button-main primary-btn prevpage" Text="<< Previous page" OnClick="btnFinished_Click" /></td></tr>
         </table>
   </div>
 </asp:Content>

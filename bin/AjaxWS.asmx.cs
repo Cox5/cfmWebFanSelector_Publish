@@ -411,16 +411,22 @@ namespace CFM_Web
             }
             else
             {
-                performanceDataTable.AppendFormat("<td align=left>Air Flow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>", 
+                performanceDataTable.AppendFormat("<td align=left>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>", 
                     airflow.ToString("0"), dpIntercept.airflow.ToString("0"));
                 performanceDataTable.AppendFormat("<td align=left>Static Pressure: (Pa)</td><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>", 
                     staticPressure.ToString("0"), dpIntercept.staticPressure.ToString("0"));
                 // performanceDataTable.AppendFormat("<td align=left>Power phase</td><td></td><td ID=ac_tp style='align:right'>{0}</td></tr>", );
 
             }
+            performanceDataTable.AppendLine("<tr class=bluedottext style='background-color: #e3e3e3'><td colspan=3>&nbsp;</td></tr>");
 
-
+            
+            performanceDataTable.AppendLine("<tr class=bluedottext style='border-left: 1px solid black; border-right: 1px solid black;border-top: 1px solid black;' >" +
+                "<td>Airflow (l/s):</td><td id=bluedotaf align=right></td><td>&nbsp;</td></tr>");
+            performanceDataTable.AppendLine("<tr class=bluedottext style='border-left: 1px solid black; border-right: 1px solid black;border-bottom: 1px solid black;'>" +
+                "<td>Static Pressure (Pa):</td><td id=bluedotsp align=right></td><td>&nbsp;</td></tr>");
             performanceDataTable.AppendLine("</table>");
+            performanceDataTable.AppendLine("<style> tr.bluedottext td {color: #2222ee; font-weight: bold; border: none;}</style>");
             return performanceDataTable.ToString();
         }
 

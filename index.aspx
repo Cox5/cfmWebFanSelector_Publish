@@ -62,13 +62,35 @@
             </div>
             
             <div class="registration-info-box responsive-width">
-                <p>To request access to the CFM Fan Selector you must first  <a href="/Users/Signup.aspx">register</a>.</p>
-                <p>Registration is free, but subject to approval.</p>
-                <div class="center-text">
-                    <br />
-                    <a href="/Users/Signup.aspx" class="button-main bigger secondary-btn">Register</a>
+                <p>New user? Register now...</p>
+                 <div class="f-group">
+                    <div class="f-ctrl">
+                        <asp:TextBox ID="txtRegisterEmailAddress" placeholder="Email Address" runat="server"></asp:TextBox>
+                    </div>                    
                 </div>
-            </div>
+                
+
+                <asp:RegularExpressionValidator class="mt-small" ID="RegularExpressionValidator1" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                    ControlToValidate="txtEmailAddress" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+                <br />
+
+
+                <div class="f-group">
+                    <div class="f-ctrl cene">
+                        
+                        <asp:Label ID="Label1" runat="server" class="bold error-msg" />
+                    </div>
+                </div>
+
+                <div class="f-group">
+                    <div class="f-ctrl center-text">
+                        <asp:Button class="button-main bigger secondary-btn" text="Register" runat="server" OnClick="btnRegister_Click">                        
+                        </asp:Button>
+                    </div>       
+
+                </div>
+             </div>
+
         </form>
     </div>
 </asp:Content>

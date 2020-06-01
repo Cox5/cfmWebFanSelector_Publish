@@ -77,6 +77,15 @@
             </div>
         </asp:LinkButton>
 
+        <asp:LinkButton CommandName="Import Multiwing Data" runat="server" Text="Import Multiwing Data" class="sp-button" OnClick="btnImportMultiwingData_Click">
+            <div class="sp-rect" style="width: 320px;">
+               <span class="sp-text">Import Multiwing Data</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
 
         <br />
         <a href="Dashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to dashboard</a>

@@ -15,10 +15,16 @@
         
             <div class="mb-solid mt-solid">
                 <div class="table-controls">
-                    <h1 class="table-title sub">Add Fan References</h1>
-                </div>
-                
-                <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+                    <div style="display: inline-block; float: left;">
+                       <h1 class="table-title sub">Add Fan References</h1>
+                   </div>
+                   <div class="right-controls mt-medium mr-small" style="float: right;">
+                       <asp:Button ID="Button1"  class="button-main primary-btn" Text="Finished" OnClick="btnCancel_Click" runat="server" />
+                    </div>
+                </div> 
+                <div style="clear:both"
+                    <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+                    </div>
             </div>
 
             <table class="table table-form">

@@ -9,16 +9,16 @@
 
       <div class="table-controls mt-solid mb-solid">
         <h1 class="table-title maintitle">Projects</h1>
-  
-        <a href="/Projects/Project.aspx" class="button-main primary-btn"><i class="fas fa-plus-circle"></i> New Project</a>
+  <p id="myHeader" runat="server"></p>
+        <a href="/Projects/Project.aspx" class="button-main primary-btn inline"><i class="fas fa-plus-circle"></i> New Project</a>
       </div>
 
    
 
       
       <div class="table-controls center-text mb-medium">
-          <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for quotation number, project name, company or address" Width="430px" Height="32px" class="mr-small"></asp:TextBox>
-          <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn" />
+          <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for quotation number, project name, company or address" Width="300px" Height="32px" class="mr-small" Autocomplete="off"></asp:TextBox>
+          <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline" />
       </div>
 
      
@@ -26,6 +26,9 @@
     <asp:HiddenField ID="howIsSortedProjectName" runat="server" />
     <asp:HiddenField ID="howIsSortedComp" runat="server" />
     <asp:HiddenField ID="howIsSortedContact" runat="server" />
+    <asp:HiddenField ID="lastSort1" runat="server" />
+    <asp:HiddenField ID="lastSort2" runat="server" />
+
     
 
     <table class="table project">

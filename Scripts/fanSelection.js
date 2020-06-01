@@ -208,14 +208,18 @@ function mouseMove(evt) {
 
     if (dutyAirflow > 0 && dutyAirflow < maxAirflow && dutyPressure > 0 && dutyPressure < maxStaticPressure) {
         document.getElementById("circle_mouse").style.visibility = "visible";
+        document.getElementById("bluedotaf").innerHTML = Math.floor(dutyAirflow);
+        document.getElementById("bluedotsp").innerHTML = Math.floor(dutyPressure);
     } else {
         document.getElementById("circle_mouse").style.visibility = "hidden";
+        document.getElementById("bluedotaf").innerHTML = "";
+        document.getElementById("bluedotsp").innerHTML = "";
     }
 
     document.getElementById("circle_mouse").setAttribute("cx", circleX.toString() + "px");
     document.getElementById("circle_mouse").setAttribute("cy", (dutyPressure * yScale).toString() + "px");
 
-  //document.getElementById("Airflow").innerHTML = (dutyAirflow).toString() + ", " + (dutyPressure).toString();
+
   //This line is throwing errors
 }
 
