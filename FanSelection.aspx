@@ -65,6 +65,15 @@
                         </div>
                         <br />
                         <table id="selectTable" style="width: 100%;">
+                         <tr><td colspan="2">Current fan reference and selection:</td>
+                             <td>
+                         </tr>
+                         <tr><td colspan="2" align="right">
+                        <select onchange="location = this.options[this.selectedIndex].value;" >
+                            <%= getFanOptions()  %>
+                        </select>
+                                </td>
+                                </tr>
                             <tr>
                                 <td>Fan Model Number</td>
                                 <td>
@@ -146,8 +155,10 @@
                                     <asp:Literal ID="lit_message" runat="server" />
                                 </td>
                             </tr>
+
                         </table>
-                    </div>
+                        </div>
+
 
                     <div id="div_clearButton" style="bottom: 0px; position: absolute">
                         <asp:Button ID="btn_clear" Text="Clear" runat="server" OnClientClick="return false" class="fs-ctrl"/>
