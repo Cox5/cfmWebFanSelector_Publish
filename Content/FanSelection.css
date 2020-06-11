@@ -29,7 +29,7 @@ body {
 }
 
 #div_body {
-    top: 100px;
+    top: 80px;
     left: 0px;
     bottom: 0px;
     right: 0px;
@@ -42,7 +42,7 @@ body {
     left: 0px;
     bottom: 0px;
     right: auto;
-    width: 600px;
+    width: 450px;
     position: absolute;
     background-color: #404042;
 }
@@ -60,7 +60,7 @@ body {
     #body_div_topLeft.afterSelect {
         top: 0px;
         bottom: auto;
-        height: 40%;
+        height: 100%;
         left: 0px;
         right: auto;
         width: 100%;
@@ -125,24 +125,24 @@ body {
 }
 
 #body_div_bottomLeft {
-    top: 80%;
+    top: 0px;
+    /*left:410px;*/
+    left: 450px;
     bottom: 0px;
-    height: auto;
-    left: 0px;
-    right: auto;
-    width: 100%;
+    right: 0px;
+    width: auto;
     position: absolute;
+    background-color: #404042;
 }
-
-    #body_div_bottomLeft.afterSelect {
-        top: 40%;
+#body_div_bottomLeft.afterSelect {
+        top: 0px;
         bottom: 0px;
-        height: auto;
-        left: 0px;
+        height: 200px;
+        left: 450px;
         right: 0px;
         width: auto;
         position: absolute;
-    }
+}
 
 #div_selectFan {
     top: 30px;
@@ -159,7 +159,7 @@ body {
 }
 
 #div_fanTable {
-    top: 20px;
+    top: 10px;
     left: 10px;
     right: 10px;
     bottom: 10px;
@@ -172,10 +172,20 @@ body {
     padding: 0px;
 }
 
-#div_right {
+#div_topright {
     top: 0px;
     /*left:410px;*/
-    left: 600px;
+    left: 450px;
+    bottom: 0px;
+    right: 0px;
+    width: auto;
+    position: absolute;
+    background-color: #404042;
+}
+#div_right {
+    top: 170px;
+    /*left:410px;*/
+    left: 450px;
     bottom: 0px;
     right: 0px;
     width: auto;
@@ -186,7 +196,7 @@ body {
 
 #div_fanData {
     background-color: #EEEEEE;
-    top: 30px;
+    top: 25px;
     left: 0px;
     right: 0px;
     bottom: 0px;
@@ -277,7 +287,7 @@ body {
     overflow: scroll;
 }
 
-    #fanTable tr { height: 27px; }
+    #fanTable tr { height: 17px; }
 
     #fanTable td {
         cursor: pointer;
@@ -583,7 +593,7 @@ td.icons img {
 
 
 .header {
-    padding: 20px 40px;
+    padding: 10px 40px;
     background: var(--header-bg-color);
     box-shadow: 4px 2px 19px 0px rgba(0,0,0,0.15);
     margin-bottom: 50px;

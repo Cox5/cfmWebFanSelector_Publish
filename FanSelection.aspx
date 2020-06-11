@@ -191,8 +191,9 @@
                         </svg>
                     </div>
                 </div>
-            </div>
-            <div id="div_bottomLeft" runat="server">
+            </div> <!-- end top left -->
+        </div><!-- end  div_left -->
+                    <div id="div_bottomLeft" runat="server">
                 <div id="div_hideBottomLeft" class="hideBeforeSelect" runat="server">
                     <div class="sectionBorder">
                         <div id="div_selectFan">
@@ -200,12 +201,12 @@
                                 <table id="fanTable" class="tablesorter-default" style="table-layout: fixed">
                                     <thead>
                                         <tr>
-                                            <th style="width: 15%; text-align: left;">Prod</th>
+                                            <th style="width: 15%; text-align: left;">Product</th>
                                             <!-- <th>Type</th> -->
-                                            <th>Dia</th>
+                                            <th>Diameter</th>
                                             <th>RPM</th>
-                                            <th>AF</th>
-                                            <th>SP</th>
+                                            <th>Airflow</th>
+                                            <th>Static Pressure</th>
                                             <th>MkW</th>
                                             <th>Vts</th>
                                             <th>TEff%</th>
@@ -263,9 +264,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> <!-- end bottom left -->
         <div id="div_right">
+
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
                 <div class="sectionBorder">
                     <div id="div_fanData" style="padding-top: 0px">
@@ -284,6 +285,7 @@
                             <asp:HiddenField ID="hidden_ac_sp" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_ac_tp" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_next" runat="server"></asp:HiddenField>
 
                         </div>
 
