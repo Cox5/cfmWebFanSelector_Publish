@@ -65,7 +65,7 @@
                         </div>
                         <br />
                         <table id="selectTable" style="width: 100%;">
-                         <tr><td colspan="2">Current fan reference and selection:</td>
+                         <tr><td colspan="2">Quick select:</td>
                              <td>
                          </tr>
                          <tr><td colspan="2" align="right">

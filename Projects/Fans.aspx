@@ -54,7 +54,7 @@
                     <td>&nbsp;</td>
                     <td style='text-align:left'>Fan Reference</td>
                     <td style='text-align:center' >Airflow (l/s)</td>
-                    <td  style='text-align:center' >Static Pressure (Pa)</td>
+                    <td style='text-align:center' >Static Pressure (Pa)</td>
                     <td style='text-align:left'>CFM Fan</td>
                     <td style='text-align:center'>Qty</td>
                     <td id="tdPrice" style='text-align:right'><%= showPrices ? "Price" : "" %></td>
@@ -76,7 +76,7 @@
                      <td><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
                      <td style='text-align:center'><%= fanReferences[i].Qty %></td>
                      <td style='text-align:right'><%= showPrices ? fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" : "" %></td>
-                     <td style='text-align:right; width: 50px;'><%= getCopyPaste(fanReferences[i]) %></td>
+                     <td class="sub" style='text-align:right; width: 50px;'><div><%= getCopyPaste(fanReferences[i]) %> <%= getCutPutURL(fanReferences[i]) %></div></td>
                      <td class="icons icones-smaller"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
                  </tr>
              <% } %>
