@@ -193,26 +193,62 @@
                 </div>
             </div> <!-- end top left -->
         </div><!-- end  div_left -->
+        <style>
+.header-fixed {
+    width: 100% 
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+    display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 150px;
+    width: 100%;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+    float: left;
+	width: 6%;
+
+}
+        </style>
                     <div id="div_bottomLeft" runat="server">
                 <div id="div_hideBottomLeft" class="hideBeforeSelect" runat="server">
                     <div class="sectionBorder">
                         <div id="div_selectFan">
                             <div id="div_fanTable">
-                                <table id="fanTable" class="tablesorter-default" style="table-layout: fixed">
+                                <style>th.noscroll { position: sticky; top: 0; background-color: #ffffff; }</style>
+                                <table id="fanTable" class="header-fixed tablesorter-default">
                                     <thead>
                                         <tr>
                                             <th style="width: 15%; text-align: left;">Product</th>
                                             <!-- <th>Type</th> -->
-                                            <th>Diameter</th>
-                                            <th>RPM</th>
-                                            <th>Airflow</th>
-                                            <th>Static Pressure</th>
-                                            <th>MkW</th>
-                                            <th>Vts</th>
-                                            <th>TEff%</th>
-                                            <th>dBA</th>
-                                            <th>W/(..</th>
-                                            <th class="string-max" style="text-align: right;">Price%</th>
+                                            <th  >Diameter</th>
+                                            <th  >RPM</th>
+                                            <th  >Airflow</th>
+                                            <th >Static Pressure</th>
+                                            <th  >MkW</th>
+                                            <th  >Vts</th>
+                                            <th  >TEff%</th>
+                                            <th  >dBA</th>
+                                            <th  >W/(..</th>
+                                            <th class="string-max " style="text-align: right;">Price%</th>
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
@@ -224,7 +260,7 @@
                                         <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"
                                             style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
                                             <td title="<%=fanData.fanObject.partNumber  %>"
-                                                 style="text-align: left;"> 
+                                                 style="text-align: left;width: 15%; "> 
                                                  <%= truncateString(fanData.fanObject.partNumber, 12) %>
                                             </td> 
                                                 
