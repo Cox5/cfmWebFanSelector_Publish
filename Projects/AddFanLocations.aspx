@@ -33,7 +33,10 @@
                     <tr>
                         <td style="width:15%">Fan Reference</td>
                         <td>Selected Fan</td>
-                        <td style="text-align:center" class="medium-td" >Airflow (l/s)</td>
+                        <td style="text-align:center" class="tiny-td" >Speed (RPM)</td>
+                        <td style="text-align:center" class="tiny-td" >Phase</td>
+                        <td style="text-align:center" class="tiny-td" >Poles</td>
+                        <td style="text-align:center" class="small-td" >Airflow (l/s)</td>
                         <td style="text-align:center" class="small-td">Static<br />Pressure (Pa)</td>
                         <td style="text-align:center" class="small-td">Qty</td>
                     </tr>
@@ -44,6 +47,25 @@
                 <tr>
 					<td><asp:TextBox ID="txtDesignation1" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed1" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="720">720</asp:ListItem>
+                        <asp:ListItem Value="1440">1440</asp:ListItem>
+                        <asp:ListItem Value="2880">2880</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase1" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles1" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem>
+                        <asp:ListItem Value="10">10</asp:ListItem>
+                        </asp:DropDownList></td>
                     <td><asp:TextBox ID="txtAirflow1" CssClass="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure1" CssClass="txtStaticPressure" runat="server" /></td>
                     <td><asp:TextBox ID="txtQuantity1" CssClass="txtQuantity" runat="server" Placeholder="1"/></td>
@@ -52,6 +74,25 @@
                 <tr>
 					<td><asp:TextBox ID="txtDesignation2" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                    <td></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed2" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="720">720</asp:ListItem>
+                        <asp:ListItem Value="1440">1440</asp:ListItem>
+                        <asp:ListItem Value="2880">2880</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase2" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles2" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem>
+                        <asp:ListItem Value="10">10</asp:ListItem>
+                        </asp:DropDownList></td>
                     <td><asp:TextBox ID="txtAirflow2" CssClass="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure2" CssClass="txtStaticPressure" runat="server" /></td>
                     <td><asp:TextBox ID="txtQuantity2" CssClass="txtQuantity" runat="server" Placeholder="1" /></td>
@@ -60,6 +101,26 @@
                 <tr>
 					<td><asp:TextBox ID="txtDesignation3" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed3" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="720">720</asp:ListItem>
+                        <asp:ListItem Value="1440">1440</asp:ListItem>
+                        <asp:ListItem Value="2880">2880</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase3" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles3" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem> 
+                        <asp:ListItem Value="10">10</asp:ListItem>
+                        </asp:DropDownList></td>
+
                     <td><asp:TextBox ID="txtAirflow3" CssClass="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure3" CssClass="txtStaticPressure" runat="server" /></td>
                     <td><asp:TextBox ID="txtQuantity3" CssClass="txtQuantity" runat="server" Placeholder="1" /></td>
@@ -68,6 +129,26 @@
                 <tr>
 					<td><asp:TextBox ID="txtDesignation4" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed4" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="720">720</asp:ListItem>
+                        <asp:ListItem Value="1440">1440</asp:ListItem>
+                        <asp:ListItem Value="2880">2880</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase4" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles4" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem>
+                        <asp:ListItem Value="10">10</asp:ListItem>
+                        </asp:DropDownList></td>
+
                     <td><asp:TextBox ID="txtAirflow4" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure4" class="txtStaticPressure" runat="server" /></td>
                     <td><asp:TextBox ID="txtQuantity4" class="txtQuantity" runat="server" Placeholder="1" /></td>
@@ -76,6 +157,26 @@
                 <tr>
 					<td><asp:TextBox ID="txtDesignation5" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed5" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="720">720</asp:ListItem>
+                        <asp:ListItem Value="1440">1440</asp:ListItem>
+                        <asp:ListItem Value="2880">2880</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase5" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        </asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles5" runat="server">
+                        <asp:ListItem Value="0">Any</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem>
+                        <asp:ListItem Value="10">10</asp:ListItem>
+                        </asp:DropDownList></td>
+
                     <td><asp:TextBox ID="txtAirflow5" class="txtAirflow" runat="server" /></td>
                     <td><asp:TextBox ID="txtStaticPressure5" class="txtStaticPressure" runat="server" /></td>
                     <td><asp:TextBox ID="txtQuantity5" class="txtQuantity" runat="server" Placeholder="1" /></td>
