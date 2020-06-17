@@ -70,15 +70,16 @@ window.onload = function(){
                 <tr>
                     <%--<td>No</td>--%>
                     <td style="width: 2%;">&nbsp;</td>
-                    <td style='width: 15%;text-align:left'>Fan Reference</td>
-                    <td style='width: 10%;text-align:center' >Airflow<br />(l/s)</td>
-                    <td style='width: 10%;text-align:center' >Static Pr.<br /> (Pa)</td>
+                    <td style='width: 10%;text-align:left'>Fan Reference</td>
+                    <td style='width: 10%;text-align:left'>Fan Type</td>
+                    <td style='width: 7%;text-align:center' >Airflow<br />(l/s)</td>
+                    <td style='width: 7%;text-align:center' >Static Pr.<br /> (Pa)</td>
                     <td style='width: 10%;text-align:center' >Speed/<br />Phase/Poles</td>
                     <td style='width: 20%;text-align:left'>CFM Fan</td>
                     <td style='width: 5%;text-align:center'>Qty</td>
                     <td id="tdPrice" style='width: 7%;text-align:right'><%= showPrices ? "Price" : "" %></td>
-                    <td style='width: 10%;text-align:right' >&nbsp;</td>
-                    <td style="width: 15%;">&nbsp;</td>
+                    <td style='width: 5%;text-align:right' >&nbsp;</td>
+                    <td style="width: 12%;">&nbsp;</td>
                 </tr>
 
             </thead>
@@ -87,19 +88,17 @@ window.onload = function(){
        <table id="fanLocationsTable" class="table project">
               <% for (int i = 0; i < fanReferences.Count; i++) { %>
                  <tr class="has-sub">
-                     <%--todo: make link and UPDATE table on page load based on URL params--%>
-                     
-<%--                     <td><%= fanReferences[i].Position %></td>--%>
                      <td style="width: 2%;" class="sub"><%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
-                     <td style="width: 15%;"><%= fanReferences[i].FanReferenceCode %></td>
-                     <td style="width: 10%; text-align:center"><%= fanReferences[i].AirFlow %></td>
-                     <td style="width: 10%; text-align:center"><%= fanReferences[i].StaticPressure %></td>
+                     <td style="width: 10%;"><%= fanReferences[i].FanReferenceCode %></td>
+                     <td style="width: 10%;"><%= fanReferences[i].FanType %></td>
+                     <td style="width: 7%; text-align:center"><%= fanReferences[i].AirFlow %></td>
+                     <td style="width: 7%; text-align:center"><%= fanReferences[i].StaticPressure %></td>
                      <td style="width: 10%; text-align:center"><%= fanReferences[i].Speed %>/<%= fanReferences[i].Phase %>/<%= fanReferences[i].Poles %></td>
                      <td style="width: 20%;"><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
                      <td style="width: 5%; text-align:right"><%= fanReferences[i].Qty %></td>
                      <td style="width: 7%; text-align:right"><%= showPrices ? fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" : "" %></td>
-                     <td class="sub" style='text-align:right; width: 10%;'><div><%= getCopyPaste(fanReferences[i]) %> <%= getCutPutURL(fanReferences[i]) %></div></td>
-                     <td style="width: 15%;" class="icons icones-smaller"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
+                     <td class="sub" style='text-align:right; width: 5%;'><div><%= getCopyPaste(fanReferences[i]) %> <%= getCutPutURL(fanReferences[i]) %></div></td>
+                     <td style="width: 12%;" class="icons icones-smaller"><%= getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, fanReferences[i].StaticPressure, fanReferences[i].FanDataId) %></td>
                  </tr>
              <% } %>
 

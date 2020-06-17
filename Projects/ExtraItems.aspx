@@ -9,7 +9,7 @@
             <h3 class="mb-solid">Please add fan references in order to add extra items.</h3>
             <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Fan References</asp:LinkButton>
         </div>
-        <div ID="table_view" runat="server" >
+        <div id="table_view" runat="server" >
             <div class="mb-solid mt-solid">
 
             <div class="table-controls">

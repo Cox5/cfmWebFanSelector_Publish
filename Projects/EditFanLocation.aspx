@@ -21,13 +21,17 @@
                 </td>
             </tr>
             <tr>
+                <td>Fan Type</td>
+                <td>
+                    <asp:DropDownList ID="ddFanType" runat="server">
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
                 <td>Fan Model</td>
                 <td>
                     <asp:TextBox ID="txtModelNum" runat="server" ></asp:TextBox>
                     <asp:Label ID="lblModelNumMsg" runat="server"></asp:Label>
-                </td>
-                <td>
-
                 </td>
                 
             </tr>
@@ -48,6 +52,16 @@
                     <asp:TextBox ID="txtStPressure" runat="server" /></td>
                 <td>
                     <asp:RequiredFieldValidator class="mt-small"  ID="StPressRequiredValidator" runat="server" ErrorMessage="Static Pressure is empty" ForeColor="Red" ControlToValidate="txtStPressure"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>Speed / Phase / Poles</td>
+                <td><asp:DropDownList ID="ddSpeed" runat="server" >
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddPhase" runat="server" >
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddPoles" runat="server" >
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>
