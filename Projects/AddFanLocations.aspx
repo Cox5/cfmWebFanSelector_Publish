@@ -317,7 +317,6 @@
 
                 <div class="right-controls mt-medium mr-small">
                     <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Save" runat="server" OnClick="btnSubmit_Click" />
-                    <asp:Button ID="btnCancel"  class="button-main primary-btn" Text="Finished" OnClick="btnCancel_Click" runat="server" />
                 </div>
         
     </div>

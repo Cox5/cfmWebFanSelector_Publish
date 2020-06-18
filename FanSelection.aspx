@@ -104,7 +104,7 @@
                   </asp:DropDownList>
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>Fan Diameter (mm)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput">
@@ -113,14 +113,12 @@
                   <asp:DropDownList ID="ddl_fanDiameterMax" runat="server" CssClass="ddlInput">
                   </asp:DropDownList>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td>Power phase (ph)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_motorPhase" runat="server" CssClass="ddlInput">
-                                        <asp:ListItem Text="Any" Value="Any"></asp:ListItem>
-                                        <asp:ListItem Text="Single" Value="1"></asp:ListItem>
-                                        <asp:ListItem Text="3 Phase" Value="3"></asp:ListItem>
+
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -160,12 +158,12 @@
                         </div>
 
 
-                    <div id="div_clearButton" style="bottom: 0px; position: absolute">
+<!--                    <div id="div_clearButton" style="bottom: 0px; position: absolute">
                         <asp:Button ID="btn_clear" Text="Clear" runat="server" OnClientClick="return false" class="fs-ctrl"/>
                         <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClientClick="return false" class="fs-ctrl" />
                         <asp:Label ID="lbl_versionNumber" Text="" runat="server" ForeColor="DarkGray" Style="bottom: 0px; position: absolute; right: 10px; left: auto; text-align: right" />
                     </div>
-
+                    -->
                     <div id="div_ranges">
                         <table>
                             <tr>
@@ -180,7 +178,8 @@
                     </div>
 
                     <div id="div_selectButton">
-                        <asp:Button ID="btn_select" Text="Select" OnClick="btn_select_Click" runat="server" />
+                        <asp:Button ID="btn_schedule" Text="Return to Schedule" OnClick="btn_select_Click" runat="server" />
+                        <asp:Button ID="btn_select" Text="Search" OnClick="btn_select_Click" runat="server" />
                     </div>
 
                     <div class="div_heading">

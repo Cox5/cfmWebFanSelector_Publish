@@ -584,16 +584,16 @@ input[type="submit"].prevpage {
     position: absolute;
     z-index: 1;
     top: -27px;
-    left: -308%;
+    left: -160px;
     
 }
 
 .tooltip-svg {
-    top: -25px;
+    top: 0px;
 }
 
 .tooltip-i {
-    top: -31px;
+    top: -2px;
 }
 
 
