@@ -41,7 +41,7 @@ window.onload = function(){
 
 
 
-        <div class="mb-solid mt-solid">
+        <div class="mb-solid mt-solid ml-20">
             <div class="table-controls">
                 <h1 class="table-title maintitle">Fan References</h1>
                 <div class="right-button clearfix">
@@ -108,9 +108,8 @@ window.onload = function(){
                     <%--<a href="<%= getPricelistURL() %>" id="pricelistHref" runat="server" class="button-main primary-btn">Go to Pricelist</a>--%>                   
                     <%--<a href="javascript: history.go(-1)" class="button-main primary-btn">Finished <i class="fas fa-chevron-right"></i></a>--%>
            </table>
-           <table>
-            <tr><td colspan="9"><asp:Button ID="btnPrevPage" runat="server"  CssClass="button-main primary-btn prevpage" Text="<< Previous page" OnClick="btnFinished_Click" /></td></tr>
-        </table>
+
     </div>
   </div>
+
 </asp:Content>

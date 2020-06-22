@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Fan Selection" Language="C#" AutoEventWireup="true" CodeBehind="FanSelection.aspx.cs" Inherits="CFM_Web.FanSelection" MasterPageFile="~/fanselectionNoStylesheet.Master" %>
+<%@ Page Title="Fan Selection" Language="C#" AutoEventWireup="true" CodeBehind="FanSelection.aspx.cs" Inherits="CFM_Web.FanSelection" MasterPageFile="~/fanselectionNoStylesheet.Master" %>
 
 <asp:Content ID="headerSection" ContentPlaceHolderID="head" runat="server">
     <%-- Local Style Sheets --%>
@@ -117,9 +117,10 @@
                             <tr>
                                 <td>Power phase (ph)</td>
                                 <td>
-                                    <asp:DropDownList ID="ddl_motorPhase" runat="server" CssClass="ddlInput">
-
+                                    <asp:DropDownList ID="ddl_motorPhase" runat="server" CssClass="ddlInput" Visible="false">
                                     </asp:DropDownList>
+                                    <asp:Label id="lblPhase" Text="" runat="server" />
+
                                 </td>
                             </tr>
                             <%--<tr>
@@ -216,7 +217,7 @@
 
 .header-fixed > tbody {
     overflow-y: auto;
-    height: 150px;
+    height: 100px;
     width: 100%;
 }
 
@@ -239,15 +240,15 @@
                                             <th style="width: 15%; text-align: left;">Product</th>
                                             <!-- <th>Type</th> -->
                                             <th  >Diameter</th>
+                                            <th  >dBA @ 3m</th>
                                             <th  >RPM</th>
-                                            <th  >Airflow</th>
-                                            <th >Static Pressure</th>
+                                            <th  >Volts</th>
+                                            <th class="string-max " style="text-align: right;">Price %</th>
                                             <th  >MkW</th>
-                                            <th  >Vts</th>
-                                            <th  >TEff%</th>
-                                            <th  >dBA</th>
-                                            <th  >W/(..</th>
-                                            <th class="string-max " style="text-align: right;">Price%</th>
+                                            <th  >MkW/m3</th>
+                                            <th  >TEff %</th>
+                                            <th  >Airflow</th>
+                                            <th >Static Pr.</th>
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
@@ -265,23 +266,23 @@
                                                 
                                             <!-- <td><%= truncateString(fanData.fanObject.fanType.category + " " + fanData.fanObject.fanType.description, 12) %></td> -->
                                             <td style="text-align: center"><%= fanData.fanObject.diameter %></td>
+                                            <td><%= getNoise(fanData) %></td>
                                             <td><%= fanData.RPM %></td>
+                                            <td><%= getVoltage(fanData.fanObject) %></td>
+                                            <td style="text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
 
+                                            <td><%= fanData.motorkW %></td>
+                                            <td><%= getConsumedPowerOverAirflow(fanData) %></td>
+                                            <td><%= getEfficiency(fanData) %></td>
+                                            <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
+                                            <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
+                                            <!--<td><%= fanData.angle.ToString() %></td> -->
                                             <td style='<%= fanData.intercept != null ? getAFbgcolor(fanData.intercept.airflow) : getAFbgcolor(0)%>'>
                                                 <%= fanData.intercept != null ? Math.Floor(fanData.intercept.airflow).ToString() : "-" %>
                                             </td>
                                             <td style='<%= fanData.intercept != null ? getSPbgcolor(fanData.intercept.staticPressure) : getSPbgcolor(0)%>'>
                                                 <%= fanData.intercept != null ? Math.Floor(fanData.intercept.staticPressure).ToString() : "-" %>
                                             </td>
-                                            <td><%= fanData.motorkW %></td>
-                                            <td><%= getVoltage(fanData.fanObject) %></td>
-                                            <td><%= getEfficiency(fanData) %></td>
-                                            <td><%= getNoise(fanData) %></td>
-                                            <td><%= getConsumedPowerOverAirflow(fanData) %></td>
-                                            <td style="text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
-                                            <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
-                                            <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
-                                            <!--<td><%= fanData.angle.ToString() %></td> -->
                                             
 
                                         </tr>
@@ -401,4 +402,3 @@
     </svg>
 
 </asp:Content>
-

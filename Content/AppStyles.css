@@ -30,7 +30,7 @@ h3 {
 }
 
 .maintitle {
-    font-size: 2.4em;
+    font-size: 1.8em;
     font-weight: 600;
     color: var(--dark-grey);
     line-height: 2;
@@ -85,10 +85,10 @@ body {
 
 
 .header {
-    padding: 20px 40px;
+    padding: 0px 10px 0px 10px;
     background: var(--header-bg-color);
     box-shadow: 4px 2px 19px 0px rgba(0,0,0,0.15);
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     
 }
 
@@ -170,11 +170,14 @@ body {
 }
 
 .mb-solid {
-    margin-top: 35px !important;
-}
+    margin-top: 0 !important;
 
+}
+.ml-20 {
+	margin-left: 20px;
+}
 .mt-solid {
-    margin-bottom: 35px !important;
+    margin-bottom: 0 !important;
 }
 
 .mb-medium {
@@ -537,7 +540,7 @@ td.icons > a {
 
 .right-button {
     float: right;
-    margin: 20px 10px 0 20px;
+    margin: 0 10px 0 20px;
 }
 
 a.button-main {

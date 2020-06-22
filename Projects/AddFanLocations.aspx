@@ -8,7 +8,12 @@
         .txtStaticPressure { width: 100px;}
         .txtDesignation { width: 250px;}
         .txtQuantity { width: 100px;}
-        
+        .table td, .table th {
+            padding: 1px;
+        }
+        td.tiny-td select {
+            padding: 2px;
+        }
     </style>
     <div class="content-wrapper">
        
@@ -26,291 +31,149 @@
                     <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
                     </div>
             </div>
-
+<style>
+.sub div { visibility: hidden; }
+.has-sub:hover > .sub div { visibility: visible; } 
+}
+</style>
             <table class="table table-form">
-               
                 <thead>
                     <tr>
-                        <td style="width:15%">Fan Reference</td>
-                        <td style="width:10%">Fan Type</td>
-                        <td>Selected Fan</td>
-                        <td style="text-align:center" class="tiny-td" >Speed (RPM)</td>
-                        <td style="text-align:center" class="tiny-td" >Phase</td>
-                        <td style="text-align:center" class="tiny-td" >Poles</td>
-                        <td style="text-align:center" class="tiny-td" >Airflow (l/s)</td>
-                        <td style="text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
-                        <td style="text-align:center" class="tiny-td">Qty</td>
+                        <td style="width:10%">Fan Reference</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td">Qty</td>
+                        <td style="width:14%">Fan Type</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td" >Airflow (l/s)</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
+                        <td style="width:5%; text-align:center">Diameter<br />(mm)</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >Speed<br /> (RPM)</td>
+                        <td style="width:6%; text-align:center" class="tiny-td" >Power<br /> Phase</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td" >Sound Pressure<br />dBA @ 3m</td>
+                        <td style="width:10%;text-align:center" class="tiny-td" >Motor<br />Type</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >Blade<br />Material</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >Ancillaries</td>
+                        <td style="text-align:center" class="tiny-td" >Selected Fan</td>                      
                     </tr>
                 </thead>
+            </table>
+            <div id="dvScroll" style="overflow-x:hidden; overflow-y: scroll; height: 200px; width: 100%">
+            <table class="table table-form">
+                   <tbody>
+                      <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
+                        <td style="width:10%">&nbsp;</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td">&nbsp;</td>
+                        <td style="width:14%">&nbsp;</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td">&nbsp;</td>
+                        <td style="width:5%; text-align:center">&nbsp;</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:6%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:10%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="text-align:center" class="tiny-td" >&nbsp;</td>                      
+                    </tr>
                 <tr>
                      <%= getFanLocations() %>
                 </tr>
+              </table>
+            </div>
+              <table class="table table-form">
+                   <tbody>
+                      <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
+                        <td style="width:10%">&nbsp;</td>
+                        <td style="width: 4%; text-align:center" class="tiny-td">&nbsp;</td>
+                        <td style="width:14%">&nbsp;</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td">&nbsp;</td>
+                        <td style="width:5%; text-align:center">&nbsp;</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:10%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="text-align:center" class="tiny-td" >&nbsp;</td>                      
+                    </tr>
                 <tr>
 					<td class="tiny-td"><asp:TextBox ID="txtDesignation1" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-<td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType1" runat="server">
-<asp:ListItem Value="Roof Axial Exhaust">Roof Axial Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Axial Supply">Roof Axial Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust">Roof Cen Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Supply">Roof Cen Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust with Grease Trap">Rf Cen Ex+GrTrap</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal TEFC Motor">Rf Cen TEFC Mtr</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Twin fan">Roof Cen Twin fan</asp:ListItem>
-<asp:ListItem Value="Roof Mixflow">Roof Mixflow</asp:ListItem>
-<asp:ListItem Value="Roof Smoke Spill">Roof Smoke Spill</asp:ListItem>
-<asp:ListItem Value="Inline Axial">Inline Axial</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal">Inline Cen</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal TEFC Motor">Inline Cen TEFC</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal Twin fan">Inline Cen Twin</asp:ListItem>
-<asp:ListItem Value="Inline Mixflow">Inline Mixflow</asp:ListItem>
-<asp:ListItem Value="Inline Smoke Spill">Inline SS</asp:ListItem>
-<asp:ListItem Value="SWSI Centrifugal">SWSI Cen</asp:ListItem>
-<asp:ListItem Value="DWDI Centrifugal">DWDI Cen</asp:ListItem>
-<asp:ListItem Value="Wall Mounted Smoke Spill">Wall Mount SS</asp:ListItem>
-<asp:ListItem Value="Wall / Window Mounted">Wall/Window Mt</asp:ListItem>
-<asp:ListItem Value="Ceiling Mounted">Ceiling Mount</asp:ListItem>
-<asp:ListItem Value="Roof Cowl">Roof Cowl</asp:ListItem>
-<asp:ListItem Value="Other fan">Other fan</asp:ListItem>
-</asp:DropDownList>
-</td>
-
-                    <td></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed1" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="720">720</asp:ListItem>
-                        <asp:ListItem Value="1440">1440</asp:ListItem>
-                        <asp:ListItem Value="2880">2880</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase1" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="1">1</asp:ListItem>
-                        <asp:ListItem Value="3">3</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles1" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="2">2</asp:ListItem>
-                        <asp:ListItem Value="4">4</asp:ListItem>
-                        <asp:ListItem Value="6">6</asp:ListItem>
-                        <asp:ListItem Value="8">8</asp:ListItem>
-                        <asp:ListItem Value="10">10</asp:ListItem>
-                        </asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtQuantity1" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType1" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow1" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure1" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtQuantity1" CssClass="txtQuantity" runat="server" Placeholder="1" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter1" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed1" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase1" runat="server"></asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtSound1" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType1" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade1" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill1" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg1" runat="server" ForeColor="Red"></asp:Label></td>
+                    <td style="text-align:center" class="tiny-td" >&nbsp;</td>
                 </tr>
                 <tr>
-					<td class="tiny-td"><asp:TextBox ID="txtDesignation2" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td">
-                        <asp:DropDownList ID="ddFanType2" runat="server">
-<asp:ListItem Value="Roof Axial Exhaust">Roof Axial Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Axial Supply">Roof Axial Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust">Roof Cen Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Supply">Roof Cen Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust with Grease Trap">Rf Cen Ex+GrTrap</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal TEFC Motor">Rf Cen TEFC Mtr</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Twin fan">Roof Cen Twin fan</asp:ListItem>
-<asp:ListItem Value="Roof Mixflow">Roof Mixflow</asp:ListItem>
-<asp:ListItem Value="Roof Smoke Spill">Roof Smoke Spill</asp:ListItem>
-<asp:ListItem Value="Inline Axial">Inline Axial</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal">Inline Cen</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal TEFC Motor">Inline Cen TEFC</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal Twin fan">Inline Cen Twin</asp:ListItem>
-<asp:ListItem Value="Inline Mixflow">Inline Mixflow</asp:ListItem>
-<asp:ListItem Value="Inline Smoke Spill">Inline SS</asp:ListItem>
-<asp:ListItem Value="SWSI Centrifugal">SWSI Cen</asp:ListItem>
-<asp:ListItem Value="DWDI Centrifugal">DWDI Cen</asp:ListItem>
-<asp:ListItem Value="Wall Mounted Smoke Spill">Wall Mount SS</asp:ListItem>
-<asp:ListItem Value="Wall / Window Mounted">Wall/Window Mt</asp:ListItem>
-<asp:ListItem Value="Ceiling Mounted">Ceiling Mount</asp:ListItem>
-<asp:ListItem Value="Roof Cowl">Roof Cowl</asp:ListItem>
-<asp:ListItem Value="Other fan">Other fan</asp:ListItem>
-</asp:DropDownList>
-</td>
-                   <td></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed2" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="720">720</asp:ListItem>
-                        <asp:ListItem Value="1440">1440</asp:ListItem>
-                        <asp:ListItem Value="2880">2880</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase2" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="1">1</asp:ListItem>
-                        <asp:ListItem Value="3">3</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles2" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="2">2</asp:ListItem>
-                        <asp:ListItem Value="4">4</asp:ListItem>
-                        <asp:ListItem Value="6">6</asp:ListItem>
-                        <asp:ListItem Value="8">8</asp:ListItem>
-                        <asp:ListItem Value="10">10</asp:ListItem>
-                        </asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDesignation2" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtQuantity2" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType2" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow2" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure2" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtQuantity2" CssClass="txtQuantity" runat="server" Placeholder="1" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter2" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed2" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase2" runat="server"></asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtSound2" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType2" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade2" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill2" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg2" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
-                <tr>
-					<td class="tiny-td"><asp:TextBox ID="txtDesignation3" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType3" runat="server">
-<asp:ListItem Value="Roof Axial Exhaust">Roof Axial Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Axial Supply">Roof Axial Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust">Roof Cen Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Supply">Roof Cen Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust with Grease Trap">Rf Cen Ex+GrTrap</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal TEFC Motor">Rf Cen TEFC Mtr</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Twin fan">Roof Cen Twin fan</asp:ListItem>
-<asp:ListItem Value="Roof Mixflow">Roof Mixflow</asp:ListItem>
-<asp:ListItem Value="Roof Smoke Spill">Roof Smoke Spill</asp:ListItem>
-<asp:ListItem Value="Inline Axial">Inline Axial</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal">Inline Cen</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal TEFC Motor">Inline Cen TEFC</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal Twin fan">Inline Cen Twin</asp:ListItem>
-<asp:ListItem Value="Inline Mixflow">Inline Mixflow</asp:ListItem>
-<asp:ListItem Value="Inline Smoke Spill">Inline SS</asp:ListItem>
-<asp:ListItem Value="SWSI Centrifugal">SWSI Cen</asp:ListItem>
-<asp:ListItem Value="DWDI Centrifugal">DWDI Cen</asp:ListItem>
-<asp:ListItem Value="Wall Mounted Smoke Spill">Wall Mount SS</asp:ListItem>
-<asp:ListItem Value="Wall / Window Mounted">Wall/Window Mt</asp:ListItem>
-<asp:ListItem Value="Ceiling Mounted">Ceiling Mount</asp:ListItem>
-<asp:ListItem Value="Roof Cowl">Roof Cowl</asp:ListItem>
-<asp:ListItem Value="Other fan">Other fan</asp:ListItem>
-</asp:DropDownList>
-                        </td>
-                    <td></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed3" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="720">720</asp:ListItem>
-                        <asp:ListItem Value="1440">1440</asp:ListItem>
-                        <asp:ListItem Value="2880">2880</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase3" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="1">1</asp:ListItem>
-                        <asp:ListItem Value="3">3</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles3" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="2">2</asp:ListItem>
-                        <asp:ListItem Value="4">4</asp:ListItem>
-                        <asp:ListItem Value="6">6</asp:ListItem>
-                        <asp:ListItem Value="8">8</asp:ListItem> 
-                        <asp:ListItem Value="10">10</asp:ListItem>
-                        </asp:DropDownList></td>
 
+                <tr>
+                    <td class="tiny-td"><asp:TextBox ID="txtDesignation3" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtQuantity3" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType3" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow3" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure3" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtQuantity3" CssClass="txtQuantity" runat="server" Placeholder="1" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter3" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed3" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase3" runat="server"></asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtSound3" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType3" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade3" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill3" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg3" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
-                <tr>
-					<td class="tiny-td"><asp:TextBox ID="txtDesignation4" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-<td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType4" runat="server">
-<asp:ListItem Value="Roof Axial Exhaust">Roof Axial Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Axial Supply">Roof Axial Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust">Roof Cen Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Supply">Roof Cen Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust with Grease Trap">Rf Cen Ex+GrTrap</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal TEFC Motor">Rf Cen TEFC Mtr</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Twin fan">Roof Cen Twin fan</asp:ListItem>
-<asp:ListItem Value="Roof Mixflow">Roof Mixflow</asp:ListItem>
-<asp:ListItem Value="Roof Smoke Spill">Roof Smoke Spill</asp:ListItem>
-<asp:ListItem Value="Inline Axial">Inline Axial</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal">Inline Cen</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal TEFC Motor">Inline Cen TEFC</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal Twin fan">Inline Cen Twin</asp:ListItem>
-<asp:ListItem Value="Inline Mixflow">Inline Mixflow</asp:ListItem>
-<asp:ListItem Value="Inline Smoke Spill">Inline SS</asp:ListItem>
-<asp:ListItem Value="SWSI Centrifugal">SWSI Cen</asp:ListItem>
-<asp:ListItem Value="DWDI Centrifugal">DWDI Cen</asp:ListItem>
-<asp:ListItem Value="Wall Mounted Smoke Spill">Wall Mount SS</asp:ListItem>
-<asp:ListItem Value="Wall / Window Mounted">Wall/Window Mt</asp:ListItem>
-<asp:ListItem Value="Ceiling Mounted">Ceiling Mount</asp:ListItem>
-<asp:ListItem Value="Roof Cowl">Roof Cowl</asp:ListItem>
-<asp:ListItem Value="Other fan">Other fan</asp:ListItem>
-</asp:DropDownList>
-</td>
-                    <td></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed4" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="720">720</asp:ListItem>
-                        <asp:ListItem Value="1440">1440</asp:ListItem>
-                        <asp:ListItem Value="2880">2880</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase4" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="1">1</asp:ListItem>
-                        <asp:ListItem Value="3">3</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles4" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="2">2</asp:ListItem>
-                        <asp:ListItem Value="4">4</asp:ListItem>
-                        <asp:ListItem Value="6">6</asp:ListItem>
-                        <asp:ListItem Value="8">8</asp:ListItem>
-                        <asp:ListItem Value="10">10</asp:ListItem>
-                        </asp:DropDownList></td>
 
-                    <td class="tiny-td"><asp:TextBox ID="txtAirflow4" class="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtStaticPressure4" class="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtQuantity4" class="txtQuantity" runat="server" Placeholder="1" AutoCompleteType="Disabled"/></td>
+                <tr>
+                    <td class="tiny-td"><asp:TextBox ID="txtDesignation4" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtQuantity4" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType4" runat="server"></asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtAirflow4" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtStaticPressure4" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter4" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed4" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase4" runat="server"></asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtSound4" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType4" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade4" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill4" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg4" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
-					<td class="tiny-td"><asp:TextBox ID="txtDesignation5" class="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType5" runat="server">
-<asp:ListItem Value="Roof Axial Exhaust">Roof Axial Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Axial Supply">Roof Axial Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust">Roof Cen Exhaust</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Supply">Roof Cen Supply</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Exhaust with Grease Trap">Rf Cen Ex+GrTrap</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal TEFC Motor">Rf Cen TEFC Mtr</asp:ListItem>
-<asp:ListItem Value="Roof Centrifugal Twin fan">Roof Cen Twin fan</asp:ListItem>
-<asp:ListItem Value="Roof Mixflow">Roof Mixflow</asp:ListItem>
-<asp:ListItem Value="Roof Smoke Spill">Roof Smoke Spill</asp:ListItem>
-<asp:ListItem Value="Inline Axial">Inline Axial</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal">Inline Cen</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal TEFC Motor">Inline Cen TEFC</asp:ListItem>
-<asp:ListItem Value="Inline Centrifugal Twin fan">Inline Cen Twin</asp:ListItem>
-<asp:ListItem Value="Inline Mixflow">Inline Mixflow</asp:ListItem>
-<asp:ListItem Value="Inline Smoke Spill">Inline SS</asp:ListItem>
-<asp:ListItem Value="SWSI Centrifugal">SWSI Cen</asp:ListItem>
-<asp:ListItem Value="DWDI Centrifugal">DWDI Cen</asp:ListItem>
-<asp:ListItem Value="Wall Mounted Smoke Spill">Wall Mount SS</asp:ListItem>
-<asp:ListItem Value="Wall / Window Mounted">Wall/Window Mt</asp:ListItem>
-<asp:ListItem Value="Ceiling Mounted">Ceiling Mount</asp:ListItem>
-<asp:ListItem Value="Roof Cowl">Roof Cowl</asp:ListItem>
-<asp:ListItem Value="Other fan">Other fan</asp:ListItem>
-</asp:DropDownList>
-</td>
-                    <td></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed5" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="720">720</asp:ListItem>
-                        <asp:ListItem Value="1440">1440</asp:ListItem>
-                        <asp:ListItem Value="2880">2880</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase5" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="1">1</asp:ListItem>
-                        <asp:ListItem Value="3">3</asp:ListItem>
-                        </asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPoles5" runat="server">
-                        <asp:ListItem Value="0">Any</asp:ListItem>
-                        <asp:ListItem Value="2">2</asp:ListItem>
-                        <asp:ListItem Value="4">4</asp:ListItem>
-                        <asp:ListItem Value="6">6</asp:ListItem>
-                        <asp:ListItem Value="8">8</asp:ListItem>
-                        <asp:ListItem Value="10">10</asp:ListItem>
-                        </asp:DropDownList></td>
-
-                    <td class="tiny-td"><asp:TextBox ID="txtAirflow5" class="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtStaticPressure5" class="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtQuantity5" class="txtQuantity" runat="server" Placeholder="1" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDesignation5" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtQuantity5" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType5" runat="server"></asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtAirflow5" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtStaticPressure5" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter5" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed5" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase5" runat="server"></asp:DropDownList></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtSound5" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType5" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade5" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill5" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg5" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
-               
+                </tbody>
                 </table>
 
                 <asp:Label ID="lblMessage" runat="server" />

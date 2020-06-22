@@ -50,7 +50,7 @@ body {
 #body_div_topLeft {
     top: 0px;
     bottom: 20%;
-    height: auto;
+    height: 100%;
     left: 0px;
     right: auto;
     width: 100%;
@@ -428,7 +428,7 @@ td button {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 1360px;
 }
 
 #body {
