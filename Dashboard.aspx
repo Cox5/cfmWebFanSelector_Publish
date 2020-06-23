@@ -46,9 +46,9 @@
                 </a>
                 
                 <a id="importPricesLink" class="dashboard-icon-link" href="/ImportDashboard.aspx" runat="server">
-                    <i class="fas fa-dollar-sign icon"></i>
+                    <i class="fas fa-wrench icon"></i>
                     <div class="highlighted">
-                        Import Prices
+                        Admin Tools
                     </div>
                 </a>
 

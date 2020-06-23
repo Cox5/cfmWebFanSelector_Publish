@@ -74,7 +74,7 @@ window.onload = function(){
                     <td style='width: 10%;text-align:left'>Fan Type</td>
                     <td style='width: 7%;text-align:center' >Airflow<br />(l/s)</td>
                     <td style='width: 7%;text-align:center' >Static Pr.<br /> (Pa)</td>
-                    <td style='width: 10%;text-align:center' >Speed/<br />Phase/Poles</td>
+                    <td style='width: 10%;text-align:center' >Speed/&nbsp;&nbsp;<br />Phase&nbsp;&nbsp;</td>
                     <td style='width: 20%;text-align:left'>CFM Fan</td>
                     <td style='width: 5%;text-align:center'>Qty</td>
                     <td id="tdPrice" style='width: 7%;text-align:right'><%= showPrices ? "Price" : "" %></td>
@@ -93,7 +93,7 @@ window.onload = function(){
                      <td style="width: 10%;"><%= fanReferences[i].FanType %></td>
                      <td style="width: 7%; text-align:center"><%= fanReferences[i].AirFlow %></td>
                      <td style="width: 7%; text-align:center"><%= fanReferences[i].StaticPressure %></td>
-                     <td style="width: 10%; text-align:center"><%= fanReferences[i].Speed %>/<%= fanReferences[i].Phase %>/<%= fanReferences[i].Poles %></td>
+                     <td style="width: 10%; text-align:center"><%= fanReferences[i].Speed %>/<%= fanReferences[i].Phase %></td>
                      <td style="width: 20%;"><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
                      <td style="width: 5%; text-align:right"><%= fanReferences[i].Qty %></td>
                      <td style="width: 7%; text-align:right"><%= showPrices ? fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" : "" %></td>

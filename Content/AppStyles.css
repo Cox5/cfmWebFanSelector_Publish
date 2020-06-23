@@ -247,7 +247,7 @@ input[type="submit"] {
 
 
 .button-main {
-    font-size: 1em;
+    font-size: 0.8em;
     font-family:  "Fira Sans", sans-serif;
     padding: 6px 8px !important;
     border-radius: 8px;
@@ -546,18 +546,18 @@ td.icons > a {
 a.button-main {
     text-decoration: none;
 	display: block;
-	width: 170px;
+	width: 135px;
 }
 
 input[type="submit"].button-main {
 	text-decoration: none;
 	display: block;
-	width: 187px;
+	width: 150px;
 }
 input[type="submit"].prevpage {
 	text-decoration: none;
 	display: block;
-	width: 187px;
+	width: 150px;
 	background: #ae4242 !important;
 }
 
@@ -765,8 +765,8 @@ visibility: visible;
 
 .sp-rect {
     height: 50px;
-    width: 270px;
-    font-size: 26px;
+    width: 320px;
+    font-size: 22px;
     font-weight: 500;
     box-sizing: border-box;
     color: white;

@@ -24,7 +24,7 @@
                        <h1 class="table-title sub">Add Fan References</h1>
                    </div>
                    <div class="right-controls mt-medium mr-small" style="float: right;">
-                       <asp:Button ID="Button1"  class="button-main primary-btn" Text="Finished" OnClick="btnCancel_Click" runat="server" />
+                       <asp:Button ID="Button1"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnCancel_Click" runat="server" />
                     </div>
                 </div> 
                 <div style="clear:both">
@@ -35,10 +35,11 @@
 .sub div { visibility: hidden; }
 .has-sub:hover > .sub div { visibility: visible; } 
 }
+tr.afl-tr {height: 19px; font-size: 14px;}
 </style>
-            <table class="table table-form">
+            <table class="table table-form" >
                 <thead>
-                    <tr>
+                    <tr >
                         <td style="width:10%">Fan Reference</td>
                         <td style="width: 5%; text-align:center" class="tiny-td">Qty</td>
                         <td style="width:14%">Fan Type</td>
@@ -46,16 +47,16 @@
                         <td style="width: 5%; text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
                         <td style="width:5%; text-align:center">Diameter<br />(mm)</td>
                         <td style="width:5%; text-align:center" class="tiny-td" >Speed<br /> (RPM)</td>
-                        <td style="width:6%; text-align:center" class="tiny-td" >Power<br /> Phase</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >Power</td>
                         <td style="width: 5%; text-align:center" class="tiny-td" >Sound Pressure<br />dBA @ 3m</td>
                         <td style="width:10%;text-align:center" class="tiny-td" >Motor<br />Type</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >Blade<br />Material</td>
-                        <td style="width:5%;text-align:center" class="tiny-td" >Ancillaries</td>
-                        <td style="text-align:center" class="tiny-td" >Selected Fan</td>                      
+                        <td style="width:5%;text-align:center" class="tiny-td" >Ancill.</td>
+                        <td style="text-align:left" class="tiny-td" >&nbsp;&nbsp;&nbsp;Selected Fan</td>                      
                     </tr>
                 </thead>
             </table>
-            <div id="dvScroll" style="overflow-x:hidden; overflow-y: scroll; height: 200px; width: 100%">
+            <div id="dvScroll" style="overflow-x:hidden; overflow-y: scroll; height: 212px; width: 100%">
             <table class="table table-form">
                    <tbody>
                       <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
@@ -83,7 +84,7 @@
                       <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
                         <td style="width:10%">&nbsp;</td>
                         <td style="width: 4%; text-align:center" class="tiny-td">&nbsp;</td>
-                        <td style="width:14%">&nbsp;</td>
+                        <td style="width:15%">&nbsp;</td>
                         <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width: 5%; text-align:center" class="tiny-td">&nbsp;</td>
                         <td style="width:5%; text-align:center">&nbsp;</td>
