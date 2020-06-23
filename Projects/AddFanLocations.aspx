@@ -34,8 +34,7 @@
 <style>
 .sub div { visibility: hidden; }
 .has-sub:hover > .sub div { visibility: visible; } 
-}
-tr.afl-tr {height: 19px; font-size: 14px;}
+.afl-tr {height: 19px; font-size: 14px;}
 </style>
             <table class="table table-form" >
                 <thead>
