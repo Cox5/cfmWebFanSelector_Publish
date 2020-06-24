@@ -43,50 +43,60 @@
             <tr>
                 <td class="small-td">Fan Model</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtModelNum" runat="server" AutoCompleteType="Disabled"></asp:TextBox>
-                    <asp:Label ID="lblModelNumMsg" runat="server"></asp:Label>
+                    <asp:TextBox ID="txtModelNum" runat="server" AutoCompleteType="Disabled" ReadOnly="true"></asp:TextBox>
+                    <asp:Label ID="lblModelNumMsg" runat="server" Visible="false"></asp:Label>
                 </td>
                 
             </tr>
             <tr>
                 <td class="small-td">Airflow (l/s)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtAirflow" runat="server" />
+                    <asp:TextBox ID="txtAirflow" runat="server" AutoCompleteType="Disabled"  />
                 </td>
                 <td class="small-td">
-                    <asp:RequiredFieldValidator class="mt-small"  ID="AirflowRequiredValidator" runat="server" ErrorMessage="Airflow is empty" ForeColor="Red" ControlToValidate="txtAirflow"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="AirflowRequiredValidator" runat="server"  
+                        ErrorMessage="Airflow is empty" ForeColor="Red" ControlToValidate="txtAirflow"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="small-td">Static Pressure (Pa)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtStPressure" runat="server" /></td>
+                    <asp:TextBox ID="txtStPressure" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td class="small-td">
-                    <asp:RequiredFieldValidator class="mt-small"  ID="StPressRequiredValidator" runat="server" ErrorMessage="Static Pressure is empty" ForeColor="Red" ControlToValidate="txtStPressure"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="StPressRequiredValidator" runat="server"  
+                        ErrorMessage="Static Pressure is empty" ForeColor="Red" ControlToValidate="txtStPressure"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="small-td">Diameter (mm)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtDiameter" runat="server" /></td>
+                    <asp:TextBox ID="txtDiameter" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr>
-                <td class="small-td">Speed / Phase / Motor Type</td>
-                <td class="small-td"><asp:DropDownList ID="ddSpeed1" runat="server" >
-                    </asp:DropDownList>
-                    <asp:DropDownList ID="ddPhase1" runat="server" >
-                    </asp:DropDownList>
-                    <asp:DropDownList ID="ddMotorType1" runat="server" >
+                <td class="small-td">Speed</td>
+                <td class="small-td">
+                    <asp:DropDownList ID="ddSpeed1" runat="server" >
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td class="small-td">Sound Pressure (dBA)</td>
+                <td class="small-td">Phase</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtSoundPressure" runat="server" Autoc/></td>
-                
+                    <asp:DropDownList ID="ddPhase1" runat="server" ></asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="small-td">Sound Pressure (dBA @ 3m)</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtSoundPressure" runat="server" AutoCompleteType="Disabled" /></td>
+                </td>
+            </tr>
+            <tr>
+                <td class="small-td">Motor Type</td>
+                <td class="small-td">
+                    <asp:DropDownList ID="ddMotorType1" runat="server" ></asp:DropDownList>
                 </td>
             </tr>
             <tr>

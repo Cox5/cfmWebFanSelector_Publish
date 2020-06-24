@@ -71,7 +71,7 @@ td.tiny-td select {
 }
 </style>
 
-        <table id="fanLocationsTable" class="table project">
+        <table id="fanLocationsTableHeading" class="table project">
             <thead>
                 <tr class="nopad" >
                     <%--<td>No</td>--%>
