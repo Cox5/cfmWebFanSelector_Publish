@@ -62,24 +62,34 @@ window.onload = function(){
 <style>
 .sub div { visibility: hidden; }
 .has-sub:hover > .sub div { visibility: visible; } 
+
+tr.nopad td, .nopad th {
+        padding: 1px !important;
+}
+td.tiny-td select {
+            padding: 2px;
 }
 </style>
 
         <table id="fanLocationsTable" class="table project">
             <thead>
-                <tr>
+                <tr class="nopad" >
                     <%--<td>No</td>--%>
-                    <td style="width: 2%;">&nbsp;</td>
-                    <td style='width: 10%;text-align:left'>Fan Reference</td>
-                    <td style='width: 10%;text-align:left'>Fan Type</td>
-                    <td style='width: 7%;text-align:center' >Airflow<br />(l/s)</td>
-                    <td style='width: 7%;text-align:center' >Static Pr.<br /> (Pa)</td>
-                    <td style='width: 10%;text-align:center' >Speed/&nbsp;&nbsp;<br />Phase&nbsp;&nbsp;</td>
-                    <td style='width: 20%;text-align:left'>CFM Fan</td>
-                    <td style='width: 5%;text-align:center'>Qty</td>
-                    <td id="tdPrice" style='width: 7%;text-align:right'><%= showPrices ? "Price" : "" %></td>
-                    <td style='width: 5%;text-align:right' >&nbsp;</td>
-                    <td style="width: 12%;">&nbsp;</td>
+                        <td style="width: 2%; padding:0">&nbsp;</td>
+                        <td style="width:10%">Fan Reference</td>
+                        <td style="width: 3%; text-align:center" class="tiny-td">Qty</td>
+                        <td style="width:10%">Fan Type</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td" >Airflow (l/s)</td>
+                        <td style="width: 5%; text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
+                        <td style="width:5%; text-align:center">Diameter<br />(mm)</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >Speed<br /> (RPM)</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >Phase</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >Sound Pressure<br />dBA @ 3m</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >Motor<br />Type</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >Blade<br />Material</td>
+                        <td style="width:5%;text-align:center" class="tiny-td" >Ancill.</td>
+                        <td style="width: 10%; text-align:left" class="tiny-td" >&nbsp;&nbsp;&nbsp;Selected Fan</td> 
+                        <td>&nbsp;</td>
                 </tr>
 
             </thead>
@@ -87,16 +97,22 @@ window.onload = function(){
        <div id="dvScroll" style="overflow-x:hidden; overflow-y: scroll; height: 600px; width: 100%">
        <table id="fanLocationsTable" class="table project">
               <% for (int i = 0; i < fanReferences.Count; i++) { %>
-                 <tr class="has-sub">
+                 <tr class="has-sub nopad">
                      <td style="width: 2%;" class="sub"><%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
                      <td style="width: 10%;"><%= fanReferences[i].FanReferenceCode %></td>
+                     <td style="width: 3%; text-align:center"><%= fanReferences[i].Qty %></td>
                      <td style="width: 10%;"><%= fanReferences[i].FanType %></td>
-                     <td style="width: 7%; text-align:center"><%= fanReferences[i].AirFlow %></td>
-                     <td style="width: 7%; text-align:center"><%= fanReferences[i].StaticPressure %></td>
-                     <td style="width: 10%; text-align:center"><%= fanReferences[i].Speed %>/<%= fanReferences[i].Phase %></td>
-                     <td style="width: 20%;"><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
-                     <td style="width: 5%; text-align:right"><%= fanReferences[i].Qty %></td>
-                     <td style="width: 7%; text-align:right"><%= showPrices ? fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" : "" %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].AirFlow %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].StaticPressure %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].Diameter %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].Speed %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].Phase %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].SoundPressure %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].MotorType %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].BladeMaterial %></td>
+                     <td style="width: 5%; text-align:center"><%= fanReferences[i].Ancillaries %></td>
+                     <td style="width: 10%; overflow: hidden"><%= fanReferences[i].PartNumber %><%= fanReferences[i].Angle %></td>
+                     <!-- <td style="width: 7%; text-align:right"><%= showPrices ? fanReferences[i].PriceValue > 0 ? Math.Round(fanReferences[i].PriceValue, 2).ToString("0.00") : "<span class='darkred'>n/a</span>" : "" %></td> -->
                      <td class="sub" style='text-align:right; width: 5%;'><div><%= getCopyPaste(fanReferences[i]) %> <%= getCutPutURL(fanReferences[i]) %></div></td>
                      <td style="width: 12%;" class="icons icones-smaller"><%= 
                           getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, 

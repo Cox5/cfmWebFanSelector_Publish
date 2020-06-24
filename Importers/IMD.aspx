@@ -9,7 +9,8 @@
        
         <br />
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
-
+        <div runat="server" id="ProcessPointsContainer">
+        </div>
 
        
         <br />

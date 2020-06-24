@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+
     <style>
         .txtLocation { width: 250px;}
         .txtAirflow { width: 100px;}
@@ -35,6 +36,7 @@
 .sub div { visibility: hidden; }
 .has-sub:hover > .sub div { visibility: visible; } 
 .afl-tr {height: 19px; font-size: 14px;}
+#body_ddFanType1, #body_ddFanType2, #body_ddFanType3, #body_ddFanType4, #body_ddFanType5 { width: 95%;}
 </style>
             <table class="table table-form" >
                 <thead>
@@ -46,7 +48,7 @@
                         <td style="width: 5%; text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
                         <td style="width:5%; text-align:center">Diameter<br />(mm)</td>
                         <td style="width:5%; text-align:center" class="tiny-td" >Speed<br /> (RPM)</td>
-                        <td style="width:5%; text-align:center" class="tiny-td" >Power</td>
+                        <td style="width:5%; text-align:center" class="tiny-td" >Phase</td>
                         <td style="width: 5%; text-align:center" class="tiny-td" >Sound Pressure<br />dBA @ 3m</td>
                         <td style="width:10%;text-align:center" class="tiny-td" >Motor<br />Type</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >Blade<br />Material</td>
@@ -98,7 +100,7 @@
                 <tr>
 					<td class="tiny-td"><asp:TextBox ID="txtDesignation1" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtQuantity1" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType1" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType1" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow1" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure1" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtDiameter1" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
@@ -114,7 +116,7 @@
                 <tr>
                     <td class="tiny-td"><asp:TextBox ID="txtDesignation2" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtQuantity2" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType2" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType2" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow2" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure2" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtDiameter2" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
@@ -130,7 +132,7 @@
                 <tr>
                     <td class="tiny-td"><asp:TextBox ID="txtDesignation3" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtQuantity3" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType3" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType3" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow3" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure3" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtDiameter3" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
@@ -146,7 +148,7 @@
                 <tr>
                     <td class="tiny-td"><asp:TextBox ID="txtDesignation4" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtQuantity4" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType4" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType4" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow4" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure4" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtDiameter4" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
@@ -161,7 +163,7 @@
                 <tr>
                     <td class="tiny-td"><asp:TextBox ID="txtDesignation5" CssClass="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtQuantity5" CssClass="txtQuantity" runat="server" Value="1" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType5" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddFanType5" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow5" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure5" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtDiameter5" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>

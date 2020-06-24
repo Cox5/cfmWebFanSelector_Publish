@@ -19,7 +19,8 @@
         <br />
         <div runat="server" id="FilesListContainer">
         </div>
-
+        <div runat="server" id="ProcessPointsContainer">
+        </div>
 
         <asp:Button ID="btnParse" class="button-main primary-btn"  runat="server" Visible="false" Text="Parse .XLSX files" OnClick="btnParse_Click" />
        

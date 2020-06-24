@@ -3,6 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <style>
+        #ddFanType1:focus {
+            height:200px;
+        } 
+    </style>
     <div class="content-wrapper" style ="max-width: 700px; margin: auto auto">
 
         <div class="mb-solid mt-solid">
@@ -14,7 +19,7 @@
             <tr>
                 <td class="small-td" style="width: 30%">Fan Reference</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtDesignation" runat="server" /></td>
+                    <asp:TextBox ID="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
                 <td class="small-td">
                     <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Fan Reference is empty" ForeColor="Red" ControlToValidate="txtDesignation"></asp:RequiredFieldValidator>
                 </td>
@@ -22,7 +27,7 @@
             <tr>
                 <td class="small-td">Quantity</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtQuantity" runat="server" />
+                    <asp:TextBox ID="txtQuantity" runat="server" AutoCompleteType="Disabled"/>
                 </td>
                 <td class="small-td">
                     <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtQuantity" Type="Integer" MinimumValue="1" MaximumValue="10000" ErrorMessage="Please enter valid quantity number" ForeColor="Red"></asp:RangeValidator>
@@ -31,20 +36,20 @@
             <tr>
                 <td class="small-td">Fan Type</td>
                 <td class="small-td">
-                    <asp:DropDownList ID="ddFanType1" runat="server">
+                    <asp:DropDownList ID="ddFanType1" runat="server" AutoCompleteType="Disabled">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td class="small-td">Fan Model</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtModelNum" runat="server" ></asp:TextBox>
+                    <asp:TextBox ID="txtModelNum" runat="server" AutoCompleteType="Disabled"></asp:TextBox>
                     <asp:Label ID="lblModelNumMsg" runat="server"></asp:Label>
                 </td>
                 
             </tr>
             <tr>
-                <td class="small-td">Airflow</td>
+                <td class="small-td">Airflow (l/s)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtAirflow" runat="server" />
                 </td>
@@ -53,7 +58,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="small-td">Static Pressure</td>
+                <td class="small-td">Static Pressure (Pa)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtStPressure" runat="server" /></td>
                 <td class="small-td">
@@ -61,7 +66,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="small-td">Diameter</td>
+                <td class="small-td">Diameter (mm)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtDiameter" runat="server" /></td>
                 <td>
@@ -78,9 +83,9 @@
                 </td>
             </tr>
             <tr>
-                <td class="small-td">Sound Pressure</td>
+                <td class="small-td">Sound Pressure (dBA)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtSoundPressure" runat="server" /></td>
+                    <asp:TextBox ID="txtSoundPressure" runat="server" Autoc/></td>
                 
                 </td>
             </tr>
