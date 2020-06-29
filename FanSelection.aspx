@@ -119,7 +119,7 @@
                   <asp:DropDownList ID="ddl_fanDiameterMax" runat="server" CssClass="ddlInput">
                   </asp:DropDownList>
                                 </td>
-                            </tr> -->
+                            </tr>
                             <tr>
                                 <td>Power phase (ph)</td>
                                 <td>
