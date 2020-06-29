@@ -75,6 +75,11 @@
                                 </td>
                                 </tr>
                             <tr>
+                                <td>Current Selection</td>
+                                <td>
+                                    <asp:Label ID="lblCurrentSelection" runat="server" />
+                                </td>
+                            </tr>                           <tr>
                                 <td>Fan Model Number</td>
                                 <td>
                                     <asp:TextBox ID="txt_modelName" runat="server" Width="90" CssClass="txtInput" autocomplete="off" />
@@ -99,12 +104,13 @@
                                 <td>
                                     <asp:DropDownList ID="ddl_fanSpeedMin" runat="server" CssClass="ddlInput">
                                     </asp:DropDownList>
-                                    &nbsp;to&nbsp;
-                  <asp:DropDownList ID="ddl_fanSpeedMax" runat="server" CssClass="ddlInput">
-                  </asp:DropDownList>
+                                    <asp:Label ID="lblFanSpeedTo" runat="server" ></asp:Label>
+                                    <asp:DropDownList ID="ddl_fanSpeedMax" runat="server" CssClass="ddlInput">
+                                    </asp:DropDownList>
+                                    <asp:Label ID="lblFanSpeed" runat="server" ></asp:Label>
                                 </td>
                             </tr>
-                            <!-- <tr>
+                            <tr>
                                 <td>Fan Diameter (mm)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput">
@@ -179,7 +185,7 @@
                     </div>
 
                     <div id="div_selectButton">
-                        <asp:Button ID="btn_schedule" Text="Return to Schedule" OnClick="btn_select_Click" runat="server" />
+                        <asp:Button ID="btn_schedule" Text="Return to Schedule" OnClick="btn_Finish_Click" runat="server" />
                         <asp:Button ID="btn_select" Text="Search" OnClick="btn_select_Click" runat="server" />
                     </div>
 
