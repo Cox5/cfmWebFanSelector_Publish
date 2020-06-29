@@ -75,7 +75,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="small-td">Speed</td>
+                <td class="small-td">Speed (RPM)</td>
                 <td class="small-td">
                     <asp:DropDownList ID="ddSpeed1" runat="server" >
                     </asp:DropDownList>

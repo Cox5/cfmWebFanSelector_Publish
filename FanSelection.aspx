@@ -65,8 +65,22 @@
                         </div>
                         <br />
                         <table id="selectTable" style="width: 100%;">
-                         <tr><td colspan="2">Quick select:</td>
-                             <td>
+                           <tr>
+                                <td colspan="2">Fan type
+                                    <asp:Label ID="lblFanType" runat="server" />
+                                </td>
+                            </tr>
+                                <td style="padding-right: 0">Fan Diameter (mm)</td>
+                                <td style="padding-right: 0;">
+                                    <asp:Label ID="lblDiameter" runat="server" Visible="false"></asp:Label>
+                                    <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput">
+                                    </asp:DropDownList>
+                                    <asp:Label ID="lblDiameterTo" runat="server" Visible="true">&nbsp;to&nbsp;</asp:Label>
+                                    <asp:DropDownList ID="ddl_fanDiameterMax" runat="server" CssClass="ddlInput">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                         <tr><td colspan="2">Current Selection</td>
                          </tr>
                          <tr><td colspan="2" align="right">
                         <select onchange="location = this.options[this.selectedIndex].value;" >
@@ -74,13 +88,9 @@
                         </select>
                                 </td>
                                 </tr>
+
                             <tr>
-                                <td>Current Selection</td>
-                                <td>
-                                    <asp:Label ID="lblCurrentSelection" runat="server" />
-                                </td>
-                            </tr>                           <tr>
-                                <td>Fan Model Number</td>
+                                <td>Fan Model</td>
                                 <td>
                                     <asp:TextBox ID="txt_modelName" runat="server" Width="90" CssClass="txtInput" autocomplete="off" />
                                 </td>
@@ -111,22 +121,36 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Fan Diameter (mm)</td>
-                                <td>
-                                    <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput">
-                                    </asp:DropDownList>
-                                    &nbsp;to&nbsp;
-                  <asp:DropDownList ID="ddl_fanDiameterMax" runat="server" CssClass="ddlInput">
-                  </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Power phase (ph)</td>
+                                <td>Power Phase (ph)</td>
                                 <td>
                                     <asp:DropDownList ID="ddl_motorPhase" runat="server" CssClass="ddlInput" Visible="false">
                                     </asp:DropDownList>
                                     <asp:Label id="lblPhase" Text="" runat="server" />
 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sound Pressure (dBA)</td>
+                                <td>
+                                    <asp:Label id="lblSoundPressure" Text="" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Motor type</td>
+                                <td>
+                                    <asp:Label id="lblMotorType" Text="" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Blade material</td>
+                                <td>
+                                    <asp:Label id="lblBladeMaterial" Text="" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ancillaries</td>
+                                <td>
+                                    <asp:Label id="lblAncillaries" Text="" runat="server" />
                                 </td>
                             </tr>
                             <%--<tr>
@@ -141,14 +165,14 @@
                                 <td style="mpadding-bottom:0px">Below:
                                 </td>
                                 <td style="padding-bottom:0px">
-                                    <asp:TextBox ID="txtLowerLimit" Width="40" Text="-10" runat="server" />
+                                    <asp:TextBox ID="txtLowerLimit" Width="40" Text="0" runat="server" />
                                     %
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding-bottom:0px">Above: </td>
                                 <td style="padding-bottom:0px">
-                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="30" runat="server" autocomplete="off" />
+                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="50" runat="server" autocomplete="off" />
                                     %
                                 </td>
                             </tr>
