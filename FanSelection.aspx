@@ -209,7 +209,7 @@
                     </div>
 
                     <div id="div_selectButton">
-                        <asp:Button ID="btn_schedule" Text="Return to Schedule" OnClick="btn_Finish_Click" runat="server" />
+                        <asp:Button ID="btn_editfan" Text="Edit this fan" OnClick="btn_Edit_Click" runat="server" />
                         <asp:Button ID="btn_select" Text="Search" OnClick="btn_select_Click" runat="server" />
                     </div>
 
@@ -255,7 +255,9 @@
 .header-fixed > thead > tr > th {
     float: left;
 	width: 6%;
-
+}
+.header-fixed > thead > tr > th:hover {
+    cursor: pointer;
 }
         </style>
                     <div id="div_bottomLeft" runat="server">
@@ -266,7 +268,7 @@
                                 <style>th.noscroll { position: sticky; top: 0; background-color: #ffffff; }</style>
                                 <table id="fanTable" class="header-fixed tablesorter-default">
                                     <thead>
-                                        <tr>
+                                        <tr style="font-size: 12px">
                                             <th style="width: 15%; text-align: left;">Product</th>
                                             <!-- <th>Type</th> -->
                                             <th  >Diameter</th>
@@ -324,7 +326,7 @@
                         <div class="div_heading">
                             <label style="left: 30px; width: 46px">2</label>
                             <label style="left: 80px">Select Fan</label>
-                            <svg height="50px">
+                            <svg style="height: 30px; overflow: visible">
                                 <use href="#triangle" />
                             </svg>
                         </div>

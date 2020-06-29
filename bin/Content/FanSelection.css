@@ -160,7 +160,7 @@ body {
 }
 
 #div_fanTable {
-    top: 10px;
+    top: 15px;
     left: 10px;
     right: 10px;
     bottom: 10px;
@@ -211,7 +211,7 @@ body {
 #body_btn_schedule:hover, #body_btn_select:hover {
 	cursor: pointer;
 }
-#body_btn_schedule {
+#body_btn_schedule, #body_btn_editfan {
     background-color: #EE2E22;
     border: 3px solid #404042;
     font-size: 1.2em;
@@ -222,6 +222,8 @@ body {
     width: 195px;
 	margin: 5px;
 }
+
+
 
 #body_btn_select {
     background-color: #EE2E22;

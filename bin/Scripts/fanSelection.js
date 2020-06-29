@@ -96,12 +96,17 @@ function updateFanCurve(fanDataID) {
 
     var divPowerWidth = $("#body_div_powerCurve_width").val();
     var divPowerHeight = $("#body_div_powerCurve_height").val();
+	
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const projectfanid = urlParams.get('ProjectFansID');
     
     var fanDataOptions = {
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
         url: '/AjaxWS.asmx/GetFanData',
         data: "{ fanDataID:" + fanDataID +
+			", projectfanid:"+parseInt(projectfanid) +
             ", airflow:" + parseFloat(airflow) +
             ", staticPressure:" + parseFloat(staticPressure) +
             ", divPerfWidth:" + parseInt(divPerfWidth) +
