@@ -15,9 +15,6 @@
     
     --blue-secondary-low-op: rgba(0, 162, 255, 0.2);
     --blue-tertiary: rgb(1, 59, 126);
-    
-
-    
 
 }
 
@@ -656,6 +653,17 @@ td.icons img {
 
 .button-main {
     font-size: 1.3em;
+    font-family:  "Fira Sans", sans-serif;
+    padding: 6px 8px !important;
+    border-radius: 8px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+}
+
+.button-main2 {
+    font-size: 1.1em;
     font-family:  "Fira Sans", sans-serif;
     padding: 6px 8px !important;
     border-radius: 8px;

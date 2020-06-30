@@ -71,11 +71,12 @@
                                 </td>
                             </tr>
                                 <td style="padding-right: 0">Fan Diameter (mm)</td>
-                                <td style="padding-right: 0;">
+                                <td style="padding-right: 20px; text-align: right">
                                     <asp:Label ID="lblDiameter" runat="server" Visible="false"></asp:Label>
+                                    <asp:Label ID="lblDiameterFrom" runat="server" Visible="true">From:</asp:Label>
                                     <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput">
-                                    </asp:DropDownList>
-                                    <asp:Label ID="lblDiameterTo" runat="server" Visible="true">&nbsp;to&nbsp;</asp:Label>
+                                    </asp:DropDownList><br />
+                                    <asp:Label ID="lblDiameterTo" runat="server" Visible="true">To:</asp:Label>
                                     <asp:DropDownList ID="ddl_fanDiameterMax" runat="server" CssClass="ddlInput">
                                     </asp:DropDownList>
                                 </td>
@@ -336,17 +337,11 @@
         <div id="div_right">
 
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
-                <div class="sectionBorder">
-                    <div id="div_fanData" style="padding-top: 0px">
-                        <div id="div_fanName">
-                            <h3></h3>
-                        </div>
-
-                        <div id="div_buttons">
-                            <asp:Button ID="btn_fanPDF" runat="server" Text="Get Fan PDF" OnClick="btn_getFanPdf_Click"  class="button-main primary-btn"/>
+                  <div id="div_buttons" style="position: absolute; top: -231px; right: 300px">
+                            <asp:Button ID="btn_fanPDF" runat="server" Text="Get Fan PDF" OnClick="btn_getFanPdf_Click" Width="150px" class="button-main2 primary-btn"/>
                             <%--<asp:Button ID="btn_print" runat="server" Text="Print" OnClientClick="return false" OnClick="btn_print_Click" class="button-main primary-btn"/>--%>
-                            <asp:Button ID="btn_addToSchedule" runat="server" Text="Add to Schedule" OnClick="btn_addToSchedule_Click" Width="150px"  class="button-main primary-btn"/>
-                            <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main primary-btn" />
+                            <asp:Button ID="btn_addToSchedule" runat="server" Text="Add to Schedule" OnClick="btn_addToSchedule_Click" Width="150px"  class="button-main2 primary-btn"/>
+                            <!-- <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main2 primary-btn" /> -->
                             <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
 
                             <asp:HiddenField ID="hidden_ac_af" runat="server"></asp:HiddenField>
@@ -355,7 +350,14 @@
                             <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_next" runat="server"></asp:HiddenField>
 
+                 </div>
+                <div class="sectionBorder">
+                    <div id="div_fanData" style="padding-top: 0px">
+                        <div id="div_fanName">
+                            <h3></h3>
                         </div>
+
+
 
                         <div id="div_schedule" style="display: none">
                             Location:<asp:TextBox ID="txt_location" runat="server" />

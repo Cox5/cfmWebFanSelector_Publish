@@ -11,10 +11,18 @@
     <div class="content-wrapper" style ="max-width: 700px; margin: auto auto">
 
         <div class="mb-solid mt-solid">
-            <div class="table-controls">
-                <h1 class="table-title sub">Edit Fan Reference</h1>
+                <div class="table-controls">
+                    <div style="display: inline-block; float: left;">
+                       <h1 class="table-title sub">Edit Fan Reference</h1>
+                   </div>
+                   <div class="right-controls mt-medium mr-small" style="float: right;">
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Cancel" OnClick="btnCancel_Click" runat="server" />
+                    </div>
+                </div> 
+                <div style="clear:both">
+                    <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
+                    </div>
             </div>
-        </div>
         <table class="table table-form" >
             <tr>
                 <td class="small-td" style="width: 30%">Fan Reference</td>
@@ -116,7 +124,6 @@
         </table>
         <div class="right-controls mt-medium mr-small">
             <asp:Button ID="btnSave"  class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
-            <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" /><br />
         </div>
 
         <asp:Label class="mt-solid" ID="lblEditFanLocMsg" runat="server" />
