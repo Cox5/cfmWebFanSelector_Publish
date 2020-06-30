@@ -22,7 +22,9 @@
         <div runat="server" id="ProcessPointsContainer">
         </div>
 
-        <asp:Button ID="btnParse" class="button-main primary-btn"  runat="server" Visible="false" Text="Parse .XLSX files" OnClick="btnParse_Click" />
+        <h4> Click the button to process the extracted XLSX files.</h4>
+        <p> <em>Note:</em> processing time for a zip file with 20 files, each with 30 impeller variants/angles, for 2 fan prefixes (1200 fans in total) is approximately 2.5 minutes.</p>
+        <asp:Button ID="btnParse" class="button-main primary-btn"  runat="server" Visible="false" Text="Process .XLSX files" OnClick="btnParse_Click" />
        
         <br />
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
