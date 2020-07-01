@@ -6,6 +6,7 @@ using System.Web.Services;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
 using CFM_Web.DB;
+using CFM_Web.Utilities;
 using MySql.Data.MySqlClient;
 
 namespace CFM_Web
@@ -80,7 +81,9 @@ namespace CFM_Web
             {
                 fr = ProjectDBController.GetFanReference(projectfanid);
             }
-
+            // Fetch the fan family data, if there is any, to get info on motor
+            // and related fans.
+            // FanFamily ff = FanDBController.getFanFamilyByFanID(fan.fanID);
 
 
             fanData = FansBackend.BusinessLogic.FanController.FillRestOfFanData(fanData, airflow, staticPressure);
