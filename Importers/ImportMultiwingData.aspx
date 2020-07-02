@@ -19,8 +19,8 @@
         <br />
         <div runat="server" id="FilesListContainer">
         </div>
-        <div runat="server" id="ProcessPointsContainer">
-        </div>
+        
+
 
         <h4> Click the button to process the extracted XLSX files.</h4>
         <p> <em>Note:</em> processing time for a zip file with 20 files, each with 30 impeller variants/angles, for 2 fan prefixes (1200 fans in total) is approximately 2.5 minutes.</p>
@@ -29,10 +29,11 @@
         <br />
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
 
-
-       
+    <h3>Results of last batch:</h3>
+       <div runat="server" id="ProcessPointsContainer">
         <br />
     </div>
+                </div>
 </asp:Content>
 
         

@@ -368,13 +368,14 @@
                         <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px; min-width:1250px" comment="1250px causes overflow (horizontal scroll bar) on smaller screens, but stops the graph from wrapping downwards" >
                             Performance Data
                         <hr />
-                            <div id="div_performanceDataTable" style="display: inline-block; padding-top: 30px;"></div>
-                            <div id="div_performanceCurve" style="height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top">
+                            <div id="div_performanceDataTable" style="height: 500px; display: inline-block; padding-top: 0;"></div>
+                            <div id="div_performanceCurve" style="float: right; height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top">
                                 <asp:Literal ID="lit_performanceCurve" runat="server" />
                             </div>
+
                         </div>
 
-                        <div id="div_nominalData" style="background-color: #E3E3E3; padding-left: 0px 20px 0px 20px ; margin-top: -20px;">
+                        <div id="div_nominalData" style="background-color: #E3E3E3; padding-left: 0px 20px 0px 20px ; margin-top: 0;">
                             Nominal Data
                         <hr />
                             <div id="div_fanImage" style="display: inline-block"></div>

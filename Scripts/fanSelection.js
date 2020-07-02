@@ -90,6 +90,7 @@ function updateFanCurve(fanDataID) {
 
     var airflow = $("#body_txt_airFlow").val();
     var staticPressure = $("#body_txt_static").val();
+    var addairflow = $("#body_txt_percentage").val();
 
     var divPerfWidth = $("#body_div_perfCurve_width").val();
     var divPerfHeight = $("#body_div_perfCurve_height").val();
@@ -108,6 +109,7 @@ function updateFanCurve(fanDataID) {
         data: "{ fanDataID:" + fanDataID +
 			", projectfanid:"+parseInt(projectfanid) +
             ", airflow:" + parseFloat(airflow) +
+            ", addairflow:" + parseFloat(addairflow) +
             ", staticPressure:" + parseFloat(staticPressure) +
             ", divPerfWidth:" + parseInt(divPerfWidth) +
             ", divPerfHeight:" + parseInt(divPerfHeight) +
