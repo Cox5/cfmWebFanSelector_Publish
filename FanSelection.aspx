@@ -183,10 +183,12 @@
                                     <asp:Literal ID="lit_invalidStatic" Visible="false" runat="server">Invalid Static Pressure</asp:Literal><br />
                                     <asp:Literal ID="lit_invalidFanType" Visible="false" runat="server">No Fan Type Selected</asp:Literal>
                                     <asp:Literal ID="lit_message" runat="server" />
+                                    <asp:Label ID="lblInfo" runat="server"></asp:Label>
                                 </td>
                             </tr>
-
+                            
                         </table>
+                        
                         </div>
 
 
