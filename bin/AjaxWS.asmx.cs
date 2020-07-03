@@ -34,11 +34,13 @@ namespace CFM_Web
         /// <returns></returns>
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public fanData GetFanData(int fanDataID, int projectfanid, double airflow, double staticPressure, int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
+        public fanData GetFanData(int fanDataID, int projectfanid, double airflow, double addairflow, double staticPressure, int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
 
+            // find fan and fandata by fandataid
             var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
             var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
+
             fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
             fanData.fanObject = fan;
 
@@ -49,7 +51,7 @@ namespace CFM_Web
                 using (var connection = DBController.CreateOpenConnection())
                 {
                     string query = "SELECT fan.fanID,partNumber,airflow,staticPressure " +
-                        "FROM cfm_web.fan JOIN fandata ON fan.fanID=fandata.fanID " +
+                        "FROM fan JOIN fandata ON fan.fanID=fandata.fanID " +
                         "JOIN datapoint ON fandata.fandataID=datapoint.fandataID  WHERE fan.fanID=@fanID;";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
@@ -104,7 +106,8 @@ namespace CFM_Web
             selectedFanData.wireElement = getWireFrameDiagram(fanData);
             selectedFanData.nominalDataTable = buildNominalDataTable(fanData);
 
-            selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, staticPressure, fr);
+            // Build the table to the left of the graph.
+            selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr);
             selectedFanData.fanName = fan.partNumber;
             selectedFanData.powerDataTable = buildPowerDataTable(fanData, airflow, staticPressure);
             selectedFanData.acousticTable = buildAcousticTable(fanData);
@@ -262,7 +265,7 @@ namespace CFM_Web
 
             nominalDataTable.AppendLine("<table id=\"nominalDataTable\" class=\"dataTable\">");
             nominalDataTable.Append("<tr>");
-            nominalDataTable.AppendFormat("<th>Catalog Code:</th><td colspan=\"3\" >{0} {1}</td></td>", fanData.fanObject.partNumber, fanData.fanObject.rangeObject.rangeName);
+            nominalDataTable.AppendFormat("<th>Catalogue Code:</th><td colspan=\"3\" >{0} {1}</td></td>", fanData.fanObject.partNumber, fanData.fanObject.rangeObject.rangeName);
             nominalDataTable.AppendLine("</tr>");
             nominalDataTable.Append("<tr>");
             nominalDataTable.AppendFormat("<th>Diameter (mm):</th><td>{0}</td><th>Pitch Angle</th><td>{1}</td>", fanData.fanObject.diameter, fanData.angle.Trim().Length > 0 ? fanData.angle : "&nbsp;");
@@ -359,7 +362,7 @@ namespace CFM_Web
         }
 
         /// <summary>
-        /// Builds a HTML table with performance data for a fanData object
+        /// Builds a HTML table with power data for a fanData object
         /// </summary>
         /// <param name="fanData"></param>
         /// <param name="airflow"></param>
@@ -407,25 +410,37 @@ namespace CFM_Web
         /// <param name="airflow"></param>
         /// <param name="staticPressure"></param>
         /// <returns></returns>
-        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double staticPressure, FanReference fr)
+        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double addairflow, double staticPressure, FanReference fr)
         {
 
-            FansBackend.Entities.DataPoint dpIntercept = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
+            FansBackend.Entities.DataPoint dpIntercept = 
+                FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
 
             System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
 
-            performanceDataTable.AppendLine("<table id='performanceDataTable' class='dataTable' style='width:320px; '>");
+            performanceDataTable.AppendLine("<table id='performanceDataTable' class='dataTable' style='margin-top: 0px; width:320px; '>");
+            // Dynamic AF/SP table for blue dot
+            performanceDataTable.AppendLine("<tr class=bluedottext style='border-bottom: 1px solid black;border-left: 1px solid black; border-right: 1px solid black;border-top: 1px solid black;' >" +
+                "<td>Airflow (l/s) / Static Pressure (Pa) </td><td id=bluedotaf align=right><td id=bluedotsp align=right></td></tr>");
+
+            // Spacer row
+            performanceDataTable.AppendLine("<tr class=bluedottext style='background-color: #e3e3e3; border-color: #e3e3e3'>" +
+                "<td colspan=3 style='background-color: #e3e3e3; border-color: #e3e3e3; padding-right: 0; background-color: #e3e3e3; " +
+                "border-right-color:#e3e3e3; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
 
             performanceDataTable.AppendLine("<style>th {text-align: left}</style>");
 
             performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th style='width:45%'></th><th>Required</th><th>Actual</th>");
+            performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" + fanData.fanObject.partNumber + "</th><th>Required</th><th>Actual</th>");
             performanceDataTable.AppendLine("</tr>");
-
             performanceDataTable.AppendFormat("<th>Fan type:</th><td style='word-wrap:break-word;white-space: normal'>{0}</td><td id=ac_af style='word-wrap:break-word'>{1}</td></tr>",
                     fr.FanType, "N/A");
 
-
+            // Show Airflow and Static pressure reults in the table, for Standard and additional duty
+            if( addairflow > 0)
+            {
+                performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #0000cc'>Requested Duty</th></tr>");
+            }
             if (dpIntercept == null)
             {
                 // there is no cross-over point in
@@ -441,9 +456,46 @@ namespace CFM_Web
                 performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
                     fr.StaticPressure.ToString("0"), dpIntercept.staticPressure.ToString("0"));
             }
+
+
+            if (addairflow > 0)
+            {
+                performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #0000cc'>Additional Duty</th></tr>");
+
+                double adf = airflow += airflow * addairflow / 100;
+                FansBackend.Entities.DataPoint d =
+                    FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, 
+                            FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(adf, staticPressure));
+
+                if (d == null)
+                {
+                    // there is no cross-over point in
+                    performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td id=ac_af style='align:right'>{1}</td></tr>",
+                        fr.AirFlow.ToString(), "N/A");
+                    performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td id=ac_sp>{0}</td ><td style='align:right'>{1}</td></tr>",
+                        fr.StaticPressure.ToString(), "N/A");
+                }
+                else
+                {
+                    performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
+                        adf.ToString("0"), d.airflow.ToString("0"));
+                    performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
+                        fr.StaticPressure.ToString("0"), d.staticPressure.ToString("0"));
+                }
+            }
+
+            performanceDataTable.AppendLine("<tr><th colspan=3>&nbsp;</th></tr>");
+
+
+
+
+
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Diameter (mm):", fr.Diameter, fanData.fanObject.diameter);
+
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (rpm):", 
-                 fr.Speed, fanData.motorDataObject != null ? fanData.motorDataObject.pole.ToString("0") + "pole" : fanData.RPM.ToString("0")).AppendLine();
+                 fr.Speed == "0" ? "-": fr.Speed, fanData.motorDataObject != null ? fanData.motorDataObject.RPM.ToString() : fanData.RPM.ToString()).AppendLine();
+               // fr.Speed = "0" ? "-" : fr.Speed, fanData.motorDataObject != null ? fanData.motorDataObject.pole.ToString("0") + "pole" : fanData.RPM.ToString("0")).AppendLine();
+
 
             string frphaseString = "";
             if (fr.Phase == "1")
@@ -469,7 +521,7 @@ namespace CFM_Web
 
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Power phase (ph):", frphaseString, phaseString).AppendLine();
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Sound pr. dBA@3m:", fr.SoundPressure, "").AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Sound pr. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
 
 
             // Motor
@@ -481,6 +533,7 @@ namespace CFM_Web
                 bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
             }
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", fr.BladeMaterial, bladeMaterial);
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData.angle);
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Ancillaries", fr.Ancillaries, "");
 
             // Spacer row
@@ -488,15 +541,61 @@ namespace CFM_Web
                 "<td colspan=3 style='background-color: #e3e3e3; border-color: #e3e3e3; padding-right: 0; background-color: #e3e3e3; " +
                 "border-right-color:#e3e3e3; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
 
-            // Dynamic AF/SP table for blue dot
-            performanceDataTable.AppendLine("<tr class=bluedottext style='border-left: 1px solid black; border-right: 1px solid black;border-top: 1px solid black;' >" +
-                "<td>Airflow (l/s):</td><td id=bluedotaf align=right></td><td>&nbsp;</td></tr>");
-            performanceDataTable.AppendLine("<tr class=bluedottext style='border-left: 1px solid black; border-right: 1px solid black;border-bottom: 1px solid black;'>" +
-                "<td>Static Pressure (Pa):</td><td id=bluedotsp align=right></td><td>&nbsp;</td></tr>");
+
+
+            // Here is where we need info about fans in family
+            bool noteprinted = false;
+            List<FanFamily> members = null ;
+            members = FanDBController.getFamilyMembers(fanData.fanID);
+            if (members.Count > 0)
+            {
+                
+
+                foreach (FanFamily member in members)
+                {
+                    if (member.FanID != fanData.fanID)
+                    {
+                        // find fan and fandata by fandataid
+                        var fan2 = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(member.fandataID);
+                        var fanData2 = fan2.fanDataList.Find(fd => fd.fanDataID == member.fandataID);
+                       
+
+                        FansBackend.Entities.DataPoint dpIntercept2 = FansBackend.BusinessLogic.FanSelector.findIntercept(
+                            fanData2.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
+
+                        // check that requested duty can be achieved
+                        if (Convert.ToInt32(dpIntercept2.airflow) > fr.AirFlow && Convert.ToInt32(dpIntercept2.staticPressure) > fr.StaticPressure)
+                        {
+                            if (!noteprinted)
+                            {
+                                performanceDataTable.AppendLine("<tr><th colspan=3>Other fans in this family can do requested duty</th></tr>");
+                                noteprinted = true;
+                            }
+                            performanceDataTable.AppendLine("<tr><th colspan=2 style='color:#007700'>" + fan2.partNumber + "</th>" +
+                               "<th><a href='#' onClick='updateFanCurve(" + member.fandataID.ToString() + ");' > Show Info</A></th></tr>");
+
+                            performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
+                                fr.AirFlow.ToString("0"), dpIntercept2.airflow.ToString("0"));
+                            performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
+                                fr.StaticPressure.ToString("0"), dpIntercept2.staticPressure.ToString("0"));
+                            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData2.angle);
+                        }
+
+                    }
+                }
+            }
+            if (!noteprinted && members.Count > 0)
+            {
+                performanceDataTable.AppendLine("<tr><th colspan=3>No other fans in this family can do requested duty</th></tr>");
+                noteprinted = true;
+            }
+
+
             performanceDataTable.AppendLine("</table>");
             performanceDataTable.AppendLine("<style> tr.bluedottext td {color: #2222ee; font-weight: bold; border: none;}</style>");
             return performanceDataTable.ToString();
         }
+
 
     }
 }
