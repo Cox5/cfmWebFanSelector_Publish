@@ -531,6 +531,7 @@ namespace CFM_Web
 
             // Motor
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Type:", fr.MotorType, "").AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power:", "", fanData.motorkW).AppendLine();
 
             string bladeMaterial = "n/a";
             if (fanData.fanObject != null && fanData.fanObject.bladeMaterialObject != null)
@@ -590,6 +591,17 @@ namespace CFM_Web
                                 otherfan.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
                                     fr.StaticPressure.ToString("0"), dpIntercept2.staticPressure.ToString("0"));
                                 otherfan.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData2.angle);
+
+                                string motorkW = "";
+                                if (fanData2.motorkW != fanData.motorkW)
+                                {
+                                    motorkW = "<td style='background-color:#ffcccc'>" + fanData2.motorkW.ToString()+"</td>";
+                                }
+                                else
+                                {
+                                    motorkW = "<td style='background-color:#ccffcc'>" + fanData2.motorkW.ToString() + "</td>";
+                                }
+                                otherfan.AppendFormat("<tr><th>{0}</th><td>{1}</td>{2}</tr>", "Motor Power:", "", motorkW);
                             }
                             lastangle = Convert.ToInt32(fanData2.angle);
                         }
