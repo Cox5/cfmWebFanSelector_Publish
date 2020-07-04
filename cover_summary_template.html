@@ -110,11 +110,25 @@
 				font-weight: 600;
 			}
 
+			.comments {
+				margin-bottom: 45px;
+				margin-top: 45px;
+				width: 100%;
+			}
+
+			.comments p {
+				line-height: 0.5;
+				font-size: 14px;
+			}
+			.comments li {
+				font-size: 14px;
+			}
+			
 			ul {
 				padding-left: 10px;
-				margin-bottom: 20px;
+				margin-top: 0px;
 			}
-			ul li{
+			ul.pdfoptions li{
 				width:33.333333%; 
 				float:left;
 			}
@@ -122,8 +136,13 @@
 				content: '\2022 ';
 				font-size: 16px !important;
 				margin-right: 5px;
-			}
+			} 
 
+			li {
+				/* margin-top: 7px;*/
+				padding-left: 1em;
+				text-indent: -1em;
+			}
 
 		</style>
     </head>
@@ -137,30 +156,28 @@
 
 	<table class="cover_table">
 		<tr valign="top">
-			<td class="bold">To:</td>
-			<td>%%COMPANY%%</td>
-			<td class="bold">Date:</td>
-			<td>%%DATE%%</td>
-		</tr>
-		
-		<tr valign="top">
-			<td class="bold">Attention:</td>
-			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
-			<td class="bold">From:</td>
-			<td>%%SALES%% %%SALESEMAIL%%</td>
-		</tr>
-		
-		<tr valign="top">
-			<td class="bold">Re:</td>
-			<td>%%PROJNAME%%, %%PROJADDR%%</td>
-		</tr>
-
-		<tr valign="top">
+			<td class="" style='width:15%'>To:</td>
+			<td style='width:35%'>%%COMPANY%%</td>
+			<td class="">From:</td>
+			<td>%%SALES%%</td>			
 			
-			<td class="bold">Quote number:</td>
-			<td>%%QUOTENUM%%</td>
 		</tr>
 		
+		<tr valign="top">
+			<td class="">Attention:</td>
+			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
+			<td></td>
+			<td>%%SALESEMAIL%%</td>
+		</tr>
+		<tr valign="top">
+			<td class="">Project:</td>
+			<td class="bold quotenum" colspan=4>%%PROJNAME%%</td>
+		</tr>
+		<tr valign="top">
+			<td class="">Quote number:</td>
+			<td class="bold quotenum" colspan=2>%%QUOTENUM%%
+			<td class="">Date:	%%DATE%%</td>
+		</tr>			
 	</table>
 	
 	<hr />
@@ -171,13 +188,16 @@
 		<p class="bold">%%PROJNAME%%</p>
 	</div>
 
-	<div class="block">
-		<p>Please find below a summary of your project which includes:</p>
-		<div class="clearfix">
+	<div class="comments">
+			<p class="bold">Comments:</p>
 
-			%%PDFOPTIONS%%
-		</div>
+		    <div class="clearfix">%%COMMENTS%%</div> 
 	</div>
+	<div class="comments">
+		<p class="bold">Please find below a summary of your project which includes:</p>
+		<div class="clearfix">%%PDFOPTIONS%%</div>
+	</div>
+	
 	
 	<div class="block">
 		<p>Please contact our sales staff by telephone on <strong>03 9551 4878</strong> or email at <strong></strong><a href="mailto:sales@cfmairsystems.com.au">sales@cfmairsystems.com.au</a></strong>, or request pricing from our portal and we will be happy to supply a quotation for	the job.</p>

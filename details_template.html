@@ -10,6 +10,7 @@
 
 			.clearfix {
  				 overflow: auto;
+				 clear: both;
 			}
 
 			.clearfix::after {
@@ -29,7 +30,7 @@
 			.footer {
 				position: fixed;
 				bottom: 0;
-				width: 100%;
+				width: 99%;
 			}
 
 			.footer img {
@@ -141,13 +142,15 @@
 				vertical-align: bottom;
 			}
 
+			.small-font {
+				font-size: 14px;
+			}
+
 			.heading-title {
 				height: 35 !important;
 				vertical-align: bottom;
 				text-decoration: underline;
-			}
-			
-			
+			}		
 
 			td {
 				width: 230px;
@@ -157,7 +160,8 @@
 				text-align: left !important; 
 			}
 			
-
+			div.header h2 {display: inline-block; float: left;}
+			div.header h3 {display: inline-block; float: right;}
 
 
 		</style>
@@ -170,17 +174,8 @@
 
     <hr />
 	
-
-	<div class="title">
-		<div>
-			<strong>Project: </strong>%%PROJNAME%%
-		</div>
-		<div>
-			<strong>Quote Number:</strong> %%QUOTENUM%%
-		</div>
-	</div>
-
-
+	<div class='header'><h2><span style='font-weight: 400;'>Project:</span> %%PROJNAME%%</h2><h3><span style='font-weight: 400;'>Quotation number:</span> %%QUOTENUM%%</h3></div>
+	<div class='clearfix'></div>
 	<h3 class="mt-medium">Fan Specification</h3>
 	
 	<div>
