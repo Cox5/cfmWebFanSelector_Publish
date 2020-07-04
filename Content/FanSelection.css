@@ -64,6 +64,15 @@ body {
         position: absolute;
     }
 
+	#div_message {
+		position: absolute;
+		top: -50px;
+		right: 500px;
+		font-size: 10pt;
+		color: #008800;
+		font-weight: bold;
+	}
+	
 .sectionBorder {
     left: 4px;
     right:0;

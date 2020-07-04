@@ -54,7 +54,8 @@
     </div>
 
     <div id="div_body">
-        <div id="div_logo">
+        <div id="div_message">
+            <asp:Label ID="lblMessage" runat="server"></asp:Label>
         </div>
         <div id="div_left">
             <div id="div_topLeft" runat="server">
@@ -339,20 +340,7 @@
         <div id="div_right">
 
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
-                  <div id="div_buttons" style="position: absolute; top: -231px; right: 300px">
-                            <asp:Button ID="btn_fanPDF" runat="server" Text="Get Fan PDF" OnClick="btn_getFanPdf_Click" Width="150px" class="button-main2 primary-btn"/>
-                            <%--<asp:Button ID="btn_print" runat="server" Text="Print" OnClientClick="return false" OnClick="btn_print_Click" class="button-main primary-btn"/>--%>
-                            <asp:Button ID="btn_addToSchedule" runat="server" Text="Add to Schedule" OnClick="btn_addToSchedule_Click" Width="150px"  class="button-main2 primary-btn"/>
-                            <!-- <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main2 primary-btn" /> -->
-                            <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
 
-                            <asp:HiddenField ID="hidden_ac_af" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_ac_sp" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_ac_tp" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_next" runat="server"></asp:HiddenField>
-
-                 </div>
                 <div class="sectionBorder">
                     <div id="div_fanData" style="padding-top: 0px">
                         <div id="div_fanName">
@@ -370,7 +358,7 @@
                         <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px; min-width:1250px" comment="1250px causes overflow (horizontal scroll bar) on smaller screens, but stops the graph from wrapping downwards" >
                             Performance Data
                         <hr />
-                            <div id="div_performanceDataTable" style="height: 500px; display: inline-block; padding-top: 0;"></div>
+                            <div id="div_performanceDataTable" style="height: 640px; display: inline-block; padding-top: 0;"></div>
                             <div id="div_performanceCurve" style="float: right; height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top">
                                 <asp:Literal ID="lit_performanceCurve" runat="server" />
                             </div>
@@ -411,6 +399,21 @@
                         <svg height="50px">
                             <use href="#triangle" />
                         </svg>
+                          <div id="div_buttons" style="position: absolute; top: -1px; left: 400px">
+                            <asp:Button ID="btn_fanPDF" runat="server" Text="Get Fan PDF" OnClick="btn_getFanPdf_Click" Width="150px" class="button-main2 primary-btn"/>
+                            <%--<asp:Button ID="btn_print" runat="server" Text="Print" OnClientClick="return false" OnClick="btn_print_Click" class="button-main primary-btn"/>--%>
+                            <asp:Button ID="btn_addToSchedule" runat="server" Text="Add to Schedule" OnClick="btn_addToSchedule_Click" Width="150px"  class="button-main2 primary-btn"/>
+                            <!-- <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main2 primary-btn" /> -->
+                            <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
+
+                            <asp:HiddenField ID="hidden_ac_af" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_ac_sp" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_ac_tp" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_next" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hidden_motorid" runat="server"></asp:HiddenField>
+
+                          </div>
                     </div>
                 </div>
             </div>

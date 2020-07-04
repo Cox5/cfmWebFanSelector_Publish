@@ -17,13 +17,13 @@ $(document).ready(function () {
        
     if ($("#fanTable tr").length > 1) {
         selectedFanID = $("#body_selectedFanID").val();
-        updateFanCurve(selectedFanID);
+        updateFanCurve(selectedFanID, 0);
     }    
 
     $("#fanTable tr").click(function () {
 
         selectedFanID = $(this).attr("data-fanDataID");
-        updateFanCurve(selectedFanID);
+        updateFanCurve(selectedFanID, 0);
         $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
     });
@@ -82,7 +82,7 @@ function printDataSheet()
     alert("Form submitted");
 }
 
-function updateFanCurve(fanDataID) {
+function updateFanCurve(fanDataID, motorid) {
   /// <summary>
   /// Gets the relevant data from the form and sends the data to the web service to create the fan curves
   /// </summary>
@@ -107,7 +107,8 @@ function updateFanCurve(fanDataID) {
         contentType: 'application/json; charset=utf-8',
         url: '/AjaxWS.asmx/GetFanData',
         data: "{ fanDataID:" + fanDataID +
-			", projectfanid:"+parseInt(projectfanid) +
+            ", projectfanid:" + parseInt(projectfanid) +
+            ", motorid:" + parseInt(motorid) +
             ", airflow:" + parseFloat(airflow) +
             ", addairflow:" + parseFloat(addairflow) +
             ", staticPressure:" + parseFloat(staticPressure) +
@@ -119,6 +120,7 @@ function updateFanCurve(fanDataID) {
     };
 
     $.ajax(fanDataOptions).done(getFanDataSucceed);
+    document.getElementById("body_hidden_motorid").value = motorid;
 }
 
 //Gets the data of a selected fan
@@ -143,6 +145,7 @@ function getFanDataSucceed(fanImageData) {
 
     // Populate airflow and st pressure text boxes with given values from datapoint table
     //$("#txt_airFlow").text(fanImageData.d.fanDataID.)
+    
 }
 
 function transferActualValues() {
@@ -156,6 +159,7 @@ function transferActualValues() {
     document.getElementById("body_hidden_ac_sp").value = ac_sp;
     document.getElementById("body_hidden_ac_tp").value = ac_tp;
     document.getElementById("body_hidden_ac_ov").value = ac_ov;
+    
    
 }
 
