@@ -189,8 +189,13 @@
                             </tr>
                             
                         </table>
-                        
                         </div>
+                    <script>
+                        // Shows Searching box after Search button click
+                        function showpleasewait() {
+                            document.getElementById('pleasewait').style.visibility = 'visible';
+                        }
+                     </script>
 
 
 <!--                    <div id="div_clearButton" style="bottom: 0px; position: absolute">
@@ -212,9 +217,10 @@
                         </table>
                     </div>
 
+
                     <div id="div_selectButton">
                         <asp:Button ID="btn_editfan" Text="Edit this fan" OnClick="btn_Edit_Click" runat="server" />
-                        <asp:Button ID="btn_select" Text="Search" OnClick="btn_select_Click" runat="server" />
+                        <asp:Button ID="btn_select" Text="Search" OnClick="btn_select_Click" onClientClick="showpleasewait();" runat="server" />
                     </div>
 
                     <div class="div_heading">
@@ -338,6 +344,7 @@
                 </div>
             </div> <!-- end bottom left -->
         <div id="div_right">
+           <div id="pleasewait" style="width: 100%; margin: auto auto auto auto; max-width: 200px; padding: 30px; font-size: 20px; text-align:center; background-color: white; visibility: hidden">Searching</div>
 
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
 
@@ -440,5 +447,6 @@
             </filter>
         </defs>
     </svg>
+
 
 </asp:Content>
