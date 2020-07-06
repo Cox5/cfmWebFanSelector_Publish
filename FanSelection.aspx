@@ -195,6 +195,9 @@
                         function showpleasewait() {
                             document.getElementById('pleasewait').style.visibility = 'visible';
                             document.getElementById('body_div_bottomLeft').style.backgroundColor = '#ffffff';
+                            
+                            document.getElementById('body_div_hideRight').style.visibility = 'hidden';
+                            document.getElementById('body_div_hideBottomLeft').style.visibility = 'hidden';
                         }
                      </script>
 
