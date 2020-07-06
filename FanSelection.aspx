@@ -194,6 +194,7 @@
                         // Shows Searching box after Search button click
                         function showpleasewait() {
                             document.getElementById('pleasewait').style.visibility = 'visible';
+                            document.getElementById('body_div_bottomLeft').style.backgroundColor = '#ffffff';
                         }
                      </script>
 
@@ -270,7 +271,7 @@
     cursor: pointer;
 }
         </style>
-                    <div id="div_bottomLeft" runat="server">
+               <div id="div_bottomLeft" runat="server">
                 <div id="div_hideBottomLeft" class="hideBeforeSelect" runat="server">
                     <div class="sectionBorder">
                         <div id="div_selectFan">
@@ -344,7 +345,8 @@
                 </div>
             </div> <!-- end bottom left -->
         <div id="div_right">
-           <div id="pleasewait" style="width: 100%; margin: auto auto auto auto; max-width: 200px; padding: 30px; font-size: 20px; text-align:center; background-color: white; visibility: hidden">Searching</div>
+           <div id="pleasewait" style="width: 100%; height: 100%; 
+font-size: 20px; text-align:center; background-color: white; visibility: hidden"><img style="margin: auto auto" src="/Images/loading-ring2.gif" /></div>
 
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
 
