@@ -457,8 +457,8 @@ namespace CFM_Web
             performanceDataTable.Append("<tr>");
             performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" + fanData.fanObject.partNumber + "</th><th>Required</th><th>Actual</th>");
             performanceDataTable.AppendLine("</tr>");
-            performanceDataTable.AppendFormat("<th>Fan type:</th><td style='word-wrap:break-word;white-space: normal'>{0}</td><td style='word-wrap:break-word'>{1}</td></tr>",
-                    fr.FanType, "N/A");
+
+            performanceDataTable.AppendFormat("<td style='color:#007700' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription );
 
             // Show Airflow and Static pressure reults in the table, for Standard duty
             if (addairflow > 0)

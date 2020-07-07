@@ -284,17 +284,17 @@
                                     <thead>
                                         <tr style="font-size: 12px">
                                             <th style="width: 15%; text-align: left;">Product</th>
-                                            <!-- <th>Type</th> -->
-                                            <th  >Diameter</th>
-                                            <th  >dBA @ 3m</th>
-                                            <th  >RPM</th>
-                                            <th  >Volts</th>
-                                            <th class="string-max " style="text-align: right;">Price %</th>
-                                            <th  >MkW</th>
-                                            <th  >MkW/m3</th>
-                                            <th  >TEff %</th>
-                                            <th  >Airflow</th>
-                                            <th >Static Pr.</th>
+                                            <th style="width: 10%; text-align: left;">Type</th>
+                                            <th style="width: 5%;">Diameter</th>
+                                            <th  style="width: 5%;">dBA @ 3m</th>
+                                            <th  style="width: 5%;">RPM</th>
+                                            <th  style="width: 5%;">Volts</th>
+                                            <th class="string-max " style="width: 5%;text-align: right;">Price %</th>
+                                            <th  style="width: 5%;">MkW</th>
+                                            <th  style="width: 5%;">MkW/m3</th>
+                                            <th  style="width: 5%;">TEff %</th>
+                                            <th  style="width: 5%;">Airflow</th>
+                                            <th style="width: 5%;">Static Pr.</th>
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
@@ -309,17 +309,17 @@
                                                  style="text-align: left;width: 15%; "> 
                                                  <%= truncateString(fanData.fanObject.partNumber, 12) %>
                                             </td> 
-                                                
-                                            <!-- <td><%= truncateString(fanData.fanObject.fanType.category + " " + fanData.fanObject.fanType.description, 12) %></td> -->
-                                            <td style="text-align: center"><%= fanData.fanObject.diameter %></td>
-                                            <td><%= getNoise(fanData) %></td>
-                                            <td><%= fanData.RPM %></td>
-                                            <td><%= getVoltage(fanData.fanObject) %></td>
-                                            <td style="text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
+                                            <td title="<%=fanData.fanObject.rangeObject.rangeDescription  %>"
+                                                 style="text-align: left;width: 10%; overflow: hidden"><%= truncateString(fanData.fanObject.rangeObject.rangeDescription, 15) %></td>
+                                            <td style="width: 5%;text-align: center"><%= fanData.fanObject.diameter %></td>
+                                            <td style="width: 5%;text-align: center;"><%= getNoise(fanData) %></td>
+                                            <td style="width: 5%;text-align: center;"><%= fanData.RPM %></td>
+                                            <td style="width: 5%;text-align: center;"><%= getVoltage(fanData.fanObject) %></td>
+                                            <td style="width: 5%;text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
 
-                                            <td><%= fanData.motorkW %></td>
-                                            <td><%= getConsumedPowerOverAirflow(fanData) %></td>
-                                            <td><%= getEfficiency(fanData) %></td>
+                                            <td style="width: 5%;text-align: center;"><%= fanData.motorkW %></td>
+                                            <td style="width: 5%;text-align: center;"><%= getConsumedPowerOverAirflow(fanData) %></td>
+                                            <td style="width: 5%;text-align: center;"><%= getEfficiency(fanData) %></td>
                                             <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
                                             <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
                                             <!--<td><%= fanData.angle.ToString() %></td> -->
