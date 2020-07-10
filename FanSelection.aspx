@@ -291,7 +291,8 @@
                                             <th  style="width: 5%;">Volts</th>
                                             <th class="string-max " style="width: 5%;text-align: right;">Price %</th>
                                             <th  style="width: 5%;">MkW</th>
-                                            <th  style="width: 5%;">MkW/m3</th>
+                                            <th  style="width: 5%;">W/(l/s)</th>
+                                            <th  style="width: 5%;">AP kW</th>
                                             <th  style="width: 5%;">TEff %</th>
                                             <th  style="width: 5%;">Airflow</th>
                                             <th style="width: 5%;">Static Pr.</th>
@@ -317,8 +318,9 @@
                                             <td style="width: 5%;text-align: center;"><%= getVoltage(fanData.fanObject) %></td>
                                             <td style="width: 5%;text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
 
-                                            <td style="width: 5%;text-align: center;"><%= fanData.motorkW %></td>
-                                            <td style="width: 5%;text-align: center;"><%= getConsumedPowerOverAirflow(fanData) %></td>
+                                            <td style="width: 5%;text-align: center;"><%= fanData.motorkW %> (<%= fanData.motorDataObject.kw %>)</td>
+                                            <td style="width: 5%;text-align: center;"><%= getStringFromDouble(getConsumedPowerOverAirflow(fanData), "0.00") %></td>
+                                            <td style="width: 5%;text-align: center;"><%= getStringFromDouble(getConsumedPowerAtAirflow(fanData), "0.00") %></td>
                                             <td style="width: 5%;text-align: center;"><%= getEfficiency(fanData) %></td>
                                             <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
                                             <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
