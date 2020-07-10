@@ -318,7 +318,7 @@
                                             <td style="width: 5%;text-align: center;"><%= getVoltage(fanData.fanObject) %></td>
                                             <td style="width: 5%;text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
 
-                                            <td style="width: 5%;text-align: center;"><%= fanData.motorkW %> (<%= fanData.motorDataObject.kw %>)</td>
+                                            <td style="width: 5%;text-align: center;"><%= getMotorkWString(fanData) %></td>
                                             <td style="width: 5%;text-align: center;"><%= getStringFromDouble(getConsumedPowerOverAirflow(fanData), "0.00") %></td>
                                             <td style="width: 5%;text-align: center;"><%= getStringFromDouble(getConsumedPowerAtAirflow(fanData), "0.00") %></td>
                                             <td style="width: 5%;text-align: center;"><%= getEfficiency(fanData) %></td>
