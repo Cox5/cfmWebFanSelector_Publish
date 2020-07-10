@@ -46,6 +46,12 @@ namespace CFM_Web
             {
                 fanData.motorID = motorid;
             }
+            else
+            {
+                // motorid = 0 so we have clicked on table in <2>
+                // Calculate correct motor for additional airflow.
+
+            }
             fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
             fanData.fanObject = fan;
 
