@@ -17,13 +17,15 @@ $(document).ready(function () {
        
     if ($("#fanTable tr").length > 1) {
         selectedFanID = $("#body_selectedFanID").val();
-        updateFanCurve(selectedFanID, 0);
+        motorID = $(this).attr("#body_hidden_motorid");
+        updateFanCurve(selectedFanID, motorID);
     }    
 
     $("#fanTable tr").click(function () {
 
-        selectedFanID = $(this).attr("data-fanDataID");
-        updateFanCurve(selectedFanID, 0);
+        selectedFanID = $(this).attr("data-fandataid");
+        motorID = $(this).attr("data-motorid");
+        updateFanCurve(selectedFanID, motorID);
         $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
     });

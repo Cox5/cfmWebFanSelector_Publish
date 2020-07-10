@@ -40,18 +40,48 @@ namespace CFM_Web
             // find fan and fandata by fandataid
             var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
             var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
+            double defaultmotorkW = fanData.motorkW;
+            fanData.motorID = motorid;
 
             // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
-            if (motorid > 0)
+            if (addairflow > 0)
             {
-                fanData.motorID = motorid;
-            }
-            else
-            {
-                // motorid = 0 so we have clicked on table in <2>
-                // Calculate correct motor for additional airflow.
+
+                // Adjust motors
+                double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
+
+                // Retrieve the default motor info into fan.motorDataObject, for later comparison
+                fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);     
+
+                double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
+                double newImpellerMotorPeakPower = ImpellerMotorPeakPower * PeakPowerIncreaseFactor;
+                double NewMotorRatedPower = newImpellerMotorPeakPower / 1.1;
+
+                // if DefaultMotorPower > NewMotorRatedPower then keep Default Motor
+                // if DefaultMotorPower < NewMotorRatedPower then find smallest motor from motor table which can do NewMotorRatedPower
+                if (fanData.motorkW < NewMotorRatedPower)
+                {
+                    // Find the smallest sufficient motor with the same number of poles as the standard one.
+                    List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(NewMotorRatedPower, Convert.ToInt32(fanData.motorDataObject.pole));
+
+                    // If the new motor is different, copy its data into the fan object
+                    if (motors[0].Kw != fanData.motorkW)
+                    {
+                        // fan.motorDataObject = motors[0];
+                        fanData.motorID = motors[0].MotorDataId;
+                        fanData.motorAmps = motors[0].FullLoadAmps;
+                        fanData.motorkW = motors[0].Kw;
+                    }
+                    else
+                    {
+                        // If the new motor is the same, scale power up by 10%
+                        fanData.motorAmps = fanData.motorAmps * 1.1;
+                        fanData.motorkW = fanData.motorkW * 1.1;
+                    }
+                }
 
             }
+
             fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
             fanData.fanObject = fan;
 
@@ -121,7 +151,7 @@ namespace CFM_Web
             selectedFanData.nominalDataTable = buildNominalDataTable(fanData);
 
             // Build the table to the left of the graph.
-            selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr);
+            selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW);
             selectedFanData.fanName = fan.partNumber;
             selectedFanData.powerDataTable = buildPowerDataTable(fanData, airflow, staticPressure);
             selectedFanData.acousticTable = buildAcousticTable(fanData);
@@ -435,7 +465,7 @@ namespace CFM_Web
         /// <param name="airflow"></param>
         /// <param name="staticPressure"></param>
         /// <returns></returns>
-        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double addairflow, double staticPressure, FanReference fr)
+        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double addairflow, double staticPressure, FanReference fr, double defaultmotorkW)
         {
             double adf = 0;
             double scc = 0;
@@ -466,6 +496,7 @@ namespace CFM_Web
 
             performanceDataTable.AppendFormat("<td style='color:#007700' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription );
 
+            
             // Show Airflow and Static pressure reults in the table, for Standard duty
             if (addairflow > 0)
             {
@@ -516,7 +547,7 @@ namespace CFM_Web
                         adf.ToString("0"), d.airflow.ToString("0"));
                     performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
                         ads.ToString("0"), d.staticPressure.ToString("0"));
-                }
+                } 
             }
 
             performanceDataTable.AppendLine("<tr><th colspan=3>&nbsp;</th></tr>");
@@ -558,10 +589,13 @@ namespace CFM_Web
             // Motor
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Type:", fr.MotorType, "").AppendLine();
 
+            // Is the motor an upgrade from default?
+
+
             // If we have been handed a motorid, check to see if it is an upgrade
-            if (fanData.motorDataObject != null && fanData.motorDataObject.kw != fanData.motorkW)
+            if (defaultmotorkW != fanData.motorkW)
             {
-                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (standard):", "", fanData.motorkW).AppendLine();
+                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (standard):", "", defaultmotorkW).AppendLine();
                 performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (upgraded):", "", fanData.motorDataObject.kw).AppendLine();
             }
             else
@@ -585,7 +619,7 @@ namespace CFM_Web
                 "border-right-color:#e3e3e3; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
 
 
-
+/*
             // Here is where we need info about fans in family
             List<FanFamily> members = null;
             members = FanDBController.getFamilyMembers(fanData.fanID);
@@ -713,7 +747,7 @@ namespace CFM_Web
             {
                 performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>No lower pitch fans in this family can do additional duty</th></tr>");
             }
-
+            */
 
             performanceDataTable.AppendLine("</table>");
             performanceDataTable.AppendLine("<style> tr.bluedottext td {color: #2222ee; font-weight: bold; border: none;}" +

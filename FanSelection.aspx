@@ -174,7 +174,7 @@
                             <tr>
                                 <td style="padding-bottom:0px">Above: </td>
                                 <td style="padding-bottom:0px">
-                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="50" runat="server" autocomplete="off" />
+                                    <asp:TextBox ID="txtUpperLimit" Width="40" Text="10" runat="server" autocomplete="off" />
                                     %
                                 </td>
                             </tr>
@@ -215,7 +215,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:TreeView ID="tv_categories" runat="server" ShowCheckBoxes="All" ShowExpandCollapse="false" />
+                                    <asp:TreeView ID="tv_categories" runat="server" ShowCheckBoxes="All" ShowExpandCollapse="false"  />
                                 </td>
                             </tr>
                         </table>
@@ -304,7 +304,7 @@
                                     <tbody>
                                         <% foreach (var fanData in fanDataList)
                                             {  %>
-                                        <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"
+                                        <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"  data-motorid="<%= fanData.motorID %>"
                                             style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
                                             <td title="<%=fanData.fanObject.partNumber  %>"
                                                  style="text-align: left;width: 15%; "> 
@@ -372,7 +372,7 @@ font-size: 20px; text-align:center; background-color: white; visibility: hidden"
                         <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px; min-width:1250px" comment="1250px causes overflow (horizontal scroll bar) on smaller screens, but stops the graph from wrapping downwards" >
                             Performance Data
                         <hr />
-                            <div id="div_performanceDataTable" style="height: 640px; display: inline-block; padding-top: 0;"></div>
+                            <div id="div_performanceDataTable" style="height: 480px; display: inline-block; padding-top: 0;"></div>
                             <div id="div_performanceCurve" style="float: right; height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top">
                                 <asp:Literal ID="lit_performanceCurve" runat="server" />
                             </div>
