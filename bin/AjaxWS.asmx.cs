@@ -338,83 +338,7 @@ namespace CFM_Web
             return nominalDataTable.ToString();
         }
 
-        /// <summary>
-        /// NOT USED - Builds a HTML table with performance data for a fanData object
-        /// </summary>
-        /// <param name="fanData"></param>
-        /// <param name="airflow"></param>
-        /// <param name="staticPressure"></param>
-        /// <returns></returns>
-        private string buildPerformanceDataTable_Old(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure)
-        {
-            FansBackend.Entities.DataPoint dpIntercept = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
-            
-            System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
-
-            performanceDataTable.AppendLine("<table id=\"performanceDataTable\" class=\"dataTable\" xstyle=\"width:300px\">");
-
-            performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th colspan=\"2\" >Required Performance</th>");
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th>Air Flow: (L/s)</th><td>{0}</td>", airflow.ToString());
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td>", staticPressure.ToString());
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th>Installation Type: </th><td>{0}</td>", fanData.fanObject == null ? "" : fanData.fanObject.rangeObject == null ? "" : fanData.fanObject.rangeObject.installationTypeObject == null ? "" : fanData.fanObject.rangeObject.installationTypeObject.description);
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th>Air Density: (kg/m³)</th><td>{0}</td>", FansBackend.BusinessLogic.FanSelector.AIR_DENSITY.ToString("0.000"));
-            performanceDataTable.AppendLine("</tr>");
-            performanceDataTable.AppendLine("</table>");
-
-            performanceDataTable.AppendLine("<table id=\"performanceDataTable\" class=\"dataTable\" style=\"width:300px\">");
-            performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th colspan=\"2\" >Actual Performance</th>");
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            if (dpIntercept == null) performanceDataTable.AppendFormat("<th>Air Flow: (L/s)</th><td>{0}</td>", "N/A");
-            else performanceDataTable.AppendFormat("<th>Air Flow: (L/s)</th><td>{0}</td>", dpIntercept.airflow.ToString("0.00"));
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            if (dpIntercept == null) performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td>", "N/A");
-            else performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td>", dpIntercept.staticPressure.ToString("0.00"));
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            if (dpIntercept == null)
-            {
-                performanceDataTable.AppendFormat("<th>Total Pressure: (Pa)</th><td>{0}</td>", "N/A");
-            } else
-            {
-                performanceDataTable.AppendFormat("<th>Total Pressure: (Pa)</th><td>{0}</td>", FansBackend.BusinessLogic.FanSelector.CalculateTotalPressure(dpIntercept.staticPressure, fanData.fanObject.fanSize / 1000.0, dpIntercept.airflow / 1000.0).ToString("0.00"));
-
-            }
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.Append("<tr>");
-            if (dpIntercept == null)
-            {
-                performanceDataTable.AppendFormat("<th>Outlet Velocity: (m/s)</th><td>{0}</td>", "N/A");
-            }
-            else
-            {
-                performanceDataTable.AppendFormat("<th>Outlet Velocity: (m/s)</th><td>{0}</td>", FansBackend.BusinessLogic.FanSelector.calculateOutletVelocity(fanData.fanObject.fanSize / 1000.0, dpIntercept.airflow / 1000.0).ToString("0.00"));
-
-            }
-            performanceDataTable.AppendLine("</tr>");
-
-            performanceDataTable.AppendLine("</table>");
-            return performanceDataTable.ToString();
-        }
+        
 
         /// <summary>
         /// Builds a HTML table with power data for a fanData object
@@ -425,7 +349,8 @@ namespace CFM_Web
         /// <returns></returns>
         private string buildPowerDataTable(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure)
         {
-            FansBackend.Entities.DataPoint dpIntercept = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
+            // FansBackend.Entities.DataPoint dpIntercept = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, 
+                                                            // FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
             
             System.Text.StringBuilder powerDataTable = new System.Text.StringBuilder();
 
@@ -447,12 +372,39 @@ namespace CFM_Web
 
             powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", "normal").AppendLine();
             powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Electrical Supply:", phaseString).AppendLine();
-            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject != null ? fanData.motorDataObject.frame : "").AppendLine();
-            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorDataObject != null ? fanData.motorDataObject.kw.ToString("0.00kW") : fanData.motorkW.ToString("0.00kW")).AppendLine();
-            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC/Start:", fanData.motorDataObject != null && fanData.motorDataObject.fullLoadAmps > 0 ? fanData.motorDataObject.fullLoadAmps.ToString("0.0Amps") : fanData.motorAmps.ToString("0.0Amps")).AppendLine();
-            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:", fanData.motorDataObject != null ? fanData.motorDataObject.pole.ToString("0") + "pole": fanData.RPM.ToString("0 RPM")).AppendLine();
-            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:", fanData.motorDataObject != null ? fanData.motorDataObject.efficiency.ToString("0.0") + "%" : "").AppendLine();
-       
+
+            if (fanData.motorDataObject != null)
+            {
+                double aompower = fanData.motorDataObject.kw * 1.1;
+                double aomcurrent = fanData.motorDataObject.fullLoadAmps * 1.1;
+                if (fanData.motorDataObject.fullLoadAmps == 0)
+                {
+                    aomcurrent = fanData.motorAmps * 1.1;
+                }
+
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject.frame).AppendLine();
+
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorDataObject.kw.ToString("0.00kW")).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "AOM Power:", aompower.ToString("0.00kW")).AppendLine();
+
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC/Start:", fanData.motorDataObject.fullLoadAmps.ToString("0.0 Amps") ).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "AOM Current:", aomcurrent.ToString("0.0 Amps")).AppendLine();
+
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:", fanData.motorDataObject.pole.ToString("0") + " pole" ).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:", fanData.motorDataObject.efficiency.ToString("0.0") + "%" ).AppendLine();
+            }
+            else
+            {
+                //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", "").AppendLine();
+
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorkW.ToString("0.00 kW")).AppendLine();
+
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC/Start:", fanData.motorAmps.ToString("0.0 Amps")).AppendLine();
+
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:",  fanData.RPM.ToString("0 RPM")).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:",  "n/a").AppendLine();
+
+            }
             powerDataTable.AppendLine("</table>");
             return powerDataTable.ToString();
         }
