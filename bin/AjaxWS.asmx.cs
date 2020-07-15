@@ -446,8 +446,8 @@ namespace CFM_Web
             double adf = 0;
             double scc = 0;
             double ads = 0;
-            bool cando_req = false;
             bool cando_add = false;
+            bool cando_req = false;
 
             FansBackend.Entities.DataPoint dpIntercept =
                 FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
@@ -496,6 +496,7 @@ namespace CFM_Web
             }
 
             // Show Airflow and Static pressure reults in the table, for additional duty
+            string workings = "";
             if (addairflow > 0.0)
             {
                 performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #0000cc'>Additional Duty</th></tr>");
@@ -523,7 +524,24 @@ namespace CFM_Web
                         adf.ToString("0"), d.airflow.ToString("0"));
                     performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
                         ads.ToString("0"), d.staticPressure.ToString("0"));
-                } 
+                }
+
+                // redo motor upgrade calcs and show workings
+
+
+                workings = "adf= " + adf.ToString() + " ads=" + ads.ToString() + "<br />";
+                workings += "default motor: " + defaultmotorkW.ToString() + "<br />";
+
+                double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
+                double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
+                double newImpellerMotorPeakPower = ImpellerMotorPeakPower * PeakPowerIncreaseFactor;
+                double NewMotorRatedPower = newImpellerMotorPeakPower / 1.1;
+                workings += "PeakPowerIncreaseFactor: " + PeakPowerIncreaseFactor.ToString() + "<br />\n";
+                workings += "ImpellerMotorPeakPower: " + ImpellerMotorPeakPower.ToString() + "<br />\n";
+                workings += "newImpellerMotorPeakPower: " + newImpellerMotorPeakPower.ToString() + "<br />\n";
+                workings += "NewMotorRatedPower: " + NewMotorRatedPower.ToString() + "<br />\n";
+
+
             }
 
             performanceDataTable.AppendLine("<tr><th colspan=3>&nbsp;</th></tr>");
@@ -594,140 +612,149 @@ namespace CFM_Web
                 "<td colspan=3 style='background-color: #e3e3e3; border-color: #e3e3e3; padding-right: 0; background-color: #e3e3e3; " +
                 "border-right-color:#e3e3e3; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
 
+            #region Unused
 
-/*
-            // Here is where we need info about fans in family
-            List<FanFamily> members = null;
-            members = FanDBController.getFamilyMembers(fanData.fanID);
-            StringBuilder otherfan = new StringBuilder();
-            StringBuilder otherfan2 = new StringBuilder();
-            int smallest_reqduty = 999;
-            int smallest_addduty = 999;
-            if (members.Count > 0)
-            {
-                foreach (FanFamily member in members)
-                {
-                    // Search the fan's family to find
-                    // a. the lowest pitch which does requested duty
-                    // b. the lowest pitch which does additional duty
-
-                    // find fan and fandata by fandataid
-                    var fan2 = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(member.fandataID);
-                    var fanData2 = fan2.fanDataList.Find(fd => fd.fanDataID == member.fandataID);
-
-                    // Find the smallest pitch which can do requested duty
-                    if (Convert.ToInt32(fanData2.angle) < smallest_reqduty)
-                    {
-                        FansBackend.Entities.DataPoint dpIntercept2 = FansBackend.BusinessLogic.FanSelector.findIntercept(
-                            fanData2.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
-                        if (dpIntercept2 != null)
+            /*
+                        // Here is where we need info about fans in family
+                        List<FanFamily> members = null;
+                        members = FanDBController.getFamilyMembers(fanData.fanID);
+                        StringBuilder otherfan = new StringBuilder();
+                        StringBuilder otherfan2 = new StringBuilder();
+                        int smallest_reqduty = 999;
+                        int smallest_addduty = 999;
+                        if (members.Count > 0)
                         {
-                            // If intercept airflow > requested airflow and intercept static pressure > requested static pressure.
-                            if (dpIntercept2.airflow >= fr.AirFlow && dpIntercept2.staticPressure >= fr.StaticPressure)
+                            foreach (FanFamily member in members)
                             {
-                                // This fan is good, so truncate the string with last fan's info.
-                                otherfan.Length = 0;
+                                // Search the fan's family to find
+                                // a. the lowest pitch which does requested duty
+                                // b. the lowest pitch which does additional duty
 
-                                otherfan.AppendLine("<tr><th colspan=2 >" +
-                                    "<a href = '#' onClick = 'updateFanCurve(" +
-                                    member.fandataID.ToString() + "," + fanData2.motorID + ");'>" + fan2.partNumber + "</a></th>" +
-                                   "<th><a href = '#'  onClick ='updateFanCurve(" +
-                                   member.fandataID.ToString() + "," + fanData.motorID + ");' > Show Info</a></th></tr>");
+                                // find fan and fandata by fandataid
+                                var fan2 = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(member.fandataID);
+                                var fanData2 = fan2.fanDataList.Find(fd => fd.fanDataID == member.fandataID);
 
-                                otherfan.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
-                                    fr.AirFlow.ToString("0"), dpIntercept2.airflow.ToString("0"));
-                                otherfan.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
-                                    fr.StaticPressure.ToString("0"), dpIntercept2.staticPressure.ToString("0"));
-                                otherfan.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData2.angle);
-
-                                // highlight if motor is different
-                                string motorkW = "";
-                                if (fanData2.motorkW != fanData.motorkW)
+                                // Find the smallest pitch which can do requested duty
+                                if (Convert.ToInt32(fanData2.angle) < smallest_reqduty)
                                 {
-                                    motorkW = "<td style='background-color:#ffcccc'>" + fanData2.motorkW.ToString() + "</td>";
-                                }
-                                else
-                                {
-                                    motorkW = "<td style='background-color:#ccffcc'>" + fanData2.motorkW.ToString() + "</td>";
-                                }
-                                otherfan.AppendFormat("<tr><th>{0}</th><td>{1}</td>{2}</tr>", "Motor Power:", "", motorkW);
+                                    FansBackend.Entities.DataPoint dpIntercept2 = FansBackend.BusinessLogic.FanSelector.findIntercept(
+                                        fanData2.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
+                                    if (dpIntercept2 != null)
+                                    {
+                                        // If intercept airflow > requested airflow and intercept static pressure > requested static pressure.
+                                        if (dpIntercept2.airflow >= fr.AirFlow && dpIntercept2.staticPressure >= fr.StaticPressure)
+                                        {
+                                            // This fan is good, so truncate the string with last fan's info.
+                                            otherfan.Length = 0;
 
-                                // This is now the smallest angle which does the duty
-                                smallest_reqduty = Convert.ToInt32(fanData2.angle);
+                                            otherfan.AppendLine("<tr><th colspan=2 >" +
+                                                "<a href = '#' onClick = 'updateFanCurve(" +
+                                                member.fandataID.ToString() + "," + fanData2.motorID + ");'>" + fan2.partNumber + "</a></th>" +
+                                               "<th><a href = '#'  onClick ='updateFanCurve(" +
+                                               member.fandataID.ToString() + "," + fanData.motorID + ");' > Show Info</a></th></tr>");
+
+                                            otherfan.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
+                                                fr.AirFlow.ToString("0"), dpIntercept2.airflow.ToString("0"));
+                                            otherfan.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
+                                                fr.StaticPressure.ToString("0"), dpIntercept2.staticPressure.ToString("0"));
+                                            otherfan.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData2.angle);
+
+                                            // highlight if motor is different
+                                            string motorkW = "";
+                                            if (fanData2.motorkW != fanData.motorkW)
+                                            {
+                                                motorkW = "<td style='background-color:#ffcccc'>" + fanData2.motorkW.ToString() + "</td>";
+                                            }
+                                            else
+                                            {
+                                                motorkW = "<td style='background-color:#ccffcc'>" + fanData2.motorkW.ToString() + "</td>";
+                                            }
+                                            otherfan.AppendFormat("<tr><th>{0}</th><td>{1}</td>{2}</tr>", "Motor Power:", "", motorkW);
+
+                                            // This is now the smallest angle which does the duty
+                                            smallest_reqduty = Convert.ToInt32(fanData2.angle);
+                                        }
+                                    }
+                                }
+
+                                // Find the smallest pitch which can do additional duty
+
+                                // if this member fan's angle is less than smallest_addduty found
+                                // if (Convert.ToInt32(fanData2.angle) < smallest_addduty && addairflow > 0.0 &&
+                                //    (cando_add && Convert.ToInt32(fanData2.angle) < Convert.ToInt32(fanData.angle) || !cando_add))
+                                if (Convert.ToInt32(fanData2.angle) < smallest_addduty && addairflow > 0.0)
+                                {
+                                    FansBackend.Entities.DataPoint dpIntercept2 = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData2.dataPointList, scc);
+
+                                    // If intercept airflow > additional airflow and intercept static pressure > additional static pressure.
+                                    if (dpIntercept2 != null)
+                                    {
+                                        if (dpIntercept2.airflow >= adf && dpIntercept2.staticPressure >= ads)
+                                        {
+                                            // This fan is good, so truncate the string with last fan's info.
+                                            otherfan2.Length = 0;
+
+                                            otherfan2.AppendLine("<tr><th colspan=2 >" +
+                                                "<a href='#' onClick ='updateFanCurve(" +
+                                                member.fandataID.ToString() + "," + fanData2.motorID + ");' >" + fan2.partNumber + "</a></th>" +
+                                               "<th><a href = '#' onClick ='updateFanCurve(" +
+                                               member.fandataID.ToString() + "," + fanData2.motorID + ");' >Show Info</a></th></tr>");
+
+                                            otherfan2.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
+                                                adf.ToString("0"), dpIntercept2.airflow.ToString("0"));
+                                            otherfan2.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
+                                                ads.ToString("0"), dpIntercept2.staticPressure.ToString("0"));
+                                            otherfan2.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData2.angle);
+
+                                            string motorkW = "";
+                                            if (fanData2.motorkW != fanData.motorkW)
+                                            {
+                                                motorkW = "<td style='background-color:#ffcccc'>" + fanData2.motorkW.ToString() + "</td>";
+                                            }
+                                            else
+                                            {
+                                                motorkW = "<td style='background-color:#ccffcc'>" + fanData2.motorkW.ToString() + "</td>";
+                                            }
+                                            otherfan2.AppendFormat("<tr><th>{0}</th><td>{1}</td>{2}</tr>", "Motor Power:", "", motorkW);
+                                            // This is now the smallest angle which does the additional duty
+                                            smallest_addduty = Convert.ToInt32(fanData2.angle);
+                                        }
+                                    }
+                                }
+
                             }
                         }
-                    }
-
-                    // Find the smallest pitch which can do additional duty
-
-                    // if this member fan's angle is less than smallest_addduty found
-                    // if (Convert.ToInt32(fanData2.angle) < smallest_addduty && addairflow > 0.0 &&
-                    //    (cando_add && Convert.ToInt32(fanData2.angle) < Convert.ToInt32(fanData.angle) || !cando_add))
-                    if (Convert.ToInt32(fanData2.angle) < smallest_addduty && addairflow > 0.0)
-                    {
-                        FansBackend.Entities.DataPoint dpIntercept2 = FansBackend.BusinessLogic.FanSelector.findIntercept(fanData2.dataPointList, scc);
-
-                        // If intercept airflow > additional airflow and intercept static pressure > additional static pressure.
-                        if (dpIntercept2 != null)
+                        if (otherfan.Length > 0)
                         {
-                            if (dpIntercept2.airflow >= adf && dpIntercept2.staticPressure >= ads)
-                            {
-                                // This fan is good, so truncate the string with last fan's info.
-                                otherfan2.Length = 0;
-
-                                otherfan2.AppendLine("<tr><th colspan=2 >" +
-                                    "<a href='#' onClick ='updateFanCurve(" +
-                                    member.fandataID.ToString() + "," + fanData2.motorID + ");' >" + fan2.partNumber + "</a></th>" +
-                                   "<th><a href = '#' onClick ='updateFanCurve(" +
-                                   member.fandataID.ToString() + "," + fanData2.motorID + ");' >Show Info</a></th></tr>");
-
-                                otherfan2.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
-                                    adf.ToString("0"), dpIntercept2.airflow.ToString("0"));
-                                otherfan2.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
-                                    ads.ToString("0"), dpIntercept2.staticPressure.ToString("0"));
-                                otherfan2.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData2.angle);
-
-                                string motorkW = "";
-                                if (fanData2.motorkW != fanData.motorkW)
-                                {
-                                    motorkW = "<td style='background-color:#ffcccc'>" + fanData2.motorkW.ToString() + "</td>";
-                                }
-                                else
-                                {
-                                    motorkW = "<td style='background-color:#ccffcc'>" + fanData2.motorkW.ToString() + "</td>";
-                                }
-                                otherfan2.AppendFormat("<tr><th>{0}</th><td>{1}</td>{2}</tr>", "Motor Power:", "", motorkW);
-                                // This is now the smallest angle which does the additional duty
-                                smallest_addduty = Convert.ToInt32(fanData2.angle);
-                            }
+                            performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>Lowest pitch fan in this family that can do requested duty</th></tr>");
+                            performanceDataTable.Append(otherfan);
                         }
-                    }
+                        else if (members.Count > 0)
+                        {
+                            performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>No lower pitch fans in this family can do requested duty</th></tr>");
+                        }
+                        if (otherfan2.Length > 0)
+                        {
+                            performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>Lowest pitch fan in this family that can do additional duty</th></tr>");
+                            performanceDataTable.Append(otherfan2);
+                        }
+                        else if (members.Count > 0 && addairflow > 0.0)
+                        {
+                            performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>No lower pitch fans in this family can do additional duty</th></tr>");
+                        }
+                        */
+            #endregion
 
-                }
-            }
-            if (otherfan.Length > 0)
-            {
-                performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>Lowest pitch fan in this family that can do requested duty</th></tr>");
-                performanceDataTable.Append(otherfan);
-            }
-            else if (members.Count > 0)
-            {
-                performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>No lower pitch fans in this family can do requested duty</th></tr>");
-            }
-            if (otherfan2.Length > 0)
-            {
-                performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>Lowest pitch fan in this family that can do additional duty</th></tr>");
-                performanceDataTable.Append(otherfan2);
-            }
-            else if (members.Count > 0 && addairflow > 0.0)
-            {
-                performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #2222aa'>No lower pitch fans in this family can do additional duty</th></tr>");
-            }
-            */
+
+            performanceDataTable.AppendLine("<tr><td colspan=3>" + workings + "</td></tr>");
+
 
             performanceDataTable.AppendLine("</table>");
             performanceDataTable.AppendLine("<style> tr.bluedottext td {color: #2222ee; font-weight: bold; border: none;}" +
                 "th a {color: white; background-color: #004b9e; font-size: 10px;  padding: 1px 3px 1px 3px; border-radius: 5px; margin-bottom: 1px; text-decoration: none; } </style>");
+
+
+
             return performanceDataTable.ToString();
         }
 
