@@ -521,9 +521,9 @@ namespace CFM_Web
                 {
                     if (adf <= d.airflow) { cando_add = true; }
                     performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
-                        adf.ToString("0"), d.airflow.ToString("0"));
+                        adf.ToString("0"), adf.ToString("0"));
                     performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
-                        ads.ToString("0"), d.staticPressure.ToString("0"));
+                        ads.ToString("0"), ads.ToString("0"));
                 }
 
                 // redo motor upgrade calcs and show workings
@@ -535,10 +535,14 @@ namespace CFM_Web
                 double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
                 double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
                 double newImpellerMotorPeakPower = ImpellerMotorPeakPower * PeakPowerIncreaseFactor;
-                double NewMotorRatedPower = newImpellerMotorPeakPower / 1.1;
+                
+                double newImpellerMotorConsPower = fanData.intercept.power * PeakPowerIncreaseFactor;
+                double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
+
                 workings += "PeakPowerIncreaseFactor: " + PeakPowerIncreaseFactor.ToString() + "<br />\n";
                 workings += "ImpellerMotorPeakPower: " + ImpellerMotorPeakPower.ToString() + "<br />\n";
                 workings += "newImpellerMotorPeakPower: " + newImpellerMotorPeakPower.ToString() + "<br />\n";
+                workings += "newImpellerMotorConsPower: " + newImpellerMotorConsPower.ToString() + "<br />\n";
                 workings += "NewMotorRatedPower: " + NewMotorRatedPower.ToString() + "<br />\n";
 
 
