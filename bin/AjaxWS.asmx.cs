@@ -8,6 +8,7 @@ using System.Web.Script.Services;
 using CFM_Web.DB;
 using CFM_Web.Utilities;
 using MySql.Data.MySqlClient;
+using FansBackend.Entities;
 
 namespace CFM_Web
 {
@@ -54,8 +55,8 @@ namespace CFM_Web
                 fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);     
 
                 double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
-                double newImpellerMotorPeakPower = ImpellerMotorPeakPower * PeakPowerIncreaseFactor;
-                double NewMotorRatedPower = newImpellerMotorPeakPower / 1.1;
+                double newImpellerMotorConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow) * PeakPowerIncreaseFactor;
+                double NewMotorRatedPower = newImpellerMotorConsPower / 1.1; 
 
                 // if DefaultMotorPower > NewMotorRatedPower then keep Default Motor
                 // if DefaultMotorPower < NewMotorRatedPower then find smallest motor from motor table which can do NewMotorRatedPower
@@ -214,6 +215,8 @@ namespace CFM_Web
 
             return selectedFanData;
         }
+
+
 
         /// <summary>
         /// Gets the X and Y max of all the data points.
@@ -591,9 +594,11 @@ namespace CFM_Web
 
 
             // If we have been handed a motorid, check to see if it is an upgrade
-            if (defaultmotorkW != fanData.motorkW)
+            // if (defaultmotorkW != fanData.motorkW)
+            if (defaultmotorkW != fanData.motorDataObject.kw)
+
             {
-                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (standard):", "", defaultmotorkW).AppendLine();
+                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (standard):", "", defaultmotorkW).AppendLine();
                 performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (upgraded):", "", fanData.motorDataObject.kw).AppendLine();
             }
             else
@@ -760,6 +765,37 @@ namespace CFM_Web
 
 
             return performanceDataTable.ToString();
+        }
+
+        /// <summary>
+        /// Finds motor power at airflow intercept by linear interpolation
+        /// </summary>
+        /// <param name="fan"></param>
+        /// <returns></returns>
+         private double getConsumedPowerAtAirflow(List<FansBackend.Entities.DataPoint> dataPointList, double airflow)
+         {
+            double lastaf = Double.NaN;
+            double lastpw = Double.NaN;
+            double increase = Double.NaN;
+            double power = Double.NaN;
+            
+
+            foreach (DataPoint dp in dataPointList)
+            {
+                if (dp.airflow > airflow)
+                {
+                    // interpolate
+                    increase = (airflow - lastaf) / (dp.airflow - lastaf);
+                    power = lastpw + increase * (dp.power - lastpw);
+                    break;
+                }
+                else
+                {
+                    lastaf = dp.airflow;
+                    lastpw = dp.power;
+                }
+            }
+            return power;
         }
 
 
