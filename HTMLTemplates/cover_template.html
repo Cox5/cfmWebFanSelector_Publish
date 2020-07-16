@@ -126,27 +126,29 @@
 	<hr />
 
 	<table class="cover_table">
-		<tr>
-			<td class="bold">To:</td>
-			<td>%%COMPANY%%</td>
-			<td class="bold">Date:</td>
-			<td>%%DATE%%</td>
+		<tr valign="top">
+			<td class="" style='width:15%'>To:</td>
+			<td style='width:35%'>%%COMPANY%%</td>
+			<td class="">From:</td>
+			<td>%%SALES%%</td>			
+			
 		</tr>
 		
-		<tr>
-			<td class="bold">Attention:</td>
+		<tr valign="top">
+			<td class="">Attention:</td>
 			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
-			<td class="bold">From:</td>
-			<td>%%SALES%%%%SALESMAIL%%</td>
+			<td></td>
+			<td>%%SALESEMAIL%%</td>
 		</tr>
-		
-		<tr>
-			<td class="bold">Re:</td>
-			<td>%%PROJNAME%%, %%PROJADDR%%</td>
-			<td class="bold">Quote number:</td>
-			<td>%%QUOTENUM%%</td>
+		<tr valign="top">
+			<td class="">Project:</td>
+			<td class="bold quotenum" colspan=4>%%PROJNAME%%</td>
 		</tr>
-		
+		<tr valign="top">
+			<td class="">Quote number:</td>
+			<td class="bold quotenum" colspan=2>%%QUOTENUM%%
+			<td class="">Date:	%%DATE%%</td>
+		</tr>			
 	</table>
 
 	<hr/>

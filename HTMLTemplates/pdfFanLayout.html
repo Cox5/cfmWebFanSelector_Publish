@@ -70,7 +70,9 @@
 			.footer img {
 				width: 99%;
 			}
-
+			div.row {
+				width: 100%;
+			}
 
 			/* Clear floats after the columns */
 			.row:after {
@@ -94,7 +96,7 @@
 			}				
 			.motorDataTbl {
 				table-layout: fixed;
-				width: 90%;
+				width: 99%;
 				font-size: 19px;
 			}
 			.acoustic_data_table {
@@ -139,13 +141,15 @@
     <div class="clearfix">
 			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
 	</div>
-	<div class='header'><h2><span style='font-weight: 400;'>Project:</span>%%PROJNAME%%</h2><h3><span style='font-weight: 400;'>Quotation number:</span> %%QUOTENUM%%</h3></div>
+	<div class='header'><h2><span style='font-weight: 400;'>Project:</span> %%PROJNAME%%</h2><h3><span style='font-weight: 400;'>Quotation number:</span> %%QUOTENUM%%</h3></div>
 <div class='clearfix'></div>
 
     <div class="row">
         <div class="col-2 left">
 			<h3>Fan Reference:</h3><h2 class="location"><span class="fan_ref">%%FAN_REF%%</span></h2>
 			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%% / %%ANGLE%%</span></h3>
+			<b>Dimensional drawing:</b> %%DDRAWING%%<br />
+			<b>Electrical diagram:</b> %%EDIAGRAM%%<br />
 			<table class="requirementsTbl" border="0" >
 				<tr>
 					<th>Performance</th>
@@ -162,6 +166,7 @@
 					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
 					<td style='text-align: left; padding-left: 10px;'>%%ACTUAL_STATIC_PRESSURE%%</td>
 				</tr>
+				<tr><td>&nbsp;</td><tr>
 				<tr>
 					<th>Fan Data</th>
 				</tr>
@@ -194,11 +199,11 @@
 		<p><h3>Motor Data (at STP)</h3></p>
 		<table class="motorDataTbl" border="0">
 			<tr>
-				<td style='width: 13%'>Motor Type:</td>
-				<td style='width: 12%'>%%MOTOR_TYPE%%</td>
+				<td style='width: 11%'>Motor Type:</td>
+				<td style='width: 14%'>%%MOTOR_TYPE%%</td>
 				
-				<td style='width: 19%'>Motor Power (kW):</td>
-				<td style='width: 11%'>%%MOTOR_POWER%%</td>
+				<td style='width: 17%'>Motor Power (kW):</td>
+				<td style='width: 13%'>%%MOTOR_POWER%%</td>
 				
 				<td style='width: 25%'>Current FLC (A):</td>
 				<td >%%CURRENT_FLC%%</td>
@@ -210,7 +215,7 @@
 				<td>Motor Speed (RPM):</td>
 				<td>%%MOTOR_SPEED%%</td>
 				
-				<td>Elec. Supply (V / ph / Hz):</td>
+				<td>Elec. Supply (V/ph/Hz):</td>
 				<td>%%ELECTRICAL_SUPPLY%%</td>
 			</tr>
 		</table>
@@ -230,7 +235,7 @@
 			</tr>
 			<tr>
 			<td>&nbsp;</td>
-			<td colspan=8 style='text-align:center'>Sound Power Level SWL (dB)</td>		
+			<td colspan=8 style='text-align:center'>Sound Power Level SWL (dBA)</td>		
 			<td>SWL</td>
 			<td>@3m</td>
 			</tr>
@@ -244,7 +249,7 @@
 				<td>2K</td>
 				<td>4K</td>
 				<td>8K</td>
-				<td>(dB)</td>
+				<td>(dBA)</td>
 				<td class="last_td">(dBA)</td>
 			</tr>
 			<tr>

@@ -380,10 +380,10 @@ namespace CFM_Web
             {
                 double aompower = fanData.motorDataObject.kw * 1.1;
                 double aomcurrent = fanData.motorDataObject.fullLoadAmps * 1.1;
-                if (fanData.motorDataObject.fullLoadAmps == 0)
+               /*  if (fanData.motorDataObject.fullLoadAmps == 0)
                 {
                     aomcurrent = fanData.motorAmps * 1.1;
-                }
+                } */
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject.frame).AppendLine();
 
@@ -403,19 +403,26 @@ namespace CFM_Web
 
                 if (aompower > 100)
                 {
-                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "AOM Power:", aompower.ToString("0 kW")).AppendLine();
+                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM Power:", aompower.ToString("0 kW")).AppendLine();
                 }
                 else if (aompower > 10) {
-                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "AOM Power:", aompower.ToString("0.0 kW")).AppendLine();
+                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM Power:", aompower.ToString("0.0 kW")).AppendLine();
                 }
                 else
                 {
-                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "AOM Power:", aompower.ToString("0.00kW")).AppendLine();
+                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM Power:", aompower.ToString("0.00kW")).AppendLine();
                 }
-                
 
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC/Start:", fanData.motorDataObject.fullLoadAmps.ToString("0.0 Amps") ).AppendLine();
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "AOM Current:", aomcurrent.ToString("0.0 Amps")).AppendLine();
+                if (fanData.motorDataObject.fullLoadAmps > 0)
+                {
+                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", fanData.motorDataObject.fullLoadAmps.ToString("0.0 Amps")).AppendLine();
+                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", aomcurrent.ToString("0.0 Amps")).AppendLine();
+                }
+                else
+                {
+                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", "n/a").AppendLine();
+                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", "n/a").AppendLine();
+                }
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:", fanData.motorDataObject.pole.ToString("0") + " pole" ).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:", fanData.motorDataObject.efficiency.ToString("0.0") + "%" ).AppendLine();
