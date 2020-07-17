@@ -566,6 +566,22 @@ namespace CFM_Web
                  fr.Speed == "0" ? "-" : fr.Speed, fanData.motorDataObject != null ? fanData.motorDataObject.RPM.ToString() : fanData.RPM.ToString()).AppendLine();
             // fr.Speed = "0" ? "-" : fr.Speed, fanData.motorDataObject != null ? fanData.motorDataObject.pole.ToString("0") + "pole" : fanData.RPM.ToString("0")).AppendLine();
 
+            if (fanData.motorDataObject == null)
+            {
+                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (rpm):",
+                    fr.Speed == "0" ? "-" : fr.Speed, 
+                    fanData.RPM.ToString()
+                    ).AppendLine();
+
+            }
+            else
+            {
+                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (rpm):",
+                    fr.Speed == "0" ? "-" : fr.Speed, fanData.RPM.ToString(),
+                    fanData.motorDataObject.pole.ToString("0") + "pole"
+                    ).AppendLine();
+            }
+
 
             string frphaseString = "";
             if (fr.Phase == "1")
@@ -602,11 +618,17 @@ namespace CFM_Web
 
             // If we have been handed a motorid, check to see if it is an upgrade
             // if (defaultmotorkW != fanData.motorkW)
-            if (defaultmotorkW != fanData.motorDataObject.kw)
-
+            if (fanData.motorDataObject != null)
             {
+                if (defaultmotorkW != fanData.motorDataObject.kw)
+                {
                     performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (standard):", "", defaultmotorkW).AppendLine();
-                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (upgraded):", "", fanData.motorDataObject.kw).AppendLine();
+                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (upgraded):", "", fanData.motorDataObject.kw).AppendLine();
+                }
+                else
+                {
+                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power:", "", fanData.motorkW).AppendLine();
+                }
             }
             else
             {
@@ -628,7 +650,7 @@ namespace CFM_Web
                 "<td colspan=3 style='background-color: #e3e3e3; border-color: #e3e3e3; padding-right: 0; background-color: #e3e3e3; " +
                 "border-right-color:#e3e3e3; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
 
-            #region Unused
+            #region Unused - find  info about other fans in the fan family
 
             /*
                         // Here is where we need info about fans in family
@@ -762,7 +784,7 @@ namespace CFM_Web
             #endregion
 
 
-            performanceDataTable.AppendLine("<tr><td colspan=3>" + workings + "</td></tr>");
+            // performanceDataTable.AppendLine("<tr><td colspan=3>" + workings + "</td></tr>");
 
 
             performanceDataTable.AppendLine("</table>");
