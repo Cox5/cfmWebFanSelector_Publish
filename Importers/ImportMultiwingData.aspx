@@ -23,7 +23,11 @@
 
 
         <h4> Click the button to process the extracted XLSX files.</h4>
-        <p> <em>Note:</em> processing time for a zip file with 20 files, each with 30 impeller variants/angles, for 2 fan prefixes (1200 fans in total) is approximately 2.5 minutes.</p>
+        <p> <em>Note:</em> processing time for a zip file with 8 files, each with 31 impeller variants/angles (248 impellers) is approximately  </p>
+        <ul>
+            <li>2 minutes for 4 prefixes</li>
+            <li>4.5 minutes for 9 prefixes</li>
+        </ul>
         <asp:Button ID="btnParse" class="button-main primary-btn"  runat="server" Visible="false" Text="Process .XLSX files" OnClick="btnParse_Click" />
        
         <br />
