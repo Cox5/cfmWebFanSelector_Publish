@@ -277,9 +277,12 @@ namespace CFM_Web
         {   
             System.Text.StringBuilder acousticTable = new System.Text.StringBuilder();
             acousticTable.AppendLine("<table id=\"acousticTable\" class=\"dataTable\">");
-            acousticTable.AppendFormat("<tr><th colspan=\"11\" >Sound Data</th></tr>");
-            acousticTable.AppendLine("<tr><th>Spectrum (Hz)</th><th style=\"width:50px\">63</th><th style=\"width:50px\">125</th><th style=\"width:50px\">250</th><th style=\"width:50px\">500</th><th style=\"width:50px\">1k</th><th style=\"width:50px\">2k</th><th style=\"width:50px\">4k</th><th style=\"width:50px\">8k</th><th style=\"width:50px\">Total</th><th style=\"width:50px\">SPL 3m</th></tr>");
-            acousticTable.Append("<tr><th>Inlet (dB)</th>");
+            acousticTable.AppendFormat("<tr><th colspan='9' >Sound Data</th><th>Weighted</th><th>SPL@3m</th></tr>");
+            acousticTable.AppendLine("<tr><th>Spectrum (Hz)</th><th style='width:50px'>63</th><th style='width:50px'>125</th><th style='width:50px'>250</th>" +
+                "<th style='width:50px'>500</th><th style='width:50px'>1k</th><th style='width:50px'>2k</th><th style='width:50px'>4k</th>" +
+                "<th style='width:50px'>8k</th><th style='width:50px'>SWL (dBA)</th><th style='width:50px'>(dBA)</th></tr>");
+
+            acousticTable.Append("<tr><th>Inlet (dBA)</th>");
             acousticTable.AppendFormat("<td>{0}</td>", fanData.hz63.ToString());
             acousticTable.AppendFormat("<td>{0}</td>", fanData.hz125.ToString());
             acousticTable.AppendFormat("<td>{0}</td>", fanData.hz250.ToString());
@@ -373,7 +376,7 @@ namespace CFM_Web
 
             powerDataTable.AppendFormat("<tr><th colspan=\"2\" >Motor Data (at STP)</th></tr>").AppendLine();
 
-            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", "normal").AppendLine();
+            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", "STD").AppendLine();
             powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Electrical Supply:", phaseString).AppendLine();
 
             if (fanData.motorDataObject != null)
@@ -477,7 +480,7 @@ namespace CFM_Web
             performanceDataTable.AppendLine("<style>th {text-align: left}</style>");
 
             performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" + fanData.fanObject.partNumber + "</th><th>Required</th><th>Actual</th>");
+            performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" + fanData.fanObject.partNumber + "</th><th style='width:27%;'>Required</th><th>Actual</th>");
             performanceDataTable.AppendLine("</tr>");
 
             performanceDataTable.AppendFormat("<td style='color:#007700' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription );
@@ -562,13 +565,10 @@ namespace CFM_Web
 
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Diameter (mm):", fr.Diameter, fanData.fanObject.diameter);
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (rpm):",
-                 fr.Speed == "0" ? "-" : fr.Speed, fanData.motorDataObject != null ? fanData.motorDataObject.RPM.ToString() : fanData.RPM.ToString()).AppendLine();
-            // fr.Speed = "0" ? "-" : fr.Speed, fanData.motorDataObject != null ? fanData.motorDataObject.pole.ToString("0") + "pole" : fanData.RPM.ToString("0")).AppendLine();
-
+           
             if (fanData.motorDataObject == null)
             {
-                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (rpm):",
+                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (RPM):",
                     fr.Speed == "0" ? "-" : fr.Speed, 
                     fanData.RPM.ToString()
                     ).AppendLine();
@@ -576,7 +576,7 @@ namespace CFM_Web
             }
             else
             {
-                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (rpm):",
+                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Fan Speed (RPM):",
                     fr.Speed == "0" ? "-" : fr.Speed, fanData.RPM.ToString(),
                     fanData.motorDataObject.pole.ToString("0") + "pole"
                     ).AppendLine();
@@ -605,9 +605,9 @@ namespace CFM_Web
             }
 
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Power phase (ph):", frphaseString, phaseString).AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Elec. Supply (ph/V/Hz):", frphaseString, phaseString).AppendLine();
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Sound pr. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Sound Pr. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
 
 
             // Motor
@@ -622,17 +622,17 @@ namespace CFM_Web
             {
                 if (defaultmotorkW != fanData.motorDataObject.kw)
                 {
-                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (standard):", "", defaultmotorkW).AppendLine();
-                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (upgraded):", "", fanData.motorDataObject.kw).AppendLine();
+                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (standard) (kW):", "", defaultmotorkW).AppendLine();
+                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (upgraded) (kW):", "", fanData.motorDataObject.kw).AppendLine();
                 }
                 else
                 {
-                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power:", "", fanData.motorkW).AppendLine();
+                    performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (kW):", "", fanData.motorkW).AppendLine();
                 }
             }
             else
             {
-                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power:", "", fanData.motorkW).AppendLine();
+                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (kW):", "", fanData.motorkW).AppendLine();
             }
 
 
@@ -642,7 +642,7 @@ namespace CFM_Web
                 bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
             }
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", fr.BladeMaterial, bladeMaterial);
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData.angle);
+            // performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData.angle);
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Ancillaries", fr.Ancillaries, "");
 
             // Spacer row
