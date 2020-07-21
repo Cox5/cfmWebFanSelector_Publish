@@ -276,8 +276,8 @@ namespace CFM_Web
         private string buildAcousticTable(FansBackend.Entities.FanData fanData)
         {   
             System.Text.StringBuilder acousticTable = new System.Text.StringBuilder();
-            acousticTable.AppendLine("<table id=\"acousticTable\" class=\"dataTable\">");
-            acousticTable.AppendFormat("<tr><th colspan='9' >Sound Data</th><th>Weighted</th><th>SPL@3m</th></tr>");
+            acousticTable.AppendLine("<table id='acousticTable' class='dataTable'>");
+            acousticTable.AppendFormat("<tr><th colspan='9' style='text-align: center' >Sound Power Level SWL (dBA)</th><th>Weighted</th><th>SPL@3m</th></tr>");
             acousticTable.AppendLine("<tr><th>Spectrum (Hz)</th><th style='width:50px'>63</th><th style='width:50px'>125</th><th style='width:50px'>250</th>" +
                 "<th style='width:50px'>500</th><th style='width:50px'>1k</th><th style='width:50px'>2k</th><th style='width:50px'>4k</th>" +
                 "<th style='width:50px'>8k</th><th style='width:50px'>SWL (dBA)</th><th style='width:50px'>(dBA)</th></tr>");

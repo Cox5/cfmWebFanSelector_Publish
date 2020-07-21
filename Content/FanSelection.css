@@ -297,6 +297,10 @@ body {
         border: 1px solid black;
         background-color: white;
     }
+#acousticTable td, #acousticTable th {
+	text-align: center;
+	border: none;
+}
 
 #fanTable {
     top: 0;
