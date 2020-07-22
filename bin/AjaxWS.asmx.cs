@@ -42,7 +42,10 @@ namespace CFM_Web
             var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
             var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
             double defaultmotorkW = fanData.motorkW;
-            fanData.motorID = motorid;
+            if (motorid != -1)
+            {
+                fanData.motorID = motorid;
+            }
 
             // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
             if (addairflow > 0)
@@ -182,24 +185,28 @@ namespace CFM_Web
             pdfData.PowerCurveSVG = selectedFanData.powerCurve;
 
 
-            // The motor might have been upgraded, so don't rely on fandata.motor*
-            // and fanData.motorDataObject does not have full load current
 
-            MotorData motor = new MotorData();
-            motor = DB.MotorDBController.FindMotorById(motorid);
 
             pdfData.MotorType =  fr.MotorType; // check this out later - from FanReference
-            pdfData.MotorPower = Convert.ToString(motor.Kw);
-            pdfData.CurrentFLC = Convert.ToString(motor.FullLoadAmps);
-            pdfData.MotorSpeed = Convert.ToString(motor.RPM);
-            if (fanData.motorDataObject != null)
+
+            // If motor has been upgraded
+            // The motor might have been upgraded, so don't rely on fandata.motor*
+            // and fanData.motorDataObject does not have full load current
+            if (motorid != -1)
             {
+                MotorData motor = new MotorData();
+                motor = DB.MotorDBController.FindMotorById(motorid);
+                pdfData.MotorPower = Convert.ToString(motor.Kw);
+                pdfData.CurrentFLC = Convert.ToString(motor.FullLoadAmps);
+                pdfData.MotorSpeed = Convert.ToString(motor.RPM);
                 pdfData.MotorFrame = motor.Frame;
             }
-
-            
-
-
+            else
+            {
+                pdfData.MotorPower = Convert.ToString(fanData.motorkW);
+                pdfData.CurrentFLC = Convert.ToString(fanData.motorAmps);
+                pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
+            }
 
             pdfData.Hz63 = Convert.ToString(fanData.hz63);
             pdfData.Hz125 = Convert.ToString(fanData.hz125);
