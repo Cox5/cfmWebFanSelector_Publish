@@ -12,6 +12,10 @@
         <asp:ListItem Value="Yes">With impeller defined (built up fans)</asp:ListItem>
         <asp:ListItem Value="No">Without impeller defined</asp:ListItem>
     </asp:DropDownList>
+        <asp:DropDownList ID="ddAngle" runat="server">
+        <asp:ListItem Value="Yes">With angles like (50)</asp:ListItem>
+        <asp:ListItem Value="No">Without angles like (50)</asp:ListItem>
+    </asp:DropDownList>
            <asp:Button ID="btnDeleteFan" class="button-main primary-btn"  runat="server" Visible="true" Text="List fans" OnClick="BtnDeleteFan_click" />
             <asp:Button ID="btnConfirmDelete" class="button-main primary-btn"  runat="server" Visible="false" Text="Confirm Delete" OnClick="BtnConfirmDelete_click" />
 </div>
