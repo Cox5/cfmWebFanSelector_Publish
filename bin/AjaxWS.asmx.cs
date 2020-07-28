@@ -198,15 +198,15 @@ namespace CFM_Web
                 motor = DB.MotorDBController.FindMotorById(motorid);
                 pdfData.MotorPower = Convert.ToString(motor.Kw);
                 pdfData.CurrentFLC = Convert.ToString(motor.FullLoadAmps);
-                pdfData.MotorSpeed = Convert.ToString(motor.RPM);
                 pdfData.MotorFrame = motor.Frame;
             }
             else
             {
                 pdfData.MotorPower = Convert.ToString(fanData.motorkW);
                 pdfData.CurrentFLC = Convert.ToString(fanData.motorAmps);
-                pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
+                
             }
+            pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
 
             pdfData.Hz63 = Convert.ToString(fanData.hz63);
             pdfData.Hz125 = Convert.ToString(fanData.hz125);
@@ -299,10 +299,35 @@ namespace CFM_Web
             acousticTable.AppendFormat("<td>{0}</td>", fanData.hz4k.ToString());
             acousticTable.AppendFormat("<td>{0}</td>", fanData.hz8k.ToString());
             acousticTable.AppendFormat("<td>{0}</td>", fanData.totalLwAtotal.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.SPL3m.ToString());
+
+
+            // 
+            acousticTable.AppendFormat("<td>{0}</td>", getSPL3m(fanData));
+
+
             acousticTable.AppendLine("</tr>");
             acousticTable.AppendLine("</table>");
             return acousticTable.ToString();
+        }
+
+        /// <summary>
+        /// Find the quiest row in datapoint list for SPL3m
+        /// </summary>
+        /// <param name="fanData"></param>
+        /// <returns></returns>
+        private string getSPL3m(FansBackend.Entities.FanData fanData)
+        {
+            int noise = (int)fanData.SPL3m + 21; // Add 21dBA temporarily
+            // get min of fandata.DatapointList.noise (which does not have 21 dBA subtracted)
+            for (int i = 0; i < fanData.dataPointList.Count; i++)
+            {
+                if (fanData.dataPointList[i].noise < noise && fanData.dataPointList[i].noise > 0)
+                {
+                    noise = fanData.dataPointList[i].noise;
+                }
+            }
+            noise = noise - 21;
+            return noise.ToString();
         }
         /// <summary>
         /// Builds a HTML table with the nominal data in it.
@@ -333,7 +358,7 @@ namespace CFM_Web
 
             nominalDataTable.AppendLine("<table id=\"nominalDataTable\" class=\"dataTable\">");
             nominalDataTable.Append("<tr>");
-            nominalDataTable.AppendFormat("<th>Catalogue Code:</th><td colspan=\"3\" >{0} {1}</td></td>", fanData.fanObject.partNumber, fanData.fanObject.rangeObject.rangeName);
+            nominalDataTable.AppendFormat("<th>Catalogue Code:</th><td colspan=\"3\" >{0}</td></td>", fanData.fanObject.partNumber);
             nominalDataTable.AppendLine("</tr>");
             nominalDataTable.Append("<tr>");
             nominalDataTable.AppendFormat("<th>Diameter (mm):</th><td>{0}</td><th>Pitch Angle</th><td>{1}</td>", fanData.fanObject.diameter, fanData.angle.Trim().Length > 0 ? fanData.angle : "&nbsp;");
