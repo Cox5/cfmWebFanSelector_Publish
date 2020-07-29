@@ -92,8 +92,16 @@
                 </span>
             </div>
         </asp:LinkButton>
+        <asp:LinkButton CommandName="List Imported Fans" runat="server" Text="List Imported Fans" class="sp-button" OnClick="btnListImports_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">List Imported Fans</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
 
-
+        
         <br />
         <a href="Dashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to dashboard</a>
     
