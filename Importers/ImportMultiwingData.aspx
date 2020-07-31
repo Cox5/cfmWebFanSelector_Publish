@@ -12,6 +12,7 @@
 
         <asp:FileUpload ID="FileUploadControl" runat="server" />
         <asp:Button runat="server" ID="UploadButton" Text="Upload .ZIP" OnClick="UploadButton_Click" class="button-main primary-btn"/>
+        <asp:Button runat="server" ID="btnNew" Text="New Upload" OnClick="btnNew_Click" class="button-main primary-btn" Visible="false"/>
         <br />
         <asp:Label ID="lblMessage" runat="server"></asp:Label>
         <br />
