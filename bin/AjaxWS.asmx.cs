@@ -27,7 +27,7 @@ namespace CFM_Web
         private string CONST_IMAGE_UNAVALIABLE = "images/FanImageUnavailable.jpg";
 
         public static FanDataForPDF pdfData = new FanDataForPDF();
-        
+
         /// <summary>
         /// Gets other data about the selected fan.
         /// </summary>
@@ -55,11 +55,11 @@ namespace CFM_Web
                 double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
 
                 // Retrieve the default motor info into fan.motorDataObject, for later comparison
-                fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);     
+                fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);
 
                 double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
                 double newImpellerMotorConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow) * PeakPowerIncreaseFactor;
-                double NewMotorRatedPower = newImpellerMotorConsPower / 1.1; 
+                double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
 
                 // if DefaultMotorPower > NewMotorRatedPower then keep Default Motor
                 // if DefaultMotorPower < NewMotorRatedPower then find smallest motor from motor table which can do NewMotorRatedPower
@@ -136,17 +136,50 @@ namespace CFM_Web
 
             // If we have additional airflow, scale up the static pressure.
 
-            fanData = FansBackend.BusinessLogic.FanController.FillRestOfFanData(fanData, airflow, staticPressure);
-          
+            // FansBackend.BusinessLogic.FanController.FillRestOfFanData gets the acoustic data from somewhere???!!! and ruins it.
+            // Save the correct acoustic data, and replace it afterwards.
+            // FanData savedFandata = new FanData();
+            // savedFandata = fanData; // Does not work - makes a shallow copy which reflects subsequent changes in fanData
+
+            /* savedFandata.hz63 = fanData.hz63;
+            savedFandata.hz125 = fanData.hz125;
+            savedFandata.hz250 = fanData.hz250;
+            savedFandata.hz500 = fanData.hz500;
+            savedFandata.hz1k = fanData.hz1k;
+            savedFandata.hz2k = fanData.hz2k;
+            savedFandata.hz4k = fanData.hz4k;
+            savedFandata.hz8k = fanData.hz8k;
+            savedFandata.SPL3m = fanData.SPL3m;
+            savedFandata.totalLwAtotal = fanData.totalLwAtotal; */
+
+            // Fill in gaps in acoustic data - Cornerstone fudge which we don't need any more
+            // fanData = FansBackend.BusinessLogic.FanController.FillRestOfFanData(fanData, airflow, staticPressure);
+
+            /* fanData.hz63 = savedFandata.hz63;
+            fanData.hz125 = savedFandata.hz125;
+            fanData.hz250 = savedFandata.hz250;
+            fanData.hz500 = savedFandata.hz500;
+            fanData.hz1k = savedFandata.hz1k;
+            fanData.hz2k = savedFandata.hz2k;
+            fanData.hz4k = savedFandata.hz4k;
+            fanData.hz8k = savedFandata.hz8k;
+            fanData.SPL3m = savedFandata.SPL3m;
+            fanData.totalLwAtotal = savedFandata.totalLwAtotal; */
+
+
+
+
             Tuple<double, double> max = GetDataMax(fanData.dataPointList);
             fanData selectedFanData = new fanData();
             selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
             selectedFanData.powerCurve = FansBackend.Utilities.GraphBuilder.CreatePowerCurveSVG(fan, fanDataID, airflow, staticPressure, divPowerWidth, divPowerHeight, max.Item1, 0);
 
-            if(System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory.ToString() + "images/" + fan.fanImage))
+            if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory.ToString() + "images/" + fan.fanImage))
             {
                 selectedFanData.imageLocation = "images/" + fan.fanImage;
-            }else{
+            }
+            else
+            {
                 selectedFanData.imageLocation = CONST_IMAGE_UNAVALIABLE;
             }
             pdfData.FanImage = selectedFanData.imageLocation;
@@ -187,7 +220,7 @@ namespace CFM_Web
 
 
 
-            pdfData.MotorType =  fr.MotorType; // check this out later - from FanReference
+            pdfData.MotorType = fr.MotorType; // check this out later - from FanReference
 
             // If motor has been upgraded
             // The motor might have been upgraded, so don't rely on fandata.motor*
@@ -204,7 +237,7 @@ namespace CFM_Web
             {
                 pdfData.MotorPower = Convert.ToString(fanData.motorkW);
                 pdfData.CurrentFLC = Convert.ToString(fanData.motorAmps);
-                
+
             }
             pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
 
@@ -222,6 +255,9 @@ namespace CFM_Web
 
             return selectedFanData;
         }
+            
+        
+        
 
 
 
@@ -302,7 +338,8 @@ namespace CFM_Web
 
 
             // 
-            acousticTable.AppendFormat("<td>{0}</td>", getSPL3m(fanData));
+            // acousticTable.AppendFormat("<td>{0}</td>", getSPL3m(fanData));
+            acousticTable.AppendFormat("<td>{0}</td>", (fanData.totalLwAtotal-21).ToString());
 
 
             acousticTable.AppendLine("</tr>");
