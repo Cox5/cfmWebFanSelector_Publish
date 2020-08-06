@@ -71,46 +71,7 @@
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
         <div runat="server" id="ProcessPointsContainer">
         </div>
-<form>
-<p>This widget uses javascript to transform this:</p>
-<table border="0">
-	<tr>
-		<td>Where do you come from?</td>
-		<td><input type="text" name="myText_ex" value="Norway" selectBoxOptions="Canada;Denmark;Finland;Germany;Mexico;Norway;Sweden;United Kingdom;United States"></td>
-	</tr>
-	<tr>
-		<td>What is your name?</td>
-		<td><input type="text" name="myText_ex2" value="" selectBoxOptions="Amy;Andrew;Carol;Jennifer;Jim;Tim;Tommy;Vince"></td>
-	</tr>
-</table>
-<p>Into this:</p>
-<table border="0">
-	<tr>
-		<td>Where do you come from?</td>
-		<td><input type="text" name="myText" value="Norway" selectBoxOptions="Canada;Denmark;Finland;Germany;Mexico;Norway;Sweden;United Kingdom;United States"></td>
-	</tr>
-	<tr>
-		<td>What is your name?</td>
-		<td><asp:TextBox ID="txtCountry" value="Norway" class="selectBoxInput" selectBoxOptions="xx"  runat="server"></asp:TextBox></td>
-	</tr>
-</table>
-    <asp:TextBox ID="test" runat="server"></asp:TextBox>
-<p>I.e.: A combination of text- and selectbox. You can type in a value or choose from the list</p>
-<p>The only thing you have to do to make this work is to add an attribute "selectBoxOptions" to one of your text inputs:<br><br>
-&lt;input type="text" name="myText" value="Norway" selectBoxOptions="Canada;Denmark;Finland;Germany;Mexico;Norway;Sweden;United Kingdom;United States">
-<br><br>
-And then simply call a javascript function that creates the editable select box:<br><br>
-&lt;script type="text/javascript"><br>
-createEditableSelect(document.forms[0].myText);<br>
-&lt;/script>
-</form>
 
-<script type="text/javascript">
-createEditableSelect(document.forms[0].myText);
-createEditableSelect(document.forms[0].body_txtCountry);
-</script>
-       
-        <br />
     </div>
 </asp:Content>
 
