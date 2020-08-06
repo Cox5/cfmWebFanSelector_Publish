@@ -130,41 +130,7 @@ namespace CFM_Web
             {
                 fr = ProjectDBController.GetFanReference(projectfanid);
             }
-            // Fetch the fan family data, if there is any, to get info on motor
-            // and related fans.
-            // FanFamily ff = FanDBController.getFanFamilyByFanID(fan.fanID);
 
-            // If we have additional airflow, scale up the static pressure.
-
-            // FansBackend.BusinessLogic.FanController.FillRestOfFanData gets the acoustic data from somewhere???!!! and ruins it.
-            // Save the correct acoustic data, and replace it afterwards.
-            // FanData savedFandata = new FanData();
-            // savedFandata = fanData; // Does not work - makes a shallow copy which reflects subsequent changes in fanData
-
-            /* savedFandata.hz63 = fanData.hz63;
-            savedFandata.hz125 = fanData.hz125;
-            savedFandata.hz250 = fanData.hz250;
-            savedFandata.hz500 = fanData.hz500;
-            savedFandata.hz1k = fanData.hz1k;
-            savedFandata.hz2k = fanData.hz2k;
-            savedFandata.hz4k = fanData.hz4k;
-            savedFandata.hz8k = fanData.hz8k;
-            savedFandata.SPL3m = fanData.SPL3m;
-            savedFandata.totalLwAtotal = fanData.totalLwAtotal; */
-
-            // Fill in gaps in acoustic data - Cornerstone fudge which we don't need any more
-            // fanData = FansBackend.BusinessLogic.FanController.FillRestOfFanData(fanData, airflow, staticPressure);
-
-            /* fanData.hz63 = savedFandata.hz63;
-            fanData.hz125 = savedFandata.hz125;
-            fanData.hz250 = savedFandata.hz250;
-            fanData.hz500 = savedFandata.hz500;
-            fanData.hz1k = savedFandata.hz1k;
-            fanData.hz2k = savedFandata.hz2k;
-            fanData.hz4k = savedFandata.hz4k;
-            fanData.hz8k = savedFandata.hz8k;
-            fanData.SPL3m = savedFandata.SPL3m;
-            fanData.totalLwAtotal = savedFandata.totalLwAtotal; */
 
 
 
@@ -185,7 +151,7 @@ namespace CFM_Web
             pdfData.FanImage = selectedFanData.imageLocation;
 
             selectedFanData.wireElement = getWireFrameDiagram(fanData);
-            selectedFanData.nominalDataTable = buildNominalDataTable(fanData);
+            selectedFanData.nominalDataTable = buildNominalDataTable(fanData, fr);
 
             // Build the table to the left of the graph.
             selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW);
@@ -371,7 +337,7 @@ namespace CFM_Web
         /// </summary>
         /// <param name="fanData"></param>
         /// <returns></returns>
-        private string buildNominalDataTable(FansBackend.Entities.FanData fanData)
+        private string buildNominalDataTable(FansBackend.Entities.FanData fanData, FanReference fr)
         {
             System.Text.StringBuilder nominalDataTable =  new System.Text.StringBuilder();
 
@@ -387,11 +353,23 @@ namespace CFM_Web
                 hubSize = fanData.fanObject.hubObject.diameter.ToString("0.00");
             }
 
+
+            // If fan is fixed fan, use bm_description
+            // If fan is multiwing fan, use blade_material
+            int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
             string bladeMaterial = "n/a";
-            if (fanData.fanObject != null && fanData.fanObject.bladeMaterialObject != null)
+            if (mw == 1)
             {
-                bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+                bladeMaterial = fr.BladeMaterial;
             }
+            else
+            {
+                if (fanData.fanObject != null && fanData.fanObject.bladeMaterialObject != null)
+                {
+                    bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+                }
+            }
+
 
             nominalDataTable.AppendLine("<table id=\"nominalDataTable\" class=\"dataTable\">");
             nominalDataTable.Append("<tr>");
@@ -533,7 +511,6 @@ namespace CFM_Web
 
             performanceDataTable.AppendFormat("<td style='color:#007700' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription );
 
-            
             // Show Airflow and Static pressure reults in the table, for Standard duty
             if (addairflow > 0)
             {
@@ -684,11 +661,22 @@ namespace CFM_Web
             }
 
 
-            string bladeMaterial = "n/a";
-            if (fanData.fanObject != null && fanData.fanObject.bladeMaterialObject != null)
+            // If fan is fixed fan, use bm_description
+            // If fan is multiwing fan, use blade_material
+            int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
+            string bladeMaterial = "";
+            if (mw == 1)
             {
-                bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+                bladeMaterial = fr.BladeMaterial;
             }
+            else
+            {
+                if (fanData.fanObject != null && fanData.fanObject.bladeMaterialObject != null)
+                {
+                    bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+                }
+            }
+
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", fr.BladeMaterial, bladeMaterial);
             // performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData.angle);
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Ancillaries", fr.Ancillaries, "");
