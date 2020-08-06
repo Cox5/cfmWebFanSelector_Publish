@@ -37,190 +37,211 @@ namespace CFM_Web
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public fanData GetFanData(int fanDataID, int projectfanid, int motorid, double airflow, double addairflow, double staticPressure, int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
-
-            // find fan and fandata by fandataid
-            var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
-            var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
-            double defaultmotorkW = fanData.motorkW;
-            if (motorid != -1)
+            try
             {
-                fanData.motorID = motorid;
-            }
-
-            // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
-            if (addairflow > 0)
-            {
-
-                // Adjust motors
-                double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
-
-                // Retrieve the default motor info into fan.motorDataObject, for later comparison
-                fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);
-
-                double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
-                double newImpellerMotorConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow) * PeakPowerIncreaseFactor;
-                double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
-
-                // if DefaultMotorPower > NewMotorRatedPower then keep Default Motor
-                // if DefaultMotorPower < NewMotorRatedPower then find smallest motor from motor table which can do NewMotorRatedPower
-                if (fanData.motorkW < NewMotorRatedPower)
+                // find fan and fandata by fandataid
+                var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
+                var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
+                double defaultmotorkW = fanData.motorkW;
+                if (motorid != -1)
                 {
-                    // Find the smallest sufficient motor with the same number of poles as the standard one.
-                    List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(NewMotorRatedPower, Convert.ToInt32(fanData.motorDataObject.pole));
-
-                    // If the new motor is different, copy its data into the fan object
-                    if (motors[0].Kw != fanData.motorkW)
-                    {
-                        // fan.motorDataObject = motors[0];
-                        fanData.motorID = motors[0].MotorDataId;
-                        fanData.motorAmps = motors[0].FullLoadAmps;
-                        fanData.motorkW = motors[0].Kw;
-                    }
-                    else
-                    {
-                        // If the new motor is the same, scale power up by 10%
-                        fanData.motorAmps = fanData.motorAmps * 1.1;
-                        fanData.motorkW = fanData.motorkW * 1.1;
-                    }
+                    fanData.motorID = motorid;
                 }
 
-            }
-
-            fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
-            fanData.fanObject = fan;
-
-            // If there is no required af or sp, because search by model number,
-            // get an airflow/sp pair from datapoint table so that the output looks
-            // realistic/sensible.
-            if (double.IsNaN(airflow) && double.IsNaN(staticPressure))
-            {
-                // get airflow and st pressure from datapoint table by using JOIN
-                using (var connection = DBController.CreateOpenConnection())
+                // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
+                if (addairflow > 0)
                 {
-                    string query = "SELECT fan.fanID,partNumber,airflow,staticPressure " +
-                        "FROM fan JOIN fandata ON fan.fanID=fandata.fanID " +
-                        "JOIN datapoint ON fandata.fandataID=datapoint.fandataID  WHERE fan.fanID=@fanID;";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                    cmd.Parameters.AddWithValue("@fanID", fan.fanID);
+                    // Adjust motors
+                    double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
 
-                    MySqlDataReader dataReader = cmd.ExecuteReader();
-                    if (dataReader.HasRows)
+                    // Retrieve the default motor info into fan.motorDataObject, for later comparison
+                    fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);
+
+                    double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
+                    double newImpellerMotorConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow) * PeakPowerIncreaseFactor;
+                    double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
+
+                    // if DefaultMotorPower > NewMotorRatedPower then keep Default Motor
+                    // if DefaultMotorPower < NewMotorRatedPower then find smallest motor from motor table which can do NewMotorRatedPower
+                    if (fanData.motorkW < NewMotorRatedPower)
                     {
-                        while (dataReader.Read())
-                        {
-                            //dataReader.Read();
-                            airflow = Convert.ToDouble(dataReader["airflow"]);
-                            staticPressure = Convert.ToDouble(dataReader["staticPressure"]);
+                        // Find the smallest sufficient motor with the same number of poles as the standard one.
+                        List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(NewMotorRatedPower, Convert.ToInt32(fanData.motorDataObject.pole));
 
-                            if (airflow != 0 && staticPressure != 0)
+                        // If the new motor is different, copy its data into the fan object
+                        if (motors[0].Kw != fanData.motorkW)
+                        {
+                            // fan.motorDataObject = motors[0];
+                            fanData.motorID = motors[0].MotorDataId;
+                            fanData.motorAmps = motors[0].FullLoadAmps;
+                            fanData.motorkW = motors[0].Kw;
+                        }
+                        else
+                        {
+                            // If the new motor is the same, scale power up by 10%
+                            fanData.motorAmps = fanData.motorAmps * 1.1;
+                            fanData.motorkW = fanData.motorkW * 1.1;
+                        }
+                    }
+
+                }
+
+                fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
+                fanData.fanObject = fan;
+
+                // If there is no required af or sp, because search by model number,
+                // get an airflow/sp pair from datapoint table so that the output looks
+                // realistic/sensible.
+                if (double.IsNaN(airflow) && double.IsNaN(staticPressure))
+                {
+                    // get airflow and st pressure from datapoint table by using JOIN
+                    using (var connection = DBController.CreateOpenConnection())
+                    {
+                        string query = "SELECT fan.fanID,partNumber,airflow,staticPressure " +
+                            "FROM fan JOIN fandata ON fan.fanID=fandata.fanID " +
+                            "JOIN datapoint ON fandata.fandataID=datapoint.fandataID  WHERE fan.fanID=@fanID;";
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                        cmd.Parameters.AddWithValue("@fanID", fan.fanID);
+
+                        MySqlDataReader dataReader = cmd.ExecuteReader();
+                        if (dataReader.HasRows)
+                        {
+                            while (dataReader.Read())
                             {
-                                break;
+                                //dataReader.Read();
+                                airflow = Convert.ToDouble(dataReader["airflow"]);
+                                staticPressure = Convert.ToDouble(dataReader["staticPressure"]);
+
+                                if (airflow != 0 && staticPressure != 0)
+                                {
+                                    break;
+                                }
                             }
                         }
                     }
                 }
+
+                // Fetch fan Reference parameters from database by project fan id
+                // So that data can be added to HTML table in buildPerformanceDataTable()
+                FanReference fr = null;
+
+                if (projectfanid > 0)
+                {
+                    fr = ProjectDBController.GetFanReference(projectfanid);
+                } else
+                {
+                    throw new System.ArgumentException("Showing details for fans outstide of projects is not supported");
+                }
+
+
+                Tuple<double, double> max = GetDataMax(fanData.dataPointList);
+                fanData selectedFanData = new fanData();
+                selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
+                selectedFanData.powerCurve = FansBackend.Utilities.GraphBuilder.CreatePowerCurveSVG(fan, fanDataID, airflow, staticPressure, divPowerWidth, divPowerHeight, max.Item1, 0);
+
+                if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory.ToString() + "images/" + fan.fanImage))
+                {
+                    selectedFanData.imageLocation = "images/" + fan.fanImage;
+                }
+                else
+                {
+                    selectedFanData.imageLocation = CONST_IMAGE_UNAVALIABLE;
+                }
+                pdfData.FanImage = selectedFanData.imageLocation;
+
+                selectedFanData.wireElement = getWireFrameDiagram(fanData);
+                selectedFanData.nominalDataTable = buildNominalDataTable(fanData, fr);
+
+                // Build the table to the left of the graph.
+                selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW);
+                selectedFanData.fanName = fan.partNumber;
+                selectedFanData.powerDataTable = buildPowerDataTable(fanData, airflow, staticPressure);
+                selectedFanData.acousticTable = buildAcousticTable(fanData);
+
+                FanSelection.PartNumber = fan.partNumber;
+                FanSelection.FanDataID = fanData.fanDataID;
+
+                // Set fan data for PDF generate process
+                pdfData.FanCode = fan.partNumber;
+                pdfData.Volume = Convert.ToString(airflow);
+                pdfData.StaticPressure = Convert.ToString(staticPressure);
+
+                if (fanData.fanObject != null && fanData.fanObject.rangeObject != null && fanData.fanObject.rangeObject.installationTypeObject != null)
+                {
+                    pdfData.InstallationCategory = fanData.fanObject.rangeObject.installationTypeObject.description;
+                }
+
+                pdfData.Temperature = String.Empty;
+                pdfData.Altitude = String.Empty;
+
+                pdfData.FanDataType = String.Empty;
+                pdfData.FanDataDiameter = Convert.ToString(fan.diameter);
+                pdfData.FanDataSpeed = Convert.ToString(fanData.RPM);
+                pdfData.FanDataMass = Convert.ToString(fanData.mass);
+
+                pdfData.PerformanceCurveSVG = selectedFanData.performanceCurve;
+                pdfData.PowerCurveSVG = selectedFanData.powerCurve;
+
+
+
+
+                pdfData.MotorType = fr.MotorType; // check this out later - from FanReference
+
+                // If motor has been upgraded
+                // The motor might have been upgraded, so don't rely on fandata.motor*
+                // and fanData.motorDataObject does not have full load current
+                if (motorid != -1)
+                {
+                    MotorData motor = new MotorData();
+                    motor = DB.MotorDBController.FindMotorById(motorid);
+                    pdfData.MotorPower = Convert.ToString(motor.Kw);
+                    pdfData.CurrentFLC = Convert.ToString(motor.FullLoadAmps);
+                    pdfData.MotorFrame = motor.Frame;
+                }
+                else
+                {
+                    pdfData.MotorPower = Convert.ToString(fanData.motorkW);
+                    pdfData.CurrentFLC = Convert.ToString(fanData.motorAmps);
+
+                }
+                pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
+
+                pdfData.Hz63 = Convert.ToString(fanData.hz63);
+                pdfData.Hz125 = Convert.ToString(fanData.hz125);
+                pdfData.Hz250 = Convert.ToString(fanData.hz250);
+                pdfData.Hz500 = Convert.ToString(fanData.hz500);
+                pdfData.Hz1K = Convert.ToString(fanData.hz1k);
+                pdfData.Hz2K = Convert.ToString(fanData.hz2k);
+                pdfData.Hz4K = Convert.ToString(fanData.hz4k);
+                pdfData.Hz8K = Convert.ToString(fanData.hz8k);
+                pdfData.dBW = Convert.ToString(fanData.totalLwAtotal);
+                pdfData.dBA3m = Convert.ToString(fanData.SPL3m);
+
+
+                return selectedFanData;
             }
-
-            // Fetch fan Reference parameters from database by project fan id
-            // So that data can be added to HTML table in buildPerformanceDataTable()
-            FanReference fr = null;
-
-            if (projectfanid > 0)
+            catch (Exception e)
             {
-                fr = ProjectDBController.GetFanReference(projectfanid);
+                fanData f = new fanData();
+
+                f.performanceCurve = "An error occurred during page generation. The error was:<br />" + e.Message;
+                f.powerCurve = "";
+                f.imageLocation = "";
+                f.wireElement = "";
+                f.acousticTable = "";
+                f.nominalDataTable = "";
+                f.performanceDataTable = "";
+                f.powerDataTable = "";
+                f.fanName = "";
+                return f;
             }
+            
 
-
-
-
-
-            Tuple<double, double> max = GetDataMax(fanData.dataPointList);
-            fanData selectedFanData = new fanData();
-            selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
-            selectedFanData.powerCurve = FansBackend.Utilities.GraphBuilder.CreatePowerCurveSVG(fan, fanDataID, airflow, staticPressure, divPowerWidth, divPowerHeight, max.Item1, 0);
-
-            if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory.ToString() + "images/" + fan.fanImage))
-            {
-                selectedFanData.imageLocation = "images/" + fan.fanImage;
-            }
-            else
-            {
-                selectedFanData.imageLocation = CONST_IMAGE_UNAVALIABLE;
-            }
-            pdfData.FanImage = selectedFanData.imageLocation;
-
-            selectedFanData.wireElement = getWireFrameDiagram(fanData);
-            selectedFanData.nominalDataTable = buildNominalDataTable(fanData, fr);
-
-            // Build the table to the left of the graph.
-            selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW);
-            selectedFanData.fanName = fan.partNumber;
-            selectedFanData.powerDataTable = buildPowerDataTable(fanData, airflow, staticPressure);
-            selectedFanData.acousticTable = buildAcousticTable(fanData);
-
-            FanSelection.PartNumber = fan.partNumber;
-            FanSelection.FanDataID = fanData.fanDataID;
-
-            // Set fan data for PDF generate process
-            pdfData.FanCode = fan.partNumber;
-            pdfData.Volume = Convert.ToString(airflow);
-            pdfData.StaticPressure = Convert.ToString(staticPressure);
-
-            if (fanData.fanObject != null && fanData.fanObject.rangeObject != null && fanData.fanObject.rangeObject.installationTypeObject != null)
-            {
-                pdfData.InstallationCategory = fanData.fanObject.rangeObject.installationTypeObject.description;
-            }
-
-            pdfData.Temperature = String.Empty;
-            pdfData.Altitude = String.Empty;
-
-            pdfData.FanDataType = String.Empty;
-            pdfData.FanDataDiameter = Convert.ToString(fan.diameter);
-            pdfData.FanDataSpeed = Convert.ToString(fanData.RPM);
-            pdfData.FanDataMass = Convert.ToString(fanData.mass);
-
-            pdfData.PerformanceCurveSVG = selectedFanData.performanceCurve;
-            pdfData.PowerCurveSVG = selectedFanData.powerCurve;
-
-
-
-
-            pdfData.MotorType = fr.MotorType; // check this out later - from FanReference
-
-            // If motor has been upgraded
-            // The motor might have been upgraded, so don't rely on fandata.motor*
-            // and fanData.motorDataObject does not have full load current
-            if (motorid != -1)
-            {
-                MotorData motor = new MotorData();
-                motor = DB.MotorDBController.FindMotorById(motorid);
-                pdfData.MotorPower = Convert.ToString(motor.Kw);
-                pdfData.CurrentFLC = Convert.ToString(motor.FullLoadAmps);
-                pdfData.MotorFrame = motor.Frame;
-            }
-            else
-            {
-                pdfData.MotorPower = Convert.ToString(fanData.motorkW);
-                pdfData.CurrentFLC = Convert.ToString(fanData.motorAmps);
-
-            }
-            pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
-
-            pdfData.Hz63 = Convert.ToString(fanData.hz63);
-            pdfData.Hz125 = Convert.ToString(fanData.hz125);
-            pdfData.Hz250 = Convert.ToString(fanData.hz250);
-            pdfData.Hz500 = Convert.ToString(fanData.hz500);
-            pdfData.Hz1K = Convert.ToString(fanData.hz1k);
-            pdfData.Hz2K = Convert.ToString(fanData.hz2k);
-            pdfData.Hz4K = Convert.ToString(fanData.hz4k);
-            pdfData.Hz8K = Convert.ToString(fanData.hz8k);
-            pdfData.dBW = Convert.ToString(fanData.totalLwAtotal);
-            pdfData.dBA3m = Convert.ToString(fanData.SPL3m);
-
-
-            return selectedFanData;
         }
+            
+            
             
         
         
