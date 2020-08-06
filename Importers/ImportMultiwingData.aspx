@@ -21,7 +21,7 @@
         <div runat="server" id="FilesListContainer">
         </div>
         
-
+        <asp:Button ID="btnAll" class="button-main primary-btn"  runat="server" Visible="true" Text="Process All uploaded .XLSX files" OnClick="btnAll_Click" />
 
         <h4> Click the button to process the extracted XLSX files.</h4>
         <p> <em>Note:</em> processing time for a zip file with 8 files, each with 31 impeller variants/angles (248 impellers) is approximately  </p>
@@ -31,8 +31,6 @@
         </ul>
         <asp:Button ID="btnParse" class="button-main primary-btn"  runat="server" Visible="false" Text="Process .XLSX files" OnClick="btnParse_Click" />
 
-        <asp:Button ID="btnAll" class="button-main primary-btn"  runat="server" Visible="true" Text="Process All uploaded .XLSX files" OnClick="btnAll_Click" />
-       
         <br />
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
 
