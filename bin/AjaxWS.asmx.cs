@@ -595,7 +595,7 @@ namespace CFM_Web
                 double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
                 double newImpellerMotorPeakPower = ImpellerMotorPeakPower * PeakPowerIncreaseFactor;
                 
-                double newImpellerMotorConsPower = fanData.intercept.power * PeakPowerIncreaseFactor;
+                double newImpellerMotorConsPower = dpIntercept.power * PeakPowerIncreaseFactor;
                 double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
 
                 workings += "PeakPowerIncreaseFactor: " + PeakPowerIncreaseFactor.ToString() + "<br />\n";
