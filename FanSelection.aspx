@@ -134,13 +134,22 @@
                             <tr>
                                 <td>Sound Pressure (dBA)</td>
                                 <td>
-                                    <asp:Label id="lblSoundPressure" Text="" runat="server" />
+                                    <asp:Label id="lblSoundPressure" Text="" runat="server" /><br />
                                 </td>
-                            </tr>
+                            </tr>                            
+                            <%--  <tr>
+                                <td>Max sound for search (dBA)</td>
+                                <td>
+                                     <asp:DropDownList ID="ddSound" runat="server" CssClass="ddlInput">
+                                    </asp:DropDownList>
+                                </td>
+                              </tr>
+                            --%>
                             <tr>
                                 <td>Motor type</td>
                                 <td>
                                     <asp:Label id="lblMotorType" Text="" runat="server" />
+
                                 </td>
                             </tr>
                             <tr>
@@ -163,14 +172,14 @@
                             <tr>
                                 <td colspan="2" style="padding-top: 10px; padding-bottom:0px"> Selection Envelope</td>
                             </tr>
-                            <tr>
+                            <%-- <tr>
                                 <td style="mpadding-bottom:0px">Below:
                                 </td>
                                 <td style="padding-bottom:0px">
                                     <asp:TextBox ID="txtLowerLimit" Width="40" Text="0" runat="server" />
                                     %
                                 </td>
-                            </tr>
+                            </tr> --%>
                             <tr>
                                 <td style="padding-bottom:0px">Above: </td>
                                 <td style="padding-bottom:0px">
