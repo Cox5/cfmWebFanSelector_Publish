@@ -7,6 +7,7 @@
         #ddFanType1:focus {
             height:200px;
         } 
+        .oem_row { visibility: hidden; display:none;}
     </style>
     <div class="content-wrapper" style ="max-width: 700px; margin: auto auto">
 
@@ -24,6 +25,14 @@
                     </div>
             </div>
         <table class="table table-form" >
+           <td class="small-td">Fan Manufacturer</td>
+                <td class="small-td">
+                    <asp:DropDownList ID="ddFanManufacturer" runat="server" AutoPostBack="true"  OnSelectedIndexChanged="ddFanManufacturer_Change">
+                        <asp:ListItem value="CFM">CFM</asp:ListItem>
+                        <asp:ListItem Value="Other">Other</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
             <tr>
                 <td class="small-td" style="width: 30%">Fan Reference</td>
                 <td class="small-td">
@@ -69,7 +78,8 @@
             <tr>
                 <td class="small-td">Static Pressure (Pa)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtStPressure" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtStPressure" runat="server"  AutoCompleteType="Disabled" />
+                </td>
                 <td class="small-td">
                     <asp:RequiredFieldValidator class="mt-small"  ID="StPressRequiredValidator" runat="server"  
                         ErrorMessage="Static Pressure is empty" ForeColor="Red" ControlToValidate="txtStPressure"></asp:RequiredFieldValidator>
@@ -95,12 +105,7 @@
                     <asp:DropDownList ID="ddPhase1" runat="server" ></asp:DropDownList>
                 </td>
             </tr>
-            <tr>
-                <td class="small-td">Sound Pressure (dBA @ 3m)</td>
-                <td class="small-td">
-                    <asp:TextBox ID="txtSoundPressure" runat="server" AutoCompleteType="Disabled" /></td>
-                </td>
-            </tr>
+
             <tr>
                 <td class="small-td">Motor Type</td>
                 <td class="small-td">
@@ -114,6 +119,7 @@
                     </asp:DropDownList>
                 </td>
             </tr>
+
             <tr>
                 <td class="small-td">Ancillaries</td>
                 <td class="small-td">
@@ -121,6 +127,137 @@
                     </asp:DropDownList>
                 </td>
             </tr>
+
+            <tr ID="oem_row1" runat="server" visible="false"><td colspan="2"><strong>OEM Fan extra info</strong></td></tr>
+            <tr ID="oem_row2" runat="server"  visible="false">
+                <td class="small-td">Description</td>
+                <td class="small-td">
+                    <asp:TextBox  ID="txtDescription" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+           <tr ID="oem_row16" runat="server"  visible="false">
+                <td class="small-td">Angle</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtAngle" runat="server"  AutoCompleteType="Disabled" />
+                </td>
+            </tr>
+            <tr ID="oem_row17" runat="server"  visible="false">
+                <td class="small-td">Actual Airflow</td>
+                <td class="small-td">
+                    <asp:TextBox  ID="txtAcAF" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row18" runat="server"  visible="false">
+                <td class="small-td">Actual Airflow</td>
+                <td class="small-td">
+                    <asp:TextBox  ID="txtAcSP" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row3" runat="server" visible="false">
+                <td class="small-td">Fan Weight</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtFanWeight" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>		
+            <tr ID="oem_row4" runat="server" visible="false">
+                <td class="small-td">Motor Power</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtMotorPower" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row5" runat="server" visible="false">
+                <td class="small-td">Motor AOM Power</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtMotorAOMPower" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row6" runat="server" visible="false">
+                <td class="small-td">Motor FLC</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtMotorFLC" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row6b" runat="server" visible="false">
+                <td class="small-td">Motor AOM FLC</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtMotorAOMFLC" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row7" runat="server" visible="false">
+                <td class="small-td">Sound 63Hz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz63" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row8" runat="server" visible="false">
+                <td class="small-td">Sound 125Hz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz125" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+
+            <tr ID="oem_row9" runat="server" visible="false">
+                <td class="small-td">Sound 250Hz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz250" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row10" runat="server" visible="false">
+                <td class="small-td">Sound 500Hz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz500" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>		
+            <tr ID="oem_row11" runat="server" visible="false">
+                <td class="small-td">Sound 1kHz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz1k" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row12" runat="server" visible="false">
+                <td class="small-td">Sound 2kHz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz2k" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row13" runat="server" visible="false">
+                <td class="small-td">Sound 4kHz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz4k" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>			
+            <tr ID="oem_row14" runat="server" visible="false">
+                <td class="small-td">Sound 8kHz</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtHz8k" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+            <tr ID="oem_row15" runat="server" visible="false">
+                <td class="small-td">Sound All Bands</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtAllBands" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
+
+
+
         </table>
         <div class="right-controls mt-medium mr-small">
             <asp:Button ID="btnSave"  class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
