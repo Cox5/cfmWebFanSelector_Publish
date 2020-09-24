@@ -261,6 +261,13 @@
                 <td>
                 </td>
             </tr>
+            <tr ID="oem_row15b" runat="server" visible="false">
+                <td class="small-td">SPL @ 3m (dBA)</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtSpl3m" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
 
 
 
