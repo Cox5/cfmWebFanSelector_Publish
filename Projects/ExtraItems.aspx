@@ -65,6 +65,18 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
+                     <asp:TemplateField  HeaderText="Kg" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" FooterStyle-HorizontalAlign="Center">
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("kg") %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtKg" Text='<%#Eval("kg") %>' runat="server" Enabled="false" CssClass="input-small"></asp:TextBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:Label ID="txtKgFooter" runat="server" AutoPostBack="true"></asp:Label>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="Category" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:Label ID="categoryName" Text='<%#Eval("category_name") %>'  runat="server" ></asp:Label>

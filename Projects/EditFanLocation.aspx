@@ -143,63 +143,69 @@
                 </td>
             </tr>
             <tr ID="oem_row17" runat="server"  visible="false">
-                <td class="small-td">Actual Airflow</td>
+                <td class="small-td">Actual Airflow (l/s)</td>
                 <td class="small-td">
                     <asp:TextBox  ID="txtAcAF" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row18" runat="server"  visible="false">
-                <td class="small-td">Actual Airflow</td>
+                <td class="small-td">Actual Static Pressure (Pa)</td>
                 <td class="small-td">
                     <asp:TextBox  ID="txtAcSP" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row3" runat="server" visible="false">
-                <td class="small-td">Fan Weight</td>
+                <td class="small-td">Fan Weight (kg) </td>
                 <td class="small-td">
                     <asp:TextBox ID="txtFanWeight" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>		
             <tr ID="oem_row4" runat="server" visible="false">
-                <td class="small-td">Motor Power</td>
+                <td class="small-td">Motor Power (kW)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtMotorPower" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row5" runat="server" visible="false">
-                <td class="small-td">Motor AOM Power</td>
+                <td class="small-td">Motor AOM Power (kW)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtMotorAOMPower" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row6" runat="server" visible="false">
-                <td class="small-td">Motor FLC</td>
+                <td class="small-td">Motor FLC (Amps)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtMotorFLC" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row6b" runat="server" visible="false">
-                <td class="small-td">Motor AOM FLC</td>
+                <td class="small-td">Motor AOM FLC (Amps)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtMotorAOMFLC" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
+            <tr ID="oem_row7a" runat="server" visible="false">
+                <td class="small-td"><strong>Sound Power (dBA)</strong></td>
+                <td class="small-td">
+                
+                </td>
+            </tr>
             <tr ID="oem_row7" runat="server" visible="false">
-                <td class="small-td">Sound 63Hz</td>
+                <td class="small-td" align="center">63Hz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz63" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row8" runat="server" visible="false">
-                <td class="small-td">Sound 125Hz</td>
+                <td class="small-td" align="center"> 125Hz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz125" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
@@ -207,49 +213,49 @@
             </tr>
 
             <tr ID="oem_row9" runat="server" visible="false">
-                <td class="small-td">Sound 250Hz</td>
+                <td class="small-td" align="center"> 250Hz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz250" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row10" runat="server" visible="false">
-                <td class="small-td">Sound 500Hz</td>
+                <td class="small-td" align="center"> 500Hz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz500" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>		
             <tr ID="oem_row11" runat="server" visible="false">
-                <td class="small-td">Sound 1kHz</td>
+                <td class="small-td" align="center"> 1kHz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz1k" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row12" runat="server" visible="false">
-                <td class="small-td">Sound 2kHz</td>
+                <td class="small-td" align="center"> 2kHz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz2k" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row13" runat="server" visible="false">
-                <td class="small-td">Sound 4kHz</td>
+                <td class="small-td" align="center"> 4kHz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz4k" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>			
             <tr ID="oem_row14" runat="server" visible="false">
-                <td class="small-td">Sound 8kHz</td>
+                <td class="small-td" align="center"> 8kHz</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtHz8k" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row15" runat="server" visible="false">
-                <td class="small-td">Sound All Bands</td>
+                <td class="small-td">Sound All Bands (dBA)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtAllBands" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
