@@ -44,23 +44,23 @@
                 <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "txtProjectname" ID="RegularExpressionValidator2" ValidationExpression = "^[\s\S]{2,100}$" runat="server" ErrorMessage="Minimum 2 and maximum 100 characters required." ForeColor="Red"></asp:RegularExpressionValidator>
   
                 <tr>
-                    <td class="optional">Address 1</td>
+                    <td class="optional">Address</td>
                     <td class="optional">
                         <asp:TextBox ID="txtAddress1" runat="server" />
                     </td>
                 </tr>
-                <tr>
+                <!-- tr>
                     <td class="optional">Address 2</td>
                     <td class="optional">
                         <asp:TextBox ID="txtAddress2" runat="server" />
                     </td>
-                </tr>
-                <tr>
+                </!-->
+                <!-- tr>
                     <td class="optional">Suburb/City</td>
                     <td class="optional">
                         <asp:TextBox ID="txtSuburb" runat="server" />
                     </td>
-                </tr>
+                </!-->
                 <tr>
                     <td><span style='color: #dd0000'>Country</span></td>
                     <td>
@@ -321,20 +321,18 @@
 
                         </asp:DropDownList>
                     </td>
-                </tr>
-                
-                <tr>
+                </tr>         
+                <!-- tr>
                     <td class="optional">Postcode</td>
                     <td>
                         <asp:TextBox ID="txtPostcode" runat="server" />
                     </td>
-                </tr>
+                </!-->
                 
                 <asp:RequiredFieldValidator class="mt-small" ID="countryReqValidator" runat="server" ErrorMessage="Country field is empty" ForeColor="Red" ControlToValidate="ddlCountry"></asp:RequiredFieldValidator>
 
                 </table>
             </div>
-
 
             <div class="rightcolumn" id="rightCol" runat="server">
                 <br />
@@ -347,7 +345,7 @@
                         </td>
                     </tr>
                     <tr id="trEngDropDown" runat="server">
-                        <td>User's Company</td>
+                        <td>Quote for Company</td>
                         <td>
                             <asp:DropDownList ID="ddlEngComp" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlEngComp_SelectedIndexChanged">
                                 
@@ -356,14 +354,14 @@
                     </tr>
                         
                     <tr id="trConsultingEng" runat="server" >
-                        <td>Project Owner</td>
+                        <td>Attention</td>
                         <td>
                             <asp:TextBox ID="txtConsultingEng" runat="server" />
                         </td>
                     </tr>
 
                     <tr id="trConsEngDropDown" runat="server">
-                        <td>Project Owner</td>
+                        <td>Attention</td>
                         <td>
                             <asp:DropDownList ID="ddlConsEng" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlConsEng_SelectedIndexChanged">
                                 
@@ -373,7 +371,7 @@
                     </tr>
                 
                     <tr id="trSalesConsultant" runat="server" >
-                        <td>Contact</td>
+                        <td>CFM Contact</td>
                         <td>
                             <%--  %><asp:TextBox ID="txtSalesConsultant" runat="server" /> --%>
                             <asp:DropDownList ID="ddlSalesCons" AutoPostBack="true" AppendDataBoundItems="true" runat="server">                              
@@ -389,24 +387,32 @@
                         </td>
                     </tr>
                     <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtQuoteNo" ValidationExpression="([0-9])[0-9]*[.]?[0-9]*" ErrorMessage="Please enter a number" ForeColor="Red"></asp:RegularExpressionValidator>--%>
-                    <tr id="trStatus" runat="server">
+                    <!-- 
+                        < tr id="trStatus" >
                         <td class="optional">Status</td>
                         <td class="optional">
                             <asp:TextBox ID="txtStatus" runat="server" />
                         </td>
-                    </tr>
-                    <tr id="trPriceAdj" runat="server">
+                    < -->
+                    <!-- tr id="trPriceAdj" >
                         <td  class="optional">Price Adjustment</td>
                         <td class="optional">
                             <asp:TextBox ID="txtPriceAdj" runat="server" />
                         </td>
-                    </tr>
+                    </!-->
                     <tr id="tr1" runat="server">
                         <td class="optional">Estimated Delivery Time</td>
                         <td class="optional">
-                            <asp:TextBox ID="txtDelivery" runat="server" size="4" style="width: auto" /> business days
+                            &nbsp;<asp:TextBox ID="txtDeliveryTime" runat="server" size="5" style="width: auto" /> business days
                         </td>
                     </tr>
+                    <tr id="trDelivery" runat="server">
+                        <td  class="optional">Delivery cost (ex GST)</td>
+                        <td class="optional">
+                            $<asp:TextBox ID="txtDeliveryCost" size="5" style="width: auto"  runat="server" />
+                        </td>
+                    </tr>
+
                 </table>
 
                 <p class="validation-msg">
