@@ -322,15 +322,15 @@
                                             <td title="<%=fanData.fanObject.rangeObject.rangeDescription  %>"
                                                  style="text-align: left;width: 10%; overflow: hidden"><%= truncateString(fanData.fanObject.rangeObject.rangeDescription, 15) %></td>
                                             <td style="width: 5%;text-align: center"><%= fanData.fanObject.diameter %></td>
-                                            <td style="width: 5%;text-align: center;"><%= getNoise(fanData) %></td>
-                                            <td style="width: 5%;text-align: center;"><%= fanData.RPM %></td>
-                                            <td style="width: 5%;text-align: center;"><%= getVoltage(fanData.fanObject) %></td>
+                                            <td style="width: 5%;text-align: center;">&nbsp;<%= getNoise(fanData) %></td>
+                                            <td style="width: 5%;text-align: center;">&nbsp;<%= fanData.RPM %></td>
+                                            <td style="width: 5%;text-align: center;">&nbsp;<%= getVoltage(fanData.fanObject) %></td>
                                             <td style="width: 5%;text-align: right;"><%= CalculatePricePercentage(fanData) %></td>
 
                                             <td style="width: 5%;text-align: center;"><%= getMotorkWString(fanData) %></td>
-                                            <td style="width: 5%;text-align: center;"><%= getStringFromDouble(getConsumedPowerOverAirflow(fanData), "0.00") %></td>
-                                            <td style="width: 5%;text-align: center;"><%= getStringFromDouble(getConsumedPowerAtAirflow(fanData), "0.00") %></td>
-                                            <td style="width: 5%;text-align: center;"><%= getEfficiency(fanData) %></td>
+                                            <td style="width: 5%;text-align: center;">&nbsp;<%= getStringFromDouble(getConsumedPowerOverAirflow(fanData), "0.00") %></td>
+                                            <td style="width: 5%;text-align: center;">&nbsp;<%= getStringFromDouble(getConsumedPowerAtAirflow(fanData), "0.00") %></td>
+                                            <td style="width: 5%;text-align: center;">&nbsp;<%= getEfficiency(fanData) %></td>
                                             <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
                                             <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
                                             <!--<td><%= fanData.angle.ToString() %></td> -->

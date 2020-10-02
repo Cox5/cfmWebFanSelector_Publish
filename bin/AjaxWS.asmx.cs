@@ -42,6 +42,7 @@ namespace CFM_Web
                 // find fan and fandata by fandataid
                 var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
                 var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
+
                 double defaultmotorkW = fanData.motorkW;
                 if (motorid != -1)
                 {
@@ -118,7 +119,7 @@ namespace CFM_Web
                                 {
                                     break;
                                 }
-                            }
+                           }
                         }
                     }
                 }
@@ -139,7 +140,15 @@ namespace CFM_Web
                 Tuple<double, double> max = GetDataMax(fanData.dataPointList);
                 fanData selectedFanData = new fanData();
                 selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
-                selectedFanData.powerCurve = FansBackend.Utilities.GraphBuilder.CreatePowerCurveSVG(fan, fanDataID, airflow, staticPressure, divPowerWidth, divPowerHeight, max.Item1, 0);
+                
+                if (fanData.fanObject.rangeID == 32 || fanData.fanObject.rangeID == 33) // Skip the power curve if a Roof Cowl
+                {
+                    selectedFanData.powerCurve = "";
+                }
+                else
+                {
+                    selectedFanData.powerCurve = FansBackend.Utilities.GraphBuilder.CreatePowerCurveSVG(fan, fanDataID, airflow, staticPressure, divPowerWidth, divPowerHeight, max.Item1, 0);
+                }
 
                 if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory.ToString() + "images/" + fan.fanImage))
                 {
