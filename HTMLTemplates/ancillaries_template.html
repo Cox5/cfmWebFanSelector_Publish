@@ -1,0 +1,295 @@
+<html>
+
+    <head>
+        <style>
+			
+			* {
+				box-sizing: border-box;
+				font-family: Verdana, sans-serif;
+			}
+
+			/* Create four equal columns that floats next to each other */
+			.column {
+				float: left;
+				width: 25%;
+				padding: 0;
+				font-size: 13px;
+			}
+
+			.clearfix {
+ 				 overflow: auto;
+			}
+
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+
+			img.logo {
+				width: 60%;
+				height: auto;
+				margin-bottom: 10px;
+				float: right;
+				display: block;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+
+			.footer img {
+				width: 99%;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			.right {
+				text-align: right;
+			}
+			.left {
+				text-align: left;
+			}
+
+			.huge {
+				width: 45%;
+			}
+
+			.big {
+				width: 25%;
+			}
+
+			.small {
+				width: 10%;
+			}
+
+			#project_fan_table {
+				font-size: 13px;
+				clear: both;
+			}
+			
+			th {
+				text-align: left;
+			}
+			.cover_table {
+				width: 100%;
+				font-size: 14px;
+				padding-top: 4px;
+				padding-bottom: 4px;
+				border-collapse: separate; 
+                border-spacing:0 15px; 
+			}
+			
+			.cover-table tr {
+				vertical-align:top; 
+			}
+			h2 {
+				font-weight: 600;
+				line-height: 1;
+			}
+
+			h3 {
+				font-size: 20px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			h4 {
+				font-size: 18px;
+				line-height: 0.7;
+				font-weight: 500;
+			}
+
+			p {
+				margin: 8px 0;
+			}
+
+			.heading-wrapper {
+				padding-top: 15px;
+				padding-bottom: 10px;
+				text-align: center;
+
+			}
+
+			.center-item {
+				margin: 0 auto;
+			}
+
+			/* Helpers */
+			.mt-small {
+				margin-top: 15px;
+			}
+
+			.mt-medium {
+				margin-top: 30px;
+				font-size: 14px;
+			}
+
+			.mb-medium {
+				margin-bottom: 30px;
+			}
+
+			.bold {
+				font-weight: 600;
+			}
+
+			.quotenum {
+				font-weight: 600;
+				font-size: 16px;
+			}
+
+
+			#quotation_table {
+				width: 85%;
+				border-collapse: collapse;
+				font-size: 14px;
+			}
+
+			#quotation_table thead {
+				font-weight: 600;
+			}
+
+			#quotation_table td {
+				padding: 5px;
+			}
+
+			.bottom-border {
+				border-bottom: 1px solid gray;
+			}
+
+			#quotation_table .bottom-border.red {
+				border-bottom: 2px solid red;
+			}
+
+			#quotation_table .quantity {
+				width: 15%;
+				text-align: center;
+			}
+
+			#quotation_table .cost {
+				width: 17%;
+				text-align: right;
+			}
+
+			#quotation_table .cost-sm {
+				width: 15%;
+				text-align: right;
+			}
+
+			#quotation_table .separator {
+				height: 50px;
+				vertical-align: bottom;
+			}
+
+			#quotation_table .separator-small {
+				height: 40px;
+				vertical-align: bottom;
+			}
+
+			#quotation_table .hl {
+				font-weight: 600;
+
+			}
+
+			.comments {
+				margin-bottom: 45px;
+				margin-top: 45px;
+				width: 100%;
+			}
+
+			.comments p {
+				line-height: 0.5;
+				font-size: 14px;
+			}
+			.comments li {
+				font-size: 14px;
+			}
+			
+			ul {
+				padding-left: 10px;
+				margin-top: 0px;
+			}
+			ul.pdfoptions li{
+				width:33.333333%; 
+				float:left;
+			}
+			li:before {
+				content: '\2022 ';
+				font-size: 16px !important;
+				margin-right: 5px;
+			} 
+
+			li {
+				/* margin-top: 7px;*/
+				padding-left: 1em;
+				text-indent: -1em;
+			}
+			
+			.red {
+				color: #dd0000 !important;
+			}
+
+
+		</style>
+    </head>
+	<body>
+	<!-- cover_quotation_template used for cover page when prices are available -->
+    <div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
+	</div>
+	<hr />
+
+	<table class="cover_table">
+		<tr valign="top">
+			<td class="" style='width:15%'>To:</td>
+			<td style='width:35%'>%%COMPANY%%</td>
+			<td class="">From:</td>
+			<td>%%SALES%%</td>			
+			
+		</tr>
+		
+		<tr valign="top">
+			<td class="">Attention:</td>
+			<td>%%ATTN%%</br>%%ATTNEMAIL%%</td>
+			<td></td>
+			<td>%%SALESEMAIL%%</td>
+		</tr>
+		<tr valign="top">
+			<td class="">Project:</td>
+			<td class="bold quotenum" colspan=4>%%PROJNAME%%</td>
+		</tr>
+		<tr valign="top">
+			<td class="">Quote number:</td>
+			<td class="bold quotenum" colspan=2>%%QUOTENUM%%
+			<td class="">Date:	%%DATE%%</td>
+		</tr>			
+	</table>
+	
+	<hr />
+		
+	
+	<div class="block">
+		<h3>Ancillary and Other Items</h3>
+	</div>
+	
+
+	<div class="comments">	
+		<p>	
+			<div class="row" id="project_fan_div">
+				%%EXTRADETAILS%%
+			</div>
+		</p>
+	</div>
+	<div class="footer">
+			<img src="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
+	</div>
+	</body>
+
+
+</html>
