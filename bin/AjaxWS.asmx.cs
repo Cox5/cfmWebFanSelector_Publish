@@ -587,9 +587,9 @@ namespace CFM_Web
                 {
                     // there is no cross-over point in
                     performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td id=ac_af style='align:right'>{1}</td></tr>",
-                        fr.AirFlow.ToString(), "N/A");
+                        fr.AirFlow.ToString(), "n/a");
                     performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td id=ac_sp>{0}</td ><td style='align:right'>{1}</td></tr>",
-                        fr.StaticPressure.ToString(), "N/A");
+                        fr.StaticPressure.ToString(), "n/a");
                 }
                 else
                 {
