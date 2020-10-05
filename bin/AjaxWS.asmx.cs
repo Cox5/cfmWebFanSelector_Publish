@@ -541,8 +541,14 @@ namespace CFM_Web
 
             performanceDataTable.AppendFormat("<td style='color:#007700' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription );
 
+            // Suppress intercept values for roof cowls
+            if (fanData.fanObject.rangeObject.rangeID == 32 || fanData.fanObject.rangeObject.rangeID == 33)
+            {
+                dpIntercept = null;
+            }
+
             // Show Airflow and Static pressure reults in the table, for Standard duty
-            if (addairflow > 0)
+                if (addairflow > 0)
             {
                 performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #0000cc'>Requested Duty</th></tr>");
             }
