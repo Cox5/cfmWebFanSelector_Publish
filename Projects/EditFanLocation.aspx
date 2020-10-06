@@ -24,6 +24,8 @@
                     <span id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></span>
                     </div>
             </div>
+        <asp:TextBox ID="txtPriceType" runat="server" AutoCompleteType="Disabled" Visible="false"></asp:TextBox>
+
         <table class="table table-form" >
            <td class="small-td">Fan Manufacturer</td>
                 <td class="small-td">

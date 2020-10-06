@@ -139,8 +139,9 @@ namespace CFM_Web
 
                 Tuple<double, double> max = GetDataMax(fanData.dataPointList);
                 fanData selectedFanData = new fanData();
-                selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
-                
+                //selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
+                selectedFanData.performanceCurve = GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
+
                 if (fanData.fanObject.rangeID == 32 || fanData.fanObject.rangeID == 33) // Skip the power curve if a Roof Cowl
                 {
                     selectedFanData.powerCurve = "";
