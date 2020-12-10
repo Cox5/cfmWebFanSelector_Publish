@@ -150,8 +150,10 @@ function getFanDataSucceed(fanImageData) {
     
 }
 
+// Transfer values from selected row to hidden variables
+// for use in btn_addToSchedule_Click()
 function transferActualValues() {
-
+    // Values come from table in <3> which is populated by AjaxWS.asmx.cs
     let ac_af = $("#ac_af").text();
     let ac_sp = $("#ac_sp").text();
     let ac_tp = $("#ac_tp").text();

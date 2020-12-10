@@ -328,7 +328,12 @@
                         <asp:TextBox ID="txtPostcode" runat="server" />
                     </td>
                 </!-->
-                
+                <tr>
+                    <td class="optional">Additional Airflow (%)</td>
+                    <td>
+                        <asp:TextBox ID="txtAddAirflow" runat="server" style="width: 50px"/>
+                    </td>    
+                 </tr>     
                 <asp:RequiredFieldValidator class="mt-small" ID="countryReqValidator" runat="server" ErrorMessage="Country field is empty" ForeColor="Red" ControlToValidate="ddlCountry"></asp:RequiredFieldValidator>
 
                 </table>

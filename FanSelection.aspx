@@ -429,9 +429,8 @@ font-size: 20px; text-align:center; background-color: white; visibility: hidden"
                             <!-- <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main2 primary-btn" /> -->
                             <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
 
-                            <asp:HiddenField ID="txtProjectID" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="txtProjectFansID" runat="server"></asp:HiddenField>
-
+                            <asp:HiddenField ID="hiddenProjectID" runat="server"></asp:HiddenField>
+                            <asp:HiddenField ID="hiddenProjectFansID" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_ac_af" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_ac_sp" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_ac_tp" runat="server"></asp:HiddenField>

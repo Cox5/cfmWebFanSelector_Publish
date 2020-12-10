@@ -30,6 +30,7 @@ namespace CFM_Web
 
         /// <summary>
         /// Gets other data about the selected fan.
+        /// Called by fanSelection.js:updateFanCurve()
         /// </summary>
         /// <param name="fanDataID">Selected Fan Data ID</param>
         /// <returns></returns>
@@ -133,7 +134,7 @@ namespace CFM_Web
                     fr = ProjectDBController.GetFanReference(projectfanid);
                 } else
                 {
-                    throw new System.ArgumentException("Showing details for fans outstide of projects is not supported");
+                    throw new System.ArgumentException("Showing details for fans outside of projects is not supported");
                 }
 
 
