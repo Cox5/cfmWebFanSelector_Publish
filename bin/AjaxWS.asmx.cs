@@ -649,21 +649,21 @@ namespace CFM_Web
             string frphaseString = "";
             if (fr.Phase == "1")
             {
-                frphaseString = "1ph 240V 50Hz";
+                frphaseString = "1ph<br/>240V<br/>50Hz";
             }
             else if (fr.Phase == "3")
             {
-                frphaseString = "3ph 415V 50Hz";
+                frphaseString = "3ph<br/>415V<br/>50Hz";
             }
 
             string phaseString = "";
             if (fanData.fanObject.motorPhase == 1)
             {
-                phaseString = "1ph 240V 50Hz";
+                phaseString = "1ph<br/>240V<br/>50Hz";
                 pdfData.ElectricalSupply = phaseString;
             } else if (fanData.fanObject.motorPhase == 3)
             {
-                phaseString = "3ph 415V 50Hz";
+                phaseString = "3ph<br/>415V<br/>50Hz";
                 pdfData.ElectricalSupply = phaseString;
             }
 

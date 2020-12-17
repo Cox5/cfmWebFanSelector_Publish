@@ -171,7 +171,7 @@
                             </asp:LinkButton>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:LinkButton runat="server" CommandName="Add" CssClass="button-main primary-btn"><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
+                            <asp:LinkButton runat="server" CommandName="Add" CssClass="button-main primary-btn" ><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                         </FooterTemplate>
                     </asp:TemplateField>
 
