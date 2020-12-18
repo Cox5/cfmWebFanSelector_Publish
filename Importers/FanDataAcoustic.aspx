@@ -11,10 +11,13 @@
     <div class="content-wrapper">
         <h3>Update fandata table</h3>
 <div class="table-controls mb-medium">
- 
+            <asp:Button ID="btnFinished" class="button-main primary-btn"  runat="server" Visible="true" Text="Finished" OnClick="btnFinished_Click" />
+
 </div>
         <br />
-        <asp:Label ID="lblMessage" runat="server" ></asp:Label>
+        <h3><asp:Label ID="lblMessage" runat="server" ></asp:Label></h3> 
+        <asp:HiddenField ID="hiddenFanID" runat="server"/>
+
         <div runat="server" id="FanListDiv">
         </div>
 
@@ -188,6 +191,13 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
+                   <asp:TemplateField ItemStyle-Width="20px"  HeaderStyle-Width="20px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
+                        <ItemTemplate>
+                        <asp:LinkButton data-fandataid='<%# Eval("fanDataID") %>' data-fanid='<%#Eval("fanID") %>'  runat="server" CommandName="" CausesValidation="false" onClick="ButtonDatapoints_Click" >
+                                <span class="tooltip"><i class="far fa-chart-bar"></i><span class="tooltiptext tooltip-i">Add/edit datapoints for performance curve</span></span>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
 
                     </Columns>

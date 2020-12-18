@@ -12,6 +12,14 @@
             </div>
         </div>
        
+         <asp:LinkButton CommandName="Edit Fans" runat="server" Text="Edit Fans" class="sp-button" OnClick="btnEditFans_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Edit Fans</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
 
         <asp:LinkButton CommandName="Import Fan Prices" runat="server" Text="Import Fan Prices"  OnClick="btnImportPrices_Click" class="sp-button">
             <div class="sp-rect" >
@@ -100,6 +108,7 @@
                 </span>
             </div>
         </asp:LinkButton>
+
 
         
         <br />

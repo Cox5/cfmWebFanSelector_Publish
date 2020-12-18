@@ -3,7 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
-
+                    <style>
+                        .pencil {
+                            min-width: 70px !important;
+                        }
+                    </style>
 
         <h3>Edit Fans in database</h3>
         Enter a catalogue model number or prefix to search for, eg "MUC3"
@@ -171,7 +175,7 @@
 
 
 
-                   <asp:TemplateField ItemStyle-Width="70px"  HeaderStyle-Width="70px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
+                   <asp:TemplateField ItemStyle-Width="70px"  HeaderStyle-Width="70px" FooterStyle-Width="70px" ItemStyle-CssClass="icons pencil" HeaderStyle-HorizontalAlign="Right" >
                         <ItemTemplate>
                             <asp:LinkButton runat="server" CommandName="Edit" CausesValidation="false">
                                 <span class="tooltip"><i class="fas fa-pencil-alt"></i><span class="tooltiptext tooltip-i">Edit this fan</span></span>
@@ -186,7 +190,7 @@
                             </asp:LinkButton>
                        </EditItemTemplate>
                        <FooterTemplate>
-                            <asp:LinkButton runat="server" ID="ButtonAdd"  CssClass="button-main primary-btn" OnClick="ButtonAdd_Click" Width="1"><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="ButtonAdd"  CssClass="" OnClick="ButtonAdd_Click" ><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -215,18 +219,6 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
-                   <asp:TemplateField ItemStyle-Width="20px"  HeaderStyle-Width="20px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
-                        <ItemTemplate>
-                            <asp:LinkButton runat="server" CommandName="fandataEdit" CausesValidation="false" >
-                                <span class="tooltip"><i class="far fa-chart-bar"></i><span class="tooltiptext tooltip-i">Add/edit datapoints for performance curve</span></span>
-                            </asp:LinkButton>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-
-                       </EditItemTemplate>
-                       <FooterTemplate>
-                        </FooterTemplate>
-                    </asp:TemplateField>
                     </Columns>
                  </asp:GridView>
         </div>
