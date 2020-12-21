@@ -21,7 +21,7 @@
         <div runat="server" id="FanListDiv">
         </div>
 
-        <div runat="server" id="FanGridView">
+        <div runat="server" id="FanGridView" class="editor">
              <asp:GridView ID="gvFan" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="fandataid" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvFan_RowCommand" 
                  OnRowEditing="gvFan_RowEditing" OnRowCancelingEdit="gvFan_RowCancelingEdit" 
@@ -29,7 +29,7 @@
 
                 <Columns>
 
-              <asp:TemplateField  HeaderText="fanDataID" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="fanDataID" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtfanDataID" Text='<%#Eval("fanDataID") %>' runat="server" Enabled="false" CssClass="input-small" Style="background-color: #eeeeee"></asp:TextBox>
                         </EditItemTemplate>
@@ -40,7 +40,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="fanID" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="fanID" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtFanId" Text='<%#Eval("fanID") %>' runat="server" Enabled="false" CssClass="input-small" Style="background-color: #eeeeee"></asp:TextBox>
                         </EditItemTemplate>
@@ -51,7 +51,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="angle" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="angle" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtangle" Text='<%#Eval("angle") %>' runat="server" Enabled="false" CssClass="input-small" Style="background-color: #eeeeee"></asp:TextBox>
                         </EditItemTemplate>
@@ -63,7 +63,7 @@
               </asp:TemplateField>
 
 
-               <asp:TemplateField  HeaderText="hz63" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+               <asp:TemplateField  HeaderText="hz63" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz63" Text='<%#Eval("hz63") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -74,7 +74,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="hz125" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="hz125" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz125" Text='<%#Eval("hz125") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -85,7 +85,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="hz250" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="hz250" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz250" Text='<%#Eval("hz250") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -96,7 +96,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="hz500" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="hz500" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz500" Text='<%#Eval("hz500") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -107,7 +107,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="hz1k" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="hz1k" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz1k" Text='<%#Eval("hz1k") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -118,7 +118,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="hz2k" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="hz2k" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz2k" Text='<%#Eval("hz2k") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -129,7 +129,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="hz4k" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="hz4k" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz4k" Text='<%#Eval("hz4k") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -140,7 +140,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="hz8k" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="hz8k" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txthz8k" Text='<%#Eval("hz8k") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -151,7 +151,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="totalLwAtotal" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="totalLwAtotal" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txttotalLwAtotal" Text='<%#Eval("totalLwAtotal") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -162,7 +162,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="SPL3m" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="SPL3m" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtSPL3m" Text='<%#Eval("SPL3m") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>

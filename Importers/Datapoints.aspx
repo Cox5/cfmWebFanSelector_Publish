@@ -19,7 +19,7 @@
         <div runat="server" id="FanListDiv">
         </div>
 
-        <div runat="server" id="FanGridView">
+        <div runat="server" id="FanGridView" style="max-width: 700px;">
              <asp:GridView ID="gvFan" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="dataPointID" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvFan_RowCommand" 
                  OnRowEditing="gvFan_RowEditing" OnRowCancelingEdit="gvFan_RowCancelingEdit" 

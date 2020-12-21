@@ -1,21 +1,16 @@
 /* Variables */
+/* stylelint-disable */
 :root {
-
-    /* text */
     --main-text-color: rgb(78, 78, 78);
     --main-font-size: 0.9em;
-
     /* colors */
     --header-bg-color: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
-    
     --gradient-blue: linear-gradient(to bottom, rgb(255, 255, 255), rgb(249, 250, 253));
     --gradient-gold: linear-gradient(to bottom, rgba(250, 244, 234, 0.4), rgba(255, 246, 231, 0.9));
     --blue-secondary: rgb(0, 153, 255);
     --blue-primary: rgb(0, 132, 209);
-    
     --blue-secondary-low-op: rgba(0, 162, 255, 0.2);
     --blue-tertiary: rgb(1, 59, 126);
-
     --dark-grey: rgb(65, 65, 65);
 }
 
@@ -235,8 +230,24 @@ input[type="text"], input[type="password"], input[type="number"], select {
     
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.10);
 }
+div.editor input[type="text"], div.editor input[type="password"], div.editor input[type="number"], div.editor select {
+    width: 100% !important;
+    padding: 2px 2px;
+    margin: 0 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.10);
+    font-size: 12px;
+}
+
 td.tiny-td select ,td.small-td select, select {
     width: min-content;
+}
+div.editor table td { 
+    font-size: 13px;
+    padding: 2px 2px 2px 2px;
 }
 
 /* BUTONS */
@@ -634,8 +645,9 @@ visibility: visible;
 }
 
 .svg:hover {
-    opacity: 0.8;
+        opacity: 0.8;
 }
+
 
 
 /* Gridview table */

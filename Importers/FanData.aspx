@@ -18,7 +18,7 @@
         <div runat="server" id="FanListDiv">
         </div>
 
-        <div runat="server" id="FanGridView">
+        <div runat="server" id="FanGridView" class="editor">
              <asp:GridView ID="gvFan" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="fandataid" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvFan_RowCommand" 
                  OnRowEditing="gvFan_RowEditing" OnRowCancelingEdit="gvFan_RowCancelingEdit" 
@@ -31,7 +31,7 @@
                             <asp:TextBox ID="txtfanDataID" Text='<%#Eval("fanDataID") %>' runat="server" Enabled="false" CssClass="input-small" Style="background-color: #eeeeee"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtfanDataIDFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtfanDataIDFooter" runat="server" AutoPostBack="false"  Enabled="false"  Text="auto" Style="background-color: #eeeeee"  CssClass="input-small"  />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("fanDataID") %>' runat="server"></asp:Label>
@@ -43,7 +43,7 @@
                             <asp:TextBox ID="txtfanID" Text='<%#Eval("fanID") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #eeeeee"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtfanIDFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtfanIDFooter" runat="server" AutoPostBack="false" Enabled="false" Text='<%#Eval("fanid") %>' Style="background-color: #eeeeee"  CssClass="input-small" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("fanID") %>' runat="server"></asp:Label>
@@ -55,7 +55,7 @@
                             <asp:TextBox ID="txtangle" Text='<%#Eval("angle") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtangleFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtangleFooter" runat="server" AutoPostBack="false"  CssClass="input-small" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("angle") %>' runat="server"></asp:Label>
@@ -63,24 +63,24 @@
               </asp:TemplateField>
 
 
-              <asp:TemplateField  HeaderText="motorkW" ControlStyle-Width="30px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="motor kW" ControlStyle-Width="30px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtmotorkW" Text='<%#Eval("motorkW") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtmotorkWFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtmotorkWFooter" runat="server" AutoPostBack="false"  CssClass="input-small" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("motorkW") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="motorAmps" ControlStyle-Width="30px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="motor Amps" ControlStyle-Width="30px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtmotorAmps" Text='<%#Eval("motorAmps") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtmotorAmpsFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtmotorAmpsFooter" runat="server" AutoPostBack="false" CssClass="input-small"  />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("motorAmps") %>' runat="server"></asp:Label>
@@ -92,7 +92,7 @@
                             <asp:TextBox ID="txtimpeller" Text='<%#Eval("impeller") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtimpellerFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtimpellerFooter" runat="server" AutoPostBack="false" CssClass="input-small"  />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("impeller") %>' runat="server"></asp:Label>
@@ -104,7 +104,7 @@
                             <asp:TextBox ID="txtmass" Text='<%#Eval("mass") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtmassFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtmassFooter" runat="server" AutoPostBack="false" CssClass="input-small"  />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("mass") %>' runat="server"></asp:Label>
@@ -117,55 +117,55 @@
                             <asp:TextBox ID="txtRPM" Text='<%#Eval("RPM") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtRPMFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtRPMFooter" runat="server" AutoPostBack="false"  CssClass="input-small" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("RPM") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="dims" ControlStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="dims" ControlStyle-Width="180px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtdims" Text='<%#Eval("dims") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtdimsFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtdimsFooter" runat="server" AutoPostBack="false" CssClass="input-small"  />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("dims") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="wiring" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="wiring" ControlStyle-Width="180px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtwiring" Text='<%#Eval("wiring") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtwiringFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtwiringFooter" runat="server" AutoPostBack="false" CssClass="input-small" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("wiring") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="casingID" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="casingID" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtcasingID" Text='<%#Eval("casingID") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtcasingIDFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtcasingIDFooter" runat="server" AutoPostBack="false" CssClass="input-small" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("casingID") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="motorID" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="motorID" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtmotorID" Text='<%#Eval("motorID") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtmotorIDFooter" runat="server" AutoPostBack="false" />
+                            <asp:TextBox ID="txtmotorIDFooter" runat="server" AutoPostBack="false" CssClass="input-small" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("motorID") %>' runat="server"></asp:Label>
@@ -189,9 +189,21 @@
                             </asp:LinkButton>
                        </EditItemTemplate>
                        <FooterTemplate>
+                         <asp:LinkButton style="height: 30px" runat="server" ID="ButtonAdd"  CssClass="" OnClick="ButtonAdd_Click" ><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                         </FooterTemplate>
                     </asp:TemplateField>
+                     <asp:TemplateField ItemStyle-Width="20px"  HeaderStyle-Width="20px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
+                        <ItemTemplate>
+                            <asp:LinkButton data-fanid='<%# Eval("fanid") %>'  runat="server" CommandName="" CausesValidation="false" onClick="ButtonFanacoustic_Click" >
+                                <span class="tooltip"><i class="fas fa-volume-up"></i><span class="tooltiptext tooltip-i">Edit fan acoustic data of angle variants</span></span>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                        <EditItemTemplate>
 
+                       </EditItemTemplate>
+                       <FooterTemplate>
+                        </FooterTemplate>
+                    </asp:TemplateField>
                    <asp:TemplateField ItemStyle-Width="20px"  HeaderStyle-Width="20px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                         <ItemTemplate>
                         <asp:LinkButton data-fandataid='<%# Eval("fanDataID") %>' data-fanid='<%#Eval("fanID") %>'  runat="server" CommandName="" CausesValidation="false" onClick="ButtonDatapoints_Click" >
