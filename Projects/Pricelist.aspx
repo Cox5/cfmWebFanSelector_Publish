@@ -94,7 +94,7 @@
                         </asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:LinkButton runat="server" CommandName="Update" >
+                        <asp:LinkButton runat="server" CommandName="Update"  CausesValidation="false"  >
                             <span class="tooltip"><i class="far fa-save"></i><span class="tooltiptext tooltip-i">Update</span></span>
                         </asp:LinkButton>
                         <asp:LinkButton  runat="server" CommandName="Cancel" CausesValidation="false" >
