@@ -17,7 +17,7 @@
 
     
 
-        <div class="table-controls center-text">
+        <div class="table-controls center-text" style="display: none">
             <span class="mr-small">Standard price adjustment (%) </span>
             <asp:TextBox class="mr-small" ID="txtPercentage" runat="server" Placeholder="20" Height="32px" Width="100px"></asp:TextBox>%
             <asp:DropDownList  class="mr-small" runat="server" ID="ddlPriceAdjustment"  Height="32px" Width="150px">
@@ -27,15 +27,10 @@
             <asp:Button  ID="btnUpdatePriceAdjustment" runat="server" Text="Update" OnClick="btnUpdatePriceAdjustment_Click" class="button-main primary-btn mr-small" />
         </div>
 
-        <div class="center-text mt-medium">
+        <div class="center-text mt-medium" style="display: none">
             <asp:RangeValidator ID="rangeQtyValidator" runat="server" ControlToValidate="txtPercentage" Type="Integer" MinimumValue="0" MaximumValue="25" ErrorMessage="Please enter discount or premium value between 0 and 25 percent (without % sign)" ForeColor="Red"></asp:RangeValidator>
             <asp:Label runat="server" ID="lblUpdateStatus"></asp:Label>
-
         </div>
-    
-       
-
-    
 
         <asp:GridView ID="gvPriceList" runat="server" AutoGenerateColumns="False"
             OnRowEditing="gvPriceList_RowEditing" OnRowCancelingEdit="gvPriceList_RowCancelingEdit" 
@@ -44,6 +39,11 @@
             
 
             <Columns>
+                <asp:BoundField DataField="location_designation" HeaderText="Fan Reference" ReadOnly="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+
+                    <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                </asp:BoundField>
                 <asp:BoundField DataField="part_number" HeaderText="Model Number" ReadOnly="true" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left">
                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
 
