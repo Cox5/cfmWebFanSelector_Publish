@@ -25,7 +25,7 @@
                     </div>
             </div>
         <asp:TextBox ID="txtPriceType" runat="server" AutoCompleteType="Disabled" Visible="false"></asp:TextBox>
-
+        <asp:HiddenField ID="hiddenFandataid" runat="server" />
         <table class="table table-form" >
            <td class="small-td">Fan Manufacturer</td>
                 <td class="small-td">
@@ -33,6 +33,10 @@
                         <asp:ListItem value="CFM">CFM</asp:ListItem>
                         <asp:ListItem Value="Other">Other</asp:ListItem>
                     </asp:DropDownList>
+                    <br />
+                    <asp:Label ID="lblManufChange" runat="server"></asp:Label>
+                    <asp:Button ID="btnCancel2"  class="button-main primary-btn prevpage" Text="Cancel" OnClick="btnCancel2_Click" runat="server" Visible="false"/>
+                    <asp:Button ID="btnConfirm" class="button-main primary-btn " Text="Confirm" OnClick="btnConfirm_Click" runat="server" Visible="false"/>
                 </td>
             </tr>
             <tr>
