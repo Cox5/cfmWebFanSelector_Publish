@@ -102,12 +102,13 @@ function updateFanCurve(fanDataID, motorid) {
 	
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
-	const projectfanid = urlParams.get('ProjectFansID');
+    const projectfanid = urlParams.get('ProjectFansID');
+    const uid = urlParams.get('uid');
     
     var fanDataOptions = {
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
-        url: '/AjaxWS.asmx/GetFanData',
+        url: '/AjaxWS.asmx/GetFanData?uid=' + uid,
         data: "{ fanDataID:" + fanDataID +
             ", projectfanid:" + parseInt(projectfanid) +
             ", motorid:" + parseInt(motorid) +
