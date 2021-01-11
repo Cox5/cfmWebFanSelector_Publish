@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Services;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
@@ -19,6 +20,7 @@ namespace CFM_Web
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     [System.Web.Script.Services.ScriptService]
+   
     public class AjaxWS : System.Web.Services.WebService
     {
         /// <summary>
@@ -34,7 +36,8 @@ namespace CFM_Web
         /// </summary>
         /// <param name="fanDataID">Selected Fan Data ID</param>
         /// <returns></returns>
-        [WebMethod]
+        // [WebMethod]
+        [WebMethod(EnableSession = true)]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public fanData GetFanData(int fanDataID, int projectfanid, int motorid, double airflow, double addairflow, double staticPressure, int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
@@ -171,8 +174,11 @@ namespace CFM_Web
                 selectedFanData.powerDataTable = buildPowerDataTable(fanData, airflow, staticPressure);
                 selectedFanData.acousticTable = buildAcousticTable(fanData);
 
-                FanSelection.PartNumber = fan.partNumber;
-                FanSelection.FanDataID = fanData.fanDataID;
+                //FanSelection.PartNumber = fan.partNumber;
+                //FanSelection.FanDataID = fanData.fanDataID;
+                HttpContext.Current.Session["PartNumber"] = fan.partNumber;
+                HttpContext.Current.Session["FanDataID"] = fanData.fanDataID;
+
 
                 // Set fan data for PDF generate process
                 pdfData.FanCode = fan.partNumber;

@@ -21,11 +21,12 @@ $(document).ready(function () {
         updateFanCurve(selectedFanID, motorID);
     }    
 
+    // Handle Row click, and set #body_selectedFanID value for use in btn_addToSchedule_Click()
     $("#fanTable tr").click(function () {
 
         selectedFanID = $(this).attr("data-fandataid");
         motorID = $(this).attr("data-motorid");
-        updateFanCurve(selectedFanID, motorID);
+        updateFanCurve(selectedFanID, motorID); // calls GetFanData() in AjaxWS.asmx.cs
         $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
     });
@@ -108,7 +109,7 @@ function updateFanCurve(fanDataID, motorid) {
     var fanDataOptions = {
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
-        url: '/AjaxWS.asmx/GetFanData?uid=' + uid,
+        url: '/AjaxWS.asmx/GetFanData?uid=' + uid + "&fanDataID=" + fanDataID ,
         data: "{ fanDataID:" + fanDataID +
             ", projectfanid:" + parseInt(projectfanid) +
             ", motorid:" + parseInt(motorid) +
@@ -168,7 +169,7 @@ function transferActualValues() {
    
 }
 
-  // Clears all the information on the form and returns it to it's default state
+  // Clears all the information on the form and returns it to its default state
 function clear()
 {
   $("#div_ranges :checkbox").attr('checked', false);
