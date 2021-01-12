@@ -7,6 +7,10 @@
                         .pencil {
                             min-width: 70px !important;
                         }
+                        .paddingleft {
+                            padding-left: 10px;
+                        }
+
                     </style>
 
         <h3>Edit Fans in database</h3>
@@ -26,7 +30,6 @@
         <div runat="server" id="FanListDiv">
 
         </div>
-
         <div runat="server" id="FanGridView" class="editor">
              <asp:GridView ID="gvFan" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="fanid" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvFan_RowCommand" 
@@ -92,13 +95,15 @@
                             <asp:Label Text='<%#Eval("MotorPole") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField  HeaderText="RangeCode" ControlStyle-Width="120px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+                    <asp:TemplateField  HeaderText="RangeCode" ControlStyle-Width="100px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtRangeID" Text='<%#Eval("rangeID") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
+                            <asp:DropDownList ID="ddlRangeID" runat="server" AutoPostBack="FALSE"   AppendDataBoundItems="true" >
+                                </asp:DropDownList>
+                            <asp:HiddenField ID="hiddenRangeID" Value='<%#Eval("rangeID") %>' runat="server" ></asp:HiddenField>
                         </EditItemTemplate>
                         <FooterTemplate>
                            <asp:DropDownList ID="ddlRangeIDFooter" runat="server" AutoPostBack="FALSE" >
-<asp:ListItem Value="1">MUA</asp:ListItem>
+                               <asp:ListItem Value="1">MUA</asp:ListItem>
 <asp:ListItem Value="2">MUABD</asp:ListItem>
 <asp:ListItem Value="3">MUABF</asp:ListItem>
 <asp:ListItem Value="4">MUACR</asp:ListItem>
@@ -125,22 +130,22 @@
 <asp:ListItem Value="25">MCV</asp:ListItem>
 <asp:ListItem Value="26">MVR</asp:ListItem>
 <asp:ListItem Value="27">MCVH</asp:ListItem>
-<asp:ListItem Value="28">TMCV </asp:ListItem>
+<asp:ListItem Value="28">TMCV</asp:ListItem>
 <asp:ListItem Value="29">MCHS</asp:ListItem>
 <asp:ListItem Value="30">MUCR</asp:ListItem>
 <asp:ListItem Value="31">R</asp:ListItem>
-<asp:ListItem Value="32">FAV </asp:ListItem>
+<asp:ListItem Value="32">FAV</asp:ListItem>
 <asp:ListItem Value="33">RC</asp:ListItem>
 <asp:ListItem Value="34">MVX</asp:ListItem>
 <asp:ListItem Value="35">SPASS</asp:ListItem>
-<asp:ListItem Value="36">WP</asp:ListItem>
-<asp:ListItem Value="37">SPA</asp:ListItem>
+<asp:ListItem Value="36">SPA</asp:ListItem>
+<asp:ListItem Value="37">WP</asp:ListItem>
 <asp:ListItem Value="38">SPAS</asp:ListItem>
-                           </asp:DropDownList>
+</asp:DropDownList>
 
                         </FooterTemplate>
                        <ItemTemplate>
-                            <asp:Label Text='<%#Eval("rangeID") %>' runat="server"></asp:Label>
+                            <asp:Label Text='<%#Eval("prefix") %>' runat="server" CssClass="paddingleft"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -205,7 +210,7 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-              <asp:TemplateField  HeaderText="Blade Material ID" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="Blade Material" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                 <asp:DropDownList ID="ddlBladeMaterial" runat="server" AutoPostBack="true"   AppendDataBoundItems="true">
                 </asp:DropDownList>
@@ -221,7 +226,7 @@
                 </asp:DropDownList>
                         </FooterTemplate>
                        <ItemTemplate>
-                            <asp:Label ID="txtBladeMaterialID" Text='<%#Eval("bladeMaterialID") %>' runat="server"></asp:Label>
+                            <asp:Label ID="txtBladeMaterialID" Text='<%#Eval("blade") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 
