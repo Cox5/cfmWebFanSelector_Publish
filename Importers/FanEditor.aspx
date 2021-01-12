@@ -103,44 +103,44 @@
                         </EditItemTemplate>
                         <FooterTemplate>
                            <asp:DropDownList ID="ddlRangeIDFooter" runat="server" AutoPostBack="FALSE" >
-                               <asp:ListItem Value="1">MUA</asp:ListItem>
+                               <asp:ListItem Value="32">FAV</asp:ListItem>
+<asp:ListItem Value="14">MAH</asp:ListItem>
+<asp:ListItem Value="13">MAHF</asp:ListItem>
+<asp:ListItem Value="20">MAHFS</asp:ListItem>
+<asp:ListItem Value="19">MAHS</asp:ListItem>
+<asp:ListItem Value="16">MAV</asp:ListItem>
+<asp:ListItem Value="18">MAVSS</asp:ListItem>
+<asp:ListItem Value="22">MCH</asp:ListItem>
+<asp:ListItem Value="29">MCHS</asp:ListItem>
+<asp:ListItem Value="23">MCR</asp:ListItem>
+<asp:ListItem Value="25">MCV</asp:ListItem>
+<asp:ListItem Value="24">MCVG</asp:ListItem>
+<asp:ListItem Value="27">MCVH</asp:ListItem>
+<asp:ListItem Value="1">MUA</asp:ListItem>
 <asp:ListItem Value="2">MUABD</asp:ListItem>
 <asp:ListItem Value="3">MUABF</asp:ListItem>
 <asp:ListItem Value="4">MUACR</asp:ListItem>
 <asp:ListItem Value="5">MUAF</asp:ListItem>
-<asp:ListItem Value="6">SC</asp:ListItem>
+<asp:ListItem Value="15">MUARF</asp:ListItem>
+<asp:ListItem Value="21">MUARFS</asp:ListItem>
 <asp:ListItem Value="7">MUASS</asp:ListItem>
 <asp:ListItem Value="8">MUC</asp:ListItem>
-<asp:ListItem Value="9">TMUC</asp:ListItem>
 <asp:ListItem Value="10">MUCH</asp:ListItem>
+<asp:ListItem Value="30">MUCR</asp:ListItem>
+<asp:ListItem Value="17">MV</asp:ListItem>
+<asp:ListItem Value="26">MVR</asp:ListItem>
+<asp:ListItem Value="34">MVX</asp:ListItem>
 <asp:ListItem Value="11">MX</asp:ListItem>
 <asp:ListItem Value="12">MXSIL </asp:ListItem>
-<asp:ListItem Value="13">MAHF</asp:ListItem>
-<asp:ListItem Value="14">MAH</asp:ListItem>
-<asp:ListItem Value="15">MUARF</asp:ListItem>
-<asp:ListItem Value="16">MAV</asp:ListItem>
-<asp:ListItem Value="17">MV</asp:ListItem>
-<asp:ListItem Value="18">MAVSS</asp:ListItem>
-<asp:ListItem Value="19">MAHS</asp:ListItem>
-<asp:ListItem Value="20">MAHFS</asp:ListItem>
-<asp:ListItem Value="21">MUARFS</asp:ListItem>
-<asp:ListItem Value="22">MCH</asp:ListItem>
-<asp:ListItem Value="23">MCR</asp:ListItem>
-<asp:ListItem Value="24">MCVG</asp:ListItem>
-<asp:ListItem Value="25">MCV</asp:ListItem>
-<asp:ListItem Value="26">MVR</asp:ListItem>
-<asp:ListItem Value="27">MCVH</asp:ListItem>
-<asp:ListItem Value="28">TMCV</asp:ListItem>
-<asp:ListItem Value="29">MCHS</asp:ListItem>
-<asp:ListItem Value="30">MUCR</asp:ListItem>
 <asp:ListItem Value="31">R</asp:ListItem>
-<asp:ListItem Value="32">FAV</asp:ListItem>
 <asp:ListItem Value="33">RC</asp:ListItem>
-<asp:ListItem Value="34">MVX</asp:ListItem>
-<asp:ListItem Value="35">SPASS</asp:ListItem>
+<asp:ListItem Value="6">SC</asp:ListItem>
 <asp:ListItem Value="36">SPA</asp:ListItem>
-<asp:ListItem Value="37">WP</asp:ListItem>
 <asp:ListItem Value="38">SPAS</asp:ListItem>
+<asp:ListItem Value="35">SPASS</asp:ListItem>
+<asp:ListItem Value="28">TMCV</asp:ListItem>
+<asp:ListItem Value="9">TMUC</asp:ListItem>
+<asp:ListItem Value="37">WP</asp:ListItem>
 </asp:DropDownList>
 
                         </FooterTemplate>
