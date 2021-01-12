@@ -8,7 +8,7 @@
 }
     </style>
     <div class="content-wrapper">
-        <h3>Update fandata table</h3>
+        <h3>Update fandata table - <b>Technical Data</b></b></h3>
 <div class="table-controls mb-medium">
              <asp:Button ID="btnFinished" class="button-main primary-btn"  runat="server" Visible="true" Text="Finished" OnClick="btnFinished_Click" />
 </div>
