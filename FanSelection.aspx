@@ -13,6 +13,8 @@
         #lit_message {
             color: red;
         }
+        .ddlDia option { direction:rtl;}
+
     </style>
 
     <%-- Local Scripts --%>
@@ -75,10 +77,10 @@
                                 <td style="padding-right: 20px; text-align: right">
                                     <asp:Label ID="lblDiameter" runat="server" Visible="false"></asp:Label>
                                     <asp:Label ID="lblDiameterFrom" runat="server" Visible="true">From:</asp:Label>
-                                    <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput">
+                                    <asp:DropDownList ID="ddl_fanDiameterMin" runat="server" CssClass="ddlInput ddlDia">
                                     </asp:DropDownList><br />
                                     <asp:Label ID="lblDiameterTo" runat="server" Visible="true">To:</asp:Label>
-                                    <asp:DropDownList ID="ddl_fanDiameterMax" runat="server" CssClass="ddlInput">
+                                    <asp:DropDownList ID="ddl_fanDiameterMax" runat="server" CssClass="ddlInput ddlDia">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
