@@ -145,7 +145,7 @@
                             <asp:Label Text='<%#Eval("unit_price") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtUnitPrice" Text='<%#Eval("unit_price") %>' runat="server" CssClass="input-small"></asp:TextBox>
+                            <asp:TextBox ID="txtUnitPrice" Text='<%#Eval("unit_price") %>' runat="server" CssClass="input-small" CausesValidation="false"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="priceRequiredValidator" runat="server" ErrorMessage="Price field is empty" ForeColor="Red" ControlToValidate="txtUnitPrice"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
