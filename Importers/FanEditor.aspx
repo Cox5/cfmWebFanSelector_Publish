@@ -19,7 +19,7 @@
           <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for fan partnumber prefix" Width="300px" Height="32px"  Autocomplete="off"></asp:TextBox>
         <asp:DropDownList ID="ddImpeller" runat="server">
             <asp:ListItem Value="No">Without impeller defined</asp:ListItem>
-            <asp:ListItem Value="Yes">With impeller defined (built up fans)</asp:ListItem>
+            <asp:ListItem Value="Yes">With impeller defined</asp:ListItem>
         </asp:DropDownList>
            <asp:Button ID="btnFindFan" class="button-main primary-btn"  runat="server" Visible="true" Text="List fans" OnClick="BtnFindFan_click" />
 
@@ -28,7 +28,17 @@
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
         <asp:HiddenField ID="hiddenSearch" runat="server"/>
         <div runat="server" id="FanListDiv">
-
+        </div>
+        <div runat="server" id="DeleteDiv" visible="false">
+            <asp:HiddenField ID="hiddenFanID" runat="server"/>
+            <h3><font color="#dd0000">Confirm you wish to delete fan with fanid=<asp:Label ID="lblFanID" runat="server"></asp:Label>.</font>
+                  <asp:LinkButton runat="server" CommandName="" CausesValidation="false" onClick="BtnDeleteConfirm_Click" >
+                                <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete this fan data row</span></span>
+                  </asp:LinkButton>
+                  <asp:LinkButton runat="server" CommandName="" CausesValidation="false" onClick="BtnCancelConfirm_Click" >
+                                <span class="tooltip"><i class="fas fa-times-circle"></i><span class="tooltiptext tooltip-i">Cancel</span></span>
+                  </asp:LinkButton>
+                </h3>
         </div>
         <div runat="server" id="FanGridView" class="editor">
              <asp:GridView ID="gvFan" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
@@ -275,7 +285,17 @@
                        <FooterTemplate>
                         </FooterTemplate>
                     </asp:TemplateField>
-
+                    <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
+                        <ItemTemplate>
+                            <asp:LinkButton data-fanid='<%# Eval("fanid") %>'  runat="server" CommandName="" CausesValidation="false" onClick="BtnDelete_Click" >
+                                <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete this fan</span></span>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                       </EditItemTemplate>
+                       <FooterTemplate>
+                        </FooterTemplate>
+                    </asp:TemplateField>
                     </Columns>
                  </asp:GridView>
         </div>

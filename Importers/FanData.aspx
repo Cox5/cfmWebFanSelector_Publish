@@ -15,7 +15,16 @@
         <br />
         <h3><asp:Label ID="lblMessage" runat="server" ></asp:Label></h3>
                 <asp:HiddenField ID="hiddenFanID" runat="server"/>
-        <div runat="server" id="FanListDiv">
+        <div runat="server" id="DeleteDiv" visible="false">
+            <asp:HiddenField ID="hiddenFandataID" runat="server"/>
+            <h3><font color="#dd0000">Confirm you wish to delete fandata and datapoints for fandataid=<asp:Label ID="lblFandataID" runat="server"></asp:Label>.</font>
+                  <asp:LinkButton runat="server" CommandName="" CausesValidation="false" onClick="BtnDeleteConfirm_Click" >
+                                <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete this fan data row</span></span>
+                  </asp:LinkButton>
+                  <asp:LinkButton runat="server" CommandName="" CausesValidation="false" onClick="BtnCancelConfirm_Click" >
+                                <span class="tooltip"><i class="fas fa-times-circle"></i><span class="tooltiptext tooltip-i">Cancel</span></span>
+                  </asp:LinkButton>
+                </h3>
         </div>
 
         <div runat="server" id="FanGridView" class="editor">
@@ -212,7 +221,17 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-
+                    <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
+                        <ItemTemplate>
+                            <asp:LinkButton data-fandataid='<%# Eval("fandataID") %>'  runat="server" CommandName="" CausesValidation="false" onClick="BtnDelete_Click" >
+                                <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete this fan data row</span></span>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                       </EditItemTemplate>
+                       <FooterTemplate>
+                        </FooterTemplate>
+                    </asp:TemplateField>
                     </Columns>
                  </asp:GridView>
         </div>
