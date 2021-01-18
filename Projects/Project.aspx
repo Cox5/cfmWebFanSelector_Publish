@@ -417,7 +417,19 @@
                             $<asp:TextBox ID="txtDeliveryCost" size="5" style="width: auto"  runat="server" />
                         </td>
                     </tr>
-
+                    <tr id="trPriceAdj" runat="server" Visible="false">
+                        <td  class="optional">Price Adjustment</td>
+                        <td class="optional">
+                            <asp:DropDownList ID="ddlPriceAdj" runat="server" AutoPostBack="true">
+                                <asp:ListItem>Standard</asp:ListItem>
+                                <asp:ListItem>Discount</asp:ListItem>
+                                <asp:ListItem>Premium</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Label ID="PriceAdjOf" Visible="false" runat="server"> of </asp:Label>
+                            <asp:TextBox ID="txtPriceAdjAmount" size="5" style="width: auto"  runat="server"  Visible="false"/>
+                            <asp:Label ID="PriceAdjPC" Visible="false" runat="server"> percent. </asp:Label>
+                        </td>
+                    </tr>
                 </table>
 
                 <p class="validation-msg">
