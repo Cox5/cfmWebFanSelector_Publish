@@ -420,6 +420,7 @@
                     <tr id="trPriceAdj" runat="server" Visible="false">
                         <td  class="optional">Price Adjustment</td>
                         <td class="optional">
+                            <asp:HiddenField ID="hiddenPriceAdj"  runat="server" />
                             <asp:DropDownList ID="ddlPriceAdj" runat="server" AutoPostBack="true">
                                 <asp:ListItem>Standard</asp:ListItem>
                                 <asp:ListItem>Discount</asp:ListItem>
