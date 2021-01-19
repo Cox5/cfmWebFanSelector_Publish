@@ -158,12 +158,12 @@ function transferActualValues() {
     // Values come from table in <3> which is populated by AjaxWS.asmx.cs
     let ac_af = $("#ac_af").text();
     let ac_sp = $("#ac_sp").text();
-    let ac_tp = $("#ac_tp").text();
+    let ac_sound = $("#ac_sound").text();
     let ac_ov = $("#ac_ov").text();
 
     document.getElementById("body_hidden_ac_af").value = ac_af;
     document.getElementById("body_hidden_ac_sp").value = ac_sp;
-    document.getElementById("body_hidden_ac_tp").value = ac_tp;
+    document.getElementById("body_hidden_ac_sound").value = ac_sound;
     document.getElementById("body_hidden_ac_ov").value = ac_ov;
     
    

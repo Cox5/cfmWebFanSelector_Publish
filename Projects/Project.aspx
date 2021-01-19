@@ -10,7 +10,9 @@
             
             <div class="project-name" ><asp:Label ID="lblProjectName" runat="server"  Visible="false"></asp:Label></div>
             <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="false" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
-        </div>
+            <div class="right-controls mt-medium mr-small" style="float: right;">
+                       <asp:Button ID="Button1"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnCancel_Click" runat="server" />
+              </div> </div>
 
 
             <h3>Project details</h3>
@@ -445,7 +447,6 @@
 
             <div class="right-controls mt-medium mr-small">
                 <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Create Project" runat="server" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
             </div>
 
         </div>

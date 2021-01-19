@@ -9,6 +9,9 @@
         <div class="mb-solid mt-solid">
             <div class="table-controls">
                 <h1 class="table-title maintitle">Fan Pricelist</h1>
+                              <div class="right-controls mt-medium mr-small" style="float: right;">
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinished_Click" runat="server" />
+              </div>
             </div>
             
             <div class="project-name" ><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
@@ -117,14 +120,14 @@
     <br/>
     <asp:Label ID="lblErrorMsg" Text="" runat="server" ForeColor="Red"></asp:Label>
     <br />
-
+        <!--
     <div class="mt-medium">
         <asp:DropDownList runat="server" ID="ddlPricelistAction" style="width: auto" AutoPostBack="true" OnSelectedIndexChanged="ddlPricelistAction_SelectedIndexChanged">
                 <asp:ListItem Text="Return to Fan List" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Mark pricing as completed" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Mark pricing as completed and email project owner" Value="3"></asp:ListItem>
-        </asp:DropDownList> <asp:LinkButton runat="server" CommandName="Exit" OnClick="btnGo_Click" CausesValidation="false" class="button-main primary-btn" >Go <i class="fas fa-chevron-right"></i></asp:LinkButton>
-    </div>
+        </asp:DropDownList> 
+    </div> -->
 
 </div>
 </asp:Content>

@@ -676,7 +676,7 @@ namespace CFM_Web
 
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Elec. Supply (ph/V/Hz):", frphaseString, phaseString).AppendLine();
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Sound Pr. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_sound>{2}</td></tr>", "Sound Pr. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
 
 
             // Motor

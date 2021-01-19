@@ -5,9 +5,10 @@
       <div class="content-wrapper">
   <p class="paragraph-large">Hi <span class="bold"><asp:Literal ID="litUsername" Text="new user" runat="server"/></span>!</p>
   <p class="paragraph-large">Thank you for registering.<br />
-      We have sent an email to you with your registration details</p>
+      We have sent an email to you with your registration details.</p>
+          <p>Please check your inbox for the registration email, which contains your login password.</p>
 
-  <p class="paragraph-large">We will confirm your registration as soon as it is approved.</p>
   <p><a href="http://www.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Go to CFM Airsystems Website</a></p>
+          <p><a href="http://www.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Return to Login page.</a></p>
           </div>
 </asp:Content>

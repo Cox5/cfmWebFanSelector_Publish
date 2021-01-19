@@ -22,7 +22,7 @@
     <script src="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.js"></script>
     <script src="Scripts/jquery.tablesorter.min.js"></script>
     <script src="Scripts/jquery.tablesorter.widgets.min.js"></script>
-    <script src="Scripts/fanSelection.js"></script>
+    <script src="Scripts/fanSelection.js?v=20200119"></script>
     <script src="Scripts/fanTypeTree.js"></script>
 
     <asp:PlaceHolder ID="plcHeadingColor" runat="server" />
@@ -439,6 +439,7 @@ font-size: 20px; text-align:center; background-color: white; visibility: hidden"
                             <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_next" runat="server"></asp:HiddenField>
                             <asp:HiddenField ID="hidden_motorid" runat="server"></asp:HiddenField>
+                             <asp:HiddenField ID="hidden_ac_sound" runat="server"></asp:HiddenField>
 
                           </div>
                     </div>
