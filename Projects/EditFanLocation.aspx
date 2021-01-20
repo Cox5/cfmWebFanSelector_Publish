@@ -98,6 +98,13 @@
                 <td>
                 </td>
             </tr>
+             <tr>
+                <td class="small-td">Sound pressure (@ 3m)</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtSoundPressure" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td>
+                </td>
+            </tr>
             <tr>
                 <td class="small-td">Speed (RPM)</td>
                 <td class="small-td">
