@@ -27,6 +27,7 @@
         <asp:TextBox ID="txtPriceType" runat="server" AutoCompleteType="Disabled" Visible="false"></asp:TextBox>
         <asp:HiddenField ID="hiddenFandataid" runat="server" />
         <table class="table table-form" >
+            <tr>
            <td class="small-td">Fan Manufacturer</td>
                 <td class="small-td">
                     <asp:DropDownList ID="ddFanManufacturer" runat="server" AutoPostBack="true"  OnSelectedIndexChanged="ddFanManufacturer_Change">
@@ -39,6 +40,7 @@
                     <asp:Button ID="btnConfirm" class="button-main primary-btn " Text="Confirm" OnClick="btnConfirm_Click" runat="server" Visible="false"/>
                 </td>
             </tr>
+            
             <tr>
                 <td class="small-td" style="width: 30%">Fan Reference</td>
                 <td class="small-td">
@@ -99,7 +101,7 @@
                 </td>
             </tr>
              <tr>
-                <td class="small-td">Sound pressure (@ 3m)</td>
+                <td class="small-td">Sound pressure (dBA @ 3m)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtSoundPressure" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
@@ -275,7 +277,7 @@
                 </td>
             </tr>
             <tr ID="oem_row15b" runat="server" visible="false">
-                <td class="small-td">SPL @ 3m (dBA)</td>
+                <td class="small-td">Sound pressure (dBA @ 3m)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtSpl3m" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
