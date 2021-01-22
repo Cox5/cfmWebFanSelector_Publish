@@ -130,14 +130,41 @@ namespace CFM_Web
 
                 // Fetch fan Reference parameters from database by project fan id
                 // So that data can be added to HTML table in buildPerformanceDataTable()
-                FanReference fr = null;
+                FanReference fr = new FanReference();
 
                 if (projectfanid > 0)
                 {
                     fr = ProjectDBController.GetFanReference(projectfanid);
-                } else
+                }
+                else
                 {
-                    throw new System.ArgumentException("Showing details for fans outside of projects is not supported");
+                    //throw new System.ArgumentException("Showing details for fans outside of projects is not supported");
+                    fr.ProjectFanId = 0;
+                    fr.ProjectId = 0;
+                    fr.FanDataId = 0;
+                    fr.FanReferenceCode = "";
+                    fr.Position = 0;
+                    fr.PartNumber = "";
+                    fr.Qty = 0;
+                    fr.PriceType = "";
+                    fr.PriceValue = 0;
+                    fr.AirFlow = (int)airflow;
+                    fr.StaticPressure = (int)staticPressure;
+                    fr.ActualAF = 0;
+                    fr.ActualSP = 0;
+                    fr.ActualTP = 0;
+                    fr.ActualOV = 0;
+                    fr.Angle = "";
+                    fr.Speed = "";
+                    fr.Phase = "";
+                    fr.Poles = "";
+                    fr.FanType = "";
+                    fr.BladeMaterial = "";
+                    fr.MotorType = "";
+                    fr.Diameter = "";
+                    fr.SoundPressure = "";
+                    fr.Ancillaries = "";
+                    fr.MotorUpgrade = 0;
                 }
 
 
@@ -676,7 +703,7 @@ namespace CFM_Web
 
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Elec. Supply (ph/V/Hz):", frphaseString, phaseString).AppendLine();
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_sound>{2}</td></tr>", "Sound Pr. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_sound>{2}</td></tr>", "Sound Pressure. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
 
 
             // Motor
