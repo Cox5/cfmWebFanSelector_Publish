@@ -383,6 +383,7 @@
                             <%--  %><asp:TextBox ID="txtSalesConsultant" runat="server" /> --%>
                             <asp:DropDownList ID="ddlSalesCons" AutoPostBack="true" AppendDataBoundItems="true" runat="server">                              
                             </asp:DropDownList>
+                            <asp:HiddenField ID="hiddenSalesID" runat="server" />
                             <!-- <asp:ListItem Text="Please select..." Value="Null" /> -->
 
                         </td>
