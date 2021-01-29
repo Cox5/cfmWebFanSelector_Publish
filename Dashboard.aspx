@@ -31,12 +31,12 @@
                     </div>
                 </a>
 
-                <a href="/projects" class="dashboard-icon-link">
+                <!-- <a href="/projects" class="dashboard-icon-link">
                     <i class="fas fa-quote-left icon"></i>
                     <div class="highlighted">
                         Quotations
                     </div>
-                </a>
+                </a> -->
 
                 <a href="/FanSelection.aspx" class="dashboard-icon-link">
                     <i class="fab fa-centercode icon"></i>
