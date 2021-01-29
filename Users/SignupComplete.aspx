@@ -9,6 +9,6 @@
           <p>Please check your inbox for the registration email, which contains your login password.</p>
 
   <p><a href="http://www.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Go to CFM Airsystems Website</a></p>
-          <p><a href="http://www.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Return to Login page.</a></p>
+          <p><a href="https://fanselector.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Return to Login page.</a></p>
           </div>
 </asp:Content>

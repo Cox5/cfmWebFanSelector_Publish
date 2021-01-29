@@ -116,7 +116,7 @@ td.tiny-td select {
                      <td class="sub" style='text-align:right; width: 5%;'><div><%= getCopyPaste(fanReferences[i]) %> <%= getCutPutURL(fanReferences[i]) %></div></td>
                      <td style="width: 12%;" class="icons icones-smaller"><%= 
                           getControls(fanReferences[i].ProjectId, fanReferences[i].ProjectFanId, fanReferences[i].AirFlow, 
-                                        fanReferences[i].StaticPressure, fanReferences[i].FanDataId, fanReferences[i].Phase, fanReferences[i].Speed ) 
+                                        fanReferences[i].StaticPressure, fanReferences[i].FanDataId, fanReferences[i].Phase, fanReferences[i].Speed, fanReferences[i].oem ) 
                             %></td>
                  </tr>
              <% } %>

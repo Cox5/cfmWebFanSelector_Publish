@@ -13,7 +13,7 @@
       <td>Firstname</td>
       <td><asp:TextBox ID="txtFirstname" runat="server" AutoCompleteType="Disabled"/></td>
         <td>
-            <asp:RegularExpressionValidator ID="regName" runat="server" Display="Dynamic" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" />
+            <asp:RegularExpressionValidator ID="regName" runat="server" Display="Dynamic" ControlToValidate="txtFirstname" ValidationExpression="^[a-zA-Z'.\s\-]{1,25}" ErrorMessage="Enter a valid name" ForeColor="Red" />
             <br /><asp:RequiredFieldValidator class="mt-small" Display="Dynamic" ID="firstNameRequiredValidator" runat="server" ErrorMessage="Name field is empty" ForeColor="Red" ControlToValidate="txtFirstname"></asp:RequiredFieldValidator>
         </td>
     </tr>
@@ -21,7 +21,7 @@
       <td>Lastname</td>
       <td><asp:TextBox ID="txtLastname" runat="server" AutoCompleteType="Disabled" /></td>
         <td>
-            <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s]{1,25}" ErrorMessage="Enter a valid last name" ForeColor="Red" />
+            <asp:RegularExpressionValidator ID="regLastName" runat="server" ControlToValidate="txtLastname" ValidationExpression="^[a-zA-Z'.\s\-]{1,25}" ErrorMessage="Enter a valid last name" ForeColor="Red" />
             <br /><asp:RequiredFieldValidator class="mt-small"  ID="regLastNameRequired" runat="server" ErrorMessage="Last name field is empty" ForeColor="Red" ControlToValidate="txtLastname"></asp:RequiredFieldValidator>
       
         </td>
@@ -39,7 +39,7 @@
       </tr>
     <tr>
       <td>Mobile</td>
-      <td><asp:TextBox ID="txtUser_Mobile" runat="server" /></td>
+      <td><asp:TextBox ID="txtUser_Mobile" runat="server" AutoCompleteType="Disabled" /></td>
     </tr>
     <tr>
         <td>Email address</td>
@@ -53,13 +53,13 @@
     <tr>
         <td>Password</td>
         <td>
-            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="leave blank or type new password"  AutoCompleteType="Disabled"/>
+            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="Leave blank or type new password"   autocomplete="new-password"/>
         </td>
     </tr>
     <tr>
         <td>Confirm Password</td>
         <td>
-            <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" Placeholder="leave blank or type new password" AutoCompleteType="Disabled"/>
+            <asp:TextBox ID="txtConfirmPassword" TextMode="Password" runat="server" Placeholder="leave blank or type new password"  autocomplete="new-password"/>
         </td>
         <td>
             <asp:CompareValidator runat="server" ID="Comp1" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Password mismatch" Font-Size="11px" ForeColor="Red"></asp:CompareValidator>

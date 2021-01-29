@@ -170,7 +170,7 @@
                             <asp:Label Text='<%#Eval("fanImage") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
-              <asp:TemplateField  HeaderText="Dimensions info" ControlStyle-Width="170px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  Visible="false" HeaderText="Dimensions info" ControlStyle-Width="170px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtDims" Text='<%#Eval("dims") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
@@ -181,6 +181,7 @@
                             <asp:Label Text='<%#Eval("dims") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
+                    
 
               <asp:TemplateField  HeaderText="Fan Size" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
@@ -195,7 +196,7 @@
               </asp:TemplateField>
 
 
-              <asp:TemplateField  HeaderText="Fan Mass" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  Visible="false" HeaderText="Fan Mass" ControlStyle-Width="50px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtMass" Text='<%#Eval("mass") %>' runat="server" Enabled="true" CssClass="input-small"></asp:TextBox>
                         </EditItemTemplate>
