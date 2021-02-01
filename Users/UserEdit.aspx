@@ -39,7 +39,7 @@
       </tr>
     <tr>
       <td>Mobile</td>
-      <td><asp:TextBox ID="txtUser_Mobile" runat="server" AutoCompleteType="Disabled" /></td>
+      <td><asp:TextBox ID="txtUser_Mobile" runat="server" AutoCompleteType="Disabled" MaxLength="20"/></td>
     </tr>
     <tr>
         <td>Email address</td>
