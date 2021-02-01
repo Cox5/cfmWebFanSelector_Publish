@@ -64,8 +64,8 @@
 				font-size: 13px;
 			}
 			.heading-wrapper {
-				padding-top: 15px;
-				padding-bottom: 10px;
+				padding-top: 5px;
+				padding-bottom: 5px;
 				text-align: center;
 			}	
 			
@@ -82,8 +82,8 @@
 			}			
 			th { padding: 0px; }
 
-		h2 {display: inline-block; float: left;}
-		h3 {display: inline-block; float: right;}
+		h2 {display: inline-block; float: left; margin: 0;}
+		h3 {display: inline-block; float: right; margin: 0;}
 		th.a { font-weight: normal; text-align: center; width:2.3%;}
 
 
@@ -91,14 +91,24 @@
     </head>
 	<body>
 	 <!-- ProjectFanListTemplate_First used for many columns of fan acoustic details LAST PAGE -->
-	
+	<div class="clearfix">
+			<img class="logo" src="https://fanselector.cfmairsystems.com.au/Content/cfm_pdf_logo.png">
+	</div>
+
+    <hr />
+    <div class="heading-wrapper"> 
+	    <h2><span style='font-weight: 400;'>Project:</span> %%PROJNAME%%</h2><h3><span style='font-weight: 400;'>Quotation number:</span> %%QUOTENUM%%</h3>  
+    </div>
+	<div class="clearfix"></div>
+
+	<hr />
 	
     <div class="row" id="project_fan_div">
-        <table style="font-size: 11px; width: 100%; ">
+        <table style="font-size: 11px; width: 100%;">
 			<tr>
-				<th class='left' width="9%"></th>
+				<th class='left' width="10%"></th>
 				<th class='center' width="3%"></th>
-				<th class='center' width="13%"></th>
+				<th class='center' width="14%"></th>
 				<th class='center'></th>
 				<th class='center'></th>
 				<th class='center' colspan=2>Airflow</th>
@@ -115,8 +125,8 @@
 				<th class='center'>SPL</th>
 			</tr>
 			<tr>
-				<th class='left' >Fan</th>
-				<th class='center' ></th>
+				<th class='left'>Fan</th>
+				<th class='center'></th>
 				<th class='center'>Selected</th>
 				<th class='center'></th>
 				<th class='center'></th>
@@ -127,7 +137,7 @@
 				<th class='center'>Power</th>
 				<th class='center'>Motor</th>
 				<th class='center'>Phase</th>
-				<th class='center' colspan=8>Sound Power Level SWL (dB)</th>
+				<th class='center' colspan=8>Sound Power Level SWL (dBA)</th>
 
 				<th class='center'>SWL</th>
 				<th class='center'>@3m</th>
@@ -138,7 +148,6 @@
 				<th class='center'>Model</th>
 				<th class='center'>Angle</th>
 				<th class='center'>Description</th>
-				
 				<th class='center'>Req</th>
 				<th class='center'>Actual</th>
 				<th class='center'>&nbsp;</th>
@@ -157,7 +166,7 @@
 				<th class='a'>2K</th>
 				<th class='a'>4K</th>
 				<th class='a'>8K</th>
-				<th class='center'>(dB)</th>
+				<th class='center'>(dBA)</th>
 				<th class='center'>(dBA)</th>
 		    </tr>
 			
