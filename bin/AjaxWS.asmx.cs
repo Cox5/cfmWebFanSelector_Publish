@@ -447,11 +447,11 @@ namespace CFM_Web
             nominalDataTable.AppendFormat("<th>Impeller Type: </th><td>{0}</td><th>Blade Material</th><td>{1}</td>", impellerType, bladeMaterial);
             nominalDataTable.AppendLine("</tr>");
             nominalDataTable.Append("<tr>");
-            nominalDataTable.AppendFormat("<th>Speed: (rpm)</th><td>{0}</td><th>BCA 2009 Compliant</th><td>{1}</td>", fanData.RPM, fanData.bca2009 ? "TBC" : "TBC");
+            nominalDataTable.AppendFormat("<th>Speed: (rpm)</th><td>{0}</td><th>BCA 2016 Compliant</th><td>{1}</td>", fanData.RPM, fanData.bca2009 ? "TBC" : "TBC");
 
             nominalDataTable.AppendLine("</tr>");
             nominalDataTable.Append("<tr>");
-            nominalDataTable.AppendFormat("<th>Fan Weight: (kg)</th><td>{0}</td><th>BCA 2010 Compliant</th><td>{1}</td>", fanData.mass, fanData.bca2010 ? "TBC" : "TBC");
+            nominalDataTable.AppendFormat("<th>Fan Weight: (kg)</th><td>{0}</td><th>BCA 2019 Compliant</th><td>{1}</td>", fanData.mass, fanData.bca2010 ? "TBC" : "TBC");
             nominalDataTable.AppendLine("</tr>");
             nominalDataTable.AppendLine("</table>");
             return nominalDataTable.ToString();
