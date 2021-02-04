@@ -26,7 +26,8 @@ $(document).ready(function () {
 
         selectedFanID = $(this).attr("data-fandataid");
         motorID = $(this).attr("data-motorid");
-        updateFanCurve(selectedFanID, motorID); // calls GetFanData() in AjaxWS.asmx.cs
+        pwr = $(this).attr("data-interceptpwr");
+        updateFanCurve(selectedFanID, motorID, pwr); // calls GetFanData() in AjaxWS.asmx.cs
         $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
     });
@@ -85,7 +86,7 @@ function printDataSheet()
     alert("Form submitted");
 }
 
-function updateFanCurve(fanDataID, motorid) {
+function updateFanCurve(fanDataID, motorid, pwr) {
   /// <summary>
   /// Gets the relevant data from the form and sends the data to the web service to create the fan curves
   /// </summary>
@@ -93,7 +94,7 @@ function updateFanCurve(fanDataID, motorid) {
 
     var airflow = $("#body_txt_airFlow").val();
     var staticPressure = $("#body_txt_static").val();
-    var addairflow = $("#body_txt_percentage").val();
+    var addairflow = parseFloat($("#body_txt_percentage").val());
 
     var divPerfWidth = $("#body_div_perfCurve_width").val();
     var divPerfHeight = $("#body_div_perfCurve_height").val();
@@ -116,6 +117,7 @@ function updateFanCurve(fanDataID, motorid) {
             ", airflow:" + parseFloat(airflow) +
             ", addairflow:" + parseFloat(addairflow) +
             ", staticPressure:" + parseFloat(staticPressure) +
+            ", pwr:" + parseFloat(pwr) + // absorbed power at intercept
             ", divPerfWidth:" + parseInt(divPerfWidth) +
             ", divPerfHeight:" + parseInt(divPerfHeight) +
             ", divPowerWidth:" + parseInt(divPowerWidth) +
@@ -124,7 +126,8 @@ function updateFanCurve(fanDataID, motorid) {
     };
 
     $.ajax(fanDataOptions).done(getFanDataSucceed);
-    document.getElementById("body_hidden_motorid").value = motorid;
+    document.getElementById("body_hidden_motorid").value = motorid; 
+    // document.getElementById("body_hidden_ncc").value = document.getElementById("hidden_ncc").value;
 }
 
 //Gets the data of a selected fan
@@ -160,11 +163,15 @@ function transferActualValues() {
     let ac_sp = $("#ac_sp").text();
     let ac_sound = $("#ac_sound").text();
     let ac_ov = $("#ac_ov").text();
+    let ncc = $("#nccComp").text();
+    let abspwr = $("#abspwr").text()
 
     document.getElementById("body_hidden_ac_af").value = ac_af;
     document.getElementById("body_hidden_ac_sp").value = ac_sp;
     document.getElementById("body_hidden_ac_sound").value = ac_sound;
     document.getElementById("body_hidden_ac_ov").value = ac_ov;
+    document.getElementById("body_hidden_ncc").value = ncc;
+    document.getElementById("body_hidden_abspwr").value = abspwr;
     
    
 }

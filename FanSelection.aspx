@@ -310,12 +310,14 @@
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
+                                            <th style="width: 5%;">NCC2019</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <% foreach (var fanData in fanDataList)
                                             {  %>
                                         <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"  data-motorid="<%= fanData.motorID %>"
+                                            data-interceptpwr='<%= fanData.intercept != null ? getStringFromDouble(fanData.intercept.power, "0.00") : "0:00" %>'
                                             style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
                                             <td title="<%=fanData.fanObject.partNumber  %>"
                                                  style="text-align: left;width: 15%; "> 
@@ -331,17 +333,19 @@
 
                                             <td style="width: 5%;text-align: center;"><%= getMotorkWString(fanData) %></td>
                                             <td style="width: 5%;text-align: center;">&nbsp;<%= getStringFromDouble(getConsumedPowerOverAirflow(fanData), "0.00") %></td>
-                                            <td style="width: 5%;text-align: center;">&nbsp;<%= getStringFromDouble(getConsumedPowerAtAirflow(fanData), "0.00") %></td>
+                                            <td style="width: 5%;text-align: center;">&nbsp;<%= getStringFromDouble(fanData.intercept.power, "0.00") %></td>
                                             <td style="width: 5%;text-align: center;">&nbsp;<%= getEfficiency(fanData) %></td>
                                             <!--<td><%= fanData.fanObject.motorPole.ToString()  %></td> -->
                                             <!--<td><%= fanData.fanObject.motorPhase.ToString() %></td> -->
                                             <!--<td><%= fanData.angle.ToString() %></td> -->
-                                            <td style='<%= fanData.intercept != null ? getAFbgcolor(fanData.intercept.airflow) : getAFbgcolor(0)%>'>
+                                            <td style='<%= fanData.intercept != null ? getAFbgcolor(fanData.intercept.airflow) : getAFbgcolor(0)%>' > 
                                                 <%= fanData.intercept != null ? Math.Floor(fanData.intercept.airflow).ToString() : "-" %>
                                             </td>
                                             <td style='<%= fanData.intercept != null ? getSPbgcolor(fanData.intercept.staticPressure) : getSPbgcolor(0)%>'>
                                                 <%= fanData.intercept != null ? Math.Floor(fanData.intercept.staticPressure).ToString() : "-" %>
                                             </td>
+                                           <td style="width: 5%;text-align: center;">&nbsp;<%= getNCCstatus(fanData, 1) %></td>
+
                                             
 
                                         </tr>
@@ -431,15 +435,18 @@ font-size: 20px; text-align:center; background-color: white; visibility: hidden"
                             <!-- <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main2 primary-btn" /> -->
                             <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
 
-                            <asp:HiddenField ID="hiddenProjectID" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hiddenProjectFansID" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_ac_af" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_ac_sp" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_ac_tp" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_next" runat="server"></asp:HiddenField>
-                            <asp:HiddenField ID="hidden_motorid" runat="server"></asp:HiddenField>
-                             <asp:HiddenField ID="hidden_ac_sound" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hiddenProjectID" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hiddenProjectFansID" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_ac_af" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_ac_sp" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_ac_tp" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_ac_ov" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_next" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_motorid" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_ac_sound" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_teff" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_ncc" runat="server"></asp:HiddenField>
+                              <asp:HiddenField ID="hidden_abspwr" runat="server"></asp:HiddenField>
 
                           </div>
                     </div>
