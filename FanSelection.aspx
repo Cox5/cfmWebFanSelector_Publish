@@ -22,7 +22,7 @@
     <script src="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.js"></script>
     <script src="Scripts/jquery.tablesorter.min.js"></script>
     <script src="Scripts/jquery.tablesorter.widgets.min.js"></script>
-    <script src="Scripts/fanSelection.js?v=20200119"></script>
+    <script src="Scripts/fanSelection.js?v=20210204"></script>
     <script src="Scripts/fanTypeTree.js"></script>
 
     <asp:PlaceHolder ID="plcHeadingColor" runat="server" />
@@ -310,7 +310,7 @@
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
-                                            <th style="width: 5%;">NCC2019</th>
+                                            <th style="width: 5%;text-align: center;">NCC2019</th>
                                         </tr>
                                     </thead>
                                     <tbody>
