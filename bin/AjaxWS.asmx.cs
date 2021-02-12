@@ -203,6 +203,7 @@ namespace CFM_Web
                 fanData.intercept.power = pwr;
                 
                 string nccCompliance = FanSelection.getNCCstatus(fanData, 0);
+                pdfData.ncc2019 = nccCompliance;
 
                 selectedFanData.nominalDataTable = buildNominalDataTable(fanData, fr, nccCompliance);
 
