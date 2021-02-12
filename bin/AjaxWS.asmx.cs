@@ -650,24 +650,25 @@ namespace CFM_Web
                 }
 
                 // redo motor upgrade calcs and show workings
+                if (fanData.fanObject.rangeID != 32 && fanData.fanObject.rangeID != 33)
+                {
 
+                    workings = "adf= " + adf.ToString() + " ads=" + ads.ToString() + "<br />";
+                    workings += "default motor: " + defaultmotorkW.ToString() + "<br />";
 
-                workings = "adf= " + adf.ToString() + " ads=" + ads.ToString() + "<br />";
-                workings += "default motor: " + defaultmotorkW.ToString() + "<br />";
+                    double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
+                    double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
+                    double newImpellerMotorPeakPower = ImpellerMotorPeakPower * PeakPowerIncreaseFactor;
 
-                double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
-                double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
-                double newImpellerMotorPeakPower = ImpellerMotorPeakPower * PeakPowerIncreaseFactor;
-                
-                double newImpellerMotorConsPower = dpIntercept.power * PeakPowerIncreaseFactor;
-                double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
+                    double newImpellerMotorConsPower = dpIntercept.power * PeakPowerIncreaseFactor;
+                    double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
 
-                workings += "PeakPowerIncreaseFactor: " + PeakPowerIncreaseFactor.ToString() + "<br />\n";
-                workings += "ImpellerMotorPeakPower: " + ImpellerMotorPeakPower.ToString() + "<br />\n";
-                workings += "newImpellerMotorPeakPower: " + newImpellerMotorPeakPower.ToString() + "<br />\n";
-                workings += "newImpellerMotorConsPower: " + newImpellerMotorConsPower.ToString() + "<br />\n";
-                workings += "NewMotorRatedPower: " + NewMotorRatedPower.ToString() + "<br />\n";
-
+                    workings += "PeakPowerIncreaseFactor: " + PeakPowerIncreaseFactor.ToString() + "<br />\n";
+                    workings += "ImpellerMotorPeakPower: " + ImpellerMotorPeakPower.ToString() + "<br />\n";
+                    workings += "newImpellerMotorPeakPower: " + newImpellerMotorPeakPower.ToString() + "<br />\n";
+                    workings += "newImpellerMotorConsPower: " + newImpellerMotorConsPower.ToString() + "<br />\n";
+                    workings += "NewMotorRatedPower: " + NewMotorRatedPower.ToString() + "<br />\n";
+                }
 
             }
 
