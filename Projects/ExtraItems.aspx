@@ -15,9 +15,11 @@
             <div class="table-controls">
                 <h1 class="table-title maintitle">Extras and Ancillaries</h1>
             </div>
-            
-            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
-            <div class="subtitle regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
+              <div class="project-name" ><asp:Label ID="lblProjectName" runat="server"  Visible="true"></asp:Label></div>
+            <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="true" style="float: left; max-width: 50%">Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
+            <div class="right-controls mr-small" style="float: right;">
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
+              </div>           
         </div>
 
             <asp:GridView ID="gvExtraItems" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
@@ -187,11 +189,6 @@
             <asp:Label ID="lblErrorMsg" runat="server" ForeColor="Red" CssClass="mb-small"></asp:Label>
             <br />
 
-            <div class="right-controls mb-small">
-
-                <asp:LinkButton runat="server" CommandName="Finish" OnClick="btnFinish_Click" class="button-main primary-btn" >Finished <i class="fas fa-chevron-right"></i></asp:LinkButton>
-                <!-- <asp:Button ID="btnFinish" Text="Finished" runat="server" OnClick="btnFinish_Click" class="button-main primary-btn" CausesValidation="false" /> -->
-            </div>
          </div>
 
     </div>

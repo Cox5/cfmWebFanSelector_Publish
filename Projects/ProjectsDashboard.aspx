@@ -19,6 +19,8 @@
       <div class="table-controls center-text mb-medium">
           <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for quotation number, project name, company or address" Width="300px" Height="32px" class="mr-small" Autocomplete="off"></asp:TextBox>
           <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline" />
+          <asp:Button ID="btnSearchAll" runat="server" Text="All" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline" />
+
       </div>
 
      
@@ -57,8 +59,7 @@
     </table>
 
     <div class="right-controls mt-medium">
-      <a href="/Dashboard.aspx" class="button-main primary-btn mt-medium"><i class="fas fa-angle-left"></i> Go Back</a>
-      <a href="/Projects/DeletedProjects.aspx" class="button-main primary-btn mt-medium">Restore projects</a>
+      <a href="/Projects/DeletedProjects.aspx" class="button-main primary-btn mt-medium">Restore deleted</a>
     </div>
     
 

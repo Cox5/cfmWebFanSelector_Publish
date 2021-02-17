@@ -12,7 +12,9 @@
             <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="false" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
             <div class="right-controls mt-medium mr-small" style="float: right;">
                        <asp:Button ID="Button1"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnCancel_Click" runat="server" />
-              </div> </div>
+              </div> 
+
+            </div>
 
 
             <h3>Project details</h3>

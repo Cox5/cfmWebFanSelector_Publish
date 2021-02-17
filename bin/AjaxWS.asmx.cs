@@ -651,7 +651,7 @@ namespace CFM_Web
                 }
 
                 // redo motor upgrade calcs and show workings
-                if (fanData.fanObject.rangeID != 32 && fanData.fanObject.rangeID != 33)
+                if (fanData.fanObject.rangeID != 32 && fanData.fanObject.rangeID != 33 && dpIntercept != null && dpIntercept.power != null)
                 {
 
                     workings = "adf= " + adf.ToString() + " ads=" + ads.ToString() + "<br />";

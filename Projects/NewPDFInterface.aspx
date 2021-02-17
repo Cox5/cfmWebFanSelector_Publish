@@ -5,12 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="content-wrapper">
 
-        <div class="table-controls mb-medium">
-            <span class="table-title" id="projectName" runat="server">
-                    <asp:Label ID="lblProjectName" runat="server" Font-Bold="true"></asp:Label>
-            </span>
-        </div>
+            <div class="mb-solid mt-solid">
+            <div class="table-controls">
+                <h1 class="table-title maintitle">PDF Specification</h1>                  
+            </div>
+            
+            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server"  Visible="false"></asp:Label></div>
+            <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="false" style="float: left; max-width: 50%">Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
+            <div class="right-controls mr-small" style="float: right;">
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Cancel" OnClick="btnCancel_Click" runat="server" />
+              </div> 
 
+            </div>
+        <div style="clear: both"></div>
         <table class="table project" style="width: 400px">
             <tr>
                 <td>Cover Page</td>
@@ -41,7 +48,7 @@
                 <td class="tiny-td right"><asp:CheckBox ID="chkIncludePrices" runat="server" /></td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="2" style="background-color: white">
                     <asp:Label ID="lblMessage" runat="server"></asp:Label>
                 </td>
             </tr>
@@ -50,8 +57,6 @@
             
             <asp:Button ID="btnSubmit" class="button-main primary-btn" runat="server" Text="Create" OnClick="btnSubmit_Click" />
         
-    
-            <asp:Button ID="btnCancel" class="button-main quarternary-btn" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
-            
+               
         <div>
 </asp:Content>
