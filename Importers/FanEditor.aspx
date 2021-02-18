@@ -12,7 +12,9 @@
                         }
 
                     </style>
-
+      <div class="right-controls mr-small" style="float: right;">
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
+      </div> 
         <h3>Edit Fans in database</h3>
         Enter a catalogue model number or prefix to search for, eg "MUC3"
 <div class="table-controls mb-medium">
@@ -24,6 +26,7 @@
            <asp:Button ID="btnFindFan" class="button-main primary-btn"  runat="server" Visible="true" Text="List fans" OnClick="BtnFindFan_click" />
 
 </div>
+
         <br />
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
         <asp:HiddenField ID="hiddenSearch" runat="server"/>
