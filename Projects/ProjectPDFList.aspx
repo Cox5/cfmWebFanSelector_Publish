@@ -16,7 +16,10 @@
 
             </div>
             
-            <div class="project-name" ><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+            <div class="project-name" >
+                <asp:Label ID="lblProjectNameDisplay" runat="server" ></asp:Label>
+                <asp:Label ID="lblProjectName" runat="server" visible="false"></asp:Label>
+            </div>
             <div class="subtitle regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
     
