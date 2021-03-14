@@ -11,8 +11,8 @@
             </div>
             
             <div class="project-name" >
-                <asp:Label ID="lblProjectNameDisplay" runat="server"  Visible="false"></asp:Label>
-                <asp:Label ID="lblProjectName" runat="server"  Visible="true"></asp:Label>
+                <asp:Label ID="lblProjectNameDisplay" runat="server" ></asp:Label>
+                <asp:Label ID="lblProjectName" runat="server" visible="false"></asp:Label>
             </div>
             <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="false" style="float: left; max-width: 50%">Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
             <div class="right-controls mr-small" style="float: right;">

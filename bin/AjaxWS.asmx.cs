@@ -96,7 +96,7 @@ namespace CFM_Web
                 fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
                 fanData.fanObject = fan;
 
-                // If there is no required af or sp, because search by model number,
+                // If there is no required af or sp, because search by model number, 
                 // get an airflow/sp pair from datapoint table so that the output looks
                 // realistic/sensible.
                 if (double.IsNaN(airflow) && double.IsNaN(staticPressure))

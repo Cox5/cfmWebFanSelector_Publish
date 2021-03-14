@@ -330,13 +330,13 @@
         <asp:RegularExpressionValidator ID="regUrl" runat="server" ControlToValidate="txtCompanyWebsite" ValidationExpression="^((http|https)://)?([\w-]+\.)+[\w]+(/[\w- ./?]*)?$" ErrorMessage="Enter a valid URL" ForeColor="Red" />
 
 
-    </div>
 
         <div class="center-text mb-medium">
         <asp:Label ID="lblMessage" runat="server" /><br />
         <asp:Button class="button-main bigger primary-btn mt-big" ID="btnSubmit" Text="Save" runat="server" OnClick="btnSubmit_Click" />
         <asp:Button class="button-main bigger primary-btn mt-big" ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
 
+        </div>
     </div>
 
 
