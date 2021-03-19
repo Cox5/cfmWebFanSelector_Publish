@@ -16,11 +16,16 @@
       <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
       </div> 
+        <h3>Edit Motor Case table</h3>
+
 
         <br />
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
-
-
+        
+        <div class="table-controls mb-medium"> Search by case diameter
+          <asp:TextBox ID="txtDiameter" runat="server" Placeholder="diameter" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
+            <asp:Button ID="btnFindCases" class="button-main primary-btn"  runat="server" Visible="true" Text="Find cases" OnClick="BtnFindCases_click" />
+        </div>
         <div runat="server" id="gvCase_DIV" style="max-width: 700px;">
              <asp:GridView ID="gvCase" runat="server"  AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="id" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvCase_RowCommand"
@@ -51,7 +56,7 @@
                             <asp:TextBox ID="txtDiameter" Text='<%#Eval("diameter") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtDiameterFooter" runat="server" AutoPostBack="false" Text="auto"  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtDiameterFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("diameter") %>' runat="server"></asp:Label>
@@ -66,7 +71,7 @@
                             <asp:TextBox ID="txtMotorFrame" Text='<%#Eval("motor_frame") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtMotorFrameFooter" runat="server" AutoPostBack="false" Text="auto"  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtMotorFrameFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("motor_frame") %>' runat="server"></asp:Label>
@@ -81,7 +86,7 @@
                             <asp:TextBox ID="txtLength" Text='<%#Eval("length") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtLengthFooter" runat="server" AutoPostBack="false" Text="auto"  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtLengthFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("length") %>' runat="server"></asp:Label>
@@ -96,7 +101,7 @@
                             <asp:TextBox ID="txtPrice" Text='<%#Eval("price") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtPriceFooter" runat="server" AutoPostBack="false" Text="auto"  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtPriceFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("price") %>' runat="server"></asp:Label>
@@ -111,7 +116,7 @@
                             <asp:TextBox ID="txtWeight" Text='<%#Eval("weight") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtWeightFooter" runat="server" AutoPostBack="false" Text="auto"  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtWeightFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("weight") %>' runat="server"></asp:Label>
@@ -137,10 +142,8 @@
                             </asp:LinkButton>
                        </EditItemTemplate>
                        <FooterTemplate>
-                          <asp:LinkButton runat="server" ID="ButtonAdd"  CssClass="" OnClick="ButtonAdd_Click" ><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                         </FooterTemplate>
                     </asp:TemplateField>
-
 
              <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                         <ItemTemplate>
@@ -151,6 +154,7 @@
                         <EditItemTemplate>
                        </EditItemTemplate>
                        <FooterTemplate>
+                                   <asp:LinkButton ID="lbAdd" runat="server" Text="Add" OnClick="ButtonAdd_Click" />
                         </FooterTemplate>
                     </asp:TemplateField>
 

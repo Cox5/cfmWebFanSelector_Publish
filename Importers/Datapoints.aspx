@@ -105,7 +105,7 @@
                        <FooterTemplate>
                           <asp:LinkButton runat="server" ID="ButtonAdd"  CssClass="" OnClick="ButtonAdd_Click" ><i class="tooltip fas fa-plus-circle"></i> Add</asp:LinkButton>
                         </FooterTemplate>
-                    </asp:TemplateField>
+               </asp:TemplateField>
 
 
              <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
