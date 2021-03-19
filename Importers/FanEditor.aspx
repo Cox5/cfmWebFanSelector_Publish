@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Catalogue Fan Editor" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" CodeBehind="FanEditor.aspx.cs" Inherits="CFM_Web.Importers.FanEditor" %>
+﻿<%@ Page Title="Catalogue Fan Editor" Language="C#" MasterPageFile="~/fanselection.Master" AutoEventWireup="true" 
+    CodeBehind="FanEditor.aspx.cs" Inherits="CFM_Web.Importers.FanEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
