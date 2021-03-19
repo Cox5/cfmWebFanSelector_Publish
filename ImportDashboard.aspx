@@ -20,7 +20,16 @@
                 </span>
             </div>
         </asp:LinkButton>
-       
+
+           <asp:LinkButton CommandName="Edit Motor Data" runat="server" Text="Edit Motor Data" class="sp-button" OnClick="btnEditMotorData_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Edit Motor Data</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+     
          <asp:LinkButton CommandName="Edit Motor Cases" runat="server" Text="Edit Motor Cases" class="sp-button" OnClick="btnEditMotorCases_Click">
             <div class="sp-rect" >
                <span class="sp-text">Edit Motor Cases</span> 

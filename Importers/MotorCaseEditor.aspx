@@ -13,6 +13,7 @@
                         }
 
                     </style>
+        <asp:Panel ID="Panel1" runat="server" DefaultButton="btnFindCases">
       <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
       </div> 
@@ -25,7 +26,10 @@
         <div class="table-controls mb-medium"> Search by case diameter
           <asp:TextBox ID="txtDiameter" runat="server" Placeholder="diameter" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
             <asp:Button ID="btnFindCases" class="button-main primary-btn"  runat="server" Visible="true" Text="Find cases" OnClick="BtnFindCases_click" />
+            <asp:Button ID="btnFindAll" class="button-main primary-btn"  runat="server" Visible="true" Text="Show all" OnClick="BtnFindAllCases_click" />
         </div>
+            </asp:Panel>
+
         <div runat="server" id="gvCase_DIV" style="max-width: 700px;">
              <asp:GridView ID="gvCase" runat="server"  AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="id" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvCase_RowCommand"
