@@ -26,9 +26,18 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
         <br />
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
-        <div class="table-controls mb-medium"> Search motor by kW
-          <asp:TextBox ID="txtSearch" runat="server" Placeholder="kW" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
-            <asp:Button ID="btnFindgvMotorData" class="button-main primary-btn"  runat="server" Visible="true" Text="Find motors" OnClick="BtnFindgvMotorData_click" />
+        <div class="table-controls mb-medium"> 
+            <div style="float:left;  margin-top: 15px"><b>Search motor by kW</b></div>
+            <div style="float:left;  margin-left: 20px"><asp:TextBox ID="txtSearch" runat="server" Placeholder="kW" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox></div>
+            <div style="float:left; margin-left: 20px"> Sort by: 
+                <asp:DropDownList ID="ddlOrderBy" runat="server">
+                    <asp:ListItem Value="kw">kW</asp:ListItem>
+                    <asp:ListItem Value="poles">Poles</asp:ListItem>
+                    <asp:ListItem Value="frame">Motor Frame</asp:ListItem>
+                </asp:DropDownList></asp:TextBox></div>
+            <div style="float:left; margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindgvMotorData" class="button-main primary-btn"  runat="server" Visible="true" Text="Find motors" OnClick="BtnFindgvMotorData_click" /></div>
+            <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindAll" class="button-main primary-btn"  runat="server" Visible="true" Text="Show all" OnClick="BtnFindAllMotors_click" /></div>
+
         </div>
         </asp:Panel>
         <div runat="server" id="MotorDataGV_DIV" style="max-width: 700px;">

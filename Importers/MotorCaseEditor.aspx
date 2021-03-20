@@ -23,10 +23,16 @@
         <br />
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
         
-        <div class="table-controls mb-medium"> Search by case diameter
-          <asp:TextBox ID="txtDiameter" runat="server" Placeholder="diameter" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
-            <asp:Button ID="btnFindCases" class="button-main primary-btn"  runat="server" Visible="true" Text="Find cases" OnClick="BtnFindCases_click" />
-            <asp:Button ID="btnFindAll" class="button-main primary-btn"  runat="server" Visible="true" Text="Show all" OnClick="BtnFindAllCases_click" />
+        <div class="table-controls mb-medium"> <div style="float:left;  margin-top: 15px">Search by case diameter</div>
+          <div style="float:left;  margin-left: 20px; "><asp:TextBox ID="txtDiameter" runat="server" Placeholder="diameter" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox></div>
+           <div style="float:left; margin-left: 20px"> Sort by: 
+                <asp:DropDownList ID="ddlOrderBy" runat="server">
+                    <asp:ListItem Value="diameter">Diameter</asp:ListItem>
+                    <asp:ListItem Value="length">Length</asp:ListItem>
+                    <asp:ListItem Value="frame">Motor Frame</asp:ListItem>
+                </asp:DropDownList></asp:TextBox></div>
+            <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindCases" class="button-main primary-btn"  runat="server" Visible="true" Text="Find cases" OnClick="BtnFindCases_click" /></div>
+            <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindAll" class="button-main primary-btn"  runat="server" Visible="true" Text="Show all" OnClick="BtnFindAllCases_click" /></div>
         </div>
             </asp:Panel>
 
