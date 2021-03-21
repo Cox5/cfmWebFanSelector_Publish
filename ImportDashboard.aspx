@@ -49,6 +49,15 @@
         </asp:LinkButton>
         
 
+         <asp:LinkButton CommandName="Ancillaries Categories" runat="server" Text="Ancillaries Categories" class="sp-button" OnClick="btnEditAncillCat_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Ancillaries Categories</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
 
         <asp:LinkButton CommandName="Import Fan Prices" runat="server" Text="Import Fan Prices"  OnClick="btnImportPrices_Click" class="sp-button" Visible="false" >
             <div class="sp-rect" >
