@@ -39,6 +39,17 @@
             </div>
         </asp:LinkButton>
 
+         <asp:LinkButton CommandName="Edit Impellers" runat="server" Text="Edit Impellers" class="sp-button" OnClick="btnImpellerEditor_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Edit Impellers</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+        
+
+
         <asp:LinkButton CommandName="Import Fan Prices" runat="server" Text="Import Fan Prices"  OnClick="btnImportPrices_Click" class="sp-button" Visible="false" >
             <div class="sp-rect" >
                 <span class="sp-text">Import Fan Prices</span>
@@ -102,7 +113,7 @@
             </div>
         </asp:LinkButton>
 
-        <asp:LinkButton CommandName="Import Multiwing Data" runat="server" Text="Import Multiwing Data" class="sp-button" OnClick="btnImportMultiwingData_Click">
+        <asp:LinkButton CommandName="Import Multiwing Data" runat="server" Text="Import Multiwing Data" class="sp-button" OnClick="btnImportMultiwingData_Click" Visible="false">
             <div class="sp-rect" >
                <span class="sp-text">Import Multiwing Data</span> 
                <span class="sp-icon">
@@ -110,7 +121,7 @@
                 </span>
             </div>
         </asp:LinkButton>
-        <asp:LinkButton CommandName="Delete Catalogue Fans" runat="server" Text="Delete Catalogue Fans" class="sp-button" OnClick="btnDeleteFans_Click">
+        <asp:LinkButton CommandName="Delete Catalogue Fans" runat="server" Text="Delete Catalogue Fans" class="sp-button" OnClick="btnDeleteFans_Click" Visible="false">
             <div class="sp-rect" >
                <span class="sp-text">Delete Catalogue Fans</span> 
                <span class="sp-icon">
@@ -118,7 +129,7 @@
                 </span>
             </div>
         </asp:LinkButton>
-        <asp:LinkButton CommandName="List Imported Fans" runat="server" Text="List Imported Fans" class="sp-button" OnClick="btnListImports_Click">
+        <asp:LinkButton CommandName="List Imported Fans" runat="server" Text="List Imported Fans" class="sp-button" OnClick="btnListImports_Click" Visible="false">
             <div class="sp-rect" >
                <span class="sp-text">List Imported Fans</span> 
                <span class="sp-icon">
