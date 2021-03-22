@@ -23,7 +23,7 @@
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
         </asp:Panel>
-        <div runat="server" id="CCGV_DIV" style="max-width: 1000px;">
+        <div runat="server" id="CCGV_DIV" style="max-width: 400px;">
              <asp:GridView ID="gvCC" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="id" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvCC_RowCommand"
                  OnRowEditing="gvCC_RowEditing" OnRowCancelingEdit="gvCC_RowCancelingEdit"
@@ -55,38 +55,6 @@
                             <asp:Label Text='<%#Eval("category_name") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
-
-
-
-
-              <asp:TemplateField  HeaderText="Deleted" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtDeleted" Text='<%#Eval("deleted") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtDeletedFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
-                        </FooterTemplate>
-                       <ItemTemplate>
-                            <asp:Label Text='<%#Eval("deleted") %>' runat="server"></asp:Label>
-                        </ItemTemplate>
-              </asp:TemplateField>
-
-
-
-
-              <asp:TemplateField  HeaderText="Default Qty" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtDefQty" Text='<%#Eval("default_qty") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtDefQtyFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
-                        </FooterTemplate>
-                       <ItemTemplate>
-                            <asp:Label Text='<%#Eval("default_qty") %>' runat="server"></asp:Label>
-                        </ItemTemplate>
-              </asp:TemplateField>
-
-
 
 
 
