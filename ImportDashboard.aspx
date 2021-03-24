@@ -11,7 +11,8 @@
                     </span>
             </div>
         </div>
-       
+               <div style="float: left; width: 40%">
+
          <asp:LinkButton CommandName="Edit Fans" runat="server" Text="Edit Fans" class="sp-button" OnClick="btnEditFans_Click">
             <div class="sp-rect" >
                <span class="sp-text">Edit Fans</span> 
@@ -48,6 +49,8 @@
             </div>
         </asp:LinkButton>
 
+        </div>
+        <div style="float: left; width: 40%">
          <asp:LinkButton CommandName="Edit Impellers" runat="server" Text="Edit Impellers" class="sp-button" OnClick="btnImpellerEditor_Click">
             <div class="sp-rect" >
                <span class="sp-text">Edit Impellers</span> 
@@ -56,7 +59,16 @@
                 </span>
             </div>
         </asp:LinkButton>
+ 
         
+         <asp:LinkButton CommandName="Ancillary Items" runat="server" Text="Ancillary Items" class="sp-button" OnClick="btnEditAncill_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Ancillary Items</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
 
          <asp:LinkButton CommandName="Ancillaries Categories" runat="server" Text="Ancillaries Categories" class="sp-button" OnClick="btnEditAncillCat_Click">
             <div class="sp-rect" >
@@ -163,12 +175,8 @@
                 </span>
             </div>
         </asp:LinkButton>
-
-
-        
-        <br />
-        <a href="Dashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to dashboard</a>
-    
+            </div>
+   
 
     </div>
 

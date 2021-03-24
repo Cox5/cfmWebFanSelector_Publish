@@ -365,8 +365,8 @@
                 </div>
             </div> <!-- end bottom left -->
         <div id="div_right">
-           <div id="pleasewait" style="width: 100%; height: 100%; 
-font-size: 20px; text-align:center; background-color: white; visibility: hidden"><img style="margin: auto auto" src="/Images/loading-ring2.gif" /></div>
+           <div id="pleasewait" style="width: 100%; height: 100%; font-size: 20px; text-align:center; background-color: white; visibility: hidden"> 
+               <img style="margin: auto auto" src="/Images/loading-ring2.gif" /></div>
 
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
 

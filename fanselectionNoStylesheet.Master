@@ -16,11 +16,20 @@
   <form id="form1" runat="server">
     <div class="header">
         <a href="/Dashboard.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/CFMLogo.png" /></a> 
-            <div ID="projectLink" runat="server" class="buttons button-nav prevpage" style="position:relative; top: -25px; left: 120px;" >
-                <a style="color: #fff; background: #ae4242 !important" href="/Projects/SpecificProject.aspx?from=fanselection&projectID=<%# projectID %>" class="topbar">Finished</a>
-                            <asp:Label ID="lblProjectName" runat="server" ></asp:Label>
+            <div ID="projectLink" runat="server" class="buttons button-nav prevpage" style="position:relative; top: -25px; left: 100px;" >
+                <style>span#lblProjectName a {
+                        border-radius: 0;
+                        border: none; 
+                        font-size: 20px;
+                        padding: 5px 5px 5px 5px;
+                        background-color: transparent !important;
+                        box-shadow: 0 0 0 0;
+                    }
+                </style>
+                <asp:Label ID="lblProjectName" runat="server" ></asp:Label>
             </div>
          <div id="divHeader" style="float:right; padding-top: 10px;">
+             <div ID="finished" runat="server" class="buttons button-nav" ><a style="text-align: center; width: 100px; color: #fff; background: #ae4242 !important" href="/Projects/Fans.aspx?from=fanselection&projectID=<%# projectID %>" class="topbar">Finished</a></div>
             <div class="buttons button-nav"><a href="/Dashboard.aspx" class="topbar">Main</a></div>
             <div ID="scheduleLink" runat="server" class="buttons button-nav"><a href="/Projects/Fans.aspx?from=fanselection&projectID=<%# projectID %>" class="topbar">Fan References</a></div>
             <div class="buttons button-nav"><a href="/Users/Logout.aspx" class="topbar">Logout</a></div>

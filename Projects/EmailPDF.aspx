@@ -12,8 +12,11 @@
             <div class="table-controls">
                 <h1 class="table-title maintitle">Email PDF as an attachment</h1>
             </div>
-            
+       <div id="finishedbuttondiv" class="right-controls mr-small" style="float: right;">
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnCancel_Click" runat="server" />
+      </div>            
             <div id="projectName" class="project-name" runat="server"><asp:Label ID="lblProjectName" runat="server" ></asp:Label></div>
+
             <div class="subtitle darkred regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
             <div id="projPDFfilename"  class="subtitle-sub regular" runat="server">
                     
@@ -21,6 +24,24 @@
             <asp:HiddenField ID="lblProjectPDFPath"  runat="server" />
             </div>
         </div>
+                            <script>
+                        // Shows Searching box after Search button click
+                        function showpleasewait() {
+                            document.getElementById('pleasewait').style.visibility = 'visible';
+                            document.getElementById('pleasewait').style.display = 'block';
+                          
+                            document.getElementById('finishedbuttondiv').style.visibility = 'hidden';
+                            document.getElementById('maincontent').style.visibility = 'hidden';
+                            document.getElementById('maincontent').style.display = 'none';
+                         
+                        }
+                     </script>
+            <div id="pleasewait" style="width: 100%; height: 100%; font-size: 20px; text-align:center; background-color: white; visibility: hidden; display:none"> 
+               <img style="margin: auto auto" src="/Images/loading-ring2.gif" />
+            </div>
+
+        <div style="clear:both"></div>
+        <div id="maincontent">
         <div class="leftcolumn" id="leftcolumn" runat="server">
             
             <table class="table">
@@ -39,6 +60,7 @@
                 </tr>
                 </table>
             </div>
+
             <div class="rightcolumn"  id="rightcolumn" runat="server">
                     <table class="table">
                 <tr>
@@ -68,20 +90,16 @@
 <asp:TextBox id="txtContent" TextMode="multiline" Columns="80" Rows="10" runat="server" />
 
         <br />
-                    <div class="right-controls mt-medium mr-small">
-                <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Send Email" runat="server" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnCancel"  class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
+        <div class="right-controls mt-medium mr-small">
+
+                <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Send Email" runat="server" OnClick="btnSubmit_Click" onClientClick="showpleasewait();" />
             </div>
+        </div>
         <p><asp:Label ID="lblProgressMessage" runat="server" class="lblmessage"></asp:Label></p>
         <p class="validation-msg">
-        
-        
-        
-                    </p>
-
-        <a href="ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
-    
+                    </p>    
 
     
         </div>
+
 </asp:Content>
