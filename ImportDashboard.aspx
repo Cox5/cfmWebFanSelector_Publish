@@ -21,6 +21,15 @@
             </div>
         </asp:LinkButton>
 
+       <asp:LinkButton CommandName="Edit Std Fan Price" runat="server" Text="Edit Fans" class="sp-button" OnClick="btnEditFanPrices_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Edit Std Fan Prices</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
            <asp:LinkButton CommandName="Edit Motor Data" runat="server" Text="Edit Motor Data" class="sp-button" OnClick="btnEditMotorData_Click">
             <div class="sp-rect" >
                <span class="sp-text">Edit Motor Data</span> 
@@ -58,6 +67,14 @@
             </div>
         </asp:LinkButton>
 
+         <asp:LinkButton CommandName="Downloads" runat="server" Text="Downloads" class="sp-button" OnClick="btnDownloads_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Downloads</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
 
         <asp:LinkButton CommandName="Import Fan Prices" runat="server" Text="Import Fan Prices"  OnClick="btnImportPrices_Click" class="sp-button" Visible="false" >
             <div class="sp-rect" >

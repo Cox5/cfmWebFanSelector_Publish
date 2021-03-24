@@ -55,7 +55,7 @@ namespace CFM_Web
                 }
 
                 // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
-                if (addairflow > 0)
+                if (addairflow > 0 && motorid != -1)
                 {
 
                     // Adjust motors

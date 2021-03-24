@@ -37,7 +37,7 @@
                     <asp:ListItem Value="fantype_dia">Fan Type + Diameter</asp:ListItem>
                     <asp:ListItem Value="fantype_frame">Fan Type + Frame Length</asp:ListItem>
                     <asp:ListItem Value="diameter">Diameter + Fan Type</asp:ListItem>
-                    <asp:ListItem Value="diameter_frame">Diameter + Frane Length</asp:ListItem>
+                    <asp:ListItem Value="diameter_frame">Diameter + Franm Length</asp:ListItem>
                     <asp:ListItem Value="frame_diameter">Frame Length+Diameter</asp:ListItem>
                 </asp:DropDownList></asp:TextBox></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindgvMotorCase" class="button-main primary-btn"  runat="server" Visible="true" Text="Find cases" OnClick="BtnFindgvMotorCase_click" /></div>
