@@ -2,7 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
+    <style>        div.gutter {
+            height: 1px;
+            width: 1px;
+        }
+    </style>
     <div class="content-wrapper">
         <div class="mb-solid mt-solid">
             <div class="table-controls">
