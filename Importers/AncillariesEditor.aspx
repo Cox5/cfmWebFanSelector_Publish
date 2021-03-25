@@ -25,16 +25,26 @@
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
         <div class="table-controls mb-medium">
-                <div style="float:left;  margin-top: 15px">Search by product_code, id, category_id, description, diameter </div>
+                <div style="float:left;  margin-top: 15px">Search </div>
                 <div style="float:left;  margin-left: 20px"><asp:TextBox ID="txtSearch" runat="server" Placeholder="" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox></div>
-                <div style="float:left; margin-left: 20px"> Sort by:
-                <asp:DropDownList ID="ddlOrderBy" runat="server">
-                    <asp:ListItem Value="product_code">product_code</asp:ListItem>
-                    <asp:ListItem Value="category_desc">category_id+description</asp:ListItem>
-                    <asp:ListItem Value="category_diameter">category_id+diameter</asp:ListItem>
-                    <asp:ListItem Value="description">description</asp:ListItem>
-                    <asp:ListItem Value="diameter_cat">diameter+category</asp:ListItem>
-                </asp:DropDownList></asp:TextBox></div>
+               <div style="float:left; margin-left: 20px"> Sort by:
+                <asp:DropDownList ID="ddlOrderBy1" runat="server">
+                <asp:ListItem Value="id">id</asp:ListItem>
+<asp:ListItem Value="category_id">category_id</asp:ListItem>
+<asp:ListItem Value="product_code">product_code</asp:ListItem>
+<asp:ListItem Value="description">description</asp:ListItem>
+<asp:ListItem Value="diameter">diameter</asp:ListItem>
+
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlOrderBy2" runat="server">
+                <asp:ListItem Value="id">id</asp:ListItem>
+<asp:ListItem Value="category_id">category_id</asp:ListItem>
+<asp:ListItem Value="product_code">product_code</asp:ListItem>
+<asp:ListItem Value="description">description</asp:ListItem>
+<asp:ListItem Value="diameter">diameter</asp:ListItem>
+
+                </asp:DropDownList>
+               </div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindgvAncill" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvAncill_click" /></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindAllgvAncill" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvAncill_click" /></div>
         </div>

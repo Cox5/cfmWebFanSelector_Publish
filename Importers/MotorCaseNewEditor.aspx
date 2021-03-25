@@ -32,14 +32,24 @@
                     <asp:TextBox ID="txtSearch" runat="server" Placeholder="diameter or fan type" Width="200px" Height="32px"  Autocomplete="off"></asp:TextBox>
 
                 </div>
-                <div style="float:left; margin-left: 20px"> Sort by:
-                <asp:DropDownList ID="ddlOrderBy" runat="server">
-                    <asp:ListItem Value="fantype_dia">Fan Type + Diameter</asp:ListItem>
-                    <asp:ListItem Value="fantype_frame">Fan Type + Frame Length</asp:ListItem>
-                    <asp:ListItem Value="diameter">Diameter + Fan Type</asp:ListItem>
-                    <asp:ListItem Value="diameter_frame">Diameter + Franm Length</asp:ListItem>
-                    <asp:ListItem Value="frame_diameter">Frame Length+Diameter</asp:ListItem>
-                </asp:DropDownList></asp:TextBox></div>
+              <div style="float:left; margin-left: 20px"> Sort by:
+                <asp:DropDownList ID="ddlOrderBy1" runat="server">
+                <asp:ListItem Value="id">id</asp:ListItem>
+<asp:ListItem Value="fantype">fantype</asp:ListItem>
+<asp:ListItem Value="diameter">diameter</asp:ListItem>
+<asp:ListItem Value="frame_length">frame_length</asp:ListItem>
+<asp:ListItem Value="case_code">case_code</asp:ListItem>
+
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlOrderBy2" runat="server">
+                <asp:ListItem Value="id">id</asp:ListItem>
+<asp:ListItem Value="fantype">fantype</asp:ListItem>
+<asp:ListItem Value="diameter">diameter</asp:ListItem>
+<asp:ListItem Value="frame_length">frame_length</asp:ListItem>
+<asp:ListItem Value="case_code">case_code</asp:ListItem>
+
+                </asp:DropDownList>
+               </div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindgvMotorCase" class="button-main primary-btn"  runat="server" Visible="true" Text="Find cases" OnClick="BtnFindgvMotorCase_click" /></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindAllgvMotorCase" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvMotorCase_click" /></div>
         </div>

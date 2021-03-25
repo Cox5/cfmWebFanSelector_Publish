@@ -15,41 +15,55 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
                         }
 
                     </style>
-             <asp:Panel ID="Panel1" runat="server" DefaultButton="btnFindgvMotorData">
-
       <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
       </div>
         <h3>Edit Motor Data table</h3>
-
-
+        <asp:Panel ID="Panel1" runat="server" DefaultButton="btnFindgvMotorData">
         <br />
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
-        <div class="table-controls mb-medium"> 
-            <div style="float:left;  margin-top: 15px; display:none"><b>Search motor by kW</b></div>
-            <div style="float:left;  margin-left: 20px; display:none"><asp:TextBox ID="txtSearch" runat="server" Placeholder="kW" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox></div>
-            <div style="float:left; margin-left: 20px"> Sort by: 
-                <asp:DropDownList ID="ddlOrderBy" runat="server">
-                    <asp:ListItem Value="kw">kW</asp:ListItem>
-                    <asp:ListItem Value="poles">Poles</asp:ListItem>
-                    <asp:ListItem Value="frame">Motor Frame</asp:ListItem>
-                    <asp:ListItem Value="poles_kw">Poles + kW</asp:ListItem>
-                </asp:DropDownList></asp:TextBox></div>
-            <div style="float:left; margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindgvMotorData" class="button-main primary-btn"  runat="server" Visible="true" Text="Sort" OnClick="BtnFindgvMotorData_click" /></div>
-            <div style="float:left;  margin-left: 20px; margin-top: 5px; display:block"><asp:Button ID="btnFindAll" class="button-main primary-btn"  runat="server" Visible="true" Text="Show all" OnClick="BtnFindAllMotors_click" /></div>
-            <div style="float:left;  margin-left: 20px; margin-top: 5px; display:block"><asp:Button ID="ButtonFive" class="button-main primary-btn"  runat="server" Visible="true" Text="Add row" OnClick="BtnFindFiveMotors_click" /></div>
+        <div class="table-controls mb-medium">
+                <div style="float:left;  margin-top: 15px">Search by kW </div>
+                <div style="float:left;  margin-left: 20px">
+                        <asp:TextBox ID="txtSearch" runat="server" Placeholder="" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
+                </div>
+               <div style="float:left; margin-left: 20px"> Sort by:
+                <asp:DropDownList ID="ddlOrderBy1" runat="server">
+                <asp:ListItem Value="motorDataID">motorDataID</asp:ListItem>
+<asp:ListItem Value="kw">kw</asp:ListItem>
+<asp:ListItem Value="pole">pole</asp:ListItem>
+<asp:ListItem Value="frame">frame</asp:ListItem>
+<asp:ListItem Value="case_length">case_length</asp:ListItem>
+<asp:ListItem Value="RPM">RPM</asp:ListItem>
+
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlOrderBy2" runat="server">
+                <asp:ListItem Value="motorDataID">motorDataID</asp:ListItem>
+<asp:ListItem Value="kw">kw</asp:ListItem>
+<asp:ListItem Value="pole">pole</asp:ListItem>
+<asp:ListItem Value="frame">frame</asp:ListItem>
+<asp:ListItem Value="case_length">case_length</asp:ListItem>
+<asp:ListItem Value="RPM">RPM</asp:ListItem>
+
+                </asp:DropDownList>
+               </div>
+             <div style="float:left;  margin-left: 20px; margin-top: 5px">
+                <asp:Button ID="btnFindgvMotorData" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvMotorData_click" /></div>
+            <div style="float:left;  margin-left: 20px; margin-top: 5px">
+                <asp:Button ID="Button1" class="button-main primary-btn"  runat="server" Visible="true" Text="Add rows" OnClick="BtnFindFiveMotors_click" /></div>
+             <div style="float:left;  margin-left: 20px; margin-top: 5px">
+                <asp:Button ID="btnFindAllgvMotorData" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllMotors_click" /></div>
         </div>
         </asp:Panel>
+
+
         <div runat="server" id="MotorDataGV_DIV" style="max-width: 1000px;">
              <asp:GridView ID="gvMotorData" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="motorDataID" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvMotorData_RowCommand"
                  OnRowEditing="gvMotorData_RowEditing" OnRowCancelingEdit="gvMotorData_RowCancelingEdit"
                  OnRowUpdating="gvMotorData_RowUpdating" OnRowDeleting="gvMotorData_RowDeleting" >
                 <Columns>
-
-
-
 
               <asp:TemplateField  HeaderText="motorDataID" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
                         <EditItemTemplate>

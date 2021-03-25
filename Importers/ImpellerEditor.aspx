@@ -29,14 +29,21 @@
         <div class="table-controls mb-medium">
                 <div style="float:left;  margin-top: 15px">Search by Blade Shape, id, hub, material</div>
                 <div style="float:left;  margin-left: 20px"><asp:TextBox ID="txtSearch" runat="server" Placeholder="" Width="150px" Height="32px"  Autocomplete="off"></asp:TextBox></div>
-                <div style="float:left; margin-left: 20px"> Sort by:
-                <asp:DropDownList ID="ddlOrderBy" runat="server">
-                    <asp:ListItem Value="id">id</asp:ListItem>
-                    <asp:ListItem Value="hub">Hub+Blade</asp:ListItem>
-                    <asp:ListItem Value="blade_shape">Blade+Hub</asp:ListItem>
-                    <asp:ListItem Value="material_hub">Material+Hub</asp:ListItem>
-                    <asp:ListItem Value="material_blade">Material+Blade</asp:ListItem>
-                </asp:DropDownList></asp:TextBox></div>
+               <div style="float:left; margin-left: 20px"> Sort by:
+                <asp:DropDownList ID="ddlOrderBy1" runat="server">
+                <asp:ListItem Value="id">id</asp:ListItem>
+<asp:ListItem Value="hub">hub</asp:ListItem>
+<asp:ListItem Value="blade_shape">blade_shape</asp:ListItem>
+<asp:ListItem Value="blade_material">blade_material</asp:ListItem>
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlOrderBy2" runat="server">
+                <asp:ListItem Value="id">id</asp:ListItem>
+<asp:ListItem Value="hub">hub</asp:ListItem>
+<asp:ListItem Value="blade_shape">blade_shape</asp:ListItem>
+<asp:ListItem Value="blade_material">blade_material</asp:ListItem>
+
+                </asp:DropDownList>
+               </div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindgvImpeller" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvImpeller_click" /></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnFindAllgvImpeller" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvImpeller_click" /></div>
         </div>

@@ -95,7 +95,7 @@
                 <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Send Email" runat="server" OnClick="btnSubmit_Click" onClientClick="showpleasewait();" />
             </div>
         </div>
-        <p><asp:Label ID="lblProgressMessage" runat="server" class="lblmessage"></asp:Label></p>
+        <p><asp:Label ID="lblProgressMessage" runat="server" class="lblmessage" ForeColor="SteelBlue" Font-Size="Large"></asp:Label></p>
         <p class="validation-msg">
                     </p>    
 
