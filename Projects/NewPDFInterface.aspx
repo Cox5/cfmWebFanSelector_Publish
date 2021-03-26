@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td>Fan Specifications tables</td>
-                <td class="tiny-td right"><asp:CheckBox ID="chkFanSpecTables" runat="server" Checked="false"/></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkFanSpecTables" runat="server" Checked="true"/></td>
             </tr>
             <tr>
                 <td>Fan Technical Datasheets</td>
@@ -66,7 +66,7 @@
             </tr>
             <tr id="pricesTd" runat="server">
                 <td>Include Prices</td>
-                <td class="tiny-td right"><asp:CheckBox ID="chkIncludePrices" runat="server" /></td>
+                <td class="tiny-td right"><asp:CheckBox ID="chkIncludePrices" runat="server" Checked="true" /></td>
             </tr>
             <tr>
                 <td colspan="2" style="background-color: white">
@@ -78,7 +78,7 @@
         <table>
             <tr>
 
-            <td><asp:Button ID="btnSubmit" class="button-main primary-btn" runat="server" Text="Generate PDF" OnClick="btnSubmit_Click" onClientClick="showpleasewait();"  /></td>
+            <td><asp:Button ID="btnSubmit" class="button-main primary-btn" style='background-color:forestgreen !important' runat="server" Text="Generate PDF" OnClick="btnSubmit_Click" onClientClick="showpleasewait();"  /></td>
             <td><asp:Button ID="Button1" class="button-main primary-btn" runat="server" Text="Clear all" OnClick="btnClearAll_Click" /></td>
             <td><asp:Button ID="Button2" class="button-main primary-btn" runat="server" Text="Select all" OnClick="btnSelectAll_Click" /></td>
                             </tr>

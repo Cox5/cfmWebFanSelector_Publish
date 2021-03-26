@@ -42,8 +42,6 @@
               </asp:TemplateField>
 
 
-
-
               <asp:TemplateField  HeaderText="Category Name" ControlStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtCatName" Text='<%#Eval("category_name") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
@@ -53,6 +51,19 @@
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("category_name") %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+              </asp:TemplateField>
+
+
+              <asp:TemplateField  HeaderText="Default Quantity" ControlStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtDefQty" Text='<%#Eval("default_qty") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="txtDefQtyFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
+                        </FooterTemplate>
+                       <ItemTemplate>
+                            <asp:Label Text='<%#Eval("default_qty") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 

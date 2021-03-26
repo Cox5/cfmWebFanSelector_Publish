@@ -39,7 +39,8 @@
 <asp:ListItem Value="diameter">diameter</asp:ListItem>
 <asp:ListItem Value="frame_length">frame_length</asp:ListItem>
 <asp:ListItem Value="case_code">case_code</asp:ListItem>
-
+<asp:ListItem Value="price">price</asp:ListItem>
+<asp:ListItem Value="weight">weight</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlOrderBy2" runat="server">
                 <asp:ListItem Value="id">id</asp:ListItem>
@@ -47,6 +48,8 @@
 <asp:ListItem Value="diameter">diameter</asp:ListItem>
 <asp:ListItem Value="frame_length">frame_length</asp:ListItem>
 <asp:ListItem Value="case_code">case_code</asp:ListItem>
+<asp:ListItem Value="price">price</asp:ListItem>
+<asp:ListItem Value="weight">weight</asp:ListItem>
 
                 </asp:DropDownList>
                </div>
