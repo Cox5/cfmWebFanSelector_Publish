@@ -50,7 +50,7 @@
             </div>
         </asp:LinkButton>
 
-        <asp:LinkButton CommandName="Extra Items" ID="linkExtraItems" runat="server"  OnClick="btnExtraItems_Click" class="sp-button">
+        <asp:LinkButton CommandName="Extra Items" ID="linkExtraItems" runat="server"  OnClick="btnExtraItems_Click" class="sp-button" Visible="false">
             <div class="sp-rect">
                 
                 <span class="sp-text">Extra Items</span>
@@ -87,11 +87,7 @@
                 </span>
             </div>
         </asp:LinkButton>
-
-
-        <br />
-        <a href="ProjectsDashboard.aspx"><i class="fas fa-chevron-left mt-solid"></i> Back to project dashboard</a>
-    
+  
 
     </div>
 

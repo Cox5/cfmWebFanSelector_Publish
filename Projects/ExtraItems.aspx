@@ -81,15 +81,15 @@
 
                     <asp:TemplateField HeaderText="Category" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
-                            <asp:Label ID="categoryName" Text='<%#Eval("category_name") %>'  runat="server" ></asp:Label>
+                            <asp:Label ID="categoryName" Text='<%#Eval("category_name") %>'  runat="server"  Enabled="false" ></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                             <asp:DropDownList ID="ddlCategoryEdit"  OnSelectedIndexChanged="ddlCategoryEdit_SelectedIndexChanged"   HeaderStyle-Width="160px"  CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
+                             <asp:DropDownList ID="ddlCategoryEdit"  OnSelectedIndexChanged="ddlCategoryEdit_SelectedIndexChanged"   HeaderStyle-Width="160px"  Enabled="false" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     
                              </asp:DropDownList>
                             <asp:HiddenField ID="categoryNameHidden" Value='<%#Eval("category_name") %>'  runat="server" ></asp:HiddenField>
                         </EditItemTemplate>
-                        <FooterTemplate>
+                        <FooterTemplate >
                             <asp:DropDownList ID="ddlCategory"  OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" CssClass="input-small" AutoPostBack="true" AppendDataBoundItems="true" runat="server">
                                     <asp:ListItem Text="Please select..." Value="Null" />
                              </asp:DropDownList>
