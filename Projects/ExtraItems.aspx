@@ -150,7 +150,6 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtUnitPrice" Text='<%#Eval("unit_price") %>' runat="server" CssClass="input-small" CausesValidation="false"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="priceRequiredValidator" runat="server" ErrorMessage="Price field is empty" ForeColor="Red" ControlToValidate="txtUnitPrice"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtUnitPriceFooter" runat="server" Width="90px" CssClass="input-small"></asp:TextBox>
