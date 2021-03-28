@@ -620,7 +620,9 @@ namespace CFM_Web
             string workings = "";
             if (addairflow > 0.0)
             {
-                performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #0000cc'>Additional Duty</th></tr>");
+                // performanceDataTable.AppendFormat("<tr><th colspan=3 style='color: #0000cc'>Additional Duty <font colour=black>{0}%</font></th></tr>", addairflow);
+                performanceDataTable.AppendFormat("<tr><th colspan=3 >Additional Duty: {0}%</th></tr>", addairflow);
+
 
                 adf = airflow + airflow * addairflow / 100;
                 scc = staticPressure / airflow / airflow;
@@ -629,7 +631,7 @@ namespace CFM_Web
                 FansBackend.Entities.DataPoint d =
                     FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList,
                             FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(adf, ads));
-
+                /* 
                 if (d == null)
                 {
                     // there is no cross-over point in
@@ -646,7 +648,7 @@ namespace CFM_Web
                     performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
                         ads.ToString("0"), ads.ToString("0"));
                 }
-
+                */
                 // redo motor upgrade calcs and show workings
                 if (fanData.fanObject.rangeID != 32 && fanData.fanObject.rangeID != 33 && dpIntercept != null && dpIntercept.power != null)
                 {
