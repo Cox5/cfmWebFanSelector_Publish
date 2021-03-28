@@ -133,7 +133,7 @@
 
                     <asp:TemplateField ItemStyle-Width="70px"  HeaderStyle-Width="70px"  HeaderText="Qty" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
-                            <asp:Label Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center"></asp:Label>
+                            <asp:Label ID="txtQuantityDisplay" Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtQuantity" Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" CssClass="input-small center-text"></asp:TextBox>
