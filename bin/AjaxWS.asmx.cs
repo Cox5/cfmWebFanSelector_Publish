@@ -57,23 +57,20 @@ namespace CFM_Web
                 // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
                 if (addairflow > 0 && motorid != -1)
                 {
-
                     // Adjust motors
-                    double PeakPowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
+                    double PowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
 
                     // Retrieve the default motor info into fan.motorDataObject, for later comparison
                     fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);
 
-                    double ImpellerMotorPeakPower = FanSelection.findImpellerMotorPeakPower(fanData.dataPointList);
-                    double newImpellerMotorConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow) * PeakPowerIncreaseFactor;
-                    double NewMotorRatedPower = newImpellerMotorConsPower / 1.1;
+                    // Find new power required as intercept power * increase
+                    double newImpellerMotorConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow) * PowerIncreaseFactor;
 
-                    // if DefaultMotorPower > NewMotorRatedPower then keep Default Motor
-                    // if DefaultMotorPower < NewMotorRatedPower then find smallest motor from motor table which can do NewMotorRatedPower
-                    if (fanData.motorkW < NewMotorRatedPower)
+
+                    if (fanData.motorkW < newImpellerMotorConsPower)
                     {
                         // Find the smallest sufficient motor with the same number of poles as the standard one.
-                        List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(NewMotorRatedPower, Convert.ToInt32(fanData.motorDataObject.pole));
+                        List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(newImpellerMotorConsPower, Convert.ToInt32(fanData.motorDataObject.pole));
 
                         // If the new motor is different, copy its data into the fan object
                         if (motors[0].Kw != fanData.motorkW)

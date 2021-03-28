@@ -31,20 +31,31 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
                <div style="float:left; margin-left: 20px"> Sort by:
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
                 <asp:ListItem Value="motorDataID">motorDataID</asp:ListItem>
-<asp:ListItem Value="kw">kw</asp:ListItem>
-<asp:ListItem Value="pole">pole</asp:ListItem>
-<asp:ListItem Value="frame">frame</asp:ListItem>
-<asp:ListItem Value="case_length">case_length</asp:ListItem>
-<asp:ListItem Value="RPM">RPM</asp:ListItem>
-
+                    <asp:ListItem Value="motorDataID">motorDataID</asp:ListItem>
+                    <asp:ListItem Value="kw">kW</asp:ListItem>
+                    <asp:ListItem Value="pole">Poles</asp:ListItem>
+                    <asp:ListItem Value="frame">Motor Frame</asp:ListItem>
+                    <asp:ListItem Value="case_length">Case Length</asp:ListItem>
+                    <asp:ListItem Value="RPM">RPM</asp:ListItem>
+                    <asp:ListItem Value="ShaftDia">Shaft Dia</asp:ListItem>
+                    <asp:ListItem Value="fullLoadAmps">FLA</asp:ListItem>
+                    <asp:ListItem Value="efficiency">Efficiency</asp:ListItem>
+                    <asp:ListItem Value="mass">Weight</asp:ListItem>
+                    <asp:ListItem Value="price">Price</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlOrderBy2" runat="server">
                 <asp:ListItem Value="motorDataID">motorDataID</asp:ListItem>
-<asp:ListItem Value="kw">kw</asp:ListItem>
-<asp:ListItem Value="pole">pole</asp:ListItem>
-<asp:ListItem Value="frame">frame</asp:ListItem>
-<asp:ListItem Value="case_length">case_length</asp:ListItem>
-<asp:ListItem Value="RPM">RPM</asp:ListItem>
+                    <asp:ListItem Value="motorDataID">motorDataID</asp:ListItem>
+                    <asp:ListItem Value="kw">kW</asp:ListItem>
+                    <asp:ListItem Value="pole">Poles</asp:ListItem>
+                    <asp:ListItem Value="frame">Motor Frame</asp:ListItem>
+                    <asp:ListItem Value="case_length">Case Length</asp:ListItem>
+                    <asp:ListItem Value="RPM">RPM</asp:ListItem>
+                    <asp:ListItem Value="ShaftDia">Shaft Dia</asp:ListItem>
+                    <asp:ListItem Value="fullLoadAmps">FLA</asp:ListItem>
+                    <asp:ListItem Value="efficiency">Efficiency</asp:ListItem>
+                    <asp:ListItem Value="mass">Weight</asp:ListItem>
+                    <asp:ListItem Value="price">Price</asp:ListItem>
 
                 </asp:DropDownList>
                </div>
@@ -186,7 +197,7 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
 
 
 
-              <asp:TemplateField  HeaderText="efficiency" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
+              <asp:TemplateField  HeaderText="Efficiency" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtEfficiency" Text='<%#Eval("efficiency") %>' runat="server" AutoCompleteType="Disabled" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
