@@ -19,8 +19,6 @@
             <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="true" style="float: left; max-width: 50%">Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
             <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
-                       <asp:Button ID="btnSave"  class="button-main primary-btn prevpage" Text="Save" OnClick="btnSave_Click" runat="server" />
-
               </div>           
         </div>
 
@@ -185,6 +183,7 @@
 
 
             </asp:GridView>
+                       <asp:Button ID="btnSave"  class="button-main primary-btn " Text="Save" OnClick="btnSave_Click" runat="server" />
 
             <br />
 
