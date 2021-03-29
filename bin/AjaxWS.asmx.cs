@@ -195,9 +195,11 @@ namespace CFM_Web
 
                 fanData.intercept = new DataPoint();
 
-                fanData.intercept.airflow = airflow;
-                fanData.intercept.staticPressure = staticPressure;
+                // Set airflow and staticpressure at intercept - actual not requested.
+                fanData.intercept.airflow = fr.ActualAF; // airflow;
+                fanData.intercept.staticPressure = fr.ActualSP; // staticPressure;
                 fanData.intercept.power = pwr;
+                
                 
                 string nccCompliance = FanSelection.getNCCstatus(fanData, 0);
                 pdfData.ncc2019 = nccCompliance;
@@ -621,7 +623,7 @@ namespace CFM_Web
             if (addairflow > 0.0)
             {
                 // performanceDataTable.AppendFormat("<tr><th colspan=3 style='color: #0000cc'>Additional Duty <font colour=black>{0}%</font></th></tr>", addairflow);
-                performanceDataTable.AppendFormat("<tr><th colspan=3 >Additional Duty: {0}%</th></tr>", addairflow);
+                performanceDataTable.AppendFormat("<tr><th colspan=3 >Additional Airflow: {0}%</th></tr>", addairflow);
 
 
                 adf = airflow + airflow * addairflow / 100;
