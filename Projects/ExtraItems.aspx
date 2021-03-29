@@ -161,7 +161,7 @@
                             <asp:LinkButton runat="server" CommandName="Edit" CausesValidation="false">
                                 <span class="tooltip"><i class="fas fa-pencil-alt"></i><span class="tooltiptext tooltip-i">Edit</span></span>
                             </asp:LinkButton>
-                            <asp:LinkButton runat="server" CommandName="Delete" CausesValidation="false">
+                            <asp:LinkButton runat="server" CommandName="Delete" CausesValidation="false" Visible="false">
                                     <span class="tooltip"><i class="far fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete</span></span>
                             </asp:LinkButton>
                         </ItemTemplate>

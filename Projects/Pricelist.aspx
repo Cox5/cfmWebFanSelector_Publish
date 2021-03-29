@@ -18,7 +18,6 @@
             <div class="subtitle regular" >Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
         </div>
 
-    
 
         <div class="table-controls center-text" style="display: none">
             <span class="mr-small">Standard price adjustment (%) </span>
@@ -57,9 +56,11 @@
                     <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                 </asp:BoundField>
 
-                <asp:BoundField DataField="price" HeaderText="Catalogue Price ($)" ReadOnly="true" HeaderStyle-HorizontalAlign="Left" >
-                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                </asp:BoundField>
+                <asp:TemplateField HeaderText="Catalogue Price ($)"  HeaderStyle-HorizontalAlign="Left" >
+                    <ItemTemplate>
+                        <asp:Label ID="lblCatPrice" runat="server" Text='<%#Eval("price") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Price Type" HeaderStyle-HorizontalAlign="Left">
                     <ItemTemplate>
