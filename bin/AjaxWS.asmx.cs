@@ -80,12 +80,7 @@ namespace CFM_Web
                             fanData.motorAmps = motors[0].FullLoadAmps;
                             fanData.motorkW = motors[0].Kw;
                         }
-                        else
-                        {
-                            // If the new motor is the same, scale power up by 10%
-                            fanData.motorAmps = fanData.motorAmps * 1.1;
-                            fanData.motorkW = fanData.motorkW * 1.1;
-                        }
+
                     }
 
                 }
