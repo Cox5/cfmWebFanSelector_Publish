@@ -179,6 +179,14 @@
                 </span>
             </div>
         </asp:LinkButton>
+           <asp:LinkButton CommandName="Show price calc errors" runat="server" Text="Show price calc errors" class="sp-button" OnClick="btnPriceLog_Click" Visible="true">
+            <div class="sp-rect" >
+               <span class="sp-text">Show price calc errors</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
             </div>
    
 
