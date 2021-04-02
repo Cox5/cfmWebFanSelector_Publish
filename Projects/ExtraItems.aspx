@@ -40,6 +40,7 @@
                                     <asp:ListItem Text="Please select..." Value="Null" />
                              </asp:DropDownList>
                             <asp:HiddenField ID="projectFanIdHidden" Value='<%#Eval("pfid") %>'  runat="server" ></asp:HiddenField>
+                            
                         </FooterTemplate>
                     </asp:TemplateField>
 
@@ -138,6 +139,7 @@
                         <EditItemTemplate>
                             <asp:TextBox ID="txtQuantity" Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" CssClass="input-small center-text"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="qtyRequiredValidator" runat="server" ErrorMessage="Qty field is empty" ForeColor="Red" ControlToValidate="txtQuantity"></asp:RequiredFieldValidator>
+                            <asp:HiddenField ID="defQtyHidden" Value='<%#Eval("def_qty") %>'  runat="server" ></asp:HiddenField>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtQuantityFooter" runat="server" Width="70px" CssClass="input-small center-text"></asp:TextBox>

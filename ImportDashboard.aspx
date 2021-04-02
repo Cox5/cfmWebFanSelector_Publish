@@ -53,6 +53,15 @@
             </div>
         </asp:LinkButton>
 
+        <asp:LinkButton CommandName="Edit System Values" runat="server" Text="Edit System Values" class="sp-button" OnClick="btnEditSystemValues_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Edit System Values</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
+
         </div>
         <div style="float: left; width: 40%">
          <asp:LinkButton CommandName="Edit Impellers" runat="server" Text="Edit Impellers" class="sp-button" OnClick="btnImpellerEditor_Click">

@@ -8,6 +8,8 @@
 
       <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinished_Click" runat="server" />
+                       <asp:Button ID="btnFlush"  class="button-main primary-btn prevpage" Text="Clear Log" OnClick="btnFlush_Click" runat="server" />
+
       </div>
         <h3>Price calculation problems</h3>
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>

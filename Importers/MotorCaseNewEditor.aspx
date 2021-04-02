@@ -35,21 +35,21 @@
               <div style="float:left; margin-left: 20px"> Sort by:
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
                 <asp:ListItem Value="id">id</asp:ListItem>
-<asp:ListItem Value="fantype">fantype</asp:ListItem>
-<asp:ListItem Value="diameter">diameter</asp:ListItem>
-<asp:ListItem Value="frame_length">frame_length</asp:ListItem>
-<asp:ListItem Value="case_code">case_code</asp:ListItem>
-<asp:ListItem Value="price">price</asp:ListItem>
-<asp:ListItem Value="weight">weight</asp:ListItem>
+<asp:ListItem Value="fantype">Fan Type</asp:ListItem>
+<asp:ListItem Value="diameter">Diameter</asp:ListItem>
+<asp:ListItem Value="frame_length">Length</asp:ListItem>
+<asp:ListItem Value="case_code">Case code</asp:ListItem>
+<asp:ListItem Value="price">Price</asp:ListItem>
+<asp:ListItem Value="weight">Weight</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlOrderBy2" runat="server">
                 <asp:ListItem Value="id">id</asp:ListItem>
-<asp:ListItem Value="fantype">fantype</asp:ListItem>
-<asp:ListItem Value="diameter">diameter</asp:ListItem>
-<asp:ListItem Value="frame_length">frame_length</asp:ListItem>
-<asp:ListItem Value="case_code">case_code</asp:ListItem>
-<asp:ListItem Value="price">price</asp:ListItem>
-<asp:ListItem Value="weight">weight</asp:ListItem>
+<asp:ListItem Value="fantype">Fan Type</asp:ListItem>
+<asp:ListItem Value="diameter">Diameter</asp:ListItem>
+<asp:ListItem Value="frame_length">Length</asp:ListItem>
+<asp:ListItem Value="case_code">Case code</asp:ListItem>
+<asp:ListItem Value="price">Price</asp:ListItem>
+<asp:ListItem Value="weight">Weight</asp:ListItem>
 
                 </asp:DropDownList>
                </div>
@@ -113,7 +113,7 @@
 
 
 
-              <asp:TemplateField  HeaderText="Frame Length" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
+              <asp:TemplateField  HeaderText="Length" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" FooterStyle-HorizontalAlign="Center">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtFrame_length" Text='<%#Eval("frame_length") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>

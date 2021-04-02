@@ -24,7 +24,7 @@
 
 
         <br />
-        <asp:Label ID="lblMessage" runat="server" ></asp:Label>
+       <h4> <asp:Label ID="lblMessage" runat="server" ></asp:Label></h4>
 
         <div class="table-controls mb-medium">
                 <div style="float:left;  margin-top: 15px">Search by Blade Shape, id, hub, material</div>
