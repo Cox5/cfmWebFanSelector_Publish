@@ -19,7 +19,10 @@
             <div class="subtitle regular" id="quoteNumberLine" runat="server" Visible="true" style="float: left; max-width: 50%">Quotation number: <asp:Label ID="lblQuoteNum" runat="server" class="bold"></asp:Label></div>
             <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
-              </div>           
+              </div>
+             <div class="right-controls mr-small" style="float: right;">
+                       <asp:Button ID="Button1"  class="button-main primary-btn prevpage" Text="Reset to Defaults" OnClick="btnDefaults_Click" runat="server" />
+              </div>
         </div>
 
             <asp:GridView ID="gvExtraItems" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
