@@ -16,20 +16,19 @@
                         }
 
                     </style>
-      <h3>Edit Impellers</h3>
 
       <asp:Panel ID="Panel1" runat="server" DefaultButton="btnFindgvSystem">
 
       <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
       </div>
-        <h3>Update Motor Case table</h3>
+        <h3>Edit System Configuration</h3>
 
 
         <br />
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
-        <div class="table-controls mb-medium">
+        <div class="table-controls mb-medium" style="display:none">
                 <div style="float:left;  margin-top: 15px">Search </div>
                 <div style="float:left;  margin-left: 20px">
                         <asp:TextBox ID="txtSearch" runat="server" Placeholder="" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
@@ -68,7 +67,7 @@
 
               <asp:TemplateField  HeaderText="Name" ControlStyle-Width="170px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtName" Text='<%#Eval("name") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
+                            <asp:TextBox ID="txtName" Text='<%#Eval("name") %>' runat="server" Enabled="false" CssClass="input-small" Style="background-color: #eeeeee"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtNameFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
@@ -117,7 +116,7 @@
                     </asp:TemplateField>
 
 
-             <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
+             <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right" Visible="false">
                         <ItemTemplate>
                             <asp:LinkButton data-delete='<%# Eval("id") %>'  runat="server" CommandName="" CausesValidation="false" onClick="BtnDelete_Click" >
                                 <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete </span></span>

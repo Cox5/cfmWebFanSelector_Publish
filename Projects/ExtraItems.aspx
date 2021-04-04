@@ -149,12 +149,14 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Unit Price ($)" ItemStyle-Width="90px" HeaderStyle-Width="90px" HeaderStyle-HorizontalAlign="Left">
+                    <asp:TemplateField HeaderText="Unit Price ($)" ItemStyle-Width="90px" HeaderStyle-Width="90px" HeaderStyle-HorizontalAlign="Left" Visible="true" >
                         <ItemTemplate>
                             <asp:Label Text='<%#Eval("unit_price") %>' runat="server"></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtUnitPrice" Text='<%#Eval("unit_price") %>' runat="server" CssClass="input-small" CausesValidation="false"></asp:TextBox>
+                            <asp:HiddenField ID="hiddenUnitPrice" Value='<%#Eval("unit_price") %>' runat="server" ></asp:HiddenField>
+
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtUnitPriceFooter" runat="server" Width="90px" CssClass="input-small"></asp:TextBox>
