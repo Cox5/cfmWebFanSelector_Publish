@@ -42,6 +42,25 @@ namespace CFM_Web
         public fanData GetFanData(int fanDataID, int projectfanid, int motorid, double airflow, double addairflow, double staticPressure, double pwr, 
             int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
+            if (projectfanid > 0)
+            {
+                if (checkauth(projectfanid) == false)
+                {
+                    fanData f = new fanData();
+
+                    f.performanceCurve = "Not authorised to access that fan information.";
+
+                    f.powerCurve = "";
+                    f.imageLocation = "";
+                    f.wireElement = "";
+                    f.acousticTable = "";
+                    f.nominalDataTable = "";
+                    f.performanceDataTable = "";
+                    f.powerDataTable = "";
+                    f.fanName = "";
+                    return f;
+                }
+            }
             try
             {
                 // find fan and fandata by fandataid
@@ -950,14 +969,18 @@ namespace CFM_Web
         /// Check user auth to project_fan_id
         private bool checkauth(int project_fan_id)
         {
-            int userid = 0;
+            string userid = Session["user_id"].ToString() ;
+            if (String.IsNullOrEmpty(userid))
+                return false;
 
             using (var connection = DBController.CreateOpenConnection())
             {
-                string query = "SELECT * FROM project_fans " +
-                    " JOIN project_details ON project_details.project_id = project_fans.project_id " +
+                string query = "SELECT count(*) as count  FROM (SELECT* FROM " +
+                    "( SELECT user_id FROM project_fans  JOIN project_details ON project_details.project_id = project_fans.project_id " +
                     " JOIN user_account ON user_account.company_id = project_details.company_id where project_fan_id = "+project_fan_id.ToString()+
-                    " and user_account.user_id = "+userid.ToString();
+                    " and user_account.user_id = '"+userid+"' ) a " +
+                    "UNION SELECT* FROM (SELECT user_id FROM user_account WHERE user_account.user_id = '" + userid + "' AND user_class < 3) b " +
+                    ") c";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -965,7 +988,10 @@ namespace CFM_Web
                 {
                     while (dataReader.Read())
                     {
-                        //dataReader.Read();
+                        if (dataReader["count"].ToString() == "0")
+                        {
+                            return false;
+                        }
 
                     }
                 }
