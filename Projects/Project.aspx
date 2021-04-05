@@ -39,6 +39,7 @@
                     <td><span style='color: #dd0000'>Project Name</span></td>
                     <td>
                         <asp:TextBox ID="txtProjectname" runat="server"/>
+                        <asp:HiddenField Value="" ID="hiddenProjectname" runat="server"/>
                     </td>
                 </tr>
 
