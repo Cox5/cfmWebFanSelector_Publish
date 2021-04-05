@@ -947,5 +947,31 @@ namespace CFM_Web
         }
 
 
+        /// Check user auth to project_fan_id
+        private bool checkauth(int project_fan_id)
+        {
+            int userid = 0;
+
+            using (var connection = DBController.CreateOpenConnection())
+            {
+                string query = "SELECT * FROM cfm_web_live.project_fans " +
+                    " JOIN project_details ON project_details.project_id = project_fans.project_id " +
+                    " JOIN user_account ON user_account.company_id = project_details.company_id where project_fan_id = "+project_fan_id.ToString()+
+                    " and user_account.user_id = "+userid.ToString();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        //dataReader.Read();
+
+                    }
+                }
+            }
+            return true;
+        }
+
     }
 }
