@@ -52,7 +52,14 @@
                 </span>
             </div>
         </asp:LinkButton>
-
+          <asp:LinkButton CommandName="Edit Boss Prices" runat="server" Text="Edit Boss Prices" class="sp-button" OnClick="btnEditBosses_Click">
+            <div class="sp-rect" >
+               <span class="sp-text">Edit Boss Prices</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
         <asp:LinkButton CommandName="Edit System Values" runat="server" Text="Edit System Values" class="sp-button" OnClick="btnEditSystemValues_Click">
             <div class="sp-rect" >
                <span class="sp-text">Edit System Values</span> 
