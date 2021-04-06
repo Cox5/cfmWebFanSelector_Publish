@@ -7,12 +7,16 @@
         <div class="center-text">
             <h1 class="heading-primary mb-medium">Fan Selector User Registration</h1>
         </div>
+        <style>.red {
+                color: #dd0000;
+            }
+        </style>
             <div class="form-box">
                     <h3><i class="fas fa-user-alt"></i> Your details</h3>
                     <hr/>
                     <table width="100%">
                         <tr>
-                            <td><font color="red">*</font> First name</td>
+                            <td class="red"> First name</td>
                             <td>
                                 <asp:TextBox ID="txtFirstname" runat="server" required="true" />
                             </td>
@@ -20,21 +24,21 @@
                         
                         
                         <tr>
-                            <td><font color="red">*</font> Last name</td>
+                            <td>Last name</td>
                             <td>
-                                <asp:TextBox ID="txtLastname" runat="server" required="true" />
+                                <asp:TextBox ID="txtLastname" runat="server" required="false" />
                             </td>
                         </tr>
                         
                         <tr>
-                            <td><font color="red">*</font> Email address</td>
+                            <td class="red"> Email address</td>
                             <td>
                                 <asp:TextBox ID="txtEmail" runat="server" required="true" />
                             </td>
                         </tr>
                         
                         <tr>
-                            <td><font color="red">*</font> Confirm email address</td>
+                            <td class="red"> Confirm email address</td>
                             <td>
                                 <asp:TextBox ID="txtEmailConfirm" runat="server" required="true" AutoComplete="off" />
                             </td>
@@ -45,11 +49,8 @@
                                 <asp:TextBox ID="txtUserPhone" runat="server" />
                             </td>
                         </tr>
-                        <tr><td colspan="2">
-                                        <h3><i class="far fa-building"></i> Your company details</h3>
-                </td></tr>
                         <tr>
-                        <td><font color="red">*</font> Company/Business Name</td>
+                        <td class="red"> Company/Business Name</td>
                         <td>
                             <asp:TextBox ID="txtCompany" required="true" runat="server" />
                         </td>
@@ -57,11 +58,13 @@
         
                     </table>
                    <div class="center-text mb-medium">
-                    <asp:Button class="button-main bigger primary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
+                       <div style="float: left;">
+                              <asp:Button class="button-main bigger primary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
+                       </div>
+                       <div style="float: left;">
+                              <asp:Button class="button-main bigger primary-btn mt-big" ID="btnCancel"  CausesValidation="false" Text="Cancel" runat="server" OnClick="btnCancel_Click" />
+                       </div>
                     <asp:Label ID="lblMessage" runat="server" />
-            <div style="clear: both;" class="center-text">
-                <a href="/index.aspx"> <i class="fas fa-angle-left"></i> Cancel</a>
-            </div>
                 </div>
 
                     <p class="validation-msg">

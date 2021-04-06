@@ -171,24 +171,25 @@
                   <asp:CheckBox ID="ckb_isBCAComplaint" Text=" Is BCA Complaint" runat="server" />
                 </td>
               </tr>--%>
-                            <tr>
+                        <%--     <tr>
                                 <td colspan="2" style="padding-top: 10px; padding-bottom:0px"> Selection Envelope</td>
                             </tr>
-                            <%-- <tr>
+                            <tr>
                                 <td style="mpadding-bottom:0px">Below:
                                 </td>
                                 <td style="padding-bottom:0px">
                                     <asp:TextBox ID="txtLowerLimit" Width="40" Text="0" runat="server" />
                                     %
                                 </td>
-                            </tr> --%>
+                            </tr> 
                             <tr>
                                 <td style="padding-bottom:0px">Above: </td>
                                 <td style="padding-bottom:0px">
                                     <asp:TextBox ID="txtUpperLimit" Width="40" Text="10" runat="server" autocomplete="off" />
                                     %
                                 </td>
-                            </tr>
+                            </tr> --%>
+
                             <tr>
                                 <td colspan="2">
                                     <asp:Literal ID="lit_invalidAirflow" Visible="false" runat="server">Invalid Airflow</asp:Literal><br />
