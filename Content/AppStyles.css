@@ -565,7 +565,7 @@ input[type="submit"].button-main {
 	display: block;
 	width: 150px;
 }
-input[type="submit"].prevpage {
+input[type="submit"].prevpage, input[type="button"].prevpage {
 	text-decoration: none;
 	display: block;
 	width: 150px;
