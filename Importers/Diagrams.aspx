@@ -15,7 +15,8 @@
 
                     </style>
       <h3>Edit Fan Image, Drawing and Wiring filenames</h3>
-        <b>Note:</b> If you change the image, it will change automatically for all angles, but drawing and wiring will only change for the one angle.
+        <b>Note:</b> If you change the image, it will change automatically for all angles, but drawing and wiring will only change for the one angle.<br />
+        <b>Note:</b> Only STANDARD fans are listed here.
 
       <asp:Panel ID="Panel1" runat="server" DefaultButton="btnFindgvDiagrams">
 

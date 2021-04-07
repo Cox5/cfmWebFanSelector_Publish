@@ -98,6 +98,14 @@
                 </span>
             </div>
         </asp:LinkButton>
+        <asp:LinkButton CommandName="Edit Fan Diagrams" runat="server" Text="Edit Fan Diagrams" class="sp-button" OnClick="btnDiagrams_Click" Visible="true">
+            <div class="sp-rect" >
+               <span class="sp-text">Edit Fan Diagrams</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
 
          <asp:LinkButton CommandName="Downloads" runat="server" Text="Downloads" class="sp-button" OnClick="btnDownloads_Click">
             <div class="sp-rect" >
@@ -107,7 +115,14 @@
                 </span>
             </div>
         </asp:LinkButton>
-
+           <asp:LinkButton CommandName="Show price calc errors" runat="server" Text="Show price calc errors" class="sp-button" OnClick="btnPriceLog_Click" Visible="true">
+            <div class="sp-rect" >
+               <span class="sp-text">Show price calc errors</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
         <asp:LinkButton CommandName="Import Fan Prices" runat="server" Text="Import Fan Prices"  OnClick="btnImportPrices_Click" class="sp-button" Visible="false" >
             <div class="sp-rect" >
                 <span class="sp-text">Import Fan Prices</span>
@@ -195,14 +210,8 @@
                 </span>
             </div>
         </asp:LinkButton>
-           <asp:LinkButton CommandName="Show price calc errors" runat="server" Text="Show price calc errors" class="sp-button" OnClick="btnPriceLog_Click" Visible="true">
-            <div class="sp-rect" >
-               <span class="sp-text">Show price calc errors</span> 
-               <span class="sp-icon">
-                  <i class="fas fa-cog"></i>
-                </span>
-            </div>
-        </asp:LinkButton>
+
+
             </div>
    
 
