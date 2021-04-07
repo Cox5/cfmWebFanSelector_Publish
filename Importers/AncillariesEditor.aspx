@@ -31,7 +31,7 @@
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
                 <asp:ListItem Value="id">id</asp:ListItem>
 <asp:ListItem Value="category_id">category_id</asp:ListItem>
-<asp:ListItem Value="product_code">product_code</asp:ListItem>
+<asp:ListItem Value="product_code" selected>product_code</asp:ListItem>
 <asp:ListItem Value="description">description</asp:ListItem>
 <asp:ListItem Value="diameter">diameter</asp:ListItem>
 
