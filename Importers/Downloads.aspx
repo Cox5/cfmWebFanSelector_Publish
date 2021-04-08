@@ -28,11 +28,13 @@
         <div class="table-controls mb-medium">
                <div style="float:left; margin-left: 20px"> Table to download
                 <asp:DropDownList ID="ddlTable" runat="server">
-                    <asp:ListItem Value="motor_case_new">motor_case_new</asp:ListItem>
-                    <asp:ListItem Value="motordata">motordata</asp:ListItem>
-                    <asp:ListItem Value="impeller_prices">impeller_prices</asp:ListItem>
-                     <asp:ListItem Value="components">components</asp:ListItem>
-                    <asp:ListItem Value="components_category">components_category</asp:ListItem>
+                    <asp:ListItem Value="motor_case_new">Motor Cases</asp:ListItem>
+                    <asp:ListItem Value="motordata">Motor Data</asp:ListItem>
+                    <asp:ListItem Value="impeller_prices">Impellers</asp:ListItem>
+                     <asp:ListItem Value="components">Ancillary Items</asp:ListItem>
+                    <asp:ListItem Value="components_category">Ancillaries Categories</asp:ListItem>
+                     <asp:ListItem Value="fan_pricelist">Standard Fan Prices</asp:ListItem>
+                    <asp:ListItem Value="fan_diagrams">Fan Diagrams</asp:ListItem>
                 </asp:DropDownList></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnShow" class="button-main primary-btn"  runat="server" Visible="true" Text="Show" OnClick="btnShow_Click" /></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnDownload" class="button-main primary-btn"  runat="server" Visible="true" Text="Download" OnClick="btnDownload_Click" /></div>
