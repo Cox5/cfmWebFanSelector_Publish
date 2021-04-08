@@ -67,6 +67,21 @@ namespace CFM_Web
                 var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
                 var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
 
+
+                // Don't rely on the configured motor in fandata table - always find the appropriate motor
+                double impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow);
+                // Find the smallest sufficient motor with the required number of poles.
+                List <MotorData> motors1 = DB.MotorDBController.FindSmallestSufficientMotors(impellerConsPower, Convert.ToInt32(fan.motorPole));
+
+                // In case the new motor is different, copy its data into the fan object
+                // fan.motorDataObject = motors[0];
+                motorid = motors1[0].MotorDataId;
+                fanData.motorID = motors1[0].MotorDataId;
+                fanData.motorAmps = motors1[0].FullLoadAmps;
+                    fanData.motorkW = motors1[0].Kw;
+                
+
+
                 double defaultmotorkW = fanData.motorkW;
                 if (motorid != -1)
                 {
@@ -83,7 +98,7 @@ namespace CFM_Web
                     fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);
 
                     // Find new power required as intercept power * increase
-                    double newImpellerMotorConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, airflow) * PowerIncreaseFactor;
+                    double newImpellerMotorConsPower = impellerConsPower * PowerIncreaseFactor;
 
 
                     if (fanData.motorkW < newImpellerMotorConsPower)
