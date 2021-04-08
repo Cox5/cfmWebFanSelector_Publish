@@ -63,69 +63,83 @@ namespace CFM_Web
             }
             try
             {
+                bool isRoofCowl = false;
+
                 // find fan and fandata by fandataid
                 var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
                 var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
+                fanData.fanObject = fan;
 
-                // Get intercept so we can get consumed power at intercept.
-                FansBackend.Entities.DataPoint dpIntercept =
-                    FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
+                double defaultmotorkW = 0;
 
-                // Don't rely on the configured motor in fandata table - always find the appropriate motor
-                double impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
-
-                // Find the smallest sufficient motor with the required number of poles.
-                List<MotorData> motors1 = DB.MotorDBController.FindSmallestSufficientMotors(impellerConsPower, Convert.ToInt32(fan.motorPole));
-
-
-                // In case the new motor is different, copy its data into the fan object
-                // fan.motorDataObject = motors[0];
-                motorid = motors1[0].MotorDataId;
-                fanData.motorID = motors1[0].MotorDataId;
-                fanData.motorAmps = motors1[0].FullLoadAmps;
-                fanData.motorkW = motors1[0].Kw;
-
-
-
-                double defaultmotorkW = fanData.motorkW;
-                if (motorid != -1)
+                if (fan.rangeID == 32 || fan.rangeID == 33) 
                 {
-                    fanData.motorID = motorid;
+                    isRoofCowl = true;
                 }
 
-                // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
-                if (addairflow > 0 && motorid != -1)
+                if (!isRoofCowl) // Skip motor calcs if a Roof Cowl
                 {
-                    // Adjust motors
-                    double PowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
+                    // Get intercept so we can get consumed power at intercept.
+                    FansBackend.Entities.DataPoint dpIntercept =
+                        FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
 
-                    // Retrieve the default motor info into fan.motorDataObject, for later comparison
-                    fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);
+                    // Don't rely on the configured motor in fandata table - always find the appropriate motor
+                    double impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
 
-                    // Find new power required as intercept power * increase
-                    double newImpellerMotorConsPower = impellerConsPower * PowerIncreaseFactor;
+                    // Find the smallest sufficient motor with the required number of poles.
+                    List<MotorData> motors1 = DB.MotorDBController.FindSmallestSufficientMotors(impellerConsPower, Convert.ToInt32(fan.motorPole));
 
 
-                    if (fanData.motorkW < newImpellerMotorConsPower)
+                    // In case the new motor is different, copy its data into the fan object
+                    // fan.motorDataObject = motors[0];
+                    motorid = motors1[0].MotorDataId;
+                    fanData.motorID = motors1[0].MotorDataId;
+                    fanData.motorAmps = motors1[0].FullLoadAmps;
+                    fanData.motorkW = motors1[0].Kw;
+
+
+
+                    defaultmotorkW = fanData.motorkW;
+                    if (motorid != -1)
                     {
-                        // Find the smallest sufficient motor with the same number of poles as the standard one.
-                        List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(newImpellerMotorConsPower, Convert.ToInt32(fanData.motorDataObject.pole));
+                        fanData.motorID = motorid;
+                    }
 
-                        // If the new motor is different, copy its data into the fan object
-                        if (motors[0].Kw != fanData.motorkW)
+                    // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
+                    if (addairflow > 0 && motorid != -1)
+                    {
+                        // Adjust motors
+                        double PowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
+
+                        // Retrieve the default motor info into fan.motorDataObject, for later comparison
+                        fanData.motorDataObject = FansBackend.BusinessLogic.MotorDataController.find(fanData.motorID);
+
+                        // Find new power required as intercept power * increase
+                        double newImpellerMotorConsPower = impellerConsPower * PowerIncreaseFactor;
+
+
+                        if (fanData.motorkW < newImpellerMotorConsPower)
                         {
-                            // fan.motorDataObject = motors[0];
-                            fanData.motorID = motors[0].MotorDataId;
-                            fanData.motorAmps = motors[0].FullLoadAmps;
-                            fanData.motorkW = motors[0].Kw;
+                            // Find the smallest sufficient motor with the same number of poles as the standard one.
+                            List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(newImpellerMotorConsPower, Convert.ToInt32(fanData.motorDataObject.pole));
+
+                            // If the new motor is different, copy its data into the fan object
+                            if (motors[0].Kw != fanData.motorkW)
+                            {
+                                // fan.motorDataObject = motors[0];
+                                fanData.motorID = motors[0].MotorDataId;
+                                fanData.motorAmps = motors[0].FullLoadAmps;
+                                fanData.motorkW = motors[0].Kw;
+                            }
+
                         }
 
                     }
 
+                    fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
+                    fanData.fanObject = fan;
                 }
 
-                fanData.motorDataObject = FansBackend.DB.motorDataDBController.find(fanData.motorID);
-                fanData.fanObject = fan;
 
                 // If there is no required af or sp, because search by model number, 
                 // get an airflow/sp pair from datapoint table so that the output looks
@@ -205,7 +219,7 @@ namespace CFM_Web
                 //selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
                 selectedFanData.performanceCurve = GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
 
-                if (fanData.fanObject.rangeID == 32 || fanData.fanObject.rangeID == 33) // Skip the power curve if a Roof Cowl
+                if (isRoofCowl) // Skip the power curve if a Roof Cowl
                 {
                     selectedFanData.powerCurve = "";
                 }
@@ -466,17 +480,20 @@ namespace CFM_Web
 
             // If fan is fixed fan, use bm_description
             // If fan is multiwing fan, use blade_material
-            int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
             string bladeMaterial = "n/a";
-            if (mw == 1)
-            {
-                bladeMaterial = fr.BladeMaterial;
-            }
-            else
-            {
-                if (fanData.fanObject != null && fanData.fanObject.bladeMaterialObject != null)
+
+            if (fanData.fanObject != null ) {
+                int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
+                if (mw == 1)
                 {
-                    bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+                    bladeMaterial = fr.BladeMaterial;
+                }
+                else
+                {
+                    if ( fanData.fanObject.bladeMaterialObject != null)
+                    {
+                        bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+                    }
                 }
             }
   
