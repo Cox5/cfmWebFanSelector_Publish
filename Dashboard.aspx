@@ -17,7 +17,7 @@
                     </div>
                 </a>
 
-                <a href="/Users/AccountsDashboard.aspx" class="dashboard-icon-link">
+                <a href="/Users/Usergrid.aspx" class="dashboard-icon-link">
                     <i class="fas fa-users icon"></i>
                     <div class="highlighted">
                         User Accounts

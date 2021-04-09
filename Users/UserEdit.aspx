@@ -89,9 +89,12 @@
             HeaderText="Correct the following errors." />--%>
 
   <div class="mt-medium">
-    <asp:Button ID="btnSave" class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" />
-    <asp:Button ID="btnCancel" class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
+    <div style="float:left; "><asp:Button ID="btnSave" class="button-main primary-btn" Text="Submit" runat="server" OnClick="btnSave_Click" /></div>
+      <div style="float:left; "><asp:Button ID="btnApproval" class="button-main primary-btn" Text="Send Approval Email" runat="server" OnClick="btnApproval_Click" Visible="false" /></div>
+      <div style="float:left; "><asp:Button ID="btnRejection" class="button-main primary-btn" Text="Send Rejection Email" runat="server" OnClick="btnRejection_Click" Visible="false" /></div>
+   <div style="float:left; margin-left: 20px"><asp:Button ID="btnCancel" class="button-main quarternary-btn" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" /></div>
   </div>
+        <div style="clear:both"></div>
 
   
   
