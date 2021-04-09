@@ -53,6 +53,8 @@
                 <asp:Button ID="btnFindgvUser" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvUser_click" /></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px">
                 <asp:Button ID="btnFindAllgvUser" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvUser_click" /></div>
+            <div style="float:left;  margin-left: 20px; margin-top: 5px">
+                <asp:Button ID="btnFindPending" class="button-main primary-btn"  runat="server" Visible="true" Text="Find Pending" OnClick="BtnFindPending_click" /></div>
         </div>
         <div runat="server" id="UserGV_DIV" style="max-width: 700px;">
              <asp:GridView ID="gvUser" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"

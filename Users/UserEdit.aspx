@@ -74,6 +74,8 @@
           <asp:ListItem Text="User" Value="3"></asp:ListItem>
           <asp:ListItem Text="Unapproved" Value="4"></asp:ListItem>
           <asp:ListItem Text="Deleted" Value="5"></asp:ListItem>
+          <asp:ListItem Text="Pending" Value="6"></asp:ListItem>
+          <asp:ListItem Text="Rejected" Value="7"></asp:ListItem>
       </asp:DropDownList></td>
       <%--<td><asp:TextBox ID="txtUser_Class" runat="server" /></td>--%>
     </tr>
