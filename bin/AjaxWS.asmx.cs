@@ -83,21 +83,25 @@ namespace CFM_Web
                     FansBackend.Entities.DataPoint dpIntercept =
                         FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
 
-                    // Don't rely on the configured motor in fandata table - always find the appropriate motor
-                    double impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
+                    double impellerConsPower = 0;
+                    if (motorid > 0)
+                    {
+                        // Don't rely on the configured motor in fandata table - always find the appropriate motor
+                        impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
 
-                    // Find the smallest sufficient motor with the required number of poles.
-                    List<MotorData> motors1 = DB.MotorDBController.FindSmallestSufficientMotors(impellerConsPower, Convert.ToInt32(fan.motorPole));
+                        // Find the smallest sufficient motor with the required number of poles, and motortype the same as given motorid
 
-
-                    // In case the new motor is different, copy its data into the fan object
-                    // fan.motorDataObject = motors[0];
-                    motorid = motors1[0].MotorDataId;
-                    fanData.motorID = motors1[0].MotorDataId;
-                    fanData.motorAmps = motors1[0].FullLoadAmps;
-                    fanData.motorkW = motors1[0].Kw;
+                        List<MotorData> motors1 = DB.MotorDBController.FindSmallestSufficientMotors(impellerConsPower, Convert.ToInt32(fan.motorPole), 0, motorid);
 
 
+                        // In case the new motor is different, copy its data into the fan object
+                        // fan.motorDataObject = motors[0];
+                        motorid = motors1[0].MotorDataId;
+                        fanData.motorID = motors1[0].MotorDataId;
+                        fanData.motorAmps = motors1[0].FullLoadAmps;
+                        fanData.motorkW = motors1[0].Kw;
+
+                    }
 
                     defaultmotorkW = fanData.motorkW;
                     if (motorid != -1)
@@ -121,7 +125,8 @@ namespace CFM_Web
                         if (fanData.motorkW < newImpellerMotorConsPower)
                         {
                             // Find the smallest sufficient motor with the same number of poles as the standard one.
-                            List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(newImpellerMotorConsPower, Convert.ToInt32(fanData.motorDataObject.pole));
+                            List<MotorData> motors = DB.MotorDBController.FindSmallestSufficientMotors(
+                                newImpellerMotorConsPower, Convert.ToInt32(fanData.motorDataObject.pole), 0, motorid);
 
                             // If the new motor is different, copy its data into the fan object
                             if (motors[0].Kw != fanData.motorkW)

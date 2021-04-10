@@ -24,6 +24,15 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
         <div class="table-controls mb-medium">
+                <div style="float:left;  margin-top: 15px">Motor type </div>
+                <div style="float:left;  margin-left: 20px">
+                        <asp:DropDownList ID="ddlMT" runat="server">
+                            <asp:ListItem Value="0">All</asp:ListItem>
+                             <asp:ListItem Value="1">STD</asp:ListItem>
+                            <asp:ListItem Value="4">Smoke Spill H</asp:ListItem>
+                        </asp:DropDownList>
+                </div>
+            <div style="clear:both"></div>
                 <div style="float:left;  margin-top: 15px">Search by kW </div>
                 <div style="float:left;  margin-left: 20px">
                         <asp:TextBox ID="txtSearch" runat="server" Placeholder="" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
@@ -42,6 +51,7 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
                     <asp:ListItem Value="efficiency">Efficiency</asp:ListItem>
                     <asp:ListItem Value="mass">Weight</asp:ListItem>
                     <asp:ListItem Value="price">Price</asp:ListItem>
+                    <asp:ListItem Value="motortype">Motor Type</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlOrderBy2" runat="server">
                 <asp:ListItem Value="motorDataID">motorDataID</asp:ListItem>
@@ -56,7 +66,7 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
                     <asp:ListItem Value="efficiency">Efficiency</asp:ListItem>
                     <asp:ListItem Value="mass">Weight</asp:ListItem>
                     <asp:ListItem Value="price">Price</asp:ListItem>
-
+                    <asp:ListItem Value="motortype">Motor Type</asp:ListItem>
                 </asp:DropDownList>
                </div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px">
@@ -67,7 +77,11 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
                 <asp:Button ID="btnFindAllgvMotorData" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllMotors_click" /></div>
         </div>
         </asp:Panel>
+                    <style>select {
+                            font-size: 0.8em
+                        }
 
+                    </style>
 
         <div runat="server" id="MotorDataGV_DIV" style="max-width: 1000px;">
              <asp:GridView ID="gvMotorData" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
@@ -209,8 +223,7 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
                         </ItemTemplate>
               </asp:TemplateField>
 
-                    
-
+ 
               <asp:TemplateField  HeaderText="Weight" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtMass" Text='<%#Eval("mass") %>' runat="server" AutoCompleteType="Disabled" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
@@ -220,6 +233,23 @@ CodeBehind="MotorEditor.aspx.cs" Inherits="CFM_Web.Importers.MotorEditor" %>
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("mass") %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+              </asp:TemplateField>                   
+
+              <asp:TemplateField  HeaderText="Motor Type" ControlStyle-Width="130px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" FooterStyle-HorizontalAlign="Center">
+                        <EditItemTemplate>
+                                <asp:DropDownList ID="ddlMotorType" runat="server" AutoPostBack="FALSE"   AppendDataBoundItems="true" >
+                                </asp:DropDownList>
+                            <asp:HiddenField ID="hiddenMotorType" Value='<%#Eval("motortype") %>' runat="server" ></asp:HiddenField>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                              <asp:DropDownList ID="ddlMotorTypeFooter" runat="server" AutoPostBack="FALSE" >
+                                  <asp:ListItem Value="1" >STD</asp:ListItem>
+                                  <asp:ListItem Value="4" >Smoke Spill H</asp:ListItem>
+                                </asp:DropDownList>
+                        </FooterTemplate>
+                       <ItemTemplate>
+                            <asp:Label ID="txtMotorType" Text='<%#Eval("motortype") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 

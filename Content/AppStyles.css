@@ -348,6 +348,16 @@ input[type="submit"] {
      box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
 }
 
+.green-btn {
+    background: rgb(10, 77, 0);
+    ;
+    color: white;
+}
+    .green-btn:hover {
+        background: green;
+        box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.16);
+    }
+
 .login-btn {
     margin-top: 15px;
     margin-bottom: 20px;
