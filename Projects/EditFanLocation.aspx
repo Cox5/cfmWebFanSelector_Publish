@@ -152,7 +152,7 @@
                 </td>
             </tr>
            <tr ID="oem_row16" runat="server"  visible="false">
-                <td class="small-td">Angle</td>
+                <td class="small-td">Fan Model</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtAngle" runat="server"  AutoCompleteType="Disabled" />
                 </td>

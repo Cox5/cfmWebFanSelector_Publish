@@ -20,6 +20,7 @@
           <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for quotation number, project name, company or address" Width="300px" Height="32px" class="mr-small" Autocomplete="off"></asp:TextBox>
           <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline" />
           <asp:Button ID="btnSearchAll" runat="server" Text="All" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline" />
+          <asp:Button ID="btnShowPriceReq" runat="server" Text="Pricing Req" OnClick="btnShowPriceReq_Click" class="button-main green-btn inline" Visible="false" />
 
       </div>
 

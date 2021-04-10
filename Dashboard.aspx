@@ -10,21 +10,21 @@
 
 
         <div class="dashboard-panel">
-                <a href="/Projects/ProjectsDashboard.aspx" class="dashboard-icon-link">
+                <a id="projectsLink" href="/Projects/ProjectsDashboard.aspx" class="dashboard-icon-link"  runat="server">
                     <i class="fas fa-tasks icon"></i>
                     <div class="highlighted">
                         Projects
                     </div>
                 </a>
 
-                <a href="/Users/Usergrid.aspx" class="dashboard-icon-link">
+                <a id="userInfo" href="/Users/Usergrid.aspx" class="dashboard-icon-link"  runat="server">
                     <i class="fas fa-users icon"></i>
                     <div class="highlighted">
                         User Accounts
                     </div>
                 </a>
 
-                <a href="/Company/CompanyDetails.aspx" class="dashboard-icon-link">
+                <a id="companyInfo" href="/Company/CompanyDetails.aspx" class="dashboard-icon-link"  runat="server">
                     <i class="fas fa-building icon"></i>
                     <div class="highlighted">
                         Company Info
@@ -38,7 +38,7 @@
                     </div>
                 </a> -->
 
-                <a href="/FanSelection.aspx" class="dashboard-icon-link">
+                <a id="browseFans" href="/FanSelection.aspx" class="dashboard-icon-link"  runat="server">
                     <i class="fab fa-centercode icon"></i>
                     <div class="highlighted">
                         Browse Fans

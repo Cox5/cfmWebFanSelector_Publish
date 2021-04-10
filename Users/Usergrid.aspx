@@ -26,7 +26,7 @@
         <div class="table-controls mb-medium">
                 <div style="float:left;  margin-top: 15px">Search:</div>
                 <div style="float:left;  margin-left: 20px">
-                        <asp:TextBox ID="txtSearch" runat="server" Placeholder="email,name" Width="200px" Height="32px"  Autocomplete="off"></asp:TextBox>
+                        <asp:TextBox ID="txtSearch" runat="server" Placeholder="email,name,company" Width="250px" Height="32px"  Autocomplete="off"></asp:TextBox>
                 </div>
                <div style="float:left; margin-left: 20px"> Sort by:
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
@@ -34,6 +34,7 @@
 <asp:ListItem Value="email_address">Email Address</asp:ListItem>
 <asp:ListItem Value="given_name">Given Name</asp:ListItem>
 <asp:ListItem Value="family_name">Family Name</asp:ListItem>
+<asp:ListItem Value="company_name">Company</asp:ListItem>
 <asp:ListItem Value="user_class_asc">User Class ASC</asp:ListItem>
 <asp:ListItem Value="user_class_desc">User Class DESC</asp:ListItem>
 
@@ -44,6 +45,7 @@
 <asp:ListItem Value="email_address">Email Address</asp:ListItem>
 <asp:ListItem Value="given_name">Given Name</asp:ListItem>
 <asp:ListItem Value="family_name">Family Name</asp:ListItem>
+<asp:ListItem Value="company_name">Company</asp:ListItem>
 <asp:ListItem Value="user_class_asc">User Class ASC</asp:ListItem>
 <asp:ListItem Value="user_class_desc">User Class DESC</asp:ListItem>
 
@@ -54,7 +56,7 @@
              <div style="float:left;  margin-left: 20px; margin-top: 5px">
                 <asp:Button ID="btnFindAllgvUser" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvUser_click" /></div>
             <div style="float:left;  margin-left: 20px; margin-top: 5px">
-                <asp:Button ID="btnFindPending" class="button-main primary-btn"  runat="server" Visible="true" Text="Find Pending" OnClick="BtnFindPending_click" /></div>
+                <asp:Button ID="btnFindPending" class="button-main green-btn"  runat="server" Visible="true" Text="Find Pending" OnClick="BtnFindPending_click" /></div>
         </div>
         <div runat="server" id="UserGV_DIV" style="max-width: 700px;">
              <asp:GridView ID="gvUser" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"

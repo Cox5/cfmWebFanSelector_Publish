@@ -51,8 +51,7 @@ window.onload = function(){
                     <asp:Button ID="btnExtraItems" runat="server" CssClass="button-main primary-btn" Text="Extras" OnClick="btnExtraItems_Click" visible="false"/>
                     <asp:Button ID="lblPricingRequested" runat="server" CssClass="button-main primary-btn" Text="Pricing Requested" Disabled="true" Visible="false"/>
                     <asp:Button ID="btnGoToPricelist" runat="server" CssClass="button-main primary-btn" Text="Go to Pricelist" OnClick="btnGoToPricelist_Click" />
-                    <asp:Button CssClass="button-main primary-btn" ID="btnRequestPricing" runat="server" OnClientClick = "if ( !Confirm()) return false;" OnClick="OnConfirm"         
-                      Text="Request Pricing" Visible="false"/>
+                    <asp:Button CssClass="button-main primary-btn" ID="btnRequestPricing" runat="server"  OnClick="btnPricingReq_Click" Text="Request Pricing" Visible="false"/>
                 </div>
             </div>
             
