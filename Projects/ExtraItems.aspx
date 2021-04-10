@@ -189,7 +189,7 @@
 
 
             </asp:GridView>
-                       <asp:Button ID="btnSave"  class="button-main primary-btn " Text="Save" OnClick="btnSave_Click" runat="server" />
+      
 
             <br />
 
