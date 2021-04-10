@@ -24,9 +24,9 @@
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
         <div class="table-controls mb-medium">
-                <div style="float:left;  margin-top: 15px">Search </div>
+                <div style="float:left;  margin-top: 15px">Search:</div>
                 <div style="float:left;  margin-left: 20px">
-                        <asp:TextBox ID="txtSearch" runat="server" Placeholder="email,name" Width="100px" Height="32px"  Autocomplete="off"></asp:TextBox>
+                        <asp:TextBox ID="txtSearch" runat="server" Placeholder="email,name" Width="200px" Height="32px"  Autocomplete="off"></asp:TextBox>
                 </div>
                <div style="float:left; margin-left: 20px"> Sort by:
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
