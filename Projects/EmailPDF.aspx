@@ -72,16 +72,16 @@
                     </td>
                 </tr>        
                 <tr>
-                    <td>Cc:</td>
+                    <td></td>
                     <td>
-                        <asp:TextBox ID="txtCc1" runat="server"/><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                        <asp:TextBox Visible="false"  ID="txtCc1" runat="server"/><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
             ControlToValidate="txtCc1" ErrorMessage="Please enter a valid email address" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td>Cc:</td>
+                    <td></td>
                     <td>
-                        <asp:TextBox ID="txtCc2" runat="server"/><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                        <asp:TextBox Visible="false" ID="txtCc2" runat="server"/><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
             ControlToValidate="txtCc2" ErrorMessage="Please enter a valid email address" ForeColor="Red"></asp:RegularExpressionValidator>
                     </td>
                 </tr>

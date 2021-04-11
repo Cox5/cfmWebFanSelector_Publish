@@ -81,7 +81,7 @@
     </tr>
     <tr>
       <td>Is company owner</td>
-      <td><asp:CheckBox ID="chkCompanyOwner" runat="server" /></td>
+      <td><asp:CheckBox ID="chkCompanyOwner" runat="server" visible="false" /></td>
     </tr>
   </table>
 
