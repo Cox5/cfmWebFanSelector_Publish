@@ -40,7 +40,7 @@
             <td width="10%">Quote No. <asp:linkbutton ID="sortingQuoteButton" runat="server" onclick="SortQuote_Click" /></td>
             <td width="40%">Project <asp:linkbutton ID="sortingProjectNameButton" runat="server" onclick="SortProjectName_Click" /></td>
             <td width="17%">Company <asp:linkbutton ID="sortingCompButton" runat="server" onclick="SortComp_Click" /></td>
-            <td width="12%">Contact <asp:linkbutton ID="sortingContactButton" runat="server" onclick="SortContact_Click" /></td>
+            <td width="12%">Sales Contact <asp:linkbutton ID="sortingContactButton" runat="server" onclick="SortContact_Click" /></td>
             <td ></td>
           </tr>
         </thead>
