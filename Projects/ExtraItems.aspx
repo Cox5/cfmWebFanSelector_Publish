@@ -141,7 +141,7 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtQuantity" Text='<%#Eval("quantity") %>' runat="server" HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" CssClass="input-small center-text"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="qtyRequiredValidator" runat="server" ErrorMessage="Qty field is empty" ForeColor="Red" ControlToValidate="txtQuantity"></asp:RequiredFieldValidator>
+                            
                             <asp:HiddenField ID="defQtyHidden" Value='<%#Eval("def_qty") %>'  runat="server" ></asp:HiddenField>
                         </EditItemTemplate>
                         <FooterTemplate>
