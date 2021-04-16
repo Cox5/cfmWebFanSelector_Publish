@@ -316,16 +316,15 @@
 
         </table>
         <asp:RequiredFieldValidator class="mt-small"  ID="regCompanyNameRequired" runat="server" ErrorMessage="Company name is empty" ForeColor="Red" ControlToValidate="txtCompany"></asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="regUrl" runat="server" ControlToValidate="txtCompanyWebsite" ValidationExpression="^((http|https)://)?([\w-]+\.)+[\w]+(/[\w- ./?]*)?$" ErrorMessage="Enter a valid URL" ForeColor="Red" />
-
-
-    </div>
 
     <div class="center-text mb-medium">
         <asp:Label ID="lblMessage" runat="server" /><br />
         <asp:Button class="button-main bigger primary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
-        <asp:Button class="button-main bigger primary-btn mt-big" ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
+        <asp:Button class="button-main bigger primary-btn mt-big prevpage" ID="btnCancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" CausesValidation="false" />
 
     </div>
+    </div>
+
+
 
 </asp:Content>

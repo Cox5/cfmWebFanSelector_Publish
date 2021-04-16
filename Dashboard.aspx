@@ -24,7 +24,7 @@
                     </div>
                 </a>
 
-                <a id="companyInfo" href="/Company/CompanyDetails.aspx" class="dashboard-icon-link"  runat="server">
+                <a id="companyInfo" href="/Company/Companygrid.aspx" class="dashboard-icon-link"  runat="server">
                     <i class="fas fa-building icon"></i>
                     <div class="highlighted">
                         Company Info

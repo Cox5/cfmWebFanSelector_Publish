@@ -14,21 +14,23 @@
                         }
 
                     </style>
+
       <div class="right-controls mr-small" style="float: right;">
                        <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
       </div>
         <h3>Update Users</h3>
 
+        <div style=clear:both"></div>
 
         <br />
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
         <div class="table-controls mb-medium">
                 <div style="float:left;  margin-top: 15px">Search:</div>
-                <div style="float:left;  margin-left: 20px">
-                        <asp:TextBox ID="txtSearch" runat="server" Placeholder="email,name,company" Width="250px" Height="32px"  Autocomplete="off"></asp:TextBox>
+                <div style="float:left;  margin-left: 10px">
+                        <asp:TextBox ID="txtSearch" runat="server" Placeholder="email,name,company" Width="200px" Height="32px"  Autocomplete="off"></asp:TextBox>
                 </div>
-               <div style="float:left; margin-left: 20px"> Sort by:
+               <div style="float:left; margin-left: 10px"> Sort by:
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
                 <asp:ListItem Value="user_id">User ID</asp:ListItem>
 <asp:ListItem Value="email_address">Email Address</asp:ListItem>
@@ -51,13 +53,15 @@
 
                 </asp:DropDownList>
                </div>
-             <div style="float:left;  margin-left: 20px; margin-top: 5px">
+             <div style="float:left;  margin-left: 10px; margin-top: 5px">
                 <asp:Button ID="btnFindgvUser" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvUser_click" /></div>
-             <div style="float:left;  margin-left: 20px; margin-top: 5px">
+             <div style="float:left;  margin-left: 10px; margin-top: 5px">
                 <asp:Button ID="btnFindAllgvUser" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvUser_click" /></div>
-            <div style="float:left;  margin-left: 20px; margin-top: 5px">
+             <div style="float:left;  margin-left: 10px; margin-top: 5px">
                 <asp:Button ID="btnFindPending" class="button-main green-btn"  runat="server" Visible="true" Text="Find Pending" OnClick="BtnFindPending_click" /></div>
-        </div>
+             <div style="float:left;  margin-left: 10px; margin-top: 5px">
+                       <asp:Button ID="btnAdd"  class="button-main primary-btn " Text="Add User" OnClick="btnAdd_Click" runat="server" /></div>
+
         <div runat="server" id="UserGV_DIV" style="max-width: 700px;">
              <asp:GridView ID="gvUser" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="user_id" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvUser_RowCommand"

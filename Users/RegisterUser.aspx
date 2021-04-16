@@ -17,7 +17,10 @@
 </style>
     <%--<form id="formSignUp" runat="server">--%>
         <div class="content-wrapper">
+   <div class="right-controls mr-small" style="float: right;">
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" CausesValidation="false" UseSubmitBehavior="false" Text ="Cancel" OnClick="btnFinish_Click" runat="server" />
 
+      </div>
             <div class="center-text">
                 <h1 class="heading-primary mb-medium">New User Registration</h1>
             </div>
@@ -419,8 +422,6 @@
                 </div>
 
                 <asp:Button class="button-main bigger primary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
-                <a href="AccountsDashboard.aspx" id="dashHref" runat="server" class="button-main bigger primary-btn mt-big">Cancel</a>
-                <a href="AccountsDashboard.aspx" id="dashFinishedHref" runat="server" class="button-main bigger primary-btn mt-big" visible="false">Finished</a>
                 <%--<asp:Button class="button-main bigger primary-btn mt-big" ID="btnFinished" Text="Cancel" runat="server" CausesValidation="false" OnClick="btnFinished_Click" />--%>
 
             </div>
