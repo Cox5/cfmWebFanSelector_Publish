@@ -168,7 +168,8 @@
 
              <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                         <ItemTemplate>
-                            <asp:LinkButton data-delete='<%# Eval("id") %>'  runat="server" CommandName="" CausesValidation="false" onClick="BtnDelete_Click" >
+                            <asp:LinkButton data-delete='<%# Eval("id") %>'  runat="server" CommandName="" CausesValidation="false" 
+                                onClick="BtnDelete_Click" OnClientClick="if (!confirm('Are you sure you want delete?')) return false;">
                                 <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete this Impeller</span></span>
                             </asp:LinkButton>
                         </ItemTemplate>
