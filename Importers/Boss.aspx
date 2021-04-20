@@ -80,7 +80,7 @@
                             <asp:TextBox ID="TextBox1" Text='<%#Eval("shaftDia") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="Footer" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtShaftDiaFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("shaftDia") %>' runat="server"></asp:Label>
@@ -95,7 +95,7 @@
                             <asp:TextBox ID="TextBox2" Text='<%#Eval("price") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="TextBox3" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtPriceFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label Text='<%#Eval("price") %>' runat="server"></asp:Label>

@@ -94,7 +94,7 @@ td.tiny-td select {
        </table>
        <div id="dvScroll" style="overflow-x:hidden; overflow-y: scroll; height: 600px; width: 100%">
        <table id="fanLocationsTable" class="table project">
-              <% for (int i = 0; i < fanReferences.Count; i++) { %>
+              <% if (fanReferences != null ) for (int i = 0; i < fanReferences.Count; i++) { %>
                  <tr class="has-sub nopad">
                      <td style="width: 2%;" class="sub"><%= getPositionAction(i+1, fanReferences[i].ProjectFanId) %> </td>
                      <td style="width: 10%;"><%= fanReferences[i].FanReferenceCode %></td>
