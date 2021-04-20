@@ -60,7 +60,7 @@
     </table>
 
     <div class="right-controls mt-medium">
-      <a href="/Projects/DeletedProjects.aspx" class="button-main primary-btn mt-medium">Restore deleted</a>
+      <a href="/Projects/Restore.aspx" class="button-main primary-btn mt-medium">Restore deleted</a>
     </div>
     
 
