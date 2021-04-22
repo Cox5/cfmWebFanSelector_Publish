@@ -45,7 +45,10 @@
           </tr>
         </thead>
           
-         <% foreach (var p in projects) { %>
+         <% if (projects != null)
+                                     {
+                                         foreach (var p in projects)
+                                         { %>
                  <tr>
                      <td> <%= p.QuoteNumber %> </td>
                      <td> <a href="<%= getSpecificProjectUrl(p.ProjectID) %>"> <%= p.ProjectName %> </a></td>
@@ -54,13 +57,16 @@
                      <td class="icons"> <%= getIcons(p.ProjectID, p.Status) %> </td>
 
                  </tr>
-             <% } %>
+             <% }
+                                     }%>
 
         
     </table>
 
-    <div class="right-controls mt-medium">
-      <a href="/Projects/Restore.aspx" class="button-main primary-btn mt-medium">Restore deleted</a>
+    <div class="mt-medium">
+       <asp:Button ID="btnRestore" runat="server" Text="View deleted projects" OnClick="btnRestore_Click" class="button-main primary-btn inline" Visible="true" />
+        <asp:Button ID="btnNoRestore" runat="server" Text="View current projects" OnClick="btnNoRestore_Click" class="button-main primary-btn inline" Visible="false" />
+
     </div>
     
 

@@ -155,7 +155,8 @@
 
              <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
-                            <asp:LinkButton data-delete='<%# Eval("company_id") %>'  runat="server" CommandName="" CausesValidation="false" onClick="BtnDelete_Click" >
+                            <asp:LinkButton data-delete='<%# Eval("company_id") %>'  runat="server" CommandName="" CausesValidation="false"
+                                OnClientClick="if (!confirm('Are you sure you want delete?')) return false;" onClick="BtnDelete_Click" >
                                 <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete </span></span>
                             </asp:LinkButton>
                         </ItemTemplate>

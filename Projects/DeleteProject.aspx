@@ -15,7 +15,7 @@
         </div>
       
        <div id="deleteContainer" runat="server">
-            <p>Are you sure you want to delete this project?</p>
+            <asp:Label ID="lblInfo" runat="server">Are you sure you want to delete this project?</asp:Label>
             
            
             <div class="mt-big mb-small">

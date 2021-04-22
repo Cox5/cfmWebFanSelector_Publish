@@ -77,7 +77,7 @@
 
               <asp:TemplateField  HeaderText="shaftDia" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" Text='<%#Eval("shaftDia") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
+                            <asp:TextBox ID="txtshaftDia" Text='<%#Eval("shaftDia") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtShaftDiaFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
@@ -92,7 +92,7 @@
 
               <asp:TemplateField  HeaderText="Price" ControlStyle-Width="70px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox2" Text='<%#Eval("price") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
+                            <asp:TextBox ID="txtPrice" Text='<%#Eval("price") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtPriceFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
