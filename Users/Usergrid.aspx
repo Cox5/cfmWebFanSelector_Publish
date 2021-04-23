@@ -53,14 +53,20 @@
 
                 </asp:DropDownList>
                </div>
-             <div style="float:left;  margin-left: 10px; margin-top: 5px">
-                <asp:Button ID="btnFindgvUser" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvUser_click" /></div>
-             <div style="float:left;  margin-left: 10px; margin-top: 5px">
-                <asp:Button ID="btnFindAllgvUser" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvUser_click" /></div>
-             <div style="float:left;  margin-left: 10px; margin-top: 5px">
-                <asp:Button ID="btnFindPending" class="button-main green-btn"  runat="server" Visible="true" Text="Find Pending" OnClick="BtnFindPending_click" /></div>
-             <div style="float:left;  margin-left: 10px; margin-top: 5px">
-                       <asp:Button ID="btnAdd"  class="button-main primary-btn " Text="Add User" OnClick="btnAdd_Click" runat="server" /></div>
+            <style>
+                .fleft {float:left;  margin-left: 10px; margin-top: 5px}
+                .smbtn {  width: 90px !important;  }
+            </style>
+             <div class="fleft">
+                <asp:Button ID="btnFindgvUser" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvUser_click" /></div>
+             <div class="fleft">
+                <asp:Button ID="btnFindAllgvUser" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvUser_click" /></div>
+             <div class="fleft">
+              <asp:Button ID="btnFindDeleted" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find Deleted" OnClick="BtnFindDeleted_click" /></div>
+             <div class="fleft">
+                <asp:Button ID="btnFindPending" class="button-main green-btn smbtn"  runat="server" Visible="true" Text="Find Pending" OnClick="BtnFindPending_click" /></div>
+             <div class="fleft">
+                       <asp:Button ID="btnAdd"  class="button-main primary-btn  smbtn" Text="Add User" OnClick="btnAdd_Click" runat="server" /></div>
 
         <div runat="server" id="UserGV_DIV" style="max-width: 700px;">
              <asp:GridView ID="gvUser" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
@@ -183,7 +189,7 @@
 
              <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
                         <ItemTemplate>
-                            <asp:LinkButton data-delete='<%# Eval("user_id") %>'  runat="server" CommandName="" 
+                            <asp:LinkButton ID="lnkUserDel" data-delete='<%# Eval("user_id") %>'  runat="server" CommandName="" 
                                 OnClientClick="if (!confirm('Are you sure you want delete?')) return false;" CausesValidation="false" onClick="BtnDelete_Click" >
                                 <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete </span></span>
                             </asp:LinkButton>

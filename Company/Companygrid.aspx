@@ -26,6 +26,10 @@
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
         <div class="table-controls mb-medium">
+            <style>
+                .fleft {float:left;  margin-left: 10px; margin-top: 5px}
+                .smbtn {  width: 90px !important;  }
+            </style>
                 <div style="float:left;  margin-top: 15px">Search </div>
                 <div style="float:left;  margin-left: 20px">
                         <asp:TextBox ID="txtSearch" runat="server" Placeholder="Company" Width="200px" Height="32px"  Autocomplete="off"></asp:TextBox>
@@ -41,10 +45,12 @@
 
                 </asp:DropDownList>
                </div>
-             <div style="float:left;  margin-left: 20px; margin-top: 5px">
-                <asp:Button ID="btnFindgvCompany" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvCompany_click" /></div>
-             <div style="float:left;  margin-left: 20px; margin-top: 5px">
-                <asp:Button ID="btnFindAllgvCompany" class="button-main primary-btn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvCompany_click" /></div>
+             <div class="fleft">
+                <asp:Button ID="btnFindgvCompany" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvCompany_click" /></div>
+             <div class="fleft">
+                <asp:Button ID="btnFindAllgvCompany" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvCompany_click" /></div>
+             <div class="fleft">
+                <asp:Button ID="btnFindDeleted" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find Deleted" OnClick="BtnFindDeleted_click" /></div>
         </div>
         </asp:Panel>
         <div runat="server" id="CompanyGV_DIV" style="max-width: 700px;">
@@ -155,9 +161,13 @@
 
              <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
-                            <asp:LinkButton data-delete='<%# Eval("company_id") %>'  runat="server" CommandName="" CausesValidation="false"
+                            <asp:LinkButton  ID="lnkCompanyDel" data-delete='<%# Eval("company_id") %>'  runat="server" CommandName="" CausesValidation="false"
                                 OnClientClick="if (!confirm('Are you sure you want delete?')) return false;" onClick="BtnDelete_Click" >
                                 <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete </span></span>
+                            </asp:LinkButton>
+                          <asp:LinkButton  ID="lnkCompanyRestore" data-delete='<%# Eval("company_id") %>'  runat="server" CommandName="" CausesValidation="false"
+                                OnClientClick="if (!confirm('Are you sure you want restore?')) return false;" onClick="BtnRestore_Click" >
+                                <span class="tooltip"><i class="fas fa-trash-restore"></i><span class="tooltiptext tooltip-i">Restore </span></span>
                             </asp:LinkButton>
                         </ItemTemplate>
                         <EditItemTemplate>

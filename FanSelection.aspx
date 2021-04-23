@@ -22,7 +22,7 @@
     <script src="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.js"></script>
     <script src="Scripts/jquery.tablesorter.min.js"></script>
     <script src="Scripts/jquery.tablesorter.widgets.min.js"></script>
-    <script src="Scripts/fanSelection.js?v=20210204"></script>
+    <script src="Scripts/fanSelection.js?v=20210423"></script>
     <script src="Scripts/fanTypeTree.js"></script>
 
     <asp:PlaceHolder ID="plcHeadingColor" runat="server" />
@@ -318,6 +318,7 @@
                                         <% foreach (var fanData in fanDataList)
                                             {  %>
                                         <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"  data-motorid="<%= fanData.motorID %>"
+                                            data-fanweight="<%= fanData.mass.ToString() %>" 
                                             data-interceptpwr='<%= fanData.intercept != null ? getStringFromDouble(fanData.intercept.power, "0.00") : "0:00" %>'
                                             style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
                                             <td title="<%=fanData.fanObject.partNumber  %>"

@@ -27,7 +27,8 @@ $(document).ready(function () {
         selectedFanID = $(this).attr("data-fandataid");
         motorID = $(this).attr("data-motorid");
         pwr = $(this).attr("data-interceptpwr");
-        updateFanCurve(selectedFanID, motorID, pwr); // calls GetFanData() in AjaxWS.asmx.cs
+        weight = $(this).attr("data-fanweight"); 
+        updateFanCurve(selectedFanID, motorID, pwr, weight); // calls GetFanData() in AjaxWS.asmx.cs
         $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
     });
@@ -86,7 +87,8 @@ function printDataSheet()
     alert("Form submitted");
 }
 
-function updateFanCurve(fanDataID, motorid, pwr) {
+
+function updateFanCurve(fanDataID, motorid, pwr, weight) {
   /// <summary>
   /// Gets the relevant data from the form and sends the data to the web service to create the fan curves
   /// </summary>
@@ -114,6 +116,7 @@ function updateFanCurve(fanDataID, motorid, pwr) {
         data: "{ fanDataID:" + fanDataID +
             ", projectfanid:" + parseInt(projectfanid) +
             ", motorid:" + parseInt(motorid) +
+            ", weight:" + parseFloat(weight) +
             ", airflow:" + parseFloat(airflow) +
             ", addairflow:" + parseFloat(addairflow) +
             ", staticPressure:" + parseFloat(staticPressure) +

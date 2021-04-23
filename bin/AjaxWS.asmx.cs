@@ -39,7 +39,8 @@ namespace CFM_Web
         // [WebMethod]
         [WebMethod(EnableSession = true)]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public fanData GetFanData(int fanDataID, int projectfanid, int motorid, double airflow, double addairflow, double staticPressure, double pwr,
+        public fanData GetFanData(int fanDataID, int projectfanid, int motorid, double weight, 
+            double airflow, double addairflow, double staticPressure, double pwr,
             int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
             if (projectfanid > 0)
@@ -109,6 +110,9 @@ namespace CFM_Web
                         fanData.motorID = motorid;
                     }
 
+                    // Weight is also calculated, so override the default.
+                    fanData.mass = weight;
+
                     // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
                     if (addairflow > 0 && motorid != -1)
                     {
@@ -121,7 +125,7 @@ namespace CFM_Web
                         // Find new power required as intercept power * increase
                         double newImpellerMotorConsPower = impellerConsPower * PowerIncreaseFactor;
 
-
+                        // This should always be false, because we are passed calculated motorid
                         if (fanData.motorkW < newImpellerMotorConsPower)
                         {
                             // Find the smallest sufficient motor with the same number of poles as the standard one.
@@ -563,11 +567,12 @@ namespace CFM_Web
             {
                 double aompower = fanData.motorDataObject.kw * 1.1;
                 double aomcurrent = fanData.motorDataObject.fullLoadAmps * 1.1;
-               /*  if (fanData.motorDataObject.fullLoadAmps == 0)
-                {
-                    aomcurrent = fanData.motorAmps * 1.1;
-                } */
+                /*  if (fanData.motorDataObject.fullLoadAmps == 0)
+                 {
+                     aomcurrent = fanData.motorAmps * 1.1;
+                 } */
 
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motordataid:", fanData.motorDataObject.motorDataID).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject.frame).AppendLine();
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorDataObject.kw.ToString("0.00 kW")).AppendLine();
@@ -595,9 +600,7 @@ namespace CFM_Web
                 //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", "").AppendLine();
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorkW.ToString("0.00 kW")).AppendLine();
-
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC/Start:", fanData.motorAmps.ToString("0.0 Amps")).AppendLine();
-
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:",  fanData.RPM.ToString("0 RPM")).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:",  "n/a").AppendLine();
 
