@@ -62,6 +62,7 @@ namespace CFM_Web
                     return f;
                 }
             }
+            string debugmsg = "<div style='display: none'>";
             try
             {
                 bool isRoofCowl = false;
@@ -87,6 +88,7 @@ namespace CFM_Web
                     double impellerConsPower = 0;
                     if (motorid > 0)
                     {
+                        
                         // Don't rely on the configured motor in fandata table - always find the appropriate motor
                         impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
 
@@ -94,6 +96,8 @@ namespace CFM_Web
 
                         List<MotorData> motors1 = DB.MotorDBController.FindSmallestSufficientMotors(impellerConsPower, Convert.ToInt32(fan.motorPole), 0, motorid);
 
+                        debugmsg += " motorid: " + motorid.ToString() + " addairflow:" + addairflow.ToString();
+                        debugmsg += " impellerConsPower: " + impellerConsPower.ToString() ;
 
                         // In case the new motor is different, copy its data into the fan object
                         // fan.motorDataObject = motors[0];
@@ -101,12 +105,14 @@ namespace CFM_Web
                         fanData.motorID = motors1[0].MotorDataId;
                         fanData.motorAmps = motors1[0].FullLoadAmps;
                         fanData.motorkW = motors1[0].Kw;
+                        debugmsg += " new motorid: " + motors1[0].MotorDataId.ToString() ;
 
                     }
 
                     defaultmotorkW = fanData.motorkW;
                     if (motorid != -1)
                     {
+                        debugmsg += " set fanData.motorid: " + motorid.ToString();
                         fanData.motorID = motorid;
                     }
 
@@ -116,6 +122,7 @@ namespace CFM_Web
                     // If we have selected from "Other fans in this family do requested duty," motorid might have been upgraded to more powerful.
                     if (addairflow > 0 && motorid != -1)
                     {
+                        debugmsg += " Adjust motors ";
                         // Adjust motors
                         double PowerIncreaseFactor = Math.Pow(1.0 + addairflow / 100.0, 3.0);
 
@@ -139,6 +146,7 @@ namespace CFM_Web
                                 fanData.motorID = motors[0].MotorDataId;
                                 fanData.motorAmps = motors[0].FullLoadAmps;
                                 fanData.motorkW = motors[0].Kw;
+                                debugmsg += " set fanData.motorid: " + motors[0].MotorDataId.ToString();
                             }
 
                         }
@@ -149,6 +157,7 @@ namespace CFM_Web
                     fanData.fanObject = fan;
                 }
 
+                debugmsg += "</div>";
 
                 // If there is no required af or sp, because search by model number, 
                 // get an airflow/sp pair from datapoint table so that the output looks
@@ -226,7 +235,7 @@ namespace CFM_Web
                 Tuple<double, double> max = GetDataMax(fanData.dataPointList);
                 fanData selectedFanData = new fanData();
                 //selectedFanData.performanceCurve = FansBackend.Utilities.GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
-                selectedFanData.performanceCurve = GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
+                selectedFanData.performanceCurve = debugmsg + GraphBuilder.CreatePerformanceSVG(fan, fanDataID, airflow, staticPressure, divPerfWidth, divPerfHeight, true, max.Item1, max.Item2);
 
                 if (isRoofCowl) // Skip the power curve if a Roof Cowl
                 {
