@@ -36,13 +36,12 @@
                 </div>
                <div style="float:left; margin-left: 20px"> Sort by:
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
-                    <asp:ListItem Value="company_id">Company ID</asp:ListItem>
                     <asp:ListItem Value="company_name">Company Name</asp:ListItem>
+                    <asp:ListItem Value="state">State</asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlOrderBy2" runat="server">
-                    <asp:ListItem Value="company_id">Company ID</asp:ListItem>
                     <asp:ListItem Value="company_name">Company Name</asp:ListItem>
-
+                 <asp:ListItem Value="state">State</asp:ListItem>
                 </asp:DropDownList>
                </div>
              <div class="fleft">
@@ -51,6 +50,8 @@
                 <asp:Button ID="btnFindAllgvCompany" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find All" OnClick="BtnFindAllgvCompany_click" /></div>
              <div class="fleft">
                 <asp:Button ID="btnFindDeleted" class="button-main primary-btn smbtn"  runat="server" Visible="true" Text="Find Deleted" OnClick="BtnFindDeleted_click" /></div>
+             <div class="fleft">
+                <asp:Button ID="btnAdd"  class="button-main primary-btn  smbtn" Text="Add Company" OnClick="btnAdd_Click" runat="server" /></div>
         </div>
         </asp:Panel>
         <div runat="server" id="CompanyGV_DIV" style="max-width: 700px;">

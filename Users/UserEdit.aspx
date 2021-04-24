@@ -72,7 +72,6 @@
           <asp:ListItem Text="Administrator" Value="1"></asp:ListItem>
           <asp:ListItem Text="Sales" Value="2"></asp:ListItem>
           <asp:ListItem Text="User" Value="3"></asp:ListItem>
-          <asp:ListItem Text="Unapproved" Value="4"></asp:ListItem>
           <asp:ListItem Text="Deleted" Value="5"></asp:ListItem>
           <asp:ListItem Text="Pending" Value="6"></asp:ListItem>
           <asp:ListItem Text="Rejected" Value="7"></asp:ListItem>

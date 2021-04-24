@@ -8,20 +8,22 @@
   <div class="content-wrapper projects-wrapper">
 
       <div class="table-controls mt-solid mb-solid">
-        <h1 class="table-title maintitle">Projects</h1>
+        <h1 ID="h1Projects" runat="server" class="table-title maintitle">Projects</h1>
   <p id="myHeader" runat="server"></p>
         <a href="/Projects/Project.aspx" class="button-main primary-btn inline"><i class="fas fa-plus-circle"></i> New Project</a>
       </div>
-
-   
-
-      
+        <style>
+                .fleft {float:left;  margin-left: 10px; margin-top: 5px}
+                .smbtn {  width: 90px !important;  }
+            </style>
       <div class="table-controls center-text mb-medium">
           <asp:TextBox ID="txtSearch" runat="server" Placeholder="search for quotation number, project name, company or address" Width="300px" Height="32px" class="mr-small" Autocomplete="off"></asp:TextBox>
-          <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline" />
-          <asp:Button ID="btnSearchAll" runat="server" Text="All" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline" />
-          <asp:Button ID="btnShowPriceReq" runat="server" Text="Pricing Req" OnClick="btnShowPriceReq_Click" class="button-main green-btn inline" Visible="false" />
+          <asp:Button ID="btnSearchProject" runat="server" Text="Search" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline smbtn" />
+          <asp:Button ID="btnSearchAll" runat="server" Text="All" OnClick="btnSearchForProject_Click" class="button-main primary-btn inline smbtn" />
+          <asp:Button ID="btnShowPriceReq" runat="server" Text="Pricing Req" OnClick="btnShowPriceReq_Click" class="button-main green-btn inline smbtn" Visible="false" />
 
+       <asp:Button ID="btnRestore" runat="server" Text="View deleted" OnClick="btnRestore_Click" class="button-main primary-btn inline smbtn" Visible="true" />
+        <asp:Button ID="btnNoRestore" runat="server" Text="View current" OnClick="btnNoRestore_Click" class="button-main primary-btn inline smbtn" Visible="false" />
       </div>
 
      
@@ -63,11 +65,6 @@
         
     </table>
 
-    <div class="mt-medium">
-       <asp:Button ID="btnRestore" runat="server" Text="View deleted projects" OnClick="btnRestore_Click" class="button-main primary-btn inline" Visible="true" />
-        <asp:Button ID="btnNoRestore" runat="server" Text="View current projects" OnClick="btnNoRestore_Click" class="button-main primary-btn inline" Visible="false" />
-
-    </div>
     
 
   </div>
