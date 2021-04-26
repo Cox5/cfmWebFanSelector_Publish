@@ -92,11 +92,17 @@ namespace CFM_Web
                         // Don't rely on the configured motor in fandata table - always find the appropriate motor
                         impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
 
+                        foreach (var d in fanData.dataPointList)
+                        {
+                            debugmsg += "fandataid:"+d.fanDataID.ToString()+" [" + d.airflow.ToString() + "," + d.power.ToString() + "]";
+                        }
+
                         // Find the smallest sufficient motor with the required number of poles, and motortype the same as given motorid
 
                         List<MotorData> motors1 = DB.MotorDBController.FindSmallestSufficientMotors(impellerConsPower, Convert.ToInt32(fan.motorPole), 0, motorid);
 
                         debugmsg += " motorid: " + motorid.ToString() + " addairflow:" + addairflow.ToString();
+                        debugmsg += " Intercept AF: " + dpIntercept.airflow.ToString();
                         debugmsg += " impellerConsPower: " + impellerConsPower.ToString() ;
 
                         // In case the new motor is different, copy its data into the fan object
