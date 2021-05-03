@@ -32,26 +32,25 @@
                 </div>
                <div style="float:left; margin-left: 10px"> Sort by:
                 <asp:DropDownList ID="ddlOrderBy1" runat="server">
-                <asp:ListItem Value="user_id">User ID</asp:ListItem>
+<asp:ListItem Value="company_name">Company</asp:ListItem>          
 <asp:ListItem Value="email_address">Email Address</asp:ListItem>
 <asp:ListItem Value="given_name">Given Name</asp:ListItem>
 <asp:ListItem Value="family_name">Family Name</asp:ListItem>
-<asp:ListItem Value="company_name">Company</asp:ListItem>
 <asp:ListItem Value="user_class_asc">User Class ASC</asp:ListItem>
 <asp:ListItem Value="user_class_desc">User Class DESC</asp:ListItem>
+<asp:ListItem Value="user_id">User ID</asp:ListItem>
 
 
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlOrderBy2" runat="server">
-                <asp:ListItem Value="user_id">User ID</asp:ListItem>
+<asp:ListItem Value="company_name">Company</asp:ListItem>          
 <asp:ListItem Value="email_address">Email Address</asp:ListItem>
 <asp:ListItem Value="given_name">Given Name</asp:ListItem>
 <asp:ListItem Value="family_name">Family Name</asp:ListItem>
-<asp:ListItem Value="company_name">Company</asp:ListItem>
 <asp:ListItem Value="user_class_asc">User Class ASC</asp:ListItem>
 <asp:ListItem Value="user_class_desc">User Class DESC</asp:ListItem>
-
-                </asp:DropDownList>
+<asp:ListItem Value="user_id">User ID</asp:ListItem>
+</asp:DropDownList>
                </div>
             <style>
                 .fleft {float:left;  margin-left: 10px; margin-top: 5px}
@@ -137,7 +136,7 @@
 
 
 
-              <asp:TemplateField  HeaderText="Company_id" ControlStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
+              <asp:TemplateField  HeaderText="Company Name" ControlStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtCompany" Text='<%#Eval("company_name") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>

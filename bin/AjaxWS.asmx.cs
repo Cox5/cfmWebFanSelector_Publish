@@ -9,7 +9,8 @@ using System.Web.Script.Services;
 using CFM_Web.DB;
 using CFM_Web.Utilities;
 using MySql.Data.MySqlClient;
-using FansBackend.Entities;
+using FansBackend.Entities; 
+
 
 namespace CFM_Web
 {
@@ -43,6 +44,8 @@ namespace CFM_Web
             double airflow, double addairflow, double staticPressure, double pwr,
             int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
         {
+            DataPoint cowlpoint = new DataPoint();
+
             if (projectfanid > 0)
             {
                 if (checkauth(projectfanid) == false)
@@ -73,13 +76,18 @@ namespace CFM_Web
                 fanData.fanObject = fan;
 
                 double defaultmotorkW = 0;
-
+                
                 if (fan.rangeID == 32 || fan.rangeID == 33) 
                 {
                     isRoofCowl = true;
-                }
 
-                if (!isRoofCowl) // Skip motor calcs if a Roof Cowl
+                    double scc = FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(fanData.dataPointList[3]);
+
+                    fanData.intercept = cowlpoint;
+                    fanData.intercept.staticPressure = staticPressure;
+                    fanData.intercept.airflow = Math.Sqrt(fanData.intercept.staticPressure / scc);
+                }
+                else // Skip motor calcs if a Roof Cowl
                 {
                     // Get intercept so we can get consumed power at intercept.
                     FansBackend.Entities.DataPoint dpIntercept =
@@ -265,13 +273,20 @@ namespace CFM_Web
 
                 selectedFanData.wireElement = getWireFrameDiagram(fanData);
 
-                fanData.intercept = new DataPoint();
+                if (!isRoofCowl)
+                {
+                    fanData.intercept = new DataPoint();
 
-                // Set airflow and staticpressure at intercept - actual not requested.
-                fanData.intercept.airflow = fr.ActualAF; // airflow;
-                fanData.intercept.staticPressure = fr.ActualSP; // staticPressure;
-                fanData.intercept.power = pwr;
-
+                    // Set airflow and staticpressure at intercept - actual not requested.
+                    fanData.intercept.airflow = fr.ActualAF; // airflow;
+                    fanData.intercept.staticPressure = fr.ActualSP; // staticPressure;
+                    fanData.intercept.power = pwr;
+                    pdfData.FanDataSpeed = Convert.ToString(fanData.RPM);
+                }
+                else
+                {
+                    pdfData.FanDataSpeed = "";
+                }
 
                 string nccCompliance = FanSelection.getNCCstatus(fanData, 0);
                 pdfData.ncc2019 = nccCompliance;
@@ -305,7 +320,6 @@ namespace CFM_Web
 
                 pdfData.FanDataType = String.Empty;
                 pdfData.FanDataDiameter = Convert.ToString(fan.diameter);
-                pdfData.FanDataSpeed = Convert.ToString(fanData.RPM);
                 pdfData.FanDataMass = Convert.ToString(fanData.mass);
 
                 pdfData.PerformanceCurveSVG = selectedFanData.performanceCurve;
@@ -639,8 +653,10 @@ namespace CFM_Web
             double ads = 0;
             bool cando_add = false;
             bool cando_req = false;
+            bool isRoofCowl = false;
 
-            FansBackend.Entities.DataPoint dpIntercept =
+
+                FansBackend.Entities.DataPoint dpIntercept =
                 FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
 
             System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
@@ -666,6 +682,7 @@ namespace CFM_Web
             // Suppress intercept values for roof cowls
             if (fanData.fanObject.rangeObject.rangeID == 32 || fanData.fanObject.rangeObject.rangeID == 33)
             {
+                isRoofCowl = true;
                 dpIntercept = null;
             }
 
@@ -674,7 +691,14 @@ namespace CFM_Web
             {
                 performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #0000cc'>Requested Duty</th></tr>");
             }
-            if (dpIntercept == null)
+            if (isRoofCowl)
+            {
+                performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
+                    fr.AirFlow.ToString("0"), fanData.intercept.airflow.ToString("0"));
+                performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
+                    fr.StaticPressure.ToString("0"), fanData.intercept.staticPressure.ToString("0"));
+            }
+            else if (dpIntercept == null)
             {
                 // there is no cross-over point in
                 performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td id=ac_af style='align:right'>{1}</td></tr>",
@@ -706,24 +730,7 @@ namespace CFM_Web
                 FansBackend.Entities.DataPoint d =
                     FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList,
                             FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(adf, ads));
-                /* 
-                if (d == null)
-                {
-                    // there is no cross-over point in
-                    performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td id=ac_af style='align:right'>{1}</td></tr>",
-                        fr.AirFlow.ToString(), "n/a");
-                    performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td id=ac_sp>{0}</td ><td style='align:right'>{1}</td></tr>",
-                        fr.StaticPressure.ToString(), "n/a");
-                }
-                else
-                {
-                    if (adf <= d.airflow) { cando_add = true; }
-                    performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
-                        adf.ToString("0"), adf.ToString("0"));
-                    performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
-                        ads.ToString("0"), ads.ToString("0"));
-                }
-                */
+
                 // redo motor upgrade calcs and show workings
                 if (fanData.fanObject.rangeID != 32 && fanData.fanObject.rangeID != 33 && dpIntercept != null && dpIntercept.power != null)
                 {
@@ -779,7 +786,7 @@ namespace CFM_Web
                 frphaseString = "3ph<br/>415V<br/>50Hz";
             }
 
-            string phaseString = "";
+            string phaseString = "n/a";
             if (fanData.fanObject.motorPhase == 1)
             {
                 phaseString = "1ph<br/>240V<br/>50Hz";
@@ -816,7 +823,10 @@ namespace CFM_Web
                     performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (kW):", "", fanData.motorkW).AppendLine();
                 }
             }
-            else
+            else if (isRoofCowl)
+            {
+                performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (kW):", "", "n/a").AppendLine();
+            }
             {
                 performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (kW):", "", fanData.motorkW).AppendLine();
             }
@@ -826,6 +836,10 @@ namespace CFM_Web
             // If fan is multiwing fan, use blade_material
             int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
             string bladeMaterial = "";
+            if (isRoofCowl)
+            {
+                bladeMaterial = "n/a";
+            }
             if (mw == 1)
             {
                 bladeMaterial = fr.BladeMaterial;
@@ -906,6 +920,9 @@ namespace CFM_Web
             }
             return power;
         }
+
+
+
 
 
         /// Check user auth to project_fan_id

@@ -28,6 +28,7 @@ $(document).ready(function () {
         motorID = $(this).attr("data-motorid");
         pwr = $(this).attr("data-interceptpwr");
         weight = $(this).attr("data-fanweight"); 
+
         updateFanCurve(selectedFanID, motorID, pwr, weight); // calls GetFanData() in AjaxWS.asmx.cs
         $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
@@ -94,8 +95,8 @@ function updateFanCurve(fanDataID, motorid, pwr, weight) {
   /// </summary>
   /// <param name="fanDataID">fan data ID</param>
 
-    var airflow = $("#body_txt_airFlow").val();
-    var staticPressure = $("#body_txt_static").val();
+    var airflow = $("#body_txt_airFlow").val(); // requested af
+    var staticPressure = $("#body_txt_static").val(); // requested sp
     var addairflow = parseFloat($("#body_txt_percentage").val());
 
     var divPerfWidth = $("#body_div_perfCurve_width").val();
