@@ -96,13 +96,14 @@ namespace CFM_Web
                     double impellerConsPower = 0;
                     if (motorid > 0)
                     {
-                        
-                        // Don't rely on the configured motor in fandata table - always find the appropriate motor
-                        impellerConsPower = getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
 
+                        // Don't rely on the configured motor in fandata table - always find the appropriate motor
+                        impellerConsPower = pwr; // getConsumedPowerAtAirflow(fanData.dataPointList, dpIntercept.airflow);
+
+                        debugmsg += "impellerConsPower="+impellerConsPower + " fan.intercept.power from <2>:" + pwr + " calculated: " + dpIntercept.power + " fandataid:" + fanData.fanDataID.ToString() ;
                         foreach (var d in fanData.dataPointList)
                         {
-                            debugmsg += "fandataid:"+d.fanDataID.ToString()+" [" + d.airflow.ToString() + "," + d.power.ToString() + "]";
+                            debugmsg += " [" + d.airflow.ToString() + "," + d.power.ToString() + "] ";
                         }
 
                         // Find the smallest sufficient motor with the required number of poles, and motortype the same as given motorid
@@ -874,57 +875,7 @@ namespace CFM_Web
             return performanceDataTable.ToString();
         }
 
-        /// <summary>
-        /// Finds motor power at airflow intercept by linear interpolation
-        /// </summary>
-        /// <param name="fan"></param>
-        /// <returns></returns>
-         private double getConsumedPowerAtAirflow(List<FansBackend.Entities.DataPoint> dataPointList, double airflow)
-         {
-            double lastaf = Double.NaN;
-            double lastpw = Double.NaN;
-            double increase = Double.NaN;
-            double power = Double.NaN;
-
-            // Only interpolate if minimum af < airflow < maxiumum af
-            if (dataPointList[0].airflow < airflow)
-            {
-                if (airflow < dataPointList[dataPointList.Count - 1].airflow)
-                {
-                    foreach (DataPoint dp in dataPointList)
-                    {
-                        if (dp.airflow > airflow)
-                        {
-                            // interpolate
-                            increase = (airflow - lastaf) / (dp.airflow - lastaf);
-                            power = lastpw + increase * (dp.power - lastpw);
-                            break;
-                        }
-                        else
-                        {
-                            lastaf = dp.airflow;
-                            lastpw = dp.power;
-                        }
-                    }
-                }
-                else
-                {
-                    // should not happen, but just in case...
-                    power = dataPointList[dataPointList.Count - 1].power;
-                }
-            }
-            else
-            {
-                // If requested airflow < minimum airflow, use power at minimum airflow
-                power = dataPointList[0].power;
-            }
-            return power;
-        }
-
-
-
-
-
+ 
         /// Check user auth to project_fan_id
         private bool checkauth(int project_fan_id)
         {
