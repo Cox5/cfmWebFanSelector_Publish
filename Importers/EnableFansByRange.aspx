@@ -138,7 +138,7 @@
                             <asp:TextBox ID="txtCountFooter" runat="server" AutoPostBack="false" Text=""  Enabled="false" Style="background-color: #eeeeee" />
                         </FooterTemplate>
                        <ItemTemplate>
-                            <asp:Label Text='<%#Eval("count") %>' runat="server"></asp:Label>
+                            <asp:Label ID="lblCount" Text='<%#Eval("count") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 

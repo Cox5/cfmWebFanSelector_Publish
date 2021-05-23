@@ -27,9 +27,9 @@
         <asp:Label ID="lblMessage" runat="server" ></asp:Label>
 
         <div class="table-controls mb-medium">
-                <div style="float:left;  margin-top: 15px">Search by diameter or fan type</div>
+                <div style="float:left;  margin-top: 15px">Search by diameter or fan type or case code</div>
                 <div style="float:left;  margin-left: 20px">
-                    <asp:TextBox ID="txtSearch" runat="server" Placeholder="diameter or fan type" Width="200px" Height="32px"  Autocomplete="off"></asp:TextBox>
+                    <asp:TextBox ID="txtSearch" runat="server" Placeholder="diameter or fan type" Width="250px" Height="32px"  Autocomplete="off"></asp:TextBox>
 
                 </div>
               <div style="float:left; margin-left: 20px"> Sort by:
