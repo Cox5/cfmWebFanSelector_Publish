@@ -72,6 +72,7 @@ namespace CFM_Web
 
                 // find fan and fandata by fandataid
                 var fan = FansBackend.BusinessLogic.FanController.findFanWithAllDataByFanDataID(fanDataID);
+
                 var fanData = fan.fanDataList.Find(fd => fd.fanDataID == fanDataID);
                 fanData.fanObject = fan;
 
@@ -90,9 +91,14 @@ namespace CFM_Web
                 else // Skip motor calcs if a Roof Cowl
                 {
                     // Get intercept so we can get consumed power at intercept.
-                    FansBackend.Entities.DataPoint dpIntercept =
-                        FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
-
+                    // Start by seeing if there is an exact match in the fan curve datapoints.
+                    // This should be in findIntercept(), but it isn't...
+                    FansBackend.Entities.DataPoint dpIntercept = findExactIntercept(fanData.dataPointList, airflow);
+                    if (dpIntercept == null)
+                    {
+                        dpIntercept =
+                            FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
+                    }
                     double impellerConsPower = 0;
                     if (motorid > 0)
                     {
@@ -656,10 +662,16 @@ namespace CFM_Web
             bool cando_req = false;
             bool isRoofCowl = false;
 
+            // Get intercept so we can get consumed power at intercept.
+            // Start by seeing if there is an exact match in the fan curve datapoints.
+            // This should be in findIntercept(), but it isn't...
+            FansBackend.Entities.DataPoint dpIntercept = findExactIntercept(fanData.dataPointList, airflow);
+            if (dpIntercept == null)
+            {
 
-                FansBackend.Entities.DataPoint dpIntercept =
+                dpIntercept =
                 FansBackend.BusinessLogic.FanSelector.findIntercept(fanData.dataPointList, FansBackend.BusinessLogic.FanSelector.findSystemCurveCoEff(airflow, staticPressure));
-
+            }
             System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
 
             performanceDataTable.AppendLine("<table id='performanceDataTable' class='dataTable' style='margin-top: 0px; width:320px; '>");
@@ -907,6 +919,27 @@ namespace CFM_Web
                 }
             }
             return true;
+        }
+
+        /// <summary>
+        /// See there is an (almost) exact match for airflow intercept on fan curve, and return it if so.
+        /// </summary>
+        /// <param name="dpl"></param>
+        /// <param name="airflow"></param>
+        /// <returns></returns>
+        private FansBackend.Entities.DataPoint findExactIntercept(List<FansBackend.Entities.DataPoint> dpl, double airflow)
+        {
+            FansBackend.Entities.DataPoint nulldp = null;
+            foreach (FansBackend.Entities.DataPoint p in dpl)
+            {
+                if (p.airflow >= airflow && p.airflow < airflow*1.005)
+                {
+                    return p;
+                }
+            }
+            return nulldp;
+
+
         }
 
     }
