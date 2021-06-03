@@ -24,6 +24,9 @@
                        <asp:Button ID="Button1"  class="button-main primary-btn prevpage" Text="Reset to Defaults" OnClick="btnDefaults_Click" runat="server" />
               </div>
         </div>
+            <asp:HiddenField ID="hidMotorKw"  runat="server"></asp:HiddenField>
+            <asp:HiddenField ID="hidDiameter"  runat="server"></asp:HiddenField>
+            <asp:HiddenField ID="hidWeight"  runat="server"></asp:HiddenField>
 
             <asp:GridView ID="gvExtraItems" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="id" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvExtraItems_RowCommand" OnRowEditing="gvExtraItems_RowEditing" OnRowCancelingEdit="gvExtraItems_RowCancelingEdit" OnRowUpdating="gvExtraItems_RowUpdating" OnRowDeleting="gvExtraItems_RowDeleting"> 
