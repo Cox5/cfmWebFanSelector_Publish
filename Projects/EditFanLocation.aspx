@@ -61,7 +61,7 @@
             <tr>
                 <td class="small-td">Fan Type</td>
                 <td class="small-td">
-                    <asp:DropDownList ID="ddFanType1" runat="server" AutoCompleteType="Disabled">
+                    <asp:DropDownList ID="ddFanType1" runat="server" AutoCompleteType="Disabled" AutoPostBack="true"  >
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -124,7 +124,8 @@
             <tr>
                 <td class="small-td">Motor Type</td>
                 <td class="small-td">
-                    <asp:DropDownList ID="ddMotorType1" runat="server" ></asp:DropDownList>
+                    <asp:DropDownList ID="ddMotorType1" runat="server" AutoPostBack="true"  ></asp:DropDownList><br />
+                    <asp:Label ID="lblSmokeSpill" runat="server" Visible="false" ForeColor="DarkRed">Fan type is smoke spill, but motor type is not.</asp:Label>
                 </td>
             </tr>
             <tr>
