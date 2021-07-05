@@ -73,7 +73,7 @@
                             <asp:TextBox ID="txtNameFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
-                            <asp:Label Text='<%#Eval("name") %>' runat="server"></asp:Label>
+                            <asp:Label Text='<%#Eval("name") %>' ID="lblName" runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
 
@@ -116,7 +116,7 @@
                     </asp:TemplateField>
 
 
-             <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right" Visible="false">
+             <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right" Visible="true">
                         <ItemTemplate>
                             <asp:LinkButton data-delete='<%# Eval("id") %>'  runat="server" CommandName="" CausesValidation="false" onClick="BtnDelete_Click" >
                                 <span class="tooltip"><i class="fas fa-trash-alt"></i><span class="tooltiptext tooltip-i">Delete </span></span>
