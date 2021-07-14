@@ -380,6 +380,7 @@
 
 
                             <style>
+                                 table#dynamic, table#acousticTitle, table#acousticTable {margin-left: 50px;}
                                   #div_revit_button, #div_acad_button  {
                                       display: inline-block;
                                       font-family:  "Fira Sans", sans-serif;
@@ -512,6 +513,7 @@
 
                                 }
                                 @media only screen and (min-width: 1500px) {
+                                    
                                      div#div_buttons {
                                         width: 100%;
                                         max-width: 1000px;
@@ -645,7 +647,7 @@
                                  <td id=blackdotspd ></td>
                                 </tr>
                                 <tr class=bluedottext>
-                                <th id="bluedotnew" >New</td>
+                                <th id="bluedotnew" >&nbsp;</td>
                                  <td id=bluedotaf ></td>
                                  <td id=bluedotsp ></td>
                                  <td id=bluedotap ></td>
@@ -655,7 +657,7 @@
                             </table>
                          </div>
                            <div id="div_acousticData" style="background-color: white; padding: 0">
-                               <table style="width: 80%"><tr><td style="font-size:large; text-align:center;">Acoustic Data</td></tr></table>
+                               <table style="width: 80%" id="acousticTitle"><tr><td style="font-size:large; text-align:center;">Acoustic Data</td></tr></table>
                             <div id="div_acousticDataTable"></div>
                           </div>
                         </div>
