@@ -3,7 +3,7 @@
 <asp:Content ID="headerSection" ContentPlaceHolderID="head" runat="server">
     <%-- Local Style Sheets --%>
     <link href="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.css" rel="stylesheet" />
-    <link rel="stylesheet" href="Content/FanSelection.css" />
+    <link rel="stylesheet" href="Content/FanSelection.css?v=20210709" />
 
     <style>
         th {
@@ -22,7 +22,7 @@
     <script src="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.js"></script>
     <script src="Scripts/jquery.tablesorter.min.js"></script>
     <script src="Scripts/jquery.tablesorter.widgets.min.js"></script>
-    <script src="Scripts/fanSelection.js?v=20210423"></script>
+    <script src="Scripts/fanSelection.js?v=20210712"></script>
     <script src="Scripts/fanTypeTree.js"></script>
 
     <asp:PlaceHolder ID="plcHeadingColor" runat="server" />
@@ -373,54 +373,321 @@
             <div id="div_hideRight" class="hideBeforeSelect" runat="server">
 
                 <div class="sectionBorder">
-                    <div id="div_fanData" style="padding-top: 0px">
+                    <div id="div_fanData" style="padding-top: 0px; visibility:hidden">
                         <div id="div_fanName">
                             <h3></h3>
                         </div>
 
 
+                            <style>
+                                  #div_revit_button, #div_acad_button  {
+                                      display: inline-block;
+                                      font-family:  "Fira Sans", sans-serif;
+                                      font-size: 1.1em;
+                                      float: right;
+                                      padding-top: 8px;
+                                      text-align: center;
+                                  }
+                                  span.greybutton {
+                                      background-color: #bbbbbb;
+                                      color: white; 
+                                      padding: 6px 30px !important;
+                                      border-radius: 8px;
+                                      font-weight: 500;                                     
+                                      border: none;
+                                      text-transform: uppercase;
+                                      text-decoration: none;
+                                      margin: 5px;
+                                  }
+                                  
 
+                                  a.bluebutton {
+                                      background-color: #0084d1;
+                                      color: white;
+                                      margin: 5px;
+                                      border-radius: 8px;
+                                      font-weight: 500;                                     
+                                      border: none;
+                                      text-transform: uppercase;
+                                      text-decoration: none;
+                                      
+                                  }
+                                  a.bluebutton:hover {
+                                      background-color: rgb(0, 153, 255);                                      
+                                  }
+                                div#div_buttons {
+                                    position: absolute;
+                                    top: -1px;
+                                    left: 350px;
+                                }
+                                @media only screen and (max-width: 1499px) {
+                                    .tablesorter-header-inner { 
+                                        font-size: 11px;
+                                    }
+                                    div#div_buttons {
+                                        width: 610px;                                      
+                                    }
+                                    #body_btn_fanPDF, #body_btn_addToSchedule {width: 120px !important;}
+                                    a.bluebutton {
+                                        padding: 6px 20px;
+                                    }
+                                    img#img_fanImage {
+                                        height: 120px;
+                                         margin-left: 0;
+                                    }
+
+                                    #performanceDataTable,#powerDataTable {
+                                        max-width: 180px;
+                                        font-size: 7px;
+                                        z-index: 1;
+                                    }
+                                    #performanceDataTable:hover {
+                                        max-width: 240px;
+                                        font-size: 14px;
+                                        z-index: 1;
+                                        margin-top: -50px;
+                                    }
+                                    #div_powerDataTable {
+                                        position: absolute;
+                                        margin-top: 200px;
+                                        margin-left: 30px;
+                                    }
+                                    #powerDataTable:hover {
+                                            margin-left: -120px;
+                                            margin-top: -50px;
+                                            font-size: 14px;
+                                            z-index: 1;
+                                    }
+                                    #column_left {
+                                        float: left;
+                                        width: 170px;
+                                        background-color: white;
+                                        z-index: 1;
+                                    }
+                                    #column_left:hover {
+                                            width: 400px !important;
+                                            height: 1000px;
+                                    }
+                                    #column_left:hover ~ #div_performanceCurve {
+                                            visibility: hidden;
+                                    }
+                                    #div_performanceCurve {
+                                        margin-left: 30px;
+                                        height: 400px;
+                                        width:550px !important;
+                                        margin-top: -35px;
+                                        display: inline-block;
+                                        vertical-align: top;
+                                        position: relative;
+                                        z-index: 0;
+                                    }
+                                    #column_centre {
+                                        float: left;
+                                        margin-left: 20px;
+                                        width: 600px;
+                                        background-color: white;
+                                    }
+                                    #column_right {
+                                        float: left;
+                                        background-color: white;
+                                        width: 170px;
+                                    }
+                                    #img_dims {
+                                        width: 170px;
+                                    }
+                                    #img_dims:hover {
+                                        width: 800px;
+                                        margin-left: -630px;
+                                        border: 8px solid #aaa;
+                                    }
+                                    #div_dimensions_image:hover + #div_powerDataTable {
+                                        display: none;
+                                        visibility: hidden;
+                                    }
+                                    div#div_dimensions_image {
+                                        position: absolute;
+                                        margin-top: -1px;
+                                    }
+
+
+                                }
+                                @media only screen and (min-width: 1500px) {
+                                     div#div_buttons {
+                                        width: 100%;
+                                        max-width: 1000px;
+                                    }
+                                    a.bluebutton {
+                                        padding: 6px 30px;
+                                    }
+                                    img#img_fanImage {
+                                        width: 150px;
+                                        margin-left: 20px;
+                                    }
+                                    table.dataTable { width: 80%;}
+                                    #acousticTable th { text-align: left;}
+                                    #column_left {
+                                        float: left;
+                                        width: 20%;
+                                        background-color: white;
+                                    }
+                                    #div_performanceCurve {
+                                        margin-left: -20px;
+                                        width:750px;
+                                        height: 460px;
+                                        margin-top: -35px;
+                                        display: inline-block;
+                                        vertical-align: top;
+                                        position: relative;
+                                        z-index: 0;
+                                    }
+                                    #column_centre {
+                                        float: left;
+                                        width:750px;
+                                        background-color: white;
+                                    }
+                                    #img_dims {
+                                        width: 400px;
+                                    }
+                                    #img_dims:hover {
+                                        width: 800px;
+                                        margin-left: -400px;
+                                        border: 8px solid #aaa;
+                                    }
+                                    #div_dimensions_image:hover + #div_powerDataTable {
+                                        display: none;
+                                        visibility: hidden;
+                                    }
+                                    div#div_dimensions_image {
+                                        position: absolute;
+                                        margin-top: -1px;
+                                    }
+                                   div#div_powerDataTable {
+                                        position: absolute;
+                                        margin-top: 200px;
+                                        margin-left: 30px;
+                                    } 
+                                    #column_right {
+                                        float: left;
+                                        margin-left: -50px;
+                                    }
+
+                                }
+
+                                img#img_fanImage:hover {
+                                    height: 400px;
+                                    width: auto;
+                                    margin-bottom: -266px;
+                                    position: relative;
+                                    border: 8px solid #aaa;
+                                    z-index: 1;
+                                }
+
+                                #div_performanceDataTable {
+                                    display: inline-block;
+                                    padding-top: 0;
+                                    z-index: 1;
+                                }
+                                #div_fanImage {
+                                    display: inline-block;
+                                    width: 100%;
+                                }
+                                .dynamic tr th, .dynamic tr td {
+                                    text-align: center;
+                                    width: 16%;
+                                }
+                                table.dynamic {
+                                    margin-top: -30px;
+                                    width: 80%;
+                                }
+                                #div_performanceData {
+                                }
+
+                                #performanceDataTable {
+                                    max-width: 220px;
+                                }
+
+                            </style>
+
+                        <div id="column_left" >
                         <div id="div_schedule" style="display: none">
                             Location:<asp:TextBox ID="txt_location" runat="server" />
                             Designation:<asp:TextBox ID="txt_designation" runat="server" />
                             <asp:CheckBox Text="Alternative" ID="ckb_alternative" runat="server" />
                         </div>
-
-                        <div id="div_performanceData" style="background-color: #E3E3E3; padding: 5px; min-width:1250px" comment="1250px causes overflow (horizontal scroll bar) on smaller screens, but stops the graph from wrapping downwards" >
-                            Performance Data
-                        <hr />
-                            <div id="div_performanceDataTable" style="height: 480px; display: inline-block; padding-top: 0;"></div>
-                            <div id="div_performanceCurve" style="float: right; height: 500px; margin-top: -30px; width: 70%; display: inline-block; vertical-align: top">
+                            <div id="div_fanImage" ></div>
+                            <div id="div_performanceDataTable" ></div>
+                        </div>
+                        <div id="column_centre" >
+                         <div id="div_performanceData" >
+                            <div id="div_performanceCurve" >
                                 <asp:Literal ID="lit_performanceCurve" runat="server" />
                             </div>
+                            <style>
 
+                            </style>
+                            
+                            <table class="dynamic" id="dynamic">
+                                <tr><td colspan="6" style="font-size:large">Estimations using Fan Laws</td></tr>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>Airflow<br />(l/s)</th>
+                                    <th>Pressure<br />(Pa)</th>
+                                    <th>Absorbed Power<br />(kW)</th>
+                                    <th>Sound Pressure Level<br />(dBA @ 3m)</th>
+                                    <th>Speed <br />(Hz)</th>
+                                </tr>
+                                <tr>
+                                <th>Actual</td>
+                                 <td id=blackdotaf ></td>
+                                 <td id=blackdotsp ></td>
+                                 <td id=blackdotap ></td>
+                                 <td id=blackdotspl ></td>
+                                 <td id=blackdotspd ></td>
+                                </tr>
+                                <tr class=bluedottext>
+                                <th id="bluedotnew" >New</td>
+                                 <td id=bluedotaf ></td>
+                                 <td id=bluedotsp ></td>
+                                 <td id=bluedotap ></td>
+                                 <td id=bluedotspl ></td>
+                                 <td id=bluedotspd ></td>
+                                </tr>
+                            </table>
+                         </div>
+                           <div id="div_acousticData" style="background-color: white; padding: 0">
+                               <table style="width: 80%"><tr><td style="font-size:large; text-align:center;">Acoustic Data</td></tr></table>
+                            <div id="div_acousticDataTable"></div>
+                          </div>
                         </div>
+                        <div id="column_right" >
+                           
+                            <div id="div_dimensions_image"></div>
+                            <div id="div_powerDataTable" ></div>
+                            
+                        </div>
+                        <div style="clear:both"></div>
 
-                        <div id="div_nominalData" style="background-color: #E3E3E3; padding-left: 0px 20px 0px 20px ; margin-top: 0;">
+                        <div id="div_nominalData" style="background-color: #E3E3E3; padding-left: 0px 20px 0px 20px ; margin-top: 0; display:none;">
                             Nominal Data
                         <hr />
                             <div id="div_fanImage" style="display: inline-block"></div>
                             <div id="div_nominalDataTable" style="display: inline-block; vertical-align: top; margin-left: 28px;"></div>
                         </div>
 
-                        <div id="div_powerData" style="background-color: #E3E3E3; padding: 20px;">
+                        <div id="div_powerData" style="background-color: #E3E3E3; padding: 20px; display: none;">
                             Motor/Power Data
                         <hr />
                             
                             <div id="div_powerRight" style="display: inline-block; vertical-align: top; padding-top: 30px; width: 25%;">
-                                <div id="div_powerDataTable" style="display: inline-block; vertical-align: top; min-width: 500px"></div>
+                                <div id="div_powerDataTableX" style="display: inline-block; vertical-align: top; min-width: 500px"></div>
                                 <div id="div_wiring" style="padding-top: 20px;"></div>
                             </div>
-                            <div id="div_powerCurve" style="height: 500px; width: 70%; display: inline-block; vertical-align: top; min-width: 500px">
+                            <div id="div_powerCurve" style="height: 500px; width: 70%; display: none /*inline-block*/; vertical-align: top; min-width: 500px" >
                                 <asp:Literal ID="lit_powerCurve" runat="server" />
                             </div>
                         </div>
 
-                        <div id="div_acousticData" style="background-color: #E3E3E3; padding: 20px">
-                            Acoustic/Noise Data
-                        <hr />
-                            <div id="div_acousticDataTable"></div>
-                        </div>
+
                     </div>
 
                     <div class="div_heading">
@@ -430,10 +697,14 @@
                         <svg height="50px">
                             <use href="#triangle" />
                         </svg>
-                          <div id="div_buttons" style="position: absolute; top: -1px; left: 400px">
+                        
+                          <div id="div_buttons" >
                             <asp:Button ID="btn_fanPDF" runat="server" Text="Get Fan PDF" OnClick="btn_getFanPdf_Click" Width="150px" class="button-main2 primary-btn"/>
                             <%--<asp:Button ID="btn_print" runat="server" Text="Print" OnClientClick="return false" OnClick="btn_print_Click" class="button-main primary-btn"/>--%>
                             <asp:Button ID="btn_addToSchedule" runat="server" Text="Add to Schedule" OnClick="btn_addToSchedule_Click" Width="150px"  class="button-main2 primary-btn"/>
+
+                              <div id='div_revit_button' class="" ></div>
+                              <div id='div_acad_button' class="" ></div>
                             <!-- <asp:Button ID="btn_Finished_Schedule" runat="server" Text="Finished" OnClick="btn_Finish_Click" Width="120px" class="button-main2 primary-btn" /> -->
                             <asp:Label ID="lblScheduleMsg" runat="server" ForeColor="Red"></asp:Label>
 

@@ -139,7 +139,7 @@ function updateFanCurve(fanDataID, motorid, pwr, weight) {
 
 function getFanDataSucceed(fanImageData) {
     if ($("#div_fanImage").find("#img_fanImage").length === 0) {
-      $("#div_fanImage").append("<img id='img_fanImage' style='width:150px' />");
+      $("#div_fanImage").append("<img id='img_fanImage' />");
     }
 
     $("#img_fanImage").attr("src", fanImageData.d.imageLocation);
@@ -151,6 +151,13 @@ function getFanDataSucceed(fanImageData) {
     $("#div_performanceDataTable").html(fanImageData.d.performanceDataTable);
     $("#div_powerDataTable").html(fanImageData.d.powerDataTable);
     $("#fanName").html(fanImageData.d.fanName);
+    $("#div_dimensions_image").html(fanImageData.d.dimsFile);
+    $("#div_revit_button").html(fanImageData.d.revitElement);
+    $("#div_acad_button").html(fanImageData.d.acadElement);
+
+    document.getElementById('div_fanData').style.visibility = 'visible';
+    
+
 
     transferActualValues();
 
@@ -168,7 +175,7 @@ function transferActualValues() {
     let ac_sound = $("#ac_sound").text();
     let ac_ov = $("#ac_ov").text();
     let ncc = $("#nccComp").text();
-    let abspwr = $("#abspwr").text()
+    let abspwr = $("#ac_power").text();
 
     document.getElementById("body_hidden_ac_af").value = ac_af;
     document.getElementById("body_hidden_ac_sp").value = ac_sp;
@@ -176,7 +183,13 @@ function transferActualValues() {
     document.getElementById("body_hidden_ac_ov").value = ac_ov;
     document.getElementById("body_hidden_ncc").value = ncc;
     document.getElementById("body_hidden_abspwr").value = abspwr;
-    
+
+    document.getElementById("blackdotaf").innerHTML = ac_af;
+    document.getElementById("blackdotsp").innerHTML = ac_sp;
+    document.getElementById("blackdotap").innerHTML = abspwr;
+    document.getElementById("blackdotspl").innerHTML = ac_sound;
+    document.getElementById("blackdotspd").innerHTML = "50";
+  
    
 }
 
@@ -238,17 +251,36 @@ function mouseMove(evt) {
         document.getElementById("circle_mouse").style.visibility = "visible";
         document.getElementById("bluedotaf").innerHTML = Math.floor(dutyAirflow);
         document.getElementById("bluedotsp").innerHTML = Math.floor(dutyPressure);
+
+        let ac_af = parseFloat($("#ac_af").text());
+        let ac_sp = parseFloat($("#ac_sp").text());
+        let ac_sound = parseFloat($("#ac_sound").text());
+        let ac_abspwr = parseFloat($("#blackdotap").text());
+
+        blue_abs_power = Math.pow(dutyAirflow / ac_af, 3) * ac_abspwr;
+        document.getElementById("bluedotap").innerHTML = blue_abs_power.toFixed(2); 
+
+        blue_spl3m = ac_sound + 55 * Math.log10(dutyAirflow / ac_af);
+        document.getElementById("bluedotspl").innerHTML = blue_spl3m.toFixed(1); 
+
+        blue_spd = 50 * dutyAirflow / ac_af;
+        document.getElementById("bluedotspd").innerHTML = blue_spd.toFixed(0);
+        document.getElementById("bluedotnew").innerHTML = "New";
+
     } else {
         document.getElementById("circle_mouse").style.visibility = "hidden";
         document.getElementById("bluedotaf").innerHTML = "";
         document.getElementById("bluedotsp").innerHTML = "";
+        document.getElementById("bluedotspl").innerHTML = "";
+        document.getElementById("bluedotspd").innerHTML = "";
+        document.getElementById("bluedotap").innerHTML = "";
+        document.getElementById("bluedotnew").innerHTML = "&nbsp;"; // to maintain row height
     }
 
     document.getElementById("circle_mouse").setAttribute("cx", circleX.toString() + "px");
     document.getElementById("circle_mouse").setAttribute("cy", (dutyPressure * yScale).toString() + "px");
 
 
-  //This line is throwing errors
 }
 
 
