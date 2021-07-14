@@ -563,7 +563,7 @@
                                     }
                                    div#div_powerDataTable {
                                         position: absolute;
-                                        margin-top: 200px;
+                                        margin-top: 250px;
                                         margin-left: 30px;
                                     } 
                                     #column_right {
