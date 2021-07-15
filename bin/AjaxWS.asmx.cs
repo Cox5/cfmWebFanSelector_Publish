@@ -9,8 +9,8 @@ using System.Web.Script.Services;
 using CFM_Web.DB;
 using CFM_Web.Utilities;
 using MySql.Data.MySqlClient;
-using FansBackend.Entities; 
-
+using FansBackend.Entities;
+using System.IO;
 
 namespace CFM_Web
 {
@@ -303,11 +303,14 @@ namespace CFM_Web
 
                 // Build the HTML tables to the left of and below the graph for web page
                 selectedFanData.fanName              = fan.partNumber;
-                selectedFanData.nominalDataTable     = buildNominalDataTable(fanData, fr, nccCompliance);                
-                selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW);
+                selectedFanData.nominalDataTable = ""; // buildNominalDataTable(fanData, fr, nccCompliance);                
+                selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW, weight, nccCompliance);
                 selectedFanData.powerDataTable       = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
                 selectedFanData.acousticTable        = buildAcousticTable(fanData);
-
+                selectedFanData.dimsFile             = getDimsElement(fanData);
+                selectedFanData.revitElement         = getRevitElement(fanData);
+                selectedFanData.acadElement          = getAcadElement(fanData);
+                
                 //FanSelection.PartNumber = fan.partNumber;
                 //FanSelection.FanDataID = fanData.fanDataID;
                 HttpContext.Current.Session["PartNumber"] = fan.partNumber;
@@ -352,8 +355,8 @@ namespace CFM_Web
                 {
                     pdfData.MotorPower = Convert.ToString(fanData.motorkW);
                     pdfData.CurrentFLC = Convert.ToString(fanData.motorAmps);
-
                 }
+
                 pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
 
                 pdfData.Hz63 = Convert.ToString(fanData.hz63);
@@ -367,7 +370,7 @@ namespace CFM_Web
                 pdfData.dBW = Convert.ToString(fanData.totalLwAtotal);
                 pdfData.dBA3m = Convert.ToString(fanData.SPL3m);
 
-                // return the HTML to the calling javascript
+                // return the HTML snippets to the calling javascript
                 return selectedFanData;
             }
             catch (Exception e)
@@ -416,9 +419,69 @@ namespace CFM_Web
             return new Tuple<double, double>(maxX, maxY);
         }
 
+        /// <summary>
+        /// Finds dimension diagram PNG file, or returns not_available.png, as HTML IMG SRC
+        /// </summary>
+        /// <param name="fanData"></param>
+        /// <returns></returns>
+        private string getDimsElement(FansBackend.Entities.FanData fanData)
+        {
+            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Dims", fanData.dims + ".png").ToList();
+
+            string Element = "<img id='img_dims' src='Dims/not_available.png' />";
+            if (files.Count > 0)
+            {
+                string file = Path.GetFileName(files[0]);
+                Element = "<img id='img_dims' src='Dims/" + file + "' />";
+            }
+
+            return Element;
+
+        }
+        /// <summary>
+        /// Finds REVIT file, or returns greyed-out button, as HTML A or SPAN
+        /// </summary>
+        /// <param name="fanData"></param>
+        /// 
+        /// <returns></returns>
+        private string getRevitElement(FansBackend.Entities.FanData fanData)
+        {
+            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Revit", fanData.dims + ".rvt").ToList();
+
+            string Element = "<span class=greybutton >REVIT Unavailable</span>";
+            if (files.Count > 0)
+            {
+                string file = Path.GetFileName(files[0]);
+                Element = "<a class=bluebutton href='Revit/"+ file + "' >Download REVIT"; 
+            }
+
+            return Element;
+
+        }
 
         /// <summary>
-        /// Finds what type of file the wire diagram is.  Returns an images if it is .png, .jpg or .gif.
+        /// Finds Autocad file, or returns greyed-out button, as HTML A or SPAN
+        /// </summary>
+        /// <param name="fanData"></param>
+        /// 
+        /// <returns></returns>
+        private string getAcadElement(FansBackend.Entities.FanData fanData)
+        {
+            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Acad", fanData.dims + ".dwg").ToList();
+
+            string Element = "<span class=greybutton  >ACAD Unavailable</span>";
+            if (files.Count > 0)
+            {
+                string file = Path.GetFileName(files[0]);
+                Element = "<a class=bluebutton href='Acad/" + file + "' >Download ACAD";
+            }
+
+            return Element;
+
+        }
+
+        /// <summary>
+        /// Finds what type of file the wire diagram is.  Returns an image if it is .png, .jpg or .gif.
         /// Returns a link if it is a PDF.
         /// </summary>
         /// <param name="fanData"></param>
@@ -454,22 +517,23 @@ namespace CFM_Web
         private string buildAcousticTable(FansBackend.Entities.FanData fanData)
         {   
             System.Text.StringBuilder acousticTable = new System.Text.StringBuilder();
-            acousticTable.AppendLine("<table id='acousticTable' class='dataTable'>");
+            acousticTable.AppendLine("<table id='acousticTable' class='dataTable' style='margin-top: 0'>");
             acousticTable.AppendFormat("<tr><th colspan='9' style='text-align: center' >Sound Power Level SWL (dBA)</th><th>Weighted</th><th>SPL@3m</th></tr>");
-            acousticTable.AppendLine("<tr><th>Spectrum (Hz)</th><th style='width:50px'>63</th><th style='width:50px'>125</th><th style='width:50px'>250</th>" +
-                "<th style='width:50px'>500</th><th style='width:50px'>1k</th><th style='width:50px'>2k</th><th style='width:50px'>4k</th>" +
-                "<th style='width:50px'>8k</th><th style='width:50px'>SWL (dBA)</th><th style='width:50px'>(dBA)</th></tr>");
+            acousticTable.AppendLine(
+                "<tr><th style='text-align:left'>Spectrum (Hz)</th><th style='width:47px'>63</th><th style='width:47px'>125</th><th style='width:47px'>250</th>" +
+                "<th style='width:47px'>500</th><th style='width:47px'>1k</th><th style='width:47px'>2k</th><th style='width:47px'>4k</th>" +
+                "<th style='width:47px'>8k</th><th style='width:50px'>SWL (dBA)</th><th style='width:50px'>(dBA)</th></tr>");
 
-            acousticTable.Append("<tr><th>Inlet (dBA)</th>");
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz63.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz125.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz250.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz500.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz1k.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz2k.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz4k.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.hz8k.ToString());
-            acousticTable.AppendFormat("<td>{0}</td>", fanData.totalLwAtotal.ToString());
+            acousticTable.Append("<tr><th style='text-align:left'>Inlet (dBA)</th>");
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz63).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz125).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz250).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz500).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz1k).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz2k).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz4k).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.hz8k).ToString());
+            acousticTable.AppendFormat("<td>{0}</td>", Math.Floor(fanData.totalLwAtotal).ToString());
 
 
             // 
@@ -592,7 +656,7 @@ namespace CFM_Web
                 pdfData.ElectricalSupply = phaseString;
             }
             
-            powerDataTable.AppendLine("<table id=\"powerDataTable\" class=\"dataTable\" style=\"width:300px\">");
+            powerDataTable.AppendLine("<table id=\"powerDataTable\" class=\"dataTable\" >");
 
             powerDataTable.AppendFormat("<tr><th colspan=\"2\" >Motor Data (at STP)</th></tr>").AppendLine();
 
@@ -608,24 +672,24 @@ namespace CFM_Web
                      aomcurrent = fanData.motorAmps * 1.1;
                  } */
 
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motordataid:", fanData.motorDataObject.motorDataID).AppendLine();
+                // powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motordataid:", fanData.motorDataObject.motorDataID).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject.frame).AppendLine();
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorDataObject.kw.ToString("0.00 kW")).AppendLine();
 
                 // powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM Power:", aompower.ToString("0.00kW")).AppendLine();
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td ID='abspwr'>{1}</td></tr>", "Absorbed Power:", pwr.ToString("0.00kW")).AppendLine();
+                // powerDataTable.AppendFormat("<tr><th>{0}</th><td ID='abspwr'>{1}</td></tr>", "Absorbed Power:", pwr.ToString("0.00kW")).AppendLine();
 
 
                 if (fanData.motorDataObject.fullLoadAmps > 0)
                 {
                     powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", fanData.motorDataObject.fullLoadAmps.ToString("0.0 Amps")).AppendLine();
-                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", aomcurrent.ToString("0.0 Amps")).AppendLine();
+                    //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", aomcurrent.ToString("0.0 Amps")).AppendLine();
                 }
                 else
                 {
                     powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", "n/a").AppendLine();
-                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", "n/a").AppendLine();
+                    //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", "n/a").AppendLine();
                 }
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:", fanData.motorDataObject.pole.ToString("0") + " pole" ).AppendLine();
@@ -653,13 +717,13 @@ namespace CFM_Web
         /// <param name="airflow"></param>
         /// <param name="staticPressure"></param>
         /// <returns></returns>
-        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double addairflow, double staticPressure, FanReference fr, double defaultmotorkW)
+        private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double addairflow, double staticPressure, 
+            FanReference fr, double defaultmotorkW, double weight, string nccCompliance)
         {
             double adf = 0;
             double scc = 0;
             double ads = 0;
-            bool cando_add = false;
-            bool cando_req = false;
+
             bool isRoofCowl = false;
 
             // Get intercept so we can get consumed power at intercept.
@@ -674,20 +738,21 @@ namespace CFM_Web
             }
             System.Text.StringBuilder performanceDataTable = new System.Text.StringBuilder();
 
-            performanceDataTable.AppendLine("<table id='performanceDataTable' class='dataTable' style='margin-top: 0px; width:320px; '>");
+            performanceDataTable.AppendLine("<table id='performanceDataTable' class='dataTable' >");
             // Dynamic AF/SP table for blue dot
-            performanceDataTable.AppendLine("<tr class=bluedottext style='border-bottom: 1px solid black;border-left: 1px solid black; border-right: 1px solid black;border-top: 1px solid black;' >" +
-                "<td>Airflow (l/s) / Static Pressure (Pa) </td><td id=bluedotaf align=right><td id=bluedotsp align=right></td></tr>");
+            // performanceDataTable.AppendLine("<tr class=bluedottext style='border-bottom: 1px solid black;border-left: 1px solid black; border-right: 1px solid black;border-top: 1px solid black;' >" +
+            //    "<td  >Airflow (l/s) / Static Pressure (Pa) </td><td id=bluedotaf align=right><td id=bluedotsp align=right></td></tr>");
 
             // Spacer row
-            performanceDataTable.AppendLine("<tr class=bluedottext style='background-color: #e3e3e3; border-color: #e3e3e3'>" +
-                "<td colspan=3 style='background-color: #e3e3e3; border-color: #e3e3e3; padding-right: 0; background-color: #e3e3e3; " +
-                "border-right-color:#e3e3e3; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
+            performanceDataTable.AppendLine("<tr class=bluedottext style='background-color: white; border-color: white'>" +
+                "<td colspan=3 style='background-color: white; border-color: white; padding-right: 0; background-color: white; " +
+                "border-right-color:white; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
 
             performanceDataTable.AppendLine("<style>th {text-align: left}</style>");
 
             performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" + fanData.fanObject.partNumber + "</th><th style='width:27%;'>Required</th><th>Actual</th>");
+            performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" + fanData.fanObject.partNumber + 
+                "</th><th style='width:27%;'>Required</th><th>Actual&nbsp;&nbsp;</th>");
             performanceDataTable.AppendLine("</tr>");
 
             performanceDataTable.AppendFormat("<td style='color:#007700' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription );
@@ -700,10 +765,11 @@ namespace CFM_Web
             }
 
             // Show Airflow and Static pressure reults in the table, for Standard duty
-                if (addairflow > 0)
+            /* if (addairflow > 0)
             {
                 performanceDataTable.AppendLine("<tr><th colspan=3 style='color: #0000cc'>Requested Duty</th></tr>");
-            }
+            } */
+
             if (isRoofCowl)
             {
                 performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
@@ -721,7 +787,7 @@ namespace CFM_Web
             }
             else
             {
-                cando_req = true;
+                //cando_req = true;
                 performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
                     fr.AirFlow.ToString("0"), dpIntercept.airflow.ToString("0"));
                 performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
@@ -787,17 +853,14 @@ namespace CFM_Web
                     fanData.motorDataObject.pole.ToString("0") + "pole"
                     ).AppendLine();
             }
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_sound>{2}</td></tr>", "Sound Pressure. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_power>{2}</td></tr>", "Absorbed Power (kW):", "", fanData.intercept.power.ToString()).AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_angle>{2}</td></tr>", "Pitch (&deg;):", "", fanData.angle.ToString()).AppendLine();
 
+            string weighttext = "n/a";
+            if (weight > 0)  weighttext = weight.ToString();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_weight>{2}</td></tr>", "Weight (kg):", "", weighttext).AppendLine();
 
-            string frphaseString = "";
-            if (fr.Phase == "1")
-            {
-                frphaseString = "1ph<br/>240V<br/>50Hz";
-            }
-            else if (fr.Phase == "3")
-            {
-                frphaseString = "3ph<br/>415V<br/>50Hz";
-            }
 
             string phaseString = "n/a";
             if (fanData.fanObject.motorPhase == 1)
@@ -810,10 +873,19 @@ namespace CFM_Web
                 pdfData.ElectricalSupply = phaseString;
             }
 
-
+            /*
+             * Electrical supply and motor power suppressed 8/7/2021
+            string frphaseString = "";
+            if (fr.Phase == "1")
+            {
+                frphaseString = "1ph<br/>240V<br/>50Hz";
+            }
+            else if (fr.Phase == "3")
+            {
+                frphaseString = "3ph<br/>415V<br/>50Hz";
+            }
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Elec. Supply (ph/V/Hz):", frphaseString, phaseString).AppendLine();
-
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_sound>{2}</td></tr>", "Sound Pressure. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
+             
 
 
             // Motor
@@ -844,7 +916,7 @@ namespace CFM_Web
                 performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Motor Power (kW):", "", fanData.motorkW).AppendLine();
             }
 
-
+            */
             // If fan is fixed fan, use bm_description
             // If fan is multiwing fan, use blade_material
             int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
@@ -865,26 +937,25 @@ namespace CFM_Web
                 }
             }
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", fr.BladeMaterial, bladeMaterial);
+            string frb = "";
+            string b = "";
+            if (fr.BladeMaterial == "Aluminium") frb = "Al."; else frb = fr.BladeMaterial;
+            if (bladeMaterial == "Aluminium") b = "Al."; else b = bladeMaterial;
+
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", frb, b);
             // performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData.angle);
             string yn = fr.Ancillaries;
             if ( yn == "Yup" ) { yn = "Yes"; }
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Ancillaries", yn, "");
 
             // Spacer row
-            performanceDataTable.AppendLine("<tr class=bluedottext style='background-color: #e3e3e3; border-color: #e3e3e3'>" +
-                "<td colspan=3 style='background-color: #e3e3e3; border-color: #e3e3e3; padding-right: 0; background-color: #e3e3e3; " +
-                "border-right-color:#e3e3e3; border-right-width: 1px; border-right-style: solid;'>&nbsp;</td></tr>");
-
-
-
-
+            performanceDataTable.AppendLine("<tr class=bluedottext ><td colspan=3  >&nbsp;</td></tr>");
+                
+            performanceDataTable.AppendFormat("<th>NCC 2019 Compliant</th><td></td><td ID=nccComp >{0}</td>", nccCompliance);
 
             performanceDataTable.AppendLine("</table>");
-            performanceDataTable.AppendLine("<style> tr.bluedottext td {color: #2222ee; font-weight: bold; border: none;}" +
+            performanceDataTable.AppendLine("<style> tr.bluedottext td, tr.bluedottext th {color: #2222ee; font-weight: bold; border: none;}" +
                 "th a {color: white; background-color: #004b9e; font-size: 10px;  padding: 1px 3px 1px 3px; border-radius: 5px; margin-bottom: 1px; text-decoration: none; } </style>");
-
-
 
             return performanceDataTable.ToString();
         }
