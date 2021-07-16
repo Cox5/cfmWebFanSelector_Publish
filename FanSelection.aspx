@@ -69,8 +69,8 @@
                         <br />
                         <table id="selectTable" style="width: 100%;">
                            <tr>
-                                <td colspan="2">Fan type
-                                    <asp:Label ID="lblFanType" runat="server" />
+                                <td colspan="2">
+                                    <asp:Label ID="lblFanType" runat="server" style="font-weight: bold; color: #dd0000;"/>
                                 </td>
                             </tr>
                                 <td style="padding-right: 0">Fan Diameter (mm)</td>
@@ -380,6 +380,7 @@
                             <style>
                                   table#acousticTable {width: 100%;}
                                   table#acousticTitle {width: 100%;}
+                                  
                                   #div_revit_button, #div_acad_button  {
                                       display: inline-block;
                                       font-family:  "Fira Sans", sans-serif;
@@ -420,6 +421,21 @@
                                     top: -1px;
                                     left: 350px;
                                 }
+                                @media only screen and (max-width: 1449px)  {
+                                    #div_powerDataTable {
+                                        position: absolute;
+                                        margin-top: 200px;
+                                        margin-left: 0;
+                                    }
+                                }
+                                @media only screen and (max-width: 1599px) and (min-width: 1450px) {
+                                    #div_powerDataTable {
+                                        position: absolute;
+                                        margin-top: 200px;
+                                        margin-left: 30px;
+                                    }
+                                }
+
                                 @media only screen and (max-width: 1599px) {
                                     .tablesorter-header-inner { 
                                         font-size: 11px;
@@ -441,11 +457,7 @@
                                         font-size: 7px;
                                         z-index: 1;
                                     }
-                                    #div_powerDataTable {
-                                        position: absolute;
-                                        margin-top: 200px;
-                                        margin-left: 30px;
-                                    }
+
 
                                     #column_left {
                                         float: left;
@@ -479,8 +491,8 @@
                                         width: 170px;
                                     }
                                     #img_dims:hover {
-                                        width: 800px;
-                                        margin-left: -630px;
+                                        width: 750px;
+                                        margin-left: -600px;
                                         border: 8px solid #aaa;
                                     }
                                     #div_dimensions_image:hover + #div_powerDataTable {
@@ -493,9 +505,10 @@
                                     }
 
                                     #acousticTable th, #acousticTable td { text-align: center;}
-                                    #div_acousticData { border: 1px solid black; width: 600px; margin-left: 60px; margin-top: 20px;}
-                                    #div_estimations { width: 600px; margin-left: 60px;}
+                                    #div_acousticData { width: 500px; margin-left: 60px; margin-top: 20px;}
+                                    #div_estimations { width: 350px; margin-left: 130px; margin-top: -30px; border: 1px solid black;}
                                 }
+                                    
                                 @media only screen and (min-width: 1550px) {
                                     
                                      div#div_buttons {
@@ -511,13 +524,8 @@
                                     }
                                     table.dataTable { width: 80%;}
                                     #acousticTable th, #acousticTable td { text-align: center;}
-                                    #div_acousticData { border: 1px solid black; width: 600px; margin-left: 60px;}
-                                    #div_estimations { width: 600px; margin-left: 60px;}
-                                    #column_left {
-                                        float: left;
-                                        width: 20%;
-                                        background-color: white;
-                                    }
+                                    #div_acousticData { width: 600px; margin-left: 60px;}
+                                    #div_estimations { width: 550px; margin-left: 80px; margin-top: -30px; border: 1px solid black;}
                                     #div_performanceCurve {
                                         margin-left: -20px;
                                         width:750px;
@@ -528,11 +536,7 @@
                                         position: relative;
                                         z-index: 0;
                                     }
-                                    #column_centre {
-                                        float: left;
-                                        width:750px;
-                                        background-color: white;
-                                    }
+
                                     #img_dims {
                                         width: 400px;
                                     }
@@ -551,11 +555,22 @@
                                     }
                                    div#div_powerDataTable {
                                         position: absolute;
-                                        margin-top: 350px;
+                                        margin-top: 370px;
                                         margin-left: 30px;
                                     } 
                                    #powerDataTable {
                                         width: 280px;
+                                    }
+
+                                    #column_left {
+                                        float: left;
+                                        width: 20%;
+                                        background-color: white;
+                                    }
+                                    #column_centre {
+                                        float: left;
+                                        width:750px;
+                                        background-color: white;
                                     }
                                     #column_right {
                                         float: left;
@@ -577,6 +592,9 @@
                                     display: inline-block;
                                     padding-top: 0;
                                     z-index: 1;
+                                    position: absolute;
+                                    top: 185px;
+                                    left: 10px;
                                 }
                                 #div_fanImage {
                                     display: inline-block;
@@ -587,10 +605,9 @@
                                     width: 16%;
                                 }
                                 table.dynamic {
-                                    margin-top: -30px;
                                     width: 100%;
                                 }
-
+                                
                                 #performanceDataTable {
                                     max-width: 220px;
                                 }
@@ -683,7 +700,7 @@
                     <div class="div_heading">
                         <label style="left: 30px; width: 46px">3</label>
                         <label style="left: 80px">Fan Data: </label>
-                        <label id="fanName" style="left: 160px"></label>
+                        <label id="fanName" style="left: 160px; color:#dd0000; border-radius:8px; padding: 0 30px;"></label>
                         <svg height="50px">
                             <use href="#triangle" />
                         </svg>

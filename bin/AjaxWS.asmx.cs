@@ -656,11 +656,10 @@ namespace CFM_Web
                 pdfData.ElectricalSupply = phaseString;
             }
             
-            powerDataTable.AppendLine("<table id=\"powerDataTable\" class=\"dataTable\" >");
+            powerDataTable.AppendLine("<table id='powerDataTable' class='dataTable' >");
 
-            powerDataTable.AppendFormat("<tr><th colspan=\"2\" >Motor Data (at STP)</th></tr>").AppendLine();
+            powerDataTable.AppendFormat("<tr><th colspan='2' >Motor Data</th></tr>").AppendLine();
 
-            powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", "STD").AppendLine();
             powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Electrical Supply:", phaseString).AppendLine();
 
             if (fanData.motorDataObject != null)
@@ -673,9 +672,11 @@ namespace CFM_Web
                  } */
 
                 // powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motordataid:", fanData.motorDataObject.motorDataID).AppendLine();
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject.frame).AppendLine();
+
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorDataObject.kw.ToString("0.00 kW")).AppendLine();
+
+
 
                 // powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM Power:", aompower.ToString("0.00kW")).AppendLine();
                 // powerDataTable.AppendFormat("<tr><th>{0}</th><td ID='abspwr'>{1}</td></tr>", "Absorbed Power:", pwr.ToString("0.00kW")).AppendLine();
@@ -692,6 +693,8 @@ namespace CFM_Web
                     //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", "n/a").AppendLine();
                 }
 
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", "STD").AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject.frame).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:", fanData.motorDataObject.pole.ToString("0") + " pole" ).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:", fanData.motorDataObject.efficiency.ToString("0.0") + "%" ).AppendLine();
             }
@@ -700,7 +703,7 @@ namespace CFM_Web
                 //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", "").AppendLine();
 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorkW.ToString("0.00 kW")).AppendLine();
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC/Start:", fanData.motorAmps.ToString("0.0 Amps")).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", fanData.motorAmps.ToString("0.0 Amps")).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:",  fanData.RPM.ToString("0 RPM")).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:",  "n/a").AppendLine();
 
@@ -743,6 +746,8 @@ namespace CFM_Web
             // performanceDataTable.AppendLine("<tr class=bluedottext style='border-bottom: 1px solid black;border-left: 1px solid black; border-right: 1px solid black;border-top: 1px solid black;' >" +
             //    "<td  >Airflow (l/s) / Static Pressure (Pa) </td><td id=bluedotaf align=right><td id=bluedotsp align=right></td></tr>");
 
+            performanceDataTable.AppendFormat("<td style='color:#bb0000; font-weight: bold;' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription);
+
             // Spacer row
             performanceDataTable.AppendLine("<tr class=bluedottext style='background-color: white; border-color: white'>" +
                 "<td colspan=3 style='background-color: white; border-color: white; padding-right: 0; background-color: white; " +
@@ -751,11 +756,11 @@ namespace CFM_Web
             performanceDataTable.AppendLine("<style>th {text-align: left}</style>");
 
             performanceDataTable.Append("<tr>");
-            performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" + fanData.fanObject.partNumber + 
+            performanceDataTable.AppendFormat("<th style='width:45%; color:#007700'>" +  // fanData.fanObject.partNumber + 
                 "</th><th style='width:27%;'>Required</th><th>Actual&nbsp;&nbsp;</th>");
             performanceDataTable.AppendLine("</tr>");
 
-            performanceDataTable.AppendFormat("<td style='color:#007700' colspan=3>{0}</td></tr>", fanData.fanObject.rangeObject.rangeDescription );
+            
 
             // Suppress intercept values for roof cowls
             if (fanData.fanObject.rangeObject.rangeID == 32 || fanData.fanObject.rangeObject.rangeID == 33)

@@ -161,7 +161,8 @@ function getFanDataSucceed(fanImageData) {
 
 
     transferActualValues();
-
+    div3_big();
+    document.getElementById('fanName').style.backgroundColor="#bbbbbb";
     // Populate airflow and st pressure text boxes with given values from datapoint table
     //$("#txt_airFlow").text(fanImageData.d.fanDataID.)
     
@@ -294,13 +295,13 @@ function mouseOut(evt) {
 }
 
 function div3_big() {
-    if (window.innerWidth < 1600) {
-        document.getElementById("column_left").style.width = "320px";
-        //document.getElementById("column_right").style.display = "none";
+    if (window.innerWidth < 1600 ) {
+        document.getElementById("column_left").style.width = "300px";
+        
+        document.getElementById("column_right").style.display = "inline-block";
         document.getElementById("img_fanImage").style.height = "140px";
         document.getElementById("performanceDataTable").style.maxWidth = "300px";
         document.getElementById("performanceDataTable").style.fontSize = "11px";
-        //document.getElementById("column_right").style.display = "none";
         document.getElementById("div_left").style.width = "250px";
         document.getElementById("body_div_bottomLeft").style.left = "250px";
         document.getElementById("div_right").style.left = "250px";
@@ -308,20 +309,31 @@ function div3_big() {
         document.getElementById("powerDataTable").style.fontSize = "11px";
         document.getElementById("powerDataTable").style.marginLeft = "-50px";
         document.getElementById("powerDataTable").style.marginTop = "-50px";
+        document.getElementById("column_centre").style.marginLeft = "20px";
     }
 }
 function div3_small() {
-    document.getElementById("column_left").style.backgroundColor = "#ffffff";
-    document.getElementById("column_right").style.display = "inline-block";
-    document.getElementById("img_fanImage").style.height = "120px";
-    document.getElementById("div_left").style.width = "450px";
-    document.getElementById("body_div_bottomLeft").style.left = "450px";
-    document.getElementById("div_right").style.left = "450px";
-    document.getElementById("performanceDataTable").style.maxWidth = "180px";
-    document.getElementById("performanceDataTable").style.fontSize = "7px";
-    document.getElementById("powerDataTable").style.maxWidth = "180px";
-    document.getElementById("powerDataTable").style.fontSize = "7px";
-    document.getElementById("powerDataTable").style.marginLeft = "0";
-    document.getElementById("powerDataTable").style.marginTop = "0";
+    if (window.innerWidth < 1600) {
+        document.getElementById("column_left").style.width = "250px";
+        document.getElementById("column_centre").style.marginLeft = "-20px";
+
+        document.getElementById("column_right").style.position = "absolute";
+        document.getElementById("column_right").style.top = "50px";
+        document.getElementById("column_right").style.right = "1px";
+
+        document.getElementById("img_fanImage").style.maxHeight = "120px";
+        document.getElementById("img_fanImage").style.maxWidth = "200px";
+        document.getElementById("div_left").style.width = "450px";
+        document.getElementById("body_div_bottomLeft").style.left = "450px";
+        document.getElementById("div_right").style.left = "450px";
+        document.getElementById("performanceDataTable").style.maxWidth = "180px";
+        document.getElementById("performanceDataTable").style.fontSize = "7px";
+        document.getElementById("powerDataTable").style.maxWidth = "180px";
+        document.getElementById("powerDataTable").style.fontSize = "7px";
+        document.getElementById("powerDataTable").style.marginLeft = "0";
+        document.getElementById("powerDataTable").style.marginTop = "0";
+        
+
+    }
 
 }
