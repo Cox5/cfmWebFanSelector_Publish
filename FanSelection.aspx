@@ -210,6 +210,8 @@
                             
                             document.getElementById('body_div_hideRight').style.visibility = 'hidden';
                             document.getElementById('body_div_hideBottomLeft').style.visibility = 'hidden';
+                            document.getElementById('div_fanData').style.visibility = 'hidden';
+                            
                         }
                      </script>
 
@@ -419,7 +421,7 @@
                                 div#div_buttons {
                                     position: absolute;
                                     top: -1px;
-                                    left: 350px;
+                                    left: 420px;
                                 }
                                 @media only screen and (max-width: 1449px)  {
                                     #div_powerDataTable {

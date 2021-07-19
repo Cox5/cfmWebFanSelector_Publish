@@ -68,9 +68,9 @@ body {
 		position: absolute;
 		top: -50px;
 		right: 500px;
-		font-size: 10pt;
-		color: #008800;
-		font-weight: bold;
+		font-size: 11pt;
+		color: #dd0000;
+		font-weight: normal;
 	}
 	
 .sectionBorder {
