@@ -557,7 +557,7 @@
                                     }
                                    div#div_powerDataTable {
                                         position: absolute;
-                                        margin-top: 370px;
+                                        margin-top: 335px;
                                         margin-left: 30px;
                                     } 
                                    #powerDataTable {

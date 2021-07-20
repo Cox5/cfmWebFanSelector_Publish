@@ -656,7 +656,7 @@ namespace CFM_Web
                 pdfData.ElectricalSupply = phaseString;
             }
             
-            powerDataTable.AppendLine("<table id='powerDataTable' class='dataTable' >");
+            
 
             powerDataTable.AppendFormat("<tr><th colspan='2' >Motor Data</th></tr>").AppendLine();
 
@@ -707,8 +707,14 @@ namespace CFM_Web
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:",  fanData.RPM.ToString("0 RPM")).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:",  "n/a").AppendLine();
 
+                powerDataTable.Insert(0, "<tr style='border: none;'><th colspan=3 style='border: none;'>&nbsp;</th></tr>"); // blank lines at start because there is no Motor Frame or Type
+                powerDataTable.Insert(0, "<tr style='border: none;'><th colspan=3 style='border: none;'>&nbsp;</th></tr>");
+
             }
+            // Start the table here, because we might have prepended some spacer rows.
+            powerDataTable.Insert(0, "<table id='powerDataTable' class='dataTable' >");
             powerDataTable.AppendLine("</table>");
+
             return powerDataTable.ToString();
         }
 
@@ -785,17 +791,17 @@ namespace CFM_Web
             else if (dpIntercept == null)
             {
                 // there is no cross-over point in
-                performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td id=ac_af style='align:right'>{1}</td></tr>",
+                performanceDataTable.AppendFormat("<th>Airflow (l/s):</th><td>{0}</td><td id=ac_af style='align:right'>{1}</td></tr>",
                     fr.AirFlow.ToString(), "N/A");
-                performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td id=ac_sp>{0}</td ><td style='align:right'>{1}</td></tr>",
+                performanceDataTable.AppendFormat("<th>Static Pressure (Pa):</th><td id=ac_sp>{0}</td ><td style='align:right'>{1}</td></tr>",
                     fr.StaticPressure.ToString(), "N/A");
             }
             else
             {
                 //cando_req = true;
-                performanceDataTable.AppendFormat("<th>Airflow: (l/s)</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
+                performanceDataTable.AppendFormat("<th>Airflow (l/s):</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
                     fr.AirFlow.ToString("0"), dpIntercept.airflow.ToString("0"));
-                performanceDataTable.AppendFormat("<th>Static Pressure: (Pa)</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
+                performanceDataTable.AppendFormat("<th>Static Pressure (Pa):</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
                     fr.StaticPressure.ToString("0"), dpIntercept.staticPressure.ToString("0"));
             }
 
@@ -804,7 +810,7 @@ namespace CFM_Web
             if (addairflow > 0.0)
             {
                 // performanceDataTable.AppendFormat("<tr><th colspan=3 style='color: #0000cc'>Additional Duty <font colour=black>{0}%</font></th></tr>", addairflow);
-                performanceDataTable.AppendFormat("<tr><th colspan=3 >Additional Airflow: {0}%</th></tr>", addairflow);
+                performanceDataTable.AppendFormat("<tr><th >Additional Airflow (%):</th><td>{0}</td><td>{1}</td></tr>", addairflow, addairflow);
 
 
                 adf = airflow + airflow * addairflow / 100;
@@ -836,6 +842,11 @@ namespace CFM_Web
                     workings += "NewMotorRatedPower: " + NewMotorRatedPower.ToString() + "<br />\n";
                 }
 
+            }
+            else
+            {
+                // add blank row if no additional airflow
+                performanceDataTable.AppendLine("<tr><th colspan=3>&nbsp;</th></tr>");
             }
 
             performanceDataTable.AppendLine("<tr><th colspan=3>&nbsp;</th></tr>");
