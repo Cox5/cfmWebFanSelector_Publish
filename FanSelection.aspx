@@ -22,7 +22,7 @@
     <script src="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.js"></script>
     <script src="Scripts/jquery.tablesorter.min.js"></script>
     <script src="Scripts/jquery.tablesorter.widgets.min.js"></script>
-    <script src="Scripts/fanSelection.js?v=20210721"></script>
+    <script src="Scripts/fanSelection.js?v=20210729"></script>
     <script src="Scripts/fanTypeTree.js"></script>
 
     <asp:PlaceHolder ID="plcHeadingColor" runat="server" />
