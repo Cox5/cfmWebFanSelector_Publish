@@ -7,6 +7,7 @@
         #ddFanType1:focus {
             height:200px;
         } 
+        .redborder {border: 1px solid red !important;}
         .oem_row { visibility: hidden; display:none;}
     </style>
     <div class="content-wrapper" style ="max-width: 700px; margin: auto auto">
@@ -44,7 +45,7 @@
             <tr>
                 <td class="small-td" style="width: 30%">Fan Reference</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtDesignation" runat="server" AutoCompleteType="Disabled"/></td>
+                    <asp:TextBox ID="txtDesignation"  CssClass="redborder" runat="server" AutoCompleteType="Disabled"/></td>
                 <td class="small-td">
                     <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Fan Reference is empty" ForeColor="Red" ControlToValidate="txtDesignation"></asp:RequiredFieldValidator>
                 </td>
@@ -61,7 +62,7 @@
             <tr>
                 <td class="small-td">Fan Type</td>
                 <td class="small-td">
-                    <asp:DropDownList ID="ddFanType1" runat="server" AutoCompleteType="Disabled" AutoPostBack="true"  >
+                    <asp:DropDownList ID="ddFanType1"  CssClass="redborder" runat="server" AutoCompleteType="Disabled" AutoPostBack="true"  >
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -76,7 +77,7 @@
             <tr>
                 <td class="small-td">Airflow (l/s)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtAirflow" runat="server" AutoCompleteType="Disabled"  />
+                    <asp:TextBox ID="txtAirflow"  CssClass="redborder" runat="server" AutoCompleteType="Disabled"  />
                 </td>
                 <td class="small-td">
                     <asp:RequiredFieldValidator class="mt-small"  ID="AirflowRequiredValidator" runat="server"  
@@ -86,7 +87,7 @@
             <tr>
                 <td class="small-td">Static Pressure (Pa)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtStPressure" runat="server"  AutoCompleteType="Disabled" />
+                    <asp:TextBox ID="txtStPressure"  CssClass="redborder" runat="server"  AutoCompleteType="Disabled" />
                 </td>
                 <td class="small-td">
                     <asp:RequiredFieldValidator class="mt-small"  ID="StPressRequiredValidator" runat="server"  

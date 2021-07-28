@@ -66,7 +66,7 @@
 
 
         <asp:Button ID="btnParse2" class="button-main primary-btn"  runat="server" Visible="true" Text="Parse" OnClick="btnParse_Click2" />
-       <asp:Button ID="btnMakeXLSX" class="button-main primary-btn"  runat="server" Visible="true" Text="Write" OnClick="btnMake_Click" />
+       <asp:Button ID="btnMakeXLSX" class="button-main primary-btn"  runat="server" Visible="true" Text="MUA" OnClick="btnMake_Click" />
         <br />
         <asp:Label ID="lblDBMessage" runat="server" ></asp:Label>
         <div runat="server" id="ProcessPointsContainer">
