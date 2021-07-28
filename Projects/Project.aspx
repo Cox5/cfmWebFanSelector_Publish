@@ -26,20 +26,22 @@
             color: #888888;
             border: 1px solid #eee;
         }
-        td.required input[type="text"] {
-            color: #000000;
-            border: 1px solid #555;
+        input[type="text"].required,select.required {
+            color: #000000 !important;
+            border: 1px solid #ff0000 !important;
         }
+
+
 </style>
            <div class="leftcolumn">
             
             <table class="table">
 
                 <tr>
-                    <td><span style='color: #dd0000'>Project Name</span>
+                    <td >Project Name
                     </td>
                     <td>
-                        <asp:TextBox ID="txtProjectname" runat="server"/>
+                        <asp:TextBox ID="txtProjectname" runat="server" CssClass="required" />
                         <asp:HiddenField Value="" ID="hiddenProjectname" runat="server"/>
 
                     </td>
@@ -78,7 +80,7 @@
                     <td><span style='color: #dd0000'>Country</span></td>
                     <td>
                            <asp:DropDownList ID="ddlCountry" AutoPostBack="true" AppendDataBoundItems="true" runat="server"
-                               onselectedindexchanged="ddlCountry_SelectedIndexChanged">
+                               onselectedindexchanged="ddlCountry_SelectedIndexChanged"  CssClass="required"  >
                     <asp:ListItem Text="Australia" Value="Australia" />
                     <asp:ListItem>Afghanistan</asp:ListItem>
                     <asp:ListItem>Albania</asp:ListItem>
@@ -318,10 +320,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><span style='color: #dd0000'>State</span></td>
+                    <td>State</td>
                     <td>
-                        <asp:TextBox ID="txtState" runat="server" />
-                        <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server">
+                        <asp:TextBox ID="txtState" runat="server"   />
+                        <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server"  CssClass="required">
                             <asp:ListItem Value="unselected">Please select...</asp:ListItem>
                             <asp:ListItem Value="ACT">Australian Capital Territory</asp:ListItem>
                             <asp:ListItem Value="NSW">New South Wales</asp:ListItem>

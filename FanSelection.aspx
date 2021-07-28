@@ -320,7 +320,7 @@
                                         <% foreach (var fanData in fanDataList)
                                             {  %>
                                         <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"  data-motorid="<%= fanData.motorID %>"
-                                            data-fanweight="<%= fanData.mass.ToString() %>" 
+                                            data-fanweight="<%= fanData.mass.ToString() %>"  data-fandims="<%= fanData.dims %>" 
                                             data-interceptpwr='<%= fanData.intercept != null ? getStringFromDouble(fanData.intercept.power, "0.00") : "0:00" %>'
                                             style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
                                             <td title="<%=fanData.fanObject.partNumber  %>"

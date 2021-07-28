@@ -2,10 +2,10 @@
 
 
 $(document).ready(function () {
-  /// <summary>
-  /// For ready function.  Puts the fan curve div dimensions in a hidden input to pass to the WS when creating the fan curve.
-  /// Sets the mouse over and mouse out functions for the fan table.
-  /// </summary>
+    /// <summary>
+    /// For ready function.  Puts the fan curve div dimensions in a hidden input to pass to the WS when creating the fan curve.
+    /// Sets the mouse over and mouse out functions for the fan table.
+    /// </summary>
 
     $("#body_div_perfCurve_width").val($("#div_performanceCurve").width());
     $("#body_div_perfCurve_height").val($("#div_performanceCurve").height());
@@ -14,12 +14,12 @@ $(document).ready(function () {
     $("#body_div_powerCurve_height").val($("#div_powerCurve").height());
 
     var selectedFanID;
-       
+
     if ($("#fanTable tr").length > 1) {
         selectedFanID = $("#body_selectedFanID").val();
         motorID = $(this).attr("#body_hidden_motorid");
         updateFanCurve(selectedFanID, motorID);
-    }    
+    }
 
     // Handle Row click, and set #body_selectedFanID value for use in btn_addToSchedule_Click()
     $("#fanTable tr").click(function () {
@@ -27,9 +27,10 @@ $(document).ready(function () {
         selectedFanID = $(this).attr("data-fandataid");
         motorID = $(this).attr("data-motorid");
         pwr = $(this).attr("data-interceptpwr");
-        weight = $(this).attr("data-fanweight"); 
+        weight = $(this).attr("data-fanweight");
+        fandims = $(this).attr("data-fandims");
 
-        updateFanCurve(selectedFanID, motorID, pwr, weight); // calls GetFanData() in AjaxWS.asmx.cs
+        updateFanCurve(selectedFanID, motorID, pwr, weight, fandims); // calls GetFanData() in AjaxWS.asmx.cs
         $(this).addClass('selected-tr').siblings().removeClass("selected-tr");
         $("#body_selectedFanID").val(selectedFanID);
     });
@@ -38,7 +39,7 @@ $(document).ready(function () {
     });
 
     $("#fanTable tr").mouseout(function () {
-        
+
     });
 
     $("#btn_selectAll").click(function () {
@@ -46,7 +47,7 @@ $(document).ready(function () {
     });
 
     $("#body_btn_clear").click(function () {
-      clear();
+        clear();
     });
 
     $("#body_btnCancel").click(function () {
@@ -54,47 +55,46 @@ $(document).ready(function () {
     });
 
     dialog = $("#printDialog").dialog({
-      autoOpen: false,
-      height: 200,
-      width: 350,
-      modal: true,
-      buttons: {
-        "Print": printDataSheet,
-        Cancel: function () {
-          dialog.dialog("close");
+        autoOpen: false,
+        height: 200,
+        width: 350,
+        modal: true,
+        buttons: {
+            "Print": printDataSheet,
+            Cancel: function () {
+                dialog.dialog("close");
+            }
+        },
+        close: function () {
+            dialog.dialog("close");
         }
-      },
-      close: function () {
-        dialog.dialog("close");
-      }
     });
 
     $("#body_btn_print").click(function () {
-      dialog.dialog("open");
+        dialog.dialog("open");
     });
 
 });
 
-function printDataSheet()
-{
-  /// <summary>
-  /// Print logic for selected fan after Print button has been clicked from dialog
-  /// </summary>
+function printDataSheet() {
+    /// <summary>
+    /// Print logic for selected fan after Print button has been clicked from dialog
+    /// </summary>
 
-  var printOptions = "Wire=" + $("#IncludeWire").prop('checked');
-  printOptions += "|Dims=" + $("#IncludeDim").prop('checked');
+    var printOptions = "Wire=" + $("#IncludeWire").prop('checked');
+    printOptions += "|Dims=" + $("#IncludeDim").prop('checked');
 
-  $("#body_hf_printOptions").val(printOptions);
+    $("#body_hf_printOptions").val(printOptions);
     $("#form1").submit();
     alert("Form submitted");
 }
 
 
-function updateFanCurve(fanDataID, motorid, pwr, weight) {
-  /// <summary>
-  /// Gets the relevant data from the form and sends the data to the web service to create the fan curves
-  /// </summary>
-  /// <param name="fanDataID">fan data ID</param>
+function updateFanCurve(fanDataID, motorid, pwr, weight, fandims) {
+    /// <summary>
+    /// Gets the relevant data from the form and sends the data to the web service to create the fan curves
+    /// </summary>
+    /// <param name="fanDataID">fan data ID</param>
 
     var airflow = $("#body_txt_airFlow").val(); // requested af
     var staticPressure = $("#body_txt_static").val(); // requested sp
@@ -105,16 +105,17 @@ function updateFanCurve(fanDataID, motorid, pwr, weight) {
 
     var divPowerWidth = $("#body_div_powerCurve_width").val();
     var divPowerHeight = $("#body_div_powerCurve_height").val();
-	
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
     const projectfanid = urlParams.get('ProjectFansID');
     const uid = urlParams.get('uid');
-    
+
+
     var fanDataOptions = {
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
-        url: '/AjaxWS.asmx/GetFanData?uid=' + uid + "&fanDataID=" + fanDataID ,
+        url: '/AjaxWS.asmx/GetFanData?uid=' + uid + "&fanDataID=" + fanDataID,
         data: "{ fanDataID:" + fanDataID +
             ", projectfanid:" + parseInt(projectfanid) +
             ", motorid:" + parseInt(motorid) +
@@ -126,12 +127,14 @@ function updateFanCurve(fanDataID, motorid, pwr, weight) {
             ", divPerfWidth:" + parseInt(divPerfWidth) +
             ", divPerfHeight:" + parseInt(divPerfHeight) +
             ", divPowerWidth:" + parseInt(divPowerWidth) +
-            ", divPowerHeight:" + parseInt(divPowerHeight) + " }",
+            ", divPowerHeight:" + parseInt(divPowerHeight) +
+            ", fandims:'" + fandims + "'" +
+            " }",
         dataType: 'json'
     };
 
     $.ajax(fanDataOptions).done(getFanDataSucceed);
-    document.getElementById("body_hidden_motorid").value = motorid; 
+    document.getElementById("body_hidden_motorid").value = motorid;
     // document.getElementById("body_hidden_ncc").value = document.getElementById("hidden_ncc").value;
 }
 
@@ -140,7 +143,7 @@ function updateFanCurve(fanDataID, motorid, pwr, weight) {
 
 function getFanDataSucceed(fanImageData) {
     if ($("#div_fanImage").find("#img_fanImage").length === 0) {
-      $("#div_fanImage").append("<img id='img_fanImage' />");
+        $("#div_fanImage").append("<img id='img_fanImage' />");
     }
 
     $("#img_fanImage").attr("src", fanImageData.d.imageLocation);
@@ -157,15 +160,15 @@ function getFanDataSucceed(fanImageData) {
     $("#div_acad_button").html(fanImageData.d.acadElement);
 
     document.getElementById('div_fanData').style.visibility = 'visible';
-    
+
 
 
     transferActualValues();
     div3_big();
-    document.getElementById('fanName').style.backgroundColor="#bbbbbb";
+    document.getElementById('fanName').style.backgroundColor = "#bbbbbb";
     // Populate airflow and st pressure text boxes with given values from datapoint table
     //$("#txt_airFlow").text(fanImageData.d.fanDataID.)
-    
+
 }
 
 // Transfer values from selected row to hidden variables
@@ -191,47 +194,46 @@ function transferActualValues() {
     document.getElementById("blackdotap").innerHTML = abspwr;
     document.getElementById("blackdotspl").innerHTML = ac_sound;
     document.getElementById("blackdotspd").innerHTML = "50";
-  
-   
+
+
 }
 
-  // Clears all the information on the form and returns it to its default state
-function clear()
-{
-  $("#div_ranges :checkbox").attr('checked', false);
+// Clears all the information on the form and returns it to its default state
+function clear() {
+    $("#div_ranges :checkbox").attr('checked', false);
 
-  $("#body_txt_airFlow").val('');
-  $("#body_txt_static").val('');
-  $("#body_txt_percentage").val('');
+    $("#body_txt_airFlow").val('');
+    $("#body_txt_static").val('');
+    $("#body_txt_percentage").val('');
 
-  $("#body_div_perfCurve_width").val('');
-  $("#body_div_perfCurve_height").val('');
+    $("#body_div_perfCurve_width").val('');
+    $("#body_div_perfCurve_height").val('');
 
-  $("#body_div_powerCurve_width").val('');
-  $("#body_div_powerCurve_height").val('');
+    $("#body_div_powerCurve_width").val('');
+    $("#body_div_powerCurve_height").val('');
 
-  $("#body_ddl_fanSpeedMin").val('Any');
-  $("#body_ddl_fanSpeedMax").val('Any');
+    $("#body_ddl_fanSpeedMin").val('Any');
+    $("#body_ddl_fanSpeedMax").val('Any');
 
-  $("#body_ddl_fanDiameterMin").val('Any');
-  $("#body_ddl_fanDiameterMax").val('Any');
+    $("#body_ddl_fanDiameterMin").val('Any');
+    $("#body_ddl_fanDiameterMax").val('Any');
 
-  $("#body_ddl_motorPhase").val('Any');
-                                                                 
-  $('#body_ckb_isBCAComplaint').removeAttr('checked');
+    $("#body_ddl_motorPhase").val('Any');
 
-  $("#body_div_topLeft").removeClass('afterSelect');
-  $("#body_div_bottomLeft").removeClass('afterSelect');
-  $("#body_div_hideRight").removeClass('hideAfterSelect');
-  $("#body_div_hideBottomLeft").removeClass('hideAfterSelect');
-  $("#body_div_hideRight").addClass('hideBeforeSelect');
-  $("#body_div_hideBottomLeft").addClass('hideBeforeSelect');
+    $('#body_ckb_isBCAComplaint').removeAttr('checked');
+
+    $("#body_div_topLeft").removeClass('afterSelect');
+    $("#body_div_bottomLeft").removeClass('afterSelect');
+    $("#body_div_hideRight").removeClass('hideAfterSelect');
+    $("#body_div_hideBottomLeft").removeClass('hideAfterSelect');
+    $("#body_div_hideRight").addClass('hideBeforeSelect');
+    $("#body_div_hideBottomLeft").addClass('hideBeforeSelect');
 }
 
 function mouseMove(evt) {
-  /// <summary>
-  /// Moves the blue line around the performance curve
-  /// </summary>
+    /// <summary>
+    /// Moves the blue line around the performance curve
+    /// </summary>
 
     var mouseX = evt.pageX - parseFloat($("#div_performanceCurve").offset().left);
 
@@ -260,10 +262,10 @@ function mouseMove(evt) {
         let ac_abspwr = parseFloat($("#blackdotap").text());
 
         blue_abs_power = Math.pow(dutyAirflow / ac_af, 3) * ac_abspwr;
-        document.getElementById("bluedotap").innerHTML = blue_abs_power.toFixed(2); 
+        document.getElementById("bluedotap").innerHTML = blue_abs_power.toFixed(2);
 
         blue_spl3m = ac_sound + 55 * Math.log10(dutyAirflow / ac_af);
-        document.getElementById("bluedotspl").innerHTML = blue_spl3m.toFixed(1); 
+        document.getElementById("bluedotspl").innerHTML = blue_spl3m.toFixed(1);
 
         blue_spd = 50 * dutyAirflow / ac_af;
         document.getElementById("bluedotspd").innerHTML = blue_spd.toFixed(0);
@@ -287,17 +289,17 @@ function mouseMove(evt) {
 
 
 function mouseOut(evt) {
-  /// <summary>
-  /// Hides the blue circle
-  /// </summary>
+    /// <summary>
+    /// Hides the blue circle
+    /// </summary>
 
     document.getElementById("circle_mouse").style.visibility = "hidden";
 }
 
 function div3_big() {
-    if (window.innerWidth < 1600 ) {
+    if (window.innerWidth < 1600) {
         document.getElementById("column_left").style.width = "300px";
-        
+
         document.getElementById("column_right").style.display = "inline-block";
         document.getElementById("img_fanImage").style.height = "140px";
         document.getElementById("performanceDataTable").style.maxWidth = "300px";
@@ -332,7 +334,7 @@ function div3_small() {
         document.getElementById("powerDataTable").style.fontSize = "7px";
         document.getElementById("powerDataTable").style.marginLeft = "0";
         document.getElementById("powerDataTable").style.marginTop = "0";
-        
+
 
     }
 

@@ -42,7 +42,7 @@ namespace CFM_Web
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public fanData GetFanData(int fanDataID, int projectfanid, int motorid, double weight, 
             double airflow, double addairflow, double staticPressure, double pwr,
-            int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight)
+            int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight, string fandims)
         {
             DataPoint cowlpoint = new DataPoint();
 
@@ -307,7 +307,7 @@ namespace CFM_Web
                 selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW, weight, nccCompliance);
                 selectedFanData.powerDataTable       = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
                 selectedFanData.acousticTable        = buildAcousticTable(fanData);
-                selectedFanData.dimsFile             = getDimsElement(fanData);
+                selectedFanData.dimsFile             = getDimsElement(fanData, fandims);
                 selectedFanData.revitElement         = getRevitElement(fanData);
                 selectedFanData.acadElement          = getAcadElement(fanData);
                 
@@ -424,9 +424,14 @@ namespace CFM_Web
         /// </summary>
         /// <param name="fanData"></param>
         /// <returns></returns>
-        private string getDimsElement(FansBackend.Entities.FanData fanData)
+        private string getDimsElement(FansBackend.Entities.FanData fanData, string dims)
         {
-            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Dims", fanData.dims + ".png").ToList();
+            // If there is no generated motor+case name, try using the default.
+            if (dims == "")
+            {
+                dims = fanData.dims;
+            }
+            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Dims", dims + ".png").ToList();
 
             string Element = "<img id='img_dims' src='Dims/not_available.png' />";
             if (files.Count > 0)
