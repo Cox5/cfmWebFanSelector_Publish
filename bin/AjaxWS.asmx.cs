@@ -307,9 +307,11 @@ namespace CFM_Web
                 selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW, weight, nccCompliance);
                 selectedFanData.powerDataTable       = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
                 selectedFanData.acousticTable        = buildAcousticTable(fanData);
-                selectedFanData.dimsFile             = getDimsElement(fanData, fandims);
-                selectedFanData.revitElement         = getRevitElement(fanData);
-                selectedFanData.acadElement          = getAcadElement(fanData);
+
+                string dimsStem = getDimsStem(fanData, fandims); // Choose passed dims file, or default if empty.
+                selectedFanData.dimsFile             = getDimsElement(dimsStem);
+                selectedFanData.revitElement         = getRevitElement(dimsStem);
+                selectedFanData.acadElement          = getAcadElement(dimsStem);
                 
                 //FanSelection.PartNumber = fan.partNumber;
                 //FanSelection.FanDataID = fanData.fanDataID;
@@ -424,13 +426,23 @@ namespace CFM_Web
         /// </summary>
         /// <param name="fanData"></param>
         /// <returns></returns>
-        private string getDimsElement(FansBackend.Entities.FanData fanData, string dims)
+        private string getDimsStem(FansBackend.Entities.FanData fanData, string dims)
         {
             // If there is no generated motor+case name, try using the default.
             if (dims == "")
             {
                 dims = fanData.dims;
             }
+            return dims;
+        }
+
+        /// <summary>
+        /// Finds dimension diagram PNG file, or returns not_available.png, as HTML IMG SRC
+        /// </summary>
+        /// <param name="fanData"></param>
+        /// <returns></returns>
+        private string getDimsElement(string dims)
+        {
             List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Dims", dims + ".png").ToList();
 
             string Element = "<img id='img_dims' src='Dims/not_available.png' />";
@@ -449,9 +461,9 @@ namespace CFM_Web
         /// <param name="fanData"></param>
         /// 
         /// <returns></returns>
-        private string getRevitElement(FansBackend.Entities.FanData fanData)
+        private string getRevitElement(string dims)
         {
-            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Revit", fanData.dims + ".rvt").ToList();
+            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Revit", dims + ".rvt").ToList();
 
             string Element = "<span class=greybutton >REVIT Unavailable</span>";
             if (files.Count > 0)
@@ -470,9 +482,9 @@ namespace CFM_Web
         /// <param name="fanData"></param>
         /// 
         /// <returns></returns>
-        private string getAcadElement(FansBackend.Entities.FanData fanData)
+        private string getAcadElement(string dims)
         {
-            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Acad", fanData.dims + ".dwg").ToList();
+            List<string> files = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Acad", dims + ".dwg").ToList();
 
             string Element = "<span class=greybutton  >ACAD Unavailable</span>";
             if (files.Count > 0)

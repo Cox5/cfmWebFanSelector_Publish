@@ -88,9 +88,9 @@
             </div>
         </asp:LinkButton>
 
-        <asp:LinkButton CommandName="Request Price" runat="server" ID="linkReqPricing" Text="Request Pricing" OnClick="btnPricingReq_Click" class="sp-button">
-            <div class="sp-rect">
-               <span class="sp-text"><asp:Label ID="lblReqPr" runat="server">Request Price</asp:Label></span> 
+        <asp:LinkButton CommandName="Request Quotation" runat="server" ID="linkReqPricing" Text="" OnClick="btnPricingReq_Click" class="sp-button green-btn">
+            <div class="sp-rect" style="margin-top: 50px;" id="divRQbutton" runat="server">
+               <span class="sp-text"><asp:Label ID="lblReqPr" runat="server">Request Quotation</asp:Label></span> 
                <span class="sp-icon">
                    <i class="fas fa-dollar-sign"></i>
                 </span>

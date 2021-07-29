@@ -20,10 +20,10 @@
             <h3>Project details</h3>
             <p><asp:Label ID="lblMessage" runat="server" /></p>
 <style>
-        td.optional {color: #888888;}
+        td.optional {color: #000000;}
         td.required {color: #000000;}
         td.optional input[type="text"], td.optional select {
-            color: #888888;
+            color: #000000;
             border: 1px solid #eee;
         }
         input[type="text"].required,select.required {
