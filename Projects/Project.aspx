@@ -77,7 +77,7 @@
                     </td>
                 </!-->
                 <tr>
-                    <td><span style='color: #dd0000'>Country</span></td>
+                    <td class="required">Country</td>
                     <td>
                            <asp:DropDownList ID="ddlCountry" AutoPostBack="true" AppendDataBoundItems="true" runat="server"
                                onselectedindexchanged="ddlCountry_SelectedIndexChanged"  CssClass="required"  >
@@ -320,7 +320,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>State</td>
+                    <td class="required">State</td>
                     <td>
                         <asp:TextBox ID="txtState" runat="server"   />
                         <asp:DropDownList ID="ddlState" AppendDataBoundItems="true" runat="server"  CssClass="required">
@@ -371,7 +371,7 @@
                     </td>
                 </tr>
                     <tr id="trEngDropDown" runat="server">
-                        <td>Quote for Company</td>
+                        <td class="optional">Quote for Company</td>
                         <td>
                             <asp:DropDownList ID="ddlEngComp" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlEngComp_SelectedIndexChanged">
                                 
@@ -380,14 +380,14 @@
                     </tr>
                         
                     <tr id="trConsultingEng" runat="server" >
-                        <td>Attention</td>
+                        <td class="optional">Attention</td>
                         <td>
                             <asp:TextBox ID="txtConsultingEng" runat="server" />
                         </td>
                     </tr>
 
                     <tr id="trConsEngDropDown" runat="server">
-                        <td>Attention</td>
+                        <td class="optional">Attention</td>
                         <td>
                             <asp:DropDownList ID="ddlConsEng" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlConsEng_SelectedIndexChanged">
                                 
@@ -397,7 +397,7 @@
                     </tr>
                 
                     <tr id="trSalesConsultant" runat="server" >
-                        <td>CFM Contact</td>
+                        <td class="optional">CFM Contact</td>
                         <td>
                             <%--  %><asp:TextBox ID="txtSalesConsultant" runat="server" /> --%>
                             <asp:DropDownList ID="ddlSalesCons" AutoPostBack="true" AppendDataBoundItems="true" runat="server">                              
@@ -408,7 +408,7 @@
                         </td>
                     </tr>
                     <tr id="trQuoteNumber" runat="server">
-                        <td>Quote Number</td>
+                        <td class="optional">Quote Number</td>
                         <td>
                             <asp:TextBox ID="txtQuoteNo" runat="server" Placeholder="Issued after Save" />
                         </td>
