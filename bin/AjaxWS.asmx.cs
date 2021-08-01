@@ -267,8 +267,14 @@ namespace CFM_Web
                 }
                 else
                 {
+                    // Power curve is no longer used in Div 3 on screen, but it is used in GET FAN PDF.
+                    // The original value of divPowerWidth,divPowerHeight was 70%,500px which was about 850px,500px
+                    // selectedFanData.powerCurve = FansBackend.Utilities.GraphBuilder.CreatePowerCurveSVG(
+                    //              fan, fanDataID, airflow, staticPressure, divPowerWidth, divPowerHeight, max.Item1, 0);
+                    //
+                    // The curve is calculated here in case the PDF is generated.
                     selectedFanData.powerCurve = FansBackend.Utilities.GraphBuilder.CreatePowerCurveSVG(
-                        fan, fanDataID, airflow, staticPressure, divPowerWidth, divPowerHeight, max.Item1, 0);
+                                    fan, fanDataID, airflow, staticPressure, 850, 500, max.Item1, 0);
                 }
 
                 if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory.ToString() + "images/" + fan.fanImage))
@@ -371,6 +377,7 @@ namespace CFM_Web
                 pdfData.Hz8K = Convert.ToString(fanData.hz8k);
                 pdfData.dBW = Convert.ToString(fanData.totalLwAtotal);
                 pdfData.dBA3m = Convert.ToString(fanData.SPL3m);
+                pdfData.dimsfile = dimsStem;  // name of dimensions file without PDF/PNG extension
 
                 // return the HTML snippets to the calling javascript
                 return selectedFanData;
