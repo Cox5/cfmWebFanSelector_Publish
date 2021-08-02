@@ -41,7 +41,7 @@
                     <td >Project Name
                     </td>
                     <td>
-                        <asp:TextBox ID="txtProjectname" runat="server" CssClass="required" />
+                        <asp:TextBox ID="txtProjectname" runat="server" CssClass="required" AutoCompleteType="Disabled" />
                         <asp:HiddenField Value="" ID="hiddenProjectname" runat="server"/>
 
                     </td>
@@ -61,7 +61,7 @@
                 <tr>
                     <td class="optional">Project Address</td>
                     <td class="optional">
-                        <asp:TextBox ID="txtAddress1" runat="server" />
+                        <asp:TextBox ID="txtAddress1" runat="server" AutoCompleteType="Disabled" />
                     </td>
                 </tr>
                 <!-- tr>
