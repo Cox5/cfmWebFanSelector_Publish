@@ -796,3 +796,9 @@ td.icons img {
     font-family: sans-serif;
     color: #e01b0d;
 }
+.fld {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: #000;
+}

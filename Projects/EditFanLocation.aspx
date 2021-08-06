@@ -41,13 +41,19 @@
                     <asp:Button ID="btnConfirm" class="button-main primary-btn " Text="Confirm" OnClick="btnConfirm_Click" runat="server" Visible="false"/>
                 </td>
             </tr>
-            
             <tr>
                 <td class="small-td" style="width: 30%">Fan Reference</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtDesignation"  CssClass="redborder" runat="server" AutoCompleteType="Disabled"/></td>
                 <td class="small-td">
-                    <asp:RequiredFieldValidator class="mt-small"  ID="regLocDescValidator" runat="server" ErrorMessage="Fan Reference is empty" ForeColor="Red" ControlToValidate="txtDesignation"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator class="mt-small"  ID="RequiredFieldValidator1" runat="server" ErrorMessage="Fan Reference is empty" ForeColor="Red" ControlToValidate="txtDesignation"></asp:RequiredFieldValidator>
+                </td>
+            </tr>            
+            <tr>
+                <td class="small-td" style="width: 30%">Fan Reference Description</td>
+                <td class="small-td">
+                    <asp:TextBox ID="txtFRDescription"  CssClass="redborder" runat="server" AutoCompleteType="Disabled"/></td>
+                <td class="small-td">
                 </td>
             </tr>
             <tr>

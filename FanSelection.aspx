@@ -3,7 +3,7 @@
 <asp:Content ID="headerSection" ContentPlaceHolderID="head" runat="server">
     <%-- Local Style Sheets --%>
     <link href="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.css" rel="stylesheet" />
-    <link rel="stylesheet" href="Content/FanSelection.css?v=20210721" />
+    <link rel="stylesheet" href="Content/FanSelection.css?v=20210806" />
 
     <style>
         th {
