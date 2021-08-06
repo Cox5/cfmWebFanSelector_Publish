@@ -64,9 +64,9 @@
             
             <div class="registration-info-box responsive-width">
                 <p>New user? Register now...</p>
-                 <div class="f-group">
+                 <div class="f-group" style="display:none">
                     <div class="f-ctrl">
-                        <asp:TextBox ID="txtRegisterEmailAddress" placeholder="Email Address" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtRegisterEmailAddress" placeholder="Email Address" runat="server" ></asp:TextBox>
                     </div>                    
                 </div>
                 

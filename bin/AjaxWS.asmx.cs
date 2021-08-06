@@ -378,6 +378,7 @@ namespace CFM_Web
                 pdfData.dBW = Convert.ToString(fanData.totalLwAtotal);
                 pdfData.dBA3m = Convert.ToString(fanData.SPL3m);
                 pdfData.dimsfile = dimsStem;  // name of dimensions file without PDF/PNG extension
+                pdfData.wiring = fanData.wiring; 
 
                 // return the HTML snippets to the calling javascript
                 return selectedFanData;

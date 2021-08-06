@@ -5,10 +5,7 @@
       <div class="content-wrapper">
   <p class="paragraph-large">Hi <span class="bold"><asp:Literal ID="litUsername" Text="new user" runat="server"/></span>!</p>
   <p class="paragraph-large">Thank you for registering.<br />
-      We have sent an email to you with your registration details.</p>
-          <p>Please check your inbox for the registration email, which contains your login password.</p>
+      CFM staff will review your registration application as soon as possible.
 
-  <p><a href="http://www.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Go to CFM Airsystems Website</a></p>
-          <p><a href="https://fanselector.cfmairsystems.com.au/"><i class="fas fa-angle-right"></i>Return to Login page.</a></p>
           </div>
 </asp:Content>
