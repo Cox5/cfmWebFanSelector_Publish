@@ -135,6 +135,7 @@
 			}	
 			div.header h2 {display: inline-block; float: left; margin-left: 0px; font-size: 27px;}
 			div.header h3 {display: inline-block; float: right; font-size: 27px;}
+            div.extrainfo {font-size: 0.8rem;}
 		</style>
     </head>
 
@@ -145,38 +146,43 @@
 
     <div class="row">
         <div class="col-2 left">
-			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%%</span></h3>
-			<table class="requirementsTbl" border="0" >
-				<tr>
-					<th>Performance</th>
-					<td style='text-align: left'>Req</td>
-				</tr>
-				<tr>
-					<td>Airflow (l/s):</td>
-					<td style='text-align: left'>%%VOLUME%%</td>
-				</tr>
-				<tr>
-					<td>Static Pressure (Pa):</td>
-					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
-				</tr>
-				<tr><td>&nbsp;</td><tr>
-				<tr>
-					<th>Fan Data</th>
-				</tr>
-				<tr>
-					<td>Diameter(mm):</td>
-					<td>%%DIAMETER%%</td>
-				</tr>
-				<tr>
-					<td>Speed (RPM):</td>
-					<td>%%SPEED%%</td>
-				</tr>
-				<tr>
-					<td>Mass (kg):</td>
-					<td>%%MASS%%</td>
-				</tr>
-			</table>
-                        
+            <h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%%</span></h3>
+                                    <div class="extrainfo">
+                                        <b>Dimensional drawing:</b> %%DDRAWING%%<br />
+                                        <b>Electrical diagram:</b> %%EDIAGRAM%%<br />
+                                    </div>
+            <table class="requirementsTbl" border="0">
+                <tr>
+                    <th>Performance</th>
+                    <td style='text-align: left'>Req</td>
+                </tr>
+                <tr>
+                    <td>Airflow (l/s):</td>
+                    <td style='text-align: left'>%%VOLUME%%</td>
+                </tr>
+                <tr>
+                    <td>Static Pressure (Pa):</td>
+                    <td style='text-align: left'>%%STATIC_PRESSURE%%</td>
+                </tr>
+                <tr><td>&nbsp;</td>
+                <tr>
+                <tr>
+                    <th>Fan Data</th>
+                </tr>
+                <tr>
+                    <td>Diameter(mm):</td>
+                    <td>%%DIAMETER%%</td>
+                </tr>
+                <tr>
+                    <td>Speed (RPM):</td>
+                    <td>%%SPEED%%</td>
+                </tr>
+                <tr>
+                    <td>Mass (kg):</td>
+                    <td>%%MASS%%</td>
+                </tr>
+            </table>
+
         </div>
 		<div class="col-2 right">
 		<center>
