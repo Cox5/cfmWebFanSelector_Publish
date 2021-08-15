@@ -378,8 +378,10 @@ namespace CFM_Web
                 pdfData.dBW = Convert.ToString(fanData.totalLwAtotal);
                 pdfData.dBA3m = Convert.ToString(fanData.SPL3m);
                 pdfData.dimsfile = dimsStem;  // name of dimensions file without PDF/PNG extension
-                pdfData.wiring = fanData.wiring; 
+                pdfData.wiring = fanData.wiring;
 
+                var json = new JavaScriptSerializer().Serialize(pdfData);
+                Session["pdfdata"] = json;
                 // return the HTML snippets to the calling javascript
                 return selectedFanData;
             }

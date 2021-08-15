@@ -52,7 +52,7 @@
             <tr>
                 <td class="small-td" style="width: 30%">Fan Reference Description</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtFRDescription"  CssClass="redborder" runat="server" AutoCompleteType="Disabled"/></td>
+                    <asp:TextBox ID="txtFRDescription"  runat="server" AutoCompleteType="Disabled"/></td>
                 <td class="small-td">
                 </td>
             </tr>

@@ -8,8 +8,11 @@
         .txtAirflow { width: 100px;border: 1px solid red !important;}
         .txtStaticPressure { width: 100px;border: 1px solid red !important;}
         .txtSml { width: 100px;}
-        .txtDesignation { border: 1px solid red !important;}
+        .txtDesignation { border: 1px solid red !important; width: 78px !important;}
         .txtQuantity { width: 100px;}
+        .txtDiameter { width: 50px; }
+        .ddlMotorType {font-size: 11px !important;}
+        .ddlBlade {font-size: 11px !important;}
         .txtDescription {}
         .table td, .table th {
             padding: 1px;
@@ -17,7 +20,7 @@
         td.tiny-td select {
             padding: 2px;
         }
-         .ddlType { border: 1px solid red !important;}
+         .ddlType { border: 1px solid red !important; width: 175px !important;font-size: 11px !important; }
     </style>
     <div class="content-wrapper">
        
@@ -44,17 +47,17 @@
             <table class="table table-form" >
                 <thead>
                     <tr >
-                        <td style="width:4%">Fan<br />Reference</td>
-                        <td style="width:8%">Fan Ref.<br />Description</td>
+                        <td style="width:7%">Fan ID</td>
+                        <td style="width:8%">Fan ID<br />Description</td>
                         <td style="width: 3%; text-align:center" class="tiny-td">Qty</td>
-                        <td style="width:14%">Fan Type</td>
-                        <td style="width: 5%; text-align:center" class="tiny-td" >Airflow (l/s)</td>
-                        <td style="width: 5%; text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
-                        <td style="width:5%; text-align:center">Diameter<br />(mm)</td>
+                        <td style="width:13%">Fan Type</td>
+                        <td style="width: 4%; text-align:center" class="tiny-td" >Airflow (l/s)</td>
+                        <td style="width: 4%; text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
+                        <td style="width:4%; text-align:center">Diameter<br />(mm)</td>
                         <td style="width:5%; text-align:center" class="tiny-td" >Speed<br /> (RPM)</td>
                         <td style="width:5%; text-align:center" class="tiny-td" >Phase</td>
                         <td style="width: 5%; text-align:center" class="tiny-td" >Sound Pressure<br />dBA @ 3m</td>
-                        <td style="width:10%;text-align:center" class="tiny-td" >Motor<br />Type</td>
+                        <td style="width:7%;text-align:center" class="tiny-td" >Motor<br />Type</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >Blade<br />Material</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >Ancill.</td>
                         <td style="text-align:left" class="tiny-td" >&nbsp;&nbsp;&nbsp;Selected Fan</td>                      
@@ -65,17 +68,17 @@
             <table class="table table-form">
                    <tbody>
                       <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
-                        <td style="width:5%">&nbsp;</td>
+                        <td style="width:7%">&nbsp;</td>
                         <td style="width:8%">&nbsp;</td>
                         <td style="width: 3%; text-align:center" class="tiny-td">&nbsp;</td>
                         <td style="width:14%">&nbsp;</td>
-                        <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
-                        <td style="width: 5%; text-align:center" class="tiny-td">&nbsp;</td>
-                        <td style="width:5%; text-align:center">&nbsp;</td>
+                        <td style="width: 4%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width: 4%; text-align:center" class="tiny-td">&nbsp;</td>
+                        <td style="width: 4%; text-align:center">&nbsp;</td>
                         <td style="width:5%; text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width:6%; text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
-                        <td style="width:10%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:7%;text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="text-align:center" class="tiny-td" >&nbsp;</td>                      
@@ -88,17 +91,17 @@
               <table class="table table-form">
                    <tbody>
                       <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
-                        <td style="width:4%">&nbsp;</td>
+                        <td style="width:6%">&nbsp;</td>
                         <td style="width:8%">&nbsp;</td>
                         <td style="width: 3%; text-align:center" class="tiny-td">&nbsp;</td>
                         <td style="width:15%">&nbsp;</td>
-                        <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
-                        <td style="width: 5%; text-align:center" class="tiny-td">&nbsp;</td>
-                        <td style="width:5%; text-align:center">&nbsp;</td>
+                        <td style="width: 4%; text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width: 4%; text-align:center" class="tiny-td">&nbsp;</td>
+                        <td style="width:4%; text-align:center">&nbsp;</td>
                         <td style="width:5%; text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width:5%; text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width: 5%; text-align:center" class="tiny-td" >&nbsp;</td>
-                        <td style="width:10%;text-align:center" class="tiny-td" >&nbsp;</td>
+                        <td style="width:7%;text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width:5%;text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="text-align:center" class="tiny-td" >&nbsp;</td>                      
@@ -110,13 +113,13 @@
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlType" ID="ddFanType1" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow1" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure1" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtDiameter1" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter1" CssClass="txtSml txtDiameter" runat="server" AutoCompleteType="Disabled"/></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed1" runat="server"></asp:DropDownList></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase1" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtSound1" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType1" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade1" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill1" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlMotorType" ID="ddMotorType1" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddBlade1" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddAncill1" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg1" runat="server" ForeColor="Red"></asp:Label></td>
                     <td style="text-align:center" class="tiny-td" >&nbsp;</td>
                 </tr>
@@ -127,13 +130,13 @@
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlType" ID="ddFanType2" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow2" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure2" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtDiameter2" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter2" CssClass="txtSml txtDiameter" runat="server" AutoCompleteType="Disabled"/></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed2" runat="server"></asp:DropDownList></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase2" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtSound2" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType2" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade2" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill2" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlMotorType" ID="ddMotorType2" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddBlade2" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddAncill2" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg2" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
 
@@ -144,13 +147,13 @@
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlType" ID="ddFanType3" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow3" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure3" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtDiameter3" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter3" CssClass="txtSml txtDiameter" runat="server" AutoCompleteType="Disabled"/></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed3" runat="server"></asp:DropDownList></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase3" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtSound3" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType3" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade3" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill3" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlMotorType" ID="ddMotorType3" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddBlade3" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddAncill3" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg3" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
 
@@ -161,13 +164,13 @@
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlType" ID="ddFanType4" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow4" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure4" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtDiameter4" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter4" CssClass="txtSml txtDiameter" runat="server" AutoCompleteType="Disabled"/></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed4" runat="server"></asp:DropDownList></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase4" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtSound4" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType4" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade4" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill4" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlMotorType" ID="ddMotorType4" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddBlade4" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddAncill4" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg4" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 <tr>
@@ -177,13 +180,13 @@
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlType" ID="ddFanType5" runat="server" ></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtAirflow5" CssClass="txtAirflow" runat="server" AutoCompleteType="Disabled"/></td>
                     <td class="tiny-td"><asp:TextBox ID="txtStaticPressure5" CssClass="txtStaticPressure" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td class="tiny-td"><asp:TextBox ID="txtDiameter5" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
+                    <td class="tiny-td"><asp:TextBox ID="txtDiameter5" CssClass="txtSml txtDiameter" runat="server" AutoCompleteType="Disabled"/></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddSpeed5" runat="server"></asp:DropDownList></td>
                     <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddPhase5" runat="server"></asp:DropDownList></td>
                     <td class="tiny-td"><asp:TextBox ID="txtSound5" CssClass="txtSml" runat="server" AutoCompleteType="Disabled"/></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddMotorType5" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddBlade5" runat="server"></asp:DropDownList></td>
-                    <td style="text-align:center" class="tiny-td"><asp:DropDownList ID="ddAncill5" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlMotorType" ID="ddMotorType5" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddBlade5" runat="server"></asp:DropDownList></td>
+                    <td style="text-align:center" class="tiny-td"><asp:DropDownList CssClass="ddlBlade" ID="ddAncill5" runat="server"></asp:DropDownList></td>
                     <td><asp:Label ID="lblMsg5" runat="server" ForeColor="Red"></asp:Label></td>
                 </tr>
                 </tbody>
