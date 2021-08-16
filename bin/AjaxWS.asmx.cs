@@ -29,8 +29,6 @@ namespace CFM_Web
         /// </summary>
         private string CONST_IMAGE_UNAVALIABLE = "images/FanImageUnavailable.jpg";
 
-        public static FanDataForPDF pdfData = new FanDataForPDF();
-
         /// <summary>
         /// Gets other data about the selected fan.
         /// Called by fanSelection.js:updateFanCurve()
@@ -44,6 +42,7 @@ namespace CFM_Web
             double airflow, double addairflow, double staticPressure, double pwr,
             int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight, string fandims)
         {
+            FanDataForPDF pdfData = new FanDataForPDF();
             DataPoint cowlpoint = new DataPoint();
 
             if (projectfanid > 0)
@@ -311,7 +310,11 @@ namespace CFM_Web
                 selectedFanData.fanName              = fan.partNumber;
                 selectedFanData.nominalDataTable = ""; // buildNominalDataTable(fanData, fr, nccCompliance);                
                 selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW, weight, nccCompliance);
-                selectedFanData.powerDataTable       = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
+
+                Tuple<string,string> powerData       = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
+                selectedFanData.powerDataTable       = powerData.Item1;
+                pdfData.ElectricalSupply             = powerData.Item2;
+
                 selectedFanData.acousticTable        = buildAcousticTable(fanData);
 
                 string dimsStem = getDimsStem(fanData, fandims); // Choose passed dims file, or default if empty.
@@ -665,22 +668,19 @@ namespace CFM_Web
         /// <param name="airflow"></param>
         /// <param name="staticPressure"></param>
         /// <returns></returns>
-        private string buildPowerDataTable(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure, double pwr)
+        private Tuple<string,string> buildPowerDataTable(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure, double pwr)
         {
 
-            
             System.Text.StringBuilder powerDataTable = new System.Text.StringBuilder();
 
             string phaseString = "";
             if (fanData.fanObject.motorPhase == 1)
             {
                 phaseString = "1ph 240V 50Hz";
-                pdfData.ElectricalSupply = phaseString;
             }
-            if (fanData.fanObject.motorPhase == 3)
+            else if (fanData.fanObject.motorPhase == 3)
             {
                 phaseString = "3ph 415V 50Hz";
-                pdfData.ElectricalSupply = phaseString;
             }
             
             
@@ -741,8 +741,8 @@ namespace CFM_Web
             // Start the table here, because we might have prepended some spacer rows.
             powerDataTable.Insert(0, "<table id='powerDataTable' class='dataTable' >");
             powerDataTable.AppendLine("</table>");
-
-            return powerDataTable.ToString();
+            
+            return new Tuple<string,string>(powerDataTable.ToString(), phaseString);
         }
 
         /// <summary>
@@ -909,11 +909,9 @@ namespace CFM_Web
             if (fanData.fanObject.motorPhase == 1)
             {
                 phaseString = "1ph<br/>240V<br/>50Hz";
-                pdfData.ElectricalSupply = phaseString;
             } else if (fanData.fanObject.motorPhase == 3)
             {
                 phaseString = "3ph<br/>415V<br/>50Hz";
-                pdfData.ElectricalSupply = phaseString;
             }
 
             /*
