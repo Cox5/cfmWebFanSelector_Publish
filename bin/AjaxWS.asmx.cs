@@ -311,9 +311,12 @@ namespace CFM_Web
                 selectedFanData.nominalDataTable = ""; // buildNominalDataTable(fanData, fr, nccCompliance);                
                 selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW, weight, nccCompliance);
 
-                Tuple<string,string> powerData       = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
+                Tuple<string,string,string,string,string>  powerData = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
                 selectedFanData.powerDataTable       = powerData.Item1;
                 pdfData.ElectricalSupply             = powerData.Item2;
+                pdfData.MotorPower                   = powerData.Item3;
+                pdfData.CurrentFLC                   = powerData.Item4;
+                pdfData.MotorFrame                   = powerData.Item5;
 
                 selectedFanData.acousticTable        = buildAcousticTable(fanData);
 
@@ -354,7 +357,7 @@ namespace CFM_Web
                 // If motor has been upgraded
                 // The motor might have been upgraded, so don't rely on fandata.motor*
                 // and fanData.motorDataObject does not have full load current
-                if (motorid != -1)
+                /*if (motorid != -1)
                 {
                     MotorData motor = new MotorData();
                     motor = DB.MotorDBController.FindMotorById(motorid);
@@ -367,7 +370,7 @@ namespace CFM_Web
                     pdfData.MotorPower = Convert.ToString(fanData.motorkW);
                     pdfData.CurrentFLC = Convert.ToString(fanData.motorAmps);
                 }
-
+                */
                 pdfData.MotorSpeed = Convert.ToString(fanData.RPM);
 
                 pdfData.Hz63 = Convert.ToString(fanData.hz63);
@@ -668,12 +671,16 @@ namespace CFM_Web
         /// <param name="airflow"></param>
         /// <param name="staticPressure"></param>
         /// <returns></returns>
-        private Tuple<string,string> buildPowerDataTable(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure, double pwr)
+        private Tuple<string,string,string,string,string> buildPowerDataTable(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure, double pwr)
         {
 
             System.Text.StringBuilder powerDataTable = new System.Text.StringBuilder();
 
             string phaseString = "";
+            string motorkw = "";
+            string motorcurrent = "";
+            string motorframe = "";
+
             if (fanData.fanObject.motorPhase == 1)
             {
                 phaseString = "1ph 240V 50Hz";
@@ -700,9 +707,9 @@ namespace CFM_Web
 
                 // powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motordataid:", fanData.motorDataObject.motorDataID).AppendLine();
 
-
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorDataObject.kw.ToString("0.00 kW")).AppendLine();
-
+                motorkw = fanData.motorDataObject.kw.ToString("0.00 kW");
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", motorkw).AppendLine();
+                
 
 
                 // powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM Power:", aompower.ToString("0.00kW")).AppendLine();
@@ -711,26 +718,28 @@ namespace CFM_Web
 
                 if (fanData.motorDataObject.fullLoadAmps > 0)
                 {
-                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", fanData.motorDataObject.fullLoadAmps.ToString("0.0 Amps")).AppendLine();
-                    //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", aomcurrent.ToString("0.0 Amps")).AppendLine();
+                    motorcurrent = fanData.motorDataObject.fullLoadAmps.ToString("0.0 Amps");        
                 }
                 else
                 {
-                    powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", "n/a").AppendLine();
-                    //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor AOM FLC:", "n/a").AppendLine();
+                    motorcurrent = "n/a";
                 }
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", "n/a").AppendLine();
 
+                motorframe = fanData.motorDataObject.frame;
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", "STD").AppendLine();
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", fanData.motorDataObject.frame).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", motorframe).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:", fanData.motorDataObject.pole.ToString("0") + " pole" ).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:", fanData.motorDataObject.efficiency.ToString("0.0") + "%" ).AppendLine();
             }
             else
             {
                 //powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", "").AppendLine();
+                motorkw = fanData.motorkW.ToString("0.00 kW");
+                motorcurrent = fanData.motorAmps.ToString("0.0 Amps");
 
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", fanData.motorkW.ToString("0.00 kW")).AppendLine();
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", fanData.motorAmps.ToString("0.0 Amps")).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Power:", motorkw).AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor FLC:", motorcurrent).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:",  fanData.RPM.ToString("0 RPM")).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:",  "n/a").AppendLine();
 
@@ -741,8 +750,8 @@ namespace CFM_Web
             // Start the table here, because we might have prepended some spacer rows.
             powerDataTable.Insert(0, "<table id='powerDataTable' class='dataTable' >");
             powerDataTable.AppendLine("</table>");
-            
-            return new Tuple<string,string>(powerDataTable.ToString(), phaseString);
+
+            return new Tuple<string, string, string, string,string>(powerDataTable.ToString(), phaseString, motorkw, motorcurrent,motorframe);
         }
 
         /// <summary>
