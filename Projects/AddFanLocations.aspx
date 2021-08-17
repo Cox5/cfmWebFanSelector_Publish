@@ -8,11 +8,11 @@
         .txtAirflow { width: 100px;border: 1px solid red !important;}
         .txtStaticPressure { width: 100px;border: 1px solid red !important;}
         .txtSml { width: 100px;}
-        .txtDesignation { border: 1px solid red !important; width: 78px !important;}
+        .txtDesignation { border: 1px solid red !important; width: 100%;}
         .txtQuantity { width: 100px;}
         .txtDiameter { width: 50px; }
-        .ddlMotorType {font-size: 11px !important;}
-        .ddlBlade {font-size: 11px !important;}
+        .ddlMotorType {max-width: 95% !important;}
+        .ddlBlade {max-width: 95% !important;}
         .txtDescription {}
         .table td, .table th {
             padding: 1px;
@@ -20,7 +20,7 @@
         td.tiny-td select {
             padding: 2px;
         }
-         .ddlType { border: 1px solid red !important; width: 175px !important;font-size: 11px !important; }
+         .ddlType { border: 1px solid red !important; max-width: 95% !important; }
     </style>
     <div class="content-wrapper">
        
@@ -47,10 +47,10 @@
             <table class="table table-form" >
                 <thead>
                     <tr >
-                        <td style="width:7%">Fan ID</td>
+                        <td style="width:11%">Fan ID</td>
                         <td style="width:8%">Fan ID<br />Description</td>
                         <td style="width: 3%; text-align:center" class="tiny-td">Qty</td>
-                        <td style="width:13%">Fan Type</td>
+                        <td style="width:9%">Fan Type</td>
                         <td style="width: 4%; text-align:center" class="tiny-td" >Airflow (l/s)</td>
                         <td style="width: 4%; text-align:center" class="tiny-td">Static<br />Pressure (Pa)</td>
                         <td style="width:4%; text-align:center">Diameter<br />(mm)</td>
@@ -68,10 +68,10 @@
             <table class="table table-form">
                    <tbody>
                       <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
-                        <td style="width:7%">&nbsp;</td>
+                        <td style="width:11%">&nbsp;</td>
                         <td style="width:8%">&nbsp;</td>
                         <td style="width: 3%; text-align:center" class="tiny-td">&nbsp;</td>
-                        <td style="width:14%">&nbsp;</td>
+                        <td style="width:10%">&nbsp;</td>
                         <td style="width: 4%; text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width: 4%; text-align:center" class="tiny-td">&nbsp;</td>
                         <td style="width: 4%; text-align:center">&nbsp;</td>
@@ -91,10 +91,10 @@
               <table class="table table-form">
                    <tbody>
                       <tr style="height: 1px;border-bottom: none !important; overflow: hidden; font-size: 1px;">
-                        <td style="width:6%">&nbsp;</td>
+                        <td style="width:10%">&nbsp;</td>
                         <td style="width:8%">&nbsp;</td>
                         <td style="width: 3%; text-align:center" class="tiny-td">&nbsp;</td>
-                        <td style="width:15%">&nbsp;</td>
+                        <td style="width:10%">&nbsp;</td>
                         <td style="width: 4%; text-align:center" class="tiny-td" >&nbsp;</td>
                         <td style="width: 4%; text-align:center" class="tiny-td">&nbsp;</td>
                         <td style="width:4%; text-align:center">&nbsp;</td>
