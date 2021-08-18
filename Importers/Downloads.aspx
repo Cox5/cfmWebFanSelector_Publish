@@ -35,6 +35,7 @@
                     <asp:ListItem Value="components_category">Ancillaries Categories</asp:ListItem>
                      <asp:ListItem Value="fan_pricelist">Standard Fan Prices</asp:ListItem>
                     <asp:ListItem Value="fan_diagrams">Fan Diagrams</asp:ListItem>
+                    <asp:ListItem Value="dp_no_imp">Datapoints (No impeller)</asp:ListItem>
                 </asp:DropDownList></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnShow" class="button-main primary-btn"  runat="server" Visible="true" Text="Show" OnClick="btnShow_Click" /></div>
              <div style="float:left;  margin-left: 20px; margin-top: 5px"><asp:Button ID="btnDownload" class="button-main primary-btn"  runat="server" Visible="true" Text="Download" OnClick="btnDownload_Click" /></div>
