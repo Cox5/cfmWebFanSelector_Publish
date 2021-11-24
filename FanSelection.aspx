@@ -32,10 +32,10 @@
         // puts POA values of "Price%" column on top
         $( document ).ready(function() {
             $("#fanTable").tablesorter({
-                // initial sort of the 8th column
-                sortList: [[8,0]],
+                // initial sort of the 0th, then 8th column
+                sortList: [[0,8]],
                 // sets the non-digit content to min, so it is placed on top when ordered asc 
-                headers: { 8: { sorter: "digit", string: "min" }}
+                headers: { 9: { sorter: "digit", string: "min" }}
 
             });
         });
@@ -297,6 +297,7 @@
                                 <table id="fanTable" class="header-fixed tablesorter-default">
                                     <thead>
                                         <tr style="font-size: 12px">
+                                            <th style="width: 1px; text-align: left;"></th>
                                             <th style="width: 15%; text-align: left;">Product</th>
                                             <th style="width: 10%; text-align: left;">Type</th>
                                             <th style="width: 5%;">Diameter</th>
@@ -323,6 +324,7 @@
                                             data-fanweight="<%= fanData.mass.ToString() %>"  data-fandims="<%= fanData.dims %>" 
                                             data-interceptpwr='<%= fanData.intercept != null ? getStringFromDouble(fanData.intercept.power, "0.00") : "0:00" %>'
                                             style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
+                                            <td title="bgcolor for initial sort" style="width: 1px; font-size: 0px"><%= getProdbgcolor(fanData.fanDataID.ToString()) %></td>
                                             <td title="<%=fanData.fanObject.partNumber  %>"
                                                  style="text-align: left;width: 15%; "> 
                                                  <%= truncateString(fanData.fanObject.partNumber, 12) %>
