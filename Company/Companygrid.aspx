@@ -54,11 +54,11 @@
                 <asp:Button ID="btnAdd"  class="button-main primary-btn  smbtn" Text="Add Company" OnClick="btnAdd_Click" runat="server" /></div>
         </div>
         </asp:Panel>
-        <div runat="server" id="CompanyGV_DIV" style="max-width: 700px;">
+        <div runat="server" id="CompanyGV_DIV" style="max-width: 900px;">
              <asp:GridView ID="gvCompany" runat="server" AutoGenerateColumns="False" ShowFooter="true" ShowHeaderWhenEmpty="true"
                 DataKeyNames="company_id" HorizontalAlign="Center" GridLines="None" CssClass="table project" OnRowCommand="gvCompany_RowCommand"
                  OnRowEditing="gvCompany_RowEditing" OnRowCancelingEdit="gvCompany_RowCancelingEdit"
-                 OnRowUpdating="gvCompany_RowUpdating" OnRowDeleting="gvCompany_RowDeleting" >
+                 OnRowUpdating="gvCompany_RowUpdating" OnRowDeleting="gvCompany_RowDeleting" Width="100%" ItemStyle-Wrap="false">
                 <Columns>
 
 
@@ -138,9 +138,8 @@
 
 
 
-
-
-             <asp:TemplateField ItemStyle-Width="70px"  HeaderStyle-Width="70px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Left">
+             <asp:TemplateField ItemStyle-Width="100px"  HeaderStyle-Width="100px"  ItemStyle-CssClass="icons" 
+                 HeaderStyle-HorizontalAlign="Right" ItemStyle-Wrap="false">
                         <ItemTemplate>
                             <asp:LinkButton runat="server" CommandName="Edit" CausesValidation="false">
                                 <span class="tooltip"><i class="fas fa-pencil-alt"></i><span class="tooltiptext tooltip-i">Edit </span></span>
@@ -160,7 +159,7 @@
                     </asp:TemplateField>
 
 
-             <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Left">
+             <asp:TemplateField ItemStyle-Width="140px"  HeaderStyle-Width="140px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:LinkButton  ID="lnkCompanyDel" data-delete='<%# Eval("company_id") %>'  runat="server" CommandName="" CausesValidation="false"
                                 OnClientClick="if (!confirm('Are you sure you want delete?')) return false;" onClick="BtnDelete_Click" >
