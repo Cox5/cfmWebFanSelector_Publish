@@ -134,7 +134,17 @@
               </asp:TemplateField>
 
 
-
+              <asp:TemplateField  HeaderText="" ControlStyle-Width="2px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtCompanyStatus" Text='<%#Eval("status") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="txtCompanyStatusFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
+                        </FooterTemplate>
+                       <ItemTemplate>
+                            <asp:Label  ID="lblCompanyStatus" Text='<%#Eval("status") %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+              </asp:TemplateField>
 
               <asp:TemplateField  HeaderText="Company Name" ControlStyle-Width="250px" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" FooterStyle-HorizontalAlign="Left">
                         <EditItemTemplate>
@@ -144,9 +154,10 @@
                             <asp:TextBox ID="txtCompanyFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
-                            <asp:Label Text='<%#Eval("company_name") %>' runat="server"></asp:Label>
+                            <asp:Label ID="lblCompanyName" Text='<%#Eval("company_name") %>' runat="server"></asp:Label>
                         </ItemTemplate>
               </asp:TemplateField>
+
 
 
 
