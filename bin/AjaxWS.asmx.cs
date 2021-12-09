@@ -44,6 +44,9 @@ namespace CFM_Web
         {
             FanDataForPDF pdfData = new FanDataForPDF();
             DataPoint cowlpoint = new DataPoint();
+            DataPoint dpIntercept = new DataPoint();
+            dpIntercept.airflow = 0;
+            dpIntercept.staticPressure = 0;
 
             if (projectfanid > 0)
             {
@@ -92,7 +95,7 @@ namespace CFM_Web
                     // Get intercept so we can get consumed power at intercept.
                     // Start by seeing if there is an exact match in the fan curve datapoints.
                     // This should be in findIntercept(), but it isn't...
-                    FansBackend.Entities.DataPoint dpIntercept = findExactIntercept(fanData.dataPointList, airflow);
+                    dpIntercept = findExactIntercept(fanData.dataPointList, airflow, staticPressure);
                     if (dpIntercept == null)
                     {
                         dpIntercept =
@@ -232,10 +235,10 @@ namespace CFM_Web
                     fr.Qty = 0;
                     fr.PriceType = "";
                     fr.PriceValue = 0;
-                    fr.AirFlow = (int)airflow;
-                    fr.StaticPressure = (int)staticPressure;
-                    fr.ActualAF = 0;
-                    fr.ActualSP = 0;
+                    fr.AirFlow = (int)airflow;                // requested
+                    fr.StaticPressure = (int)staticPressure;  // requested
+                    fr.ActualAF = (float)Math.Floor(dpIntercept.airflow);        // intercept
+                    fr.ActualSP = (float)Math.Floor(dpIntercept.staticPressure); // intercept
                     fr.ActualTP = 0;
                     fr.ActualOV = 0;
                     fr.Angle = "";
@@ -293,7 +296,7 @@ namespace CFM_Web
                     fanData.intercept = new DataPoint();
 
                     // Set airflow and staticpressure at intercept - actual not requested.
-                    fanData.intercept.airflow = fr.ActualAF; // airflow;
+                    fanData.intercept.airflow = fr.ActualAF;        // airflow;
                     fanData.intercept.staticPressure = fr.ActualSP; // staticPressure;
                     fanData.intercept.power = pwr;
                     pdfData.FanDataSpeed = Convert.ToString(fanData.RPM);
@@ -777,7 +780,7 @@ namespace CFM_Web
             // Get intercept so we can get consumed power at intercept.
             // Start by seeing if there is an exact match in the fan curve datapoints.
             // This should be in findIntercept(), but it isn't...
-            FansBackend.Entities.DataPoint dpIntercept = findExactIntercept(fanData.dataPointList, airflow);
+            FansBackend.Entities.DataPoint dpIntercept = findExactIntercept(fanData.dataPointList, airflow,staticPressure);
             if (dpIntercept == null)
             {
 
@@ -839,9 +842,9 @@ namespace CFM_Web
             {
                 //cando_req = true;
                 performanceDataTable.AppendFormat("<th>Airflow (l/s):</th><td>{0}</td><td ID=ac_af style='align:right' >{1}</td></tr>",
-                    fr.AirFlow.ToString("0"), dpIntercept.airflow.ToString("0"));
+                    fr.AirFlow.ToString("0"), Math.Floor(dpIntercept.airflow).ToString("0"));
                 performanceDataTable.AppendFormat("<th>Static Pressure (Pa):</th><td>{0}</td><td ID=ac_sp style='align:right' >{1}</td></tr>",
-                    fr.StaticPressure.ToString("0"), dpIntercept.staticPressure.ToString("0"));
+                    fr.StaticPressure.ToString("0"), Math.Floor(dpIntercept.staticPressure).ToString("0"));
             }
 
             // Show Airflow and Static pressure reults in the table, for additional duty
@@ -1053,12 +1056,13 @@ namespace CFM_Web
         /// <param name="dpl"></param>
         /// <param name="airflow"></param>
         /// <returns></returns>
-        private FansBackend.Entities.DataPoint findExactIntercept(List<FansBackend.Entities.DataPoint> dpl, double airflow)
+        private FansBackend.Entities.DataPoint findExactIntercept(List<FansBackend.Entities.DataPoint> dpl, double airflow, double staticpressure)
         {
             FansBackend.Entities.DataPoint nulldp = null;
             foreach (FansBackend.Entities.DataPoint p in dpl)
             {
-                if (p.airflow >= airflow && p.airflow < airflow*1.005)
+                if (p.airflow >= airflow && p.airflow < airflow*1.005 &&
+                    p.staticPressure >= staticpressure && p.staticPressure < staticpressure*1.005)
                 {
                     return p;
                 }

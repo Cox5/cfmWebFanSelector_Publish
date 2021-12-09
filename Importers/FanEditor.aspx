@@ -14,7 +14,7 @@
 
                     </style>
       <div class="right-controls mr-small" style="float: right;">
-                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server" />
+                       <asp:Button ID="btnCancel"  class="button-main primary-btn prevpage" Text="Finished" OnClick="btnFinish_Click" runat="server"  UseSubmitBehavior="false" />
       </div> 
         <h3>Edit Fans in database</h3>
         Enter a catalogue model number or prefix to search for, eg "MUC3"
