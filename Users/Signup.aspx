@@ -318,11 +318,12 @@
                     </table>
                    <div class="center-text mb-medium">
                        <div style="float: left;">
-                              <asp:Button class="button-main bigger secondary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
-                       </div>
-                       <div style="float: right;">
                               <asp:Button class="button-main bigger primary-btn mt-big prevpage" ID="btnCancel" UseSubmitBehavior="false" CausesValidation="false" Text="Cancel" runat="server" OnClick="btnCancel_Click" />
                        </div>
+                       <div style="float: right;">
+                              <asp:Button class="button-main bigger secondary-btn mt-big" ID="btnSubmit" Text="Register" runat="server" OnClick="btnSubmit_Click" />
+                       </div>
+
                     <asp:Label ID="lblMessage" runat="server" />
                 </div>
 
