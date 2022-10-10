@@ -218,6 +218,17 @@ td.small-td input[type="text"], td.small-td input[type="password"], td.small-td 
     font-size: 12px;
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.10);
 }
+td.graphdata-td  {
+    width: 100%;
+    padding: 4px 6px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 12px;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.10);
+}
 
 input[type="text"], input[type="password"], input[type="number"], select {
     width: 100%;

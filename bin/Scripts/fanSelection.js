@@ -1,5 +1,16 @@
 ﻿// Java script functions relating to the fan curves and fan table in FanSelection.aspx   
 
+// global variable to store mouse blue dot move active/inactive
+var movebluedot = 1;
+var save_mouse_x = 0;
+
+document.addEventListener('keyup', logKey);
+function logKey(e) {
+    if (e.key === ' ') {
+        movebluedot = (movebluedot + 1 ) % 2;
+    }
+};
+
 
 $(document).ready(function () {
     /// <summary>
@@ -235,8 +246,13 @@ function mouseMove(evt) {
     /// Moves the blue line around the performance curve
     /// </summary>
 
-    var mouseX = evt.pageX - parseFloat($("#div_performanceCurve").offset().left);
-
+    var mouseX = 0;
+    if (!movebluedot) {
+        mouseX = save_mouse_x;
+    } else {
+        mouseX = evt.pageX - parseFloat($("#div_performanceCurve").offset().left);
+        save_mouse_x = mouseX;
+    }
     var circleX = mouseX - 100;
 
     var xScale = parseFloat(document.getElementById("graph").getAttribute("data-xscale"));
@@ -293,7 +309,9 @@ function mouseOut(evt) {
     /// Hides the blue circle
     /// </summary>
 
-    document.getElementById("circle_mouse").style.visibility = "hidden";
+    if (movebluedot) {
+        document.getElementById("circle_mouse").style.visibility = "hidden";
+    }
 }
 
 function div3_big() {

@@ -75,7 +75,7 @@
             <tr>
                 <td class="small-td">Fan Model</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtModelNum" runat="server" AutoCompleteType="Disabled" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtModelNum" runat="server" AutoCompleteType="Disabled" ></asp:TextBox>
                     <asp:Label ID="lblModelNumMsg" runat="server" Visible="false"></asp:Label>
                 </td>
                 
@@ -291,8 +291,41 @@
                 <td>
                 </td>
             </tr>
-
-
+            <tr ID="oem_row20" runat="server" visible="false">
+                <td class="small-td" colspan="2"><strong>Performance curve data points</strong><br />Add 5 points, or leave all blank.</td>
+            </tr>
+            </table>
+        <table class="table table-form" style="width: 60%">
+            <tr ID="oem_row20b" runat="server" visible="false">
+                <td>&nbsp;</td>
+                <td class="small-td"><strong>Airflow</strong></td>
+                <td class="small-td"><strong>Static Pressure</strong></td>
+            </tr>
+            <tr ID="oem_row21" runat="server" visible="false">
+                <td class="small-td" style="text-align:right">Point 1</td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtaf_1" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtsp_1" runat="server"  AutoCompleteType="Disabled" /></td>
+            </tr>
+            <tr ID="oem_row22" runat="server" visible="false">
+                <td class="small-td" style="text-align:right">Point 2</td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtaf_2" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtsp_2" runat="server"  AutoCompleteType="Disabled" /></td>
+            </tr>
+            <tr ID="oem_row23" runat="server" visible="false">
+                <td class="small-td" style="text-align:right">Point 3</td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtaf_3" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtsp_3" runat="server"  AutoCompleteType="Disabled" /></td>
+            </tr>
+            <tr ID="oem_row24" runat="server" visible="false">
+                <td class="small-td" style="text-align:right">Point 4</td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtaf_4" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtsp_4" runat="server"  AutoCompleteType="Disabled" /></td>
+            </tr>
+            <tr ID="oem_row25" runat="server" visible="false">
+                <td class="small-td" style="text-align:right">Point 5</td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtaf_5" runat="server"  AutoCompleteType="Disabled" /></td>
+                <td class="small-td"><asp:TextBox Width="90%" ID="txtsp_5" runat="server"  AutoCompleteType="Disabled" /></td>
+            </tr>
 
         </table>
         <div class="right-controls mt-medium mr-small">
