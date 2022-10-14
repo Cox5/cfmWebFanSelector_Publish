@@ -292,7 +292,7 @@
                 </td>
             </tr>
             <tr ID="oem_row20" runat="server" visible="false">
-                <td class="small-td" colspan="2"><strong>Performance curve data points</strong><br />Add 5 points, or leave all blank.</td>
+                <td class="small-td" colspan="2" ><strong>Performance curve data points<br /><span style="color:#bb0000">Add 5 points, or leave all blank.</span></strong></td>
             </tr>
             </table>
         <table class="table table-form" style="width: 60%">
