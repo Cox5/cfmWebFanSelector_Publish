@@ -912,7 +912,7 @@ namespace CFM_Web
                     ).AppendLine();
             }
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_sound>{2}</td></tr>", "Sound Pressure. dBA@3m:", fr.SoundPressure, fanData.SPL3m.ToString()).AppendLine();
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_power>{2}</td></tr>", "Absorbed Power (kW):", "", fanData.intercept.power.ToString()).AppendLine();
+            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_power>{2}</td></tr>", "Absorbed Power (kW):", "", fanData.intercept.power.ToString("0.00")).AppendLine();
             performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td id=ac_angle>{2}</td></tr>", "Pitch (&deg;):", "", fanData.angle.ToString()).AppendLine();
 
             string weighttext = "n/a";

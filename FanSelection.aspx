@@ -322,7 +322,7 @@
                                             {  %>
                                         <tr data-fandataid="<%= fanData.fanDataID.ToString() %>"  data-motorid="<%= fanData.motorID %>"
                                             data-fanweight="<%= fanData.mass.ToString() %>"  data-fandims="<%= fanData.dims %>" 
-                                            data-interceptpwr='<%= fanData.intercept != null ? getStringFromDouble(fanData.intercept.power, "0.000") : "0:00" %>'
+                                            data-interceptpwr='<%= fanData.intercept != null ? getStringFromDouble(fanData.intercept.power, "0.0000") : "0:00" %>'
                                             style="<%= getProdbgcolor(fanData.fanDataID.ToString()) %>" >
                                             <td title="bgcolor for initial sort" style="width: 1px; font-size: 0px"><%= getProdbgcolor(fanData.fanDataID.ToString()) %></td>
                                             <td title="<%=fanData.fanObject.partNumber  %>"
