@@ -47,7 +47,7 @@
             </tr>
         </thead>
           <tbody>
-         <% int x = 0;
+         <% 
             if (ppp != null)
             {
 
@@ -56,18 +56,12 @@
                     <%= p.Html %>
 
              <% }
-                     x++;
-                 }
-                 x++;
-                 
+            }                 
           %>
 
         </tbody>
     </table>
   </div>
-    <% x++;
-        // When a break-point is set on the "x++;" statement above this comment, the 
-        // System stack overflow occurs AFTER continuing from this point.
-       %>
+
 </asp:Content>
 
