@@ -24,7 +24,7 @@
 
        <asp:Button ID="btnRestore" runat="server" Text="View deleted" OnClick="btnRestore_Click" class="button-main primary-btn inline smbtn" Visible="true" />
        <asp:Button ID="btnNoRestore" runat="server" Text="View current" OnClick="btnNoRestore_Click" class="button-main primary-btn inline smbtn" Visible="false" />
-       <asp:Button ID="btnQreport" runat="server" Text="Quote report" OnClick="btnQreport_Click" class="button-main primary-btn inline smbtn" Visible="true" />
+       <asp:Button ID="btnQreport" runat="server" Text="Quote report" OnClick="btnQreport_Click" class="button-main primary-btn inline smbtn" Visible="false" />
       </div>
 
      
