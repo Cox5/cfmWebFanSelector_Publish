@@ -18,6 +18,9 @@
             </style>
       <div class="table-controls center-text mb-medium">Select period for report
             <asp:DropDownList ID="ddlPeriod" runat="server" AutoPostBack="False">
+                <asp:ListItem Text="Last Month" Value="lm" />
+                <asp:ListItem Text="2 Months ago" Value="lm2" />
+                <asp:ListItem Text="3 Months ago" Value="lm3" />
                 <asp:ListItem Text="Last Quarter" Value="lq" />
                 <asp:ListItem Text="Last Half-Year" Value="lhy" />
                 <asp:ListItem Text="Last Financial Year" Value="lfy" />
@@ -36,31 +39,17 @@
 
     <asp:Label ID="lblErrorMsg" runat="server"></asp:Label>
 
-    <table class="table project">
-        <thead>
-          <tr>
-            <td width="10%">Quote No. </td>
-            <td width="10%">Quote Date </td>
-            <td width="40%">Project </td>
-            <td width="27%">Company </td>
-            <td width="12%">Sales Contact </td>
-            </tr>
-        </thead>
-          <tbody>
-         <% 
-            if (ppp != null)
-            {
+      <h2>Quotation reports generated this month</h2>
+<asp:Label ID="lblCurrentMonthFiles" runat="server"></asp:Label>
+<br />
+      <h2>Quotation reports generated last month</h2>
+<asp:Label ID="lblLastMonthFiles" runat="server"></asp:Label>
 
-                 foreach (var p in ppp)
-                 {%>
-                    <%= p.Html %>
 
-             <% }
-            }                 
-          %>
 
-        </tbody>
-    </table>
+
+
+
   </div>
 
 </asp:Content>
