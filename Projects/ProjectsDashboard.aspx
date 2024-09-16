@@ -23,7 +23,8 @@
           <asp:Button ID="btnShowPriceReq" runat="server" Text="Pricing Req" OnClick="btnShowPriceReq_Click" class="button-main green-btn inline smbtn" Visible="false" />
 
        <asp:Button ID="btnRestore" runat="server" Text="View deleted" OnClick="btnRestore_Click" class="button-main primary-btn inline smbtn" Visible="true" />
-        <asp:Button ID="btnNoRestore" runat="server" Text="View current" OnClick="btnNoRestore_Click" class="button-main primary-btn inline smbtn" Visible="false" />
+       <asp:Button ID="btnNoRestore" runat="server" Text="View current" OnClick="btnNoRestore_Click" class="button-main primary-btn inline smbtn" Visible="false" />
+       <asp:Button ID="btnQreport" runat="server" Text="View quote report" OnClick="btnQreport_Click" class="button-main primary-btn inline smbtn" Visible="true" />
       </div>
 
      

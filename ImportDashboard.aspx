@@ -130,6 +130,14 @@
                 </span>
             </div>
         </asp:LinkButton>
+        <asp:LinkButton CommandName="Missing images etc" runat="server" Text="Missing images etc" class="sp-button" OnClick="btnFindMissing_Click" Visible="true">
+            <div class="sp-rect" >
+               <span class="sp-text">Missing images etc</span> 
+               <span class="sp-icon">
+                  <i class="fas fa-cog"></i>
+                </span>
+            </div>
+        </asp:LinkButton>
         <asp:LinkButton CommandName="Import Fan Prices" runat="server" Text="Import Fan Prices"  OnClick="btnImportPrices_Click" class="sp-button" Visible="false" >
             <div class="sp-rect" >
                 <span class="sp-text">Import Fan Prices</span>

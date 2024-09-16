@@ -1030,8 +1030,7 @@ namespace CFM_Web
                     "( SELECT user_id FROM project_fans  JOIN project_details ON project_details.project_id = project_fans.project_id " +
                     " JOIN user_account ON user_account.company_id = project_details.company_id where project_fan_id = "+project_fan_id.ToString()+
                     " and user_account.user_id = '"+userid+"' ) a " +
-                    "UNION SELECT* FROM (SELECT user_id FROM user_account WHERE user_account.user_id = '" + userid + "' AND user_class < 3) b " +
-                    ") c";
+                    "UNION SELECT * FROM (SELECT user_id FROM user_account WHERE user_account.user_id = '" + userid + "' AND user_class < 3) b ) c";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
