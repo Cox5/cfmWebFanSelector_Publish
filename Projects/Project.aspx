@@ -33,26 +33,28 @@
 
 
 </style>
-           <div class="leftcolumn">
-            
-            <table class="table">
-
+            <div class="twocolums">
+               <table class="table">
                 <tr>
-                    <td >Project Name
+                    <td style="width: 14%" >Project Name
                     </td>
-                    <td>
+                    <td style="width: 85%">
                         <asp:TextBox ID="txtProjectname" runat="server" CssClass="required" AutoCompleteType="Disabled" />
                         <asp:HiddenField Value="" ID="hiddenProjectname" runat="server"/>
 
                     </td>
                 </tr>
+                </table>
+            </div>
+           <div class="leftcolumn">
+            
+            <table class="table">
                 <tr>
-                    <td><asp:Label ID="lblCompany1" Visible="false" runat="server"></asp:Label>
+                    <td style="width: 30%"><asp:Label ID="lblCompany1" Visible="false" runat="server"></asp:Label>
                     </td>
-                    <td>
+                    <td style="width: 70%">
                         <asp:Label ID="lblCompany2" Visible="false" runat="server"></asp:Label>
                     </td>
-                </tr>
                 </tr>
                 <%--<asp:RegularExpressionValidator ID="regName" runat="server" ControlToValidate="txtProjectname" MinimumValue="2" MaximumValue="35" ErrorMessage="Enter a valid name" ForeColor="Red" /> --%>
                 <asp:RequiredFieldValidator class="mt-small" ID="RequiredProjectNamevalidator" runat="server" ErrorMessage="Project name field is empty " ForeColor="Red" ControlToValidate="txtProjectname"></asp:RequiredFieldValidator>
@@ -359,7 +361,7 @@
                 <table class="table">
                     <!-- Eng Comp, Sales Consultant, Quote Number, Status and PriceAdj should only appear if user is sales, admin or superadmin -->
                     <tr id="trEngComp" runat="server" >
-                        <td>User's Company</td>
+                        <td  style="width: 30%">User's Company</td>
                         <td>
                             <asp:TextBox ID="txtEngineeringCompany" runat="server" />
                         </td>
@@ -371,7 +373,7 @@
                     </td>
                 </tr>
                     <tr id="trEngDropDown" runat="server">
-                        <td class="optional">Quote for Company</td>
+                        <td  style="width: 30%" class="optional">Quote for Company</td>
                         <td>
                             <asp:DropDownList ID="ddlEngComp" AutoPostBack="true" AppendDataBoundItems="true" runat="server" OnSelectedIndexChanged="ddlEngComp_SelectedIndexChanged">
                                 
