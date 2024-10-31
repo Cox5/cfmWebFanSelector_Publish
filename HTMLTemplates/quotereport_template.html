@@ -147,17 +147,20 @@
 			}
 
 			.heading-title {
-				height: 35 !important;
+				height: 35px !important;
 				vertical-align: bottom;
 				text-decoration: underline;
 			}
 
             td,th {
                 width: 230px;
-                vertical-align: bottom;
-                font-size: 14px;
+                vertical-align: top;
+                font-size: 13px;
+
             }
-			
+            th:not(:first-child) {
+                padding-left: 10px;
+            }
 			.left {
 				text-align: left !important; 
 			}
@@ -181,11 +184,13 @@
 	<h3 class="mt-medium mb-medium">Fan Specification</h3>
     <table>
         <tr>
-            <th style="width: 10%">Quote No.</th>
-            <th style="width: 7%">Date</th>
-            <th style="width: 30%">Project</th>
-            <th style="width: 27%">Client</th>
-            <th style="width: 18%">Sales Contact</th>
+            <th style="width: 7%">Quote No.</th>
+            <th style="width: 6%; text-align: center">Date</th>
+            <th style="width: 19%">Project</th>
+            <th style="width: 14%">Client</th>
+            <th style="width: 16%">Email</th>
+            <th style="width: 16%">Company</th>
+            <th style="width: 16%">Sales Contact</th>
             <th style="width: 7%">Value</th>
 
         </tr>
