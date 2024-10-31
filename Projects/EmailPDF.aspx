@@ -129,7 +129,7 @@
                 <tr id="addbuttonrow" runat="server">
                     <td>&nbsp;<br />
                         If the email recipient can't be found in the database, add a new one here...
-                        <asp:Button ID="btnShowAddUser" class="button-main primary-btn" Text="Add" runat="server" OnClick="btnShowAddUser_Click" />                    
+                        <asp:Button ID="btnShowAddUser" class="button-main primary-btn" Text="New" runat="server" OnClick="btnShowAddUser_Click" />                    
                     </td>
                 </tr>  
                         <tr><td class="red">&nbsp;<br /> &nbsp;<br /><asp:Label ID="lblMessage" runat="server"></asp:Label></td></tr>
