@@ -99,22 +99,30 @@
                 </tr>
                 </table>
                 <asp:TextBox id="txtContent" TextMode="multiline" Columns="80" Rows="10" runat="server" />
-            </div>
-            <div class="rightcolumn"  id="rightcolumn" runat="server">
+
+            <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Send Email" runat="server" OnClick="btnSubmit_Click" 
+                OnClientClick="collectSelectedEmails();" />
+
+         </div>
+         <div class="rightcolumn"  id="rightcolumn" runat="server">
                     <table class="table">
                 <tr>
-                    <td  class="subtitle">Recipient</td>
+                    <td  class="subtitle">Recipients</td>
                 </tr>
                 <tr>
-                    <td  class="subtitle-sub">To search, enter the first 3 or so letters of email, name or company...</td>
+                    <td  class="subtitle-sub">To search, enter the first 2 or so letters of email, name or company and click <b>Search</b></td>
                 </tr>
                 <tr>
-                    <td  class="subtitle-sub">Tick the boxes of desired recipients.  Search again or add a new user, to add more recipients to the list.</td>
+                    <td  class="subtitle-sub">Tick the boxes of desired recipients.  To add more recipients simply search again. 
+                        If the desired recipient can't be found, click <b>New</b> to add them to the database.
+                        
+                    </td>
                 </tr>
                 <tr>
-                    <td>
-                        <asp:TextBox ID="txtSearch" Placeholder="email,name,company" runat="server" AutoCompleteType="Disabled" />
+                    <td><div style="display: flex; align-items: center;">
+                        <asp:TextBox ID="txtSearch" Placeholder="email,name,company" runat="server" AutoCompleteType="Disabled" Width="40%" />
                         <asp:Button ID="btnRecipSearch" class="button-main primary-btn" Text="Search" runat="server" OnClick="btnSearch_Click" />
+                        </div>
                     </td>
                 </tr>        
                 <tr>
@@ -434,12 +442,7 @@
 
 
         <br />
-        <div class="right-controls mt-medium mr-small">
 
-            <asp:Button ID="btnSubmit" class="button-main primary-btn" Text="Send Email" runat="server" OnClick="btnSubmit_Click" OnClientClick="collectSelectedEmails();" />
-
-            </div>
-        </div>
         <p><asp:Label ID="lblProgressMessage" runat="server" class="lblmessage" ForeColor="SteelBlue" Font-Size="Large"></asp:Label></p>
         <p class="validation-msg">
                     </p>    
