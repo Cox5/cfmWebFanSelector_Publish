@@ -147,16 +147,20 @@
 			}
 
 			.heading-title {
-				height: 35 !important;
+				height: 35px !important;
 				vertical-align: bottom;
 				text-decoration: underline;
-			}		
-
-			td {
-				width: 230px;
-                vertical-align: bottom;
 			}
-			
+
+            td,th {
+                width: 230px;
+                vertical-align: top;
+                font-size: 13px;
+
+            }
+            th:not(:first-child) {
+                padding-left: 10px;
+            }
 			.left {
 				text-align: left !important; 
 			}
@@ -175,16 +179,23 @@
 
     <hr />
 	
-	<div class='header'><h2><span style='font-weight: 400;'>Project:</span> %%PROJNAME%%</h2><h3 class="mt-medium mb-medium"><span style='font-weight: 400;'>Quotation number:</span> %%QUOTENUM%%</h3></div>
+	<div class='header'><h2 class="mt-medium mb-medium">Quotation Report %%QUOTEPERIOD%%</h2><h2 class="mt-medium mb-medium" style="float:right"> %%REPORTDATE%%</h2></div>
 	<div class='clearfix'></div>
 	<h3 class="mt-medium mb-medium">Fan Specification</h3>
-	<div>
-		
-	
-		%%FAN_DATA%%
+    <table>
+        <tr>
+            <th style="width: 7%">Quote No.</th>
+            <th style="width: 6%; text-align: center">Date</th>
+            <th style="width: 19%">Project</th>
+            <th style="width: 14%">Client</th>
+            <th style="width: 16%">Email</th>
+            <th style="width: 16%">Company</th>
+            <th style="width: 16%">Sales Contact</th>
+            <th style="width: 7%">Value</th>
 
-	
-	</div>
+        </tr>
+        %%TABLEROWS%%
+    </table>
 </body>
 
 </html>

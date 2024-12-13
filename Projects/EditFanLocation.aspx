@@ -108,7 +108,7 @@
                 </td>
             </tr>
              <tr>
-                <td class="small-td">Sound pressure (dBA @ 3m)</td>
+                <td class="small-td">Sound pressure level @ 3m</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtSoundPressure" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
@@ -215,7 +215,7 @@
                 </td>
             </tr>
             <tr ID="oem_row7a" runat="server" visible="false">
-                <td class="small-td"><strong>Sound Power (dBA)</strong></td>
+                <td class="small-td"><strong>Sound Power (dB)</strong></td>
                 <td class="small-td">
                 
                 </td>
@@ -278,16 +278,21 @@
                 </td>
             </tr>
             <tr ID="oem_row15" runat="server" visible="false">
-                <td class="small-td">Sound All Bands (dBA)</td>
+                <td class="small-td">Sound All Bands (dBW)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtAllBands" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtAllBands" runat="server"  AutoCompleteType="Disabled"  Width="50%" />
+                    <span  style="display: inline-block; width: 25%; float: right; text-align: center" id="btnCalc" 
+                        class="button-main primary-btn prevpage" >Calculate</span>
+                </td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row15b" runat="server" visible="false">
-                <td class="small-td">Sound pressure (dBA @ 3m)</td>
+                <td class="small-td">Sound pressure level @ 3m (dBA)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtSpl3m" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtSpl3m" runat="server"  AutoCompleteType="Disabled"/>
+                   
+                </td>
                 <td>
                 </td>
             </tr>
@@ -334,4 +339,58 @@
 
         <asp:Label class="mt-solid" ID="lblEditFanLocMsg" runat="server" />
     </div>
+    <script>
+document.getElementById("btnCalc").addEventListener("click", function () {
+    // Array of input element IDs for sound power levels
+    const inputIds = [
+        "body_txtHz63",
+        "body_txtHz125",
+        "body_txtHz250",
+        "body_txtHz500",
+        "body_txtHz1k",
+        "body_txtHz2k",
+        "body_txtHz4k",
+        "body_txtHz8k"
+    ];
+
+    // A-weighting factors for each frequency band
+    const aWeightingFactors = [
+        -26.2, // 63Hz
+        -16.1, // 125Hz
+        -8.6,  // 250Hz
+        -3.2,  // 500Hz
+        0,     // 1kHz
+        1.2,   // 2kHz
+        1,     // 4kHz
+        -1.1   // 8kHz
+    ];
+
+    let validInputs = true; // Flag to track validation
+    let totalSoundPower = 0;
+
+    // Loop through all input fields to validate and calculate
+    inputIds.forEach((id, index) => {
+        const inputElement = document.getElementById(id);
+        const value = parseInt(inputElement.value, 10);
+
+        if (isNaN(value) || value <= 0) {
+            // Invalid input: Set border to red
+            inputElement.style.borderColor = "red";
+            validInputs = false;
+        } else {
+            // Valid input: Reset border and calculate weighted value
+            inputElement.style.borderColor = "";
+            totalSoundPower += Math.pow(10, (value + aWeightingFactors[index]) / 10);
+        }
+    });
+
+    if (validInputs) {
+        // Calculate total A-weighted sound power level
+        const totalLevel = 10 * Math.log10(totalSoundPower);
+        // Set the result in the appropriate field as an integer
+        document.getElementById("body_txtAllBands").value = Math.round(totalLevel);
+    }
+    return (false);
+});
+    </script>
 </asp:Content>

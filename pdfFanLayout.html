@@ -22,10 +22,17 @@
 				margin-bottom: 10px;
 			}
 
-			.fan_ref {
-				font-size: 2.4rem;
+            .fan_ref {
+                font-size: 2.4rem;
+                font-weight: 600;
+                padding: 0px;
+                margin-bottom: 10px;
+            }
+			.fan_locdesc {
+				font-size: 1.1rem;
 				font-weight: 600;
 				padding: 0px;
+                margin-left: 15px;
 				margin-bottom: 10px;
 			}
 			.fan_code {
@@ -146,49 +153,52 @@
 
     <div class="row">
         <div class="col-2 left">
-			<h3>Fan Reference:</h3><h2 class="location"><span class="fan_ref">%%FAN_REF%%</span></h2>
-			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%% / %%ANGLE%%</span></h3>
-			<b>Dimensional drawing:</b> %%DDRAWING%%<br />
-			<b>Electrical diagram:</b> %%EDIAGRAM%%<br />
-			<table class="requirementsTbl" border="0" >
-				<tr>
-					<th>Performance</th>
-					<td style='text-align: left'>Req</td>
-					<td style='text-align: right; padding-left: 10px;'>Actual</td>
-				</tr>
-				<tr>
-					<td>Airflow (l/s):</td>
-					<td style='text-align: left'>%%VOLUME%%</td>
-					<td style='text-align: left; padding-left: 10px;'>%%ACTUAL_VOLUME%%</td>
-				</tr>
-				<tr>
-					<td>Static Pressure (Pa):</td>
-					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
-					<td style='text-align: left; padding-left: 10px;'>%%ACTUAL_STATIC_PRESSURE%%</td>
-				</tr>
-				<tr>
-					<td>Additional Duty (%):</td>
-					<td style='text-align: left'>%%ADDITIONAL_DUTY%%</td>
-					<td style='text-align: left; padding-left: 10px;'>%%ADDITIONAL_DUTY%%</td>
-				</tr>
-				<tr><td>&nbsp;</td><tr>
-				<tr>
-					<th>Fan Data</th>
-				</tr>
-				<tr>
-					<td>Diameter(mm):</td>
-					<td>%%DIAMETER%%</td>
-				</tr>
-				<tr>
-					<td>Speed (RPM):</td>
-					<td>%%SPEED%%</td>
-				</tr>
-				<tr>
-					<td>Mass (kg):</td>
-					<td>%%MASS%%</td>
-				</tr>
-			</table>
-                        
+            <h2 class="location"><span class="fan_ref">%%FAN_REF%%</span><span class="fan_locdesc">%%FAN_LOCDESC%%</span></h2>
+            <h3>Description</h3><h3 class="model"><span class="fan_code">%%RANGEDESC%%</span></h3>
+            <h3>Fan Type:</h3><h3 class="model"><span class="fan_code">%%RANGENAME%%</span></h3>
+            <h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%% / %%ANGLE%%</span></h3>
+            <b>Dimensional drawing:</b> %%DDRAWING%%<br />
+            <b>Electrical diagram:</b> %%EDIAGRAM%%<br />
+            <table class="requirementsTbl" border="0">
+                <tr>
+                    <th>Performance</th>
+                    <td style='text-align: left'>Req</td>
+                    <td style='text-align: right; padding-left: 10px;'>Actual</td>
+                </tr>
+                <tr>
+                    <td>Airflow (l/s):</td>
+                    <td style='text-align: left'>%%VOLUME%%</td>
+                    <td style='text-align: left; padding-left: 10px;'>%%ACTUAL_VOLUME%%</td>
+                </tr>
+                <tr>
+                    <td>Static Pressure (Pa):</td>
+                    <td style='text-align: left'>%%STATIC_PRESSURE%%</td>
+                    <td style='text-align: left; padding-left: 10px;'>%%ACTUAL_STATIC_PRESSURE%%</td>
+                </tr>
+                <tr>
+                    <td>Additional Duty (%):</td>
+                    <td style='text-align: left'>%%ADDITIONAL_DUTY%%</td>
+                    <td style='text-align: left; padding-left: 10px;'>%%ADDITIONAL_DUTY%%</td>
+                </tr>
+                <tr><td>&nbsp;</td>
+                <tr>
+                <tr>
+                    <th>Fan Data</th>
+                </tr>
+                <tr>
+                    <td>Diameter(mm):</td>
+                    <td>%%DIAMETER%%</td>
+                </tr>
+                <tr>
+                    <td>Speed (RPM):</td>
+                    <td>%%SPEED%%</td>
+                </tr>
+                <tr>
+                    <td>Mass (kg):</td>
+                    <td>%%MASS%%</td>
+                </tr>
+            </table>
+
         </div>
 		<div class="col-2 right">
 		<center>
@@ -197,7 +207,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<p style='margin-bottom: 5px'><b>Compliant with NCC 2019:</b> %%NCC2019%%</p>
+		<p style='margin-bottom: 5px' class="model">Compliant with NCC 2022: %%NCC2019%%</p>
 
 		<hr style="height: 2px; border:none; background-color: #333;">
 		<p><h3>Motor Data (at STP)</h3></p>

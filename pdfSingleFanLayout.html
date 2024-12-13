@@ -97,12 +97,12 @@
 			.motorDataTbl {
 				table-layout: fixed;
 				width: 99%;
-				font-size: 19px;
+				font-size: 17px;
 			}
 			.acoustic_data_table {
 				table-layout: fixed;
 				width: 80%;
-				font-size: 19px;
+				font-size: 17px;
 			}
 			.acoustic_data_table td {
 				text-align: center;
@@ -116,10 +116,10 @@
 			.fanDataTbl {
 				table-layout: fixed;
 				width: 100%;
-				font-size: 19px;
+				font-size: 17px;
 			}
 			.requirementsTbl {
-				font-size: 18px;
+				font-size: 17px;
 			}
 			.last_td {
 				width: 30%;
@@ -135,6 +135,7 @@
 			}	
 			div.header h2 {display: inline-block; float: left; margin-left: 0px; font-size: 27px;}
 			div.header h3 {display: inline-block; float: right; font-size: 27px;}
+            div.extrainfo {font-size: 0.8rem;}
 		</style>
     </head>
 
@@ -145,38 +146,43 @@
 
     <div class="row">
         <div class="col-2 left">
-			<h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%%</span></h3>
-			<table class="requirementsTbl" border="0" >
-				<tr>
-					<th>Performance</th>
-					<td style='text-align: left'>Req</td>
-				</tr>
-				<tr>
-					<td>Airflow (l/s):</td>
-					<td style='text-align: left'>%%VOLUME%%</td>
-				</tr>
-				<tr>
-					<td>Static Pressure (Pa):</td>
-					<td style='text-align: left'>%%STATIC_PRESSURE%%</td>
-				</tr>
-				<tr><td>&nbsp;</td><tr>
-				<tr>
-					<th>Fan Data</th>
-				</tr>
-				<tr>
-					<td>Diameter(mm):</td>
-					<td>%%DIAMETER%%</td>
-				</tr>
-				<tr>
-					<td>Speed (RPM):</td>
-					<td>%%SPEED%%</td>
-				</tr>
-				<tr>
-					<td>Mass (kg):</td>
-					<td>%%MASS%%</td>
-				</tr>
-			</table>
-                        
+            <h3>Selected Model:</h3><h3 class="model"><span class="fan_code">%%FAN_CODE%%</span></h3>
+                                    <div class="extrainfo">
+                                        <b>Dimensional drawing:</b> %%DDRAWING%%<br />
+                                        <b>Electrical diagram:</b> %%EDIAGRAM%%<br />
+                                    </div>
+            <table class="requirementsTbl" border="0">
+                <tr>
+                    <th>Performance</th>
+                    <td style='text-align: left'>Req</td>
+                </tr>
+                <tr>
+                    <td>Airflow (l/s):</td>
+                    <td style='text-align: left'>%%VOLUME%%</td>
+                </tr>
+                <tr>
+                    <td>Static Pressure (Pa):</td>
+                    <td style='text-align: left'>%%STATIC_PRESSURE%%</td>
+                </tr>
+                <tr><td>&nbsp;</td>
+                <tr>
+                <tr>
+                    <th>Fan Data</th>
+                </tr>
+                <tr>
+                    <td>Diameter(mm):</td>
+                    <td>%%DIAMETER%%</td>
+                </tr>
+                <tr>
+                    <td>Speed (RPM):</td>
+                    <td>%%SPEED%%</td>
+                </tr>
+                <tr>
+                    <td>Mass (kg):</td>
+                    <td>%%MASS%%</td>
+                </tr>
+            </table>
+
         </div>
 		<div class="col-2 right">
 		<center>
@@ -185,20 +191,18 @@
 		</div>
 	</div>
 	<div class="row">
-		<p style='margin-bottom: 5px'><b>BCA Compliance: Complies with Section J5.2 2009</b></p>
-		<p style="margin-top: 0px;font-size: 12px;">All fans tested in compliance with ISO:5801-2017 standards. Airflow performances subject to 
-		change without notice. Please see Sales for updated datashets and further information</p>
+		<p style='margin-bottom: 5px'><b>Compliant with NCC 2022:</b> %%NCC2019%%</p>
 		<hr style="height: 2px; border:none; background-color: #333;">
 		<p><h3>Motor Data (at STP)</h3></p>
 		<table class="motorDataTbl" border="0">
 			<tr>
-				<td style='width: 11%'>Motor Type:</td>
+				<td style='width: 15%'>Motor Type:</td>
 				<td style='width: 14%'>%%MOTOR_TYPE%%</td>
 				
 				<td style='width: 17%'>Motor Power (kW):</td>
 				<td style='width: 13%'>%%MOTOR_POWER%%</td>
 				
-				<td style='width: 25%'>Current FLC (A):</td>
+				<td style='width: 25%'>Current FLC (Amps):</td>
 				<td >%%CURRENT_FLC%%</td>
 			</tr>
 			<tr>
@@ -228,7 +232,7 @@
 			</tr>
 			<tr>
 			<td>&nbsp;</td>
-			<td colspan=8 style='text-align:center'>Sound Power Level SWL (dB)</td>		
+			<td colspan=8 style='text-align:center'>Sound Power Level SWL (dBA)</td>		
 			<td>SWL</td>
 			<td>@3m</td>
 			</tr>
@@ -242,7 +246,7 @@
 				<td>2K</td>
 				<td>4K</td>
 				<td>8K</td>
-				<td>(dB)</td>
+				<td>(dBA)</td>
 				<td class="last_td">(dBA)</td>
 			</tr>
 			<tr>
@@ -262,10 +266,5 @@
 		</table>
 		<hr style="height: 2px; border:none; background-color: #333;">
 		
-	</div>
-	
-	
-	<div class="footer">
-			<img xsrc="https://fanselector.cfmairsystems.com.au/Content/Background-stripe.png">
 	</div>
 </html>
