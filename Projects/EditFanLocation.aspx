@@ -223,14 +223,14 @@
             <tr ID="oem_row7" runat="server" visible="false">
                 <td class="small-td" align="center">63Hz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz63" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz63" runat="server"  AutoCompleteType="Disabled" Width="15%" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row8" runat="server" visible="false">
                 <td class="small-td" align="center"> 125Hz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz125" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz125" runat="server"  AutoCompleteType="Disabled" Width="15%"  /></td>
                 <td>
                 </td>
             </tr>
@@ -238,51 +238,52 @@
             <tr ID="oem_row9" runat="server" visible="false">
                 <td class="small-td" align="center"> 250Hz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz250" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz250" runat="server"  AutoCompleteType="Disabled" Width="15%"  /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row10" runat="server" visible="false">
                 <td class="small-td" align="center"> 500Hz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz500" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz500" runat="server"  AutoCompleteType="Disabled" Width="15%"  /></td>
                 <td>
                 </td>
             </tr>		
             <tr ID="oem_row11" runat="server" visible="false">
                 <td class="small-td" align="center"> 1kHz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz1k" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz1k" runat="server"  AutoCompleteType="Disabled" Width="15%"  /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row12" runat="server" visible="false">
                 <td class="small-td" align="center"> 2kHz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz2k" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz2k" runat="server"  AutoCompleteType="Disabled" Width="15%" /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row13" runat="server" visible="false">
                 <td class="small-td" align="center"> 4kHz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz4k" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz4k" runat="server"  AutoCompleteType="Disabled" Width="15%"  /></td>
                 <td>
                 </td>
             </tr>			
             <tr ID="oem_row14" runat="server" visible="false">
                 <td class="small-td" align="center"> 8kHz</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtHz8k" runat="server"  AutoCompleteType="Disabled" /></td>
+                    <asp:TextBox ID="txtHz8k" runat="server"  AutoCompleteType="Disabled" Width="15%"  /></td>
                 <td>
                 </td>
             </tr>
             <tr ID="oem_row15" runat="server" visible="false">
                 <td class="small-td">Sound All Bands (dBW)</td>
                 <td class="small-td">
-                    <asp:TextBox ID="txtAllBands" runat="server"  AutoCompleteType="Disabled"  Width="50%" />
+                    <asp:TextBox ID="txtAllBands" runat="server"  AutoCompleteType="Disabled"  Width="15%"  />
                     <span  style="display: inline-block; width: 25%; float: right; text-align: center" id="btnCalc" 
-                        class="button-main primary-btn prevpage" >Calculate</span>
+                        class="button-main primary-btn prevpage" >Calculate</span><br />
+                    <asp:Label ID="lblAllBandsA" runat="server"></asp:Label>
                 </td>
                 <td>
                 </td>
@@ -339,7 +340,7 @@
 
         <asp:Label class="mt-solid" ID="lblEditFanLocMsg" runat="server" />
     </div>
-    <script>
+<script>
 document.getElementById("btnCalc").addEventListener("click", function () {
     // Array of input element IDs for sound power levels
     const inputIds = [
@@ -366,7 +367,8 @@ document.getElementById("btnCalc").addEventListener("click", function () {
     ];
 
     let validInputs = true; // Flag to track validation
-    let totalSoundPower = 0;
+    let totalSoundPower = 0;    // Sum of power for dB calculation
+    let totalAWeightedPower = 0; // Sum of A-weighted power for dBA calculation
 
     // Loop through all input fields to validate and calculate
     inputIds.forEach((id, index) => {
@@ -378,19 +380,29 @@ document.getElementById("btnCalc").addEventListener("click", function () {
             inputElement.style.borderColor = "red";
             validInputs = false;
         } else {
-            // Valid input: Reset border and calculate weighted value
+            // Valid input: Reset border and calculate power levels
             inputElement.style.borderColor = "";
-            totalSoundPower += Math.pow(10, (value + aWeightingFactors[index]) / 10);
+            totalSoundPower += Math.pow(10, value / 10); // Raw dB calculation
+            totalAWeightedPower += Math.pow(10, (value + aWeightingFactors[index]) / 10); // A-weighted calculation
         }
     });
 
     if (validInputs) {
-        // Calculate total A-weighted sound power level
-        const totalLevel = 10 * Math.log10(totalSoundPower);
-        // Set the result in the appropriate field as an integer
-        document.getElementById("body_txtAllBands").value = Math.round(totalLevel);
-    }
-    return (false);
+        // Calculate total sound power levels
+        const totalLevel = 10 * Math.log10(totalSoundPower); // Total in dB
+        const totalALevel = 10 * Math.log10(totalAWeightedPower); // Total in dBA
+
+        // Set the results in the appropriate fields
+        document.getElementById("body_txtAllBands").value = Math.round(totalLevel); // dB
+        // document.getElementById("body_txtAllBandsA").value = Math.round(totalALevel); // dBA
+        // Set the dBA result in the ASP Label
+        const lblAllBandsA = document.getElementById('<%= lblAllBandsA.ClientID %>'); // Find the ASP Label
+        if (lblAllBandsA) {
+            lblAllBandsA.innerText = "(Calculated SPL@3M is "+Math.round(totalALevel-21)+" dBA)"; 
+        }
+    } 
+    return false;
 });
-    </script>
+</script>
+
 </asp:Content>
