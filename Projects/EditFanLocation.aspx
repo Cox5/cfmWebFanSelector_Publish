@@ -42,7 +42,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="small-td" style="width: 30%">Fan Reference</td>
+                <td class="small-td" style="width: 35%">Fan Reference</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtDesignation"  CssClass="redborder" runat="server" AutoCompleteType="Disabled"/></td>
                 <td class="small-td">
@@ -108,7 +108,7 @@
                 </td>
             </tr>
              <tr>
-                <td class="small-td">Sound pressure level @ 3m</td>
+                <td class="small-td">Sound pressure level @ 3m (dBA)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtSoundPressure" runat="server"  AutoCompleteType="Disabled" /></td>
                 <td>
