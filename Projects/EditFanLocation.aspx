@@ -281,8 +281,6 @@
                 <td class="small-td">Sound All Bands (dBW)</td>
                 <td class="small-td">
                     <asp:TextBox ID="txtAllBands" runat="server"  AutoCompleteType="Disabled"  Width="15%"  />
-                    <span  style="display: inline-block; width: 25%; float: right; text-align: center" id="btnCalc" 
-                        class="button-main primary-btn prevpage" >Calculate</span><br />
                     <asp:Label ID="lblAllBandsA" runat="server"></asp:Label>
                 </td>
                 <td>
@@ -340,8 +338,28 @@
 
         <asp:Label class="mt-solid" ID="lblEditFanLocMsg" runat="server" />
     </div>
+
 <script>
-document.getElementById("btnCalc").addEventListener("click", function () {
+        // Attach onblur event to each field
+    window.onload = function () {
+        const freqFields = [
+            "body_txtHz63",
+            "body_txtHz125",
+            "body_txtHz250",
+            "body_txtHz500",
+            "body_txtHz1k",
+            "body_txtHz2k",
+            "body_txtHz4k",
+            "body_txtHz8k"
+        ];
+
+        freqFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            field.onblur = calculateSPL;
+        });
+    };
+
+function calculateSPL() {
     // Array of input element IDs for sound power levels
     const inputIds = [
         "body_txtHz63",
@@ -394,15 +412,14 @@ document.getElementById("btnCalc").addEventListener("click", function () {
 
         // Set the results in the appropriate fields
         document.getElementById("body_txtAllBands").value = Math.round(totalLevel); // dB
-        // document.getElementById("body_txtAllBandsA").value = Math.round(totalALevel); // dBA
+        document.getElementById("body_txtSoundPressure").value = Math.round(totalALevel-21); // dBA
         // Set the dBA result in the ASP Label
         const lblAllBandsA = document.getElementById('<%= lblAllBandsA.ClientID %>'); // Find the ASP Label
         if (lblAllBandsA) {
-            lblAllBandsA.innerText = "(Calculated SPL@3M is "+Math.round(totalALevel-21)+" dBA)"; 
+            lblAllBandsA.innerText = "(Calculated SPL@3m is "+Math.round(totalALevel-21)+" dBA)"; 
         }
     } 
     return false;
-});
+};
 </script>
-
 </asp:Content>
