@@ -121,6 +121,8 @@ function updateFanCurve(fanDataID, motorid, pwr, weight, fandims) {
     const urlParams = new URLSearchParams(queryString);
     const projectfanid = urlParams.get('ProjectFansID');
     const uid = urlParams.get('uid');
+    var bladeMaterial = $("#body_ddBladeMaterial").val();
+    var motorType = $("#body_ddMotorType").val();
 
 
     var fanDataOptions = {
@@ -140,6 +142,8 @@ function updateFanCurve(fanDataID, motorid, pwr, weight, fandims) {
             ", divPowerWidth:" + parseInt(divPowerWidth) +
             ", divPowerHeight:" + parseInt(divPowerHeight) +
             ", fandims:'" + fandims + "'" +
+            ", blade:'" + bladeMaterial + "'" +
+            ", motor:'" + motorType + "'" +
             " }",
         dataType: 'json'
     };

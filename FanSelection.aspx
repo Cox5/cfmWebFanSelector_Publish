@@ -1,4 +1,5 @@
-<%@ Page Title="Fan Selection" Language="C#" AutoEventWireup="true" CodeBehind="FanSelection.aspx.cs" Inherits="CFM_Web.FanSelection" MasterPageFile="~/fanselectionNoStylesheet.Master" %>
+<%@ Page Title="Fan Selection" Language="C#" AutoEventWireup="true" CodeBehind="FanSelection.aspx.cs" Inherits="CFM_Web.FanSelection" 
+    MasterPageFile="~/fanselectionNoStylesheet.Master" %>
 
 <asp:Content ID="headerSection" ContentPlaceHolderID="head" runat="server">
     <%-- Local Style Sheets --%>
@@ -22,7 +23,7 @@
     <script src="Scripts/jquery-ui-1.12.1.smoothness/jquery-ui.js"></script>
     <script src="Scripts/jquery.tablesorter.min.js"></script>
     <script src="Scripts/jquery.tablesorter.widgets.min.js"></script>
-    <script src="Scripts/fanSelection.js?v=20210729"></script>
+    <script src="Scripts/fanSelection.js?v=20250407"></script>
     <script src="Scripts/fanTypeTree.js"></script>
 
     <asp:PlaceHolder ID="plcHeadingColor" runat="server" />
@@ -151,6 +152,8 @@
                                 <td>Motor type</td>
                                 <td>
                                     <asp:Label id="lblMotorType" Text="" runat="server" />
+                                    <asp:DropDownList id="ddMotorType" runat="server" CssClass="ddlInput" Visible="false">
+                                    </asp:DropDownList>
 
                                 </td>
                             </tr>
@@ -158,6 +161,8 @@
                                 <td>Blade material</td>
                                 <td>
                                     <asp:Label id="lblBladeMaterial" Text="" runat="server" />
+                                    <asp:DropDownList id="ddBladeMaterial" runat="server" CssClass="ddlInput" Visible="false">
+                                    </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
@@ -314,7 +319,7 @@
                                             <!--<th style="width:5%">Motor Pole</th>-->
                                             <!--<th style="width:5%">Motor Phase</th>-->
                                             <!--<th style="width:5%">Angle</th>-->
-                                            <th style="width: 5%;text-align: center;">NCC2019</th>
+                                            <th style="width: 5%;text-align: center;">NCC2022</th>
                                         </tr>
                                     </thead>
                                     <tbody>
