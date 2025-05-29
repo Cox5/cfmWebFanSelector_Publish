@@ -40,7 +40,7 @@ namespace CFM_Web
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public fanData GetFanData(int fanDataID, int projectfanid, int motorid, double weight, 
             double airflow, double addairflow, double staticPressure, double pwr,
-            int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight, string fandims)
+            int divPerfWidth, int divPerfHeight, int divPowerWidth, int divPowerHeight, string fandims, string blade, string motor)
         {
             FanDataForPDF pdfData = new FanDataForPDF();
             DataPoint cowlpoint = new DataPoint();
@@ -307,14 +307,15 @@ namespace CFM_Web
                 }
 
                 string nccCompliance = FanSelection.getNCCstatus(fanData, 0);
-                pdfData.ncc2019 = nccCompliance;
+                pdfData.ncc2022 = nccCompliance;
 
                 // Build the HTML tables to the left of and below the graph for web page
                 selectedFanData.fanName              = fan.partNumber;
                 selectedFanData.nominalDataTable = ""; // buildNominalDataTable(fanData, fr, nccCompliance);                
-                selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, defaultmotorkW, weight, nccCompliance);
+                selectedFanData.performanceDataTable = buildPerformanceDataTable(fanData, airflow, addairflow, staticPressure, fr, 
+								defaultmotorkW, weight, nccCompliance, blade);
 
-                Tuple<string,string,string,string,string>  powerData = buildPowerDataTable(fanData, airflow, staticPressure, pwr);
+                Tuple<string,string,string,string,string>  powerData = buildPowerDataTable(fanData, airflow, staticPressure, pwr, motor);
                 selectedFanData.powerDataTable       = powerData.Item1;
                 pdfData.ElectricalSupply             = powerData.Item2;
                 pdfData.MotorPower                   = powerData.Item3;
@@ -384,8 +385,8 @@ namespace CFM_Web
                 pdfData.Hz2K = Convert.ToString(fanData.hz2k);
                 pdfData.Hz4K = Convert.ToString(fanData.hz4k);
                 pdfData.Hz8K = Convert.ToString(fanData.hz8k);
-                pdfData.dBW = Convert.ToString(fanData.totalLwAtotal);
-                pdfData.dBA3m = Convert.ToString(fanData.SPL3m);
+                pdfData.dBW = Convert.ToString(fanData.totalLwAtotal); // NEEDTOCHECKUNITS
+                pdfData.dBA3m = Convert.ToString(fanData.SPL3m);  // dBA is correct units for @3m
                 pdfData.dimsfile = dimsStem;  // name of dimensions file without PDF/PNG extension
                 pdfData.wiring = fanData.wiring;
 
@@ -654,7 +655,7 @@ namespace CFM_Web
             nominalDataTable.AppendFormat("<th>Impeller Type: </th><td>{0}</td><th>Blade Material</th><td>{1}</td>", impellerType, bladeMaterial);
             nominalDataTable.AppendLine("</tr>");
             nominalDataTable.Append("<tr>");
-            nominalDataTable.AppendFormat("<th>Speed: (rpm)</th><td>{0}</td><th>NCC 2019 Compliant</th><td ID=nccComp >{1}</td>", fanData.RPM, nccComp);
+            nominalDataTable.AppendFormat("<th>Speed: (rpm)</th><td>{0}</td><th>NCC 2022 Compliant</th><td ID=nccComp >{1}</td>", fanData.RPM, nccComp);
 
             nominalDataTable.AppendLine("</tr>");
             nominalDataTable.Append("<tr>");
@@ -674,7 +675,8 @@ namespace CFM_Web
         /// <param name="airflow"></param>
         /// <param name="staticPressure"></param>
         /// <returns></returns>
-        private Tuple<string,string,string,string,string> buildPowerDataTable(FansBackend.Entities.FanData fanData,  double airflow, double staticPressure, double pwr)
+        private Tuple<string,string,string,string,string> buildPowerDataTable(FansBackend.Entities.FanData fanData,  
+			double airflow, double staticPressure, double pwr, string motor)
         {
 
             System.Text.StringBuilder powerDataTable = new System.Text.StringBuilder();
@@ -733,7 +735,7 @@ namespace CFM_Web
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1} Amps</td></tr>", "Motor FLC:", "n/a").AppendLine();
 
                 motorframe = fanData.motorDataObject.frame;
-                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", "STD").AppendLine();
+                powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Type:", motor).AppendLine(); 
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Frame:", motorframe).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Speed:", fanData.motorDataObject.pole.ToString("0") + " pole" ).AppendLine();
                 powerDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td></tr>", "Motor Efficiency:", fanData.motorDataObject.efficiency.ToString("0.0") + "%" ).AppendLine();
@@ -769,7 +771,7 @@ namespace CFM_Web
         /// <param name="staticPressure"></param>
         /// <returns></returns>
         private string buildPerformanceDataTable(FansBackend.Entities.FanData fanData, double airflow, double addairflow, double staticPressure, 
-            FanReference fr, double defaultmotorkW, double weight, string nccCompliance)
+            FanReference fr, double defaultmotorkW, double weight, string nccCompliance, string blade)
         {
             double adf = 0;
             double scc = 0;
@@ -981,7 +983,7 @@ namespace CFM_Web
             {
                 bladeMaterial = "n/a";
             }
-            if (mw == 1)
+            if (mw == 1 && fr.BladeMaterial != "")
             {
                 bladeMaterial = fr.BladeMaterial;
             }
@@ -993,12 +995,14 @@ namespace CFM_Web
                 }
             }
 
-            string frb = "";
+			string frb = "";
             string b = "";
             if (fr.BladeMaterial == "Aluminium") frb = "Al."; else frb = fr.BladeMaterial;
             if (bladeMaterial == "Aluminium") b = "Al."; else b = bladeMaterial;
+			if (frb == "") frb = blade;
 
-            performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", frb, b);
+
+			performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", frb, b);
             // performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData.angle);
             string yn = fr.Ancillaries;
             if ( yn == "Yup" ) { yn = "Yes"; }
@@ -1007,7 +1011,7 @@ namespace CFM_Web
             // Spacer row
             performanceDataTable.AppendLine("<tr class=bluedottext ><td colspan=3  >&nbsp;</td></tr>");
                 
-            performanceDataTable.AppendFormat("<th>NCC 2019 Compliant</th><td></td><td ID=nccComp >{0}</td>", nccCompliance);
+            performanceDataTable.AppendFormat("<th>NCC 2022 Compliant</th><td></td><td ID=nccComp >{0}</td>", nccCompliance);
 
             performanceDataTable.AppendLine("</table>");
             performanceDataTable.AppendLine("<style> tr.bluedottext td, tr.bluedottext th {color: #2222ee; font-weight: bold; border: none;}" +
