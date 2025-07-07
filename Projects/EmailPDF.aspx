@@ -114,7 +114,8 @@
                 </tr>
                 <tr>
                     <td  class="subtitle-sub">Tick the boxes of desired recipients.  To add more recipients simply search again. 
-                        If the desired recipient can't be found, click <b>New</b> to add them to the database.
+                        If the desired recipient can't be found, click <b>New</b> to add them to the database.<br />
+                        <em>Note:</em> Multiple recipients are treated as separate quotations for sending emails and logging purposes.
                         
                     </td>
                 </tr>
