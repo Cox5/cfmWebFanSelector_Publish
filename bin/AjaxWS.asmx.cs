@@ -352,6 +352,9 @@ namespace CFM_Web
                 pdfData.FanDataDiameter = Convert.ToString(fan.diameter);
                 pdfData.FanDataMass = Convert.ToString(fanData.mass);
 
+				pdfData.BladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+
+
                 // Copy graphs to PDF object 
                 pdfData.PerformanceCurveSVG = selectedFanData.performanceCurve;
                 pdfData.PowerCurveSVG = selectedFanData.powerCurve;
@@ -630,7 +633,7 @@ namespace CFM_Web
 
             if (fanData.fanObject != null ) {
                 int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
-                if (mw == 1)
+                if (mw == 1 && fr.BladeMaterial != "-" )
                 {
                     bladeMaterial = fr.BladeMaterial;
                 }
@@ -983,7 +986,7 @@ namespace CFM_Web
             {
                 bladeMaterial = "n/a";
             }
-            if (mw == 1 && fr.BladeMaterial != "")
+            if (mw == 1 && fr.BladeMaterial != "" && fr.BladeMaterial != "-")
             {
                 bladeMaterial = fr.BladeMaterial;
             }
@@ -994,6 +997,10 @@ namespace CFM_Web
                     bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
                 }
             }
+			if (bladeMaterial == "PPG/Aluminium")
+			{
+				bladeMaterial = "PPG/Al.";
+			}
 
 			string frb = "";
             string b = "";
