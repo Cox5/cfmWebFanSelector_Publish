@@ -4,7 +4,11 @@
         
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
+            <style>
+                .fleft {float:left;  margin-left: 10px; margin-top: 5px}
+                .smbtn {  width: 90px !important;  }
+                .content-wrapper { max-width: 1360px !important}
+            </style>
 
   <div class="content-wrapper projects-wrapper">
 
@@ -13,12 +17,9 @@
   <p id="myHeader" runat="server"></p>
       
       </div>
-        <style>
-                .fleft {float:left;  margin-left: 10px; margin-top: 5px}
-                .smbtn {  width: 90px !important;  }
-            </style>
+
       <div class="table-controls center-text mb-medium">Select staff and period for report
-          <asp:DropDownList ID="ddlUserDropdown" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ddlUserDropdown" runat="server"></asp:DropDownList>
             <asp:DropDownList ID="ddlPeriod" runat="server" AutoPostBack="False">
                 <asp:ListItem Text="Last 7 days" Value="7d" />
                 <asp:ListItem Text="Last 14 days" Value="14d" />
@@ -33,7 +34,11 @@
                 <asp:ListItem Text="Last Financial Year" Value="lfy" />
                 <asp:ListItem Text="This Financial Year" Value="tfy" />
             </asp:DropDownList>
-           
+             <asp:DropDownList ID="ddlSortType" runat="server">
+                  <asp:ListItem Text="Sales Contact" Value="sales" />
+                  <asp:ListItem Text="Company" Value="company" />
+                  <asp:ListItem Text="State" Value="state" />
+             </asp:DropDownList>
           
           <asp:Button ID="btnSubmit" runat="server" Text="Generate" OnClick="btnSubmit_Click" CssClass="button-main primary-btn inline smbtn" />
 
@@ -55,13 +60,6 @@
       </table>
       <h2>Recently generated Quotation reports</h2>
 <asp:Label ID="lblCurrentMonthFiles" runat="server"></asp:Label>
-
-
-
-
-
-
-
 
   </div>
 
