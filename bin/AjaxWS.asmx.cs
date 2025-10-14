@@ -350,9 +350,14 @@ namespace CFM_Web
 
                 pdfData.FanDataType = String.Empty;
                 pdfData.FanDataDiameter = Convert.ToString(fan.diameter);
-                pdfData.FanDataMass = Convert.ToString(fanData.mass);
+				pdfData.BladeMaterial = String.Empty;
 
-				pdfData.BladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+				pdfData.FanDataMass = Convert.ToString(fanData.mass);
+
+				if (fanData.fanObject.bladeMaterialObject != null && fanData.fanObject.bladeMaterialObject.description != null)
+				{
+					pdfData.BladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+				}
 
 
                 // Copy graphs to PDF object 

@@ -69,6 +69,12 @@
 <asp:ListItem Value="37">WP</asp:ListItem>
 </asp:DropDownList>
 </div>
+            <div style="float:left;  margin-left: 20px">
+<asp:DropDownList ID="ddlLength" runat="server" AutoPostBack="FALSE" >
+<asp:ListItem Value="combined">All lengths</asp:ListItem>
+<asp:ListItem Value="separate">Separate lengths</asp:ListItem>
+</asp:DropDownList>
+    </div>
 
              <div style="float:left;  margin-left: 20px; margin-top: 5px">
                 <asp:Button ID="btnFindgvRange" class="button-main primary-btn"  runat="server" Visible="true" Text="Find" OnClick="BtnFindgvRange_click" /></div>
@@ -142,7 +148,18 @@
                         </ItemTemplate>
               </asp:TemplateField>
 
-
+              <asp:TemplateField  HeaderText="Length" ControlStyle-Width="170px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" 
+                  FooterStyle-HorizontalAlign="Right">
+                        <EditItemTemplate>
+                            <asp:TextBox  Text='<%#Eval("length") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="txtLengthFooter" runat="server" AutoPostBack="false" Text=""  Enabled="false" Style="background-color: #eeeeee" />
+                        </FooterTemplate>
+                       <ItemTemplate>
+                            <asp:Label ID="lblLength" Text='<%#Eval("length") %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+              </asp:TemplateField>
 
 
               <asp:TemplateField  HeaderText="Status" ControlStyle-Width="170px" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
@@ -150,7 +167,7 @@
                             <asp:TextBox  Text='<%#Eval("built") %>' runat="server" Enabled="true" CssClass="input-small" Style="background-color: #ffffff"></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox ID="txtBuiltFooter" runat="server" AutoPostBack="false" Text=""  Enabled="true" Style="background-color: #ffffff" />
+                            <asp:TextBox ID="txtBuiltFooter" runat="server" AutoPostBack="false" Text=""  Enabled="false" Style="background-color: #ffffff" />
                         </FooterTemplate>
                        <ItemTemplate>
                             <asp:Label ID="lblBuilt" Text='<%#Eval("built") %>' runat="server"></asp:Label>
@@ -164,12 +181,23 @@
 
 
              <asp:TemplateField ItemStyle-Width="40px"  HeaderStyle-Width="40px"  ItemStyle-CssClass="icons" HeaderStyle-HorizontalAlign="Right">
-                        <ItemTemplate>
-                            <asp:LinkButton data-rangeid='<%# Eval("rangeid") %>' data-diameter='<%# Eval("diameter") %>' data-built='<%# Eval("built") %>' runat="server" CommandName="" 
-                                CausesValidation="false" onClick="BtnEdit_Click" >
-                                <span class="tooltip"><asp:Label runat="server" ID="lblToggle"><i class="fas fa-toggle-on"></i></asp:Label><span class="tooltiptext tooltip-i">Change </span></span>
-                            </asp:LinkButton>
-                        </ItemTemplate>
+                 <ItemTemplate>
+                     <asp:LinkButton data-rangeid='<%# Eval("rangeid") %>'
+                         data-diameter='<%# Eval("diameter") %>'
+                         data-built='<%# Eval("built") %>'
+                         data-length='<%# Eval("length") != System.DBNull.Value ? Eval("length") : "" %>'
+                         runat="server"
+                         CommandName=""
+                         CausesValidation="false"
+                         onClick="BtnEdit_Click" >
+                         <span class="tooltip">
+                             <asp:Label runat="server" ID="lblToggle">
+                                 <i class="fas fa-toggle-on"></i>
+                             </asp:Label>
+                             <span class="tooltiptext tooltip-i">Change </span>
+                         </span>
+                     </asp:LinkButton>
+                 </ItemTemplate>
                         <EditItemTemplate>
                        </EditItemTemplate>
                        <FooterTemplate>
@@ -182,5 +210,3 @@
         </div>
     </div>
 </asp:Content>
-
-
