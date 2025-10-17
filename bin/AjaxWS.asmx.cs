@@ -358,7 +358,10 @@ namespace CFM_Web
 				{
 					pdfData.BladeMaterial = fanData.fanObject.bladeMaterialObject.description;
 				}
-
+				if (pdfData.BladeMaterial == "PPG/Aluminium" && blade == "PPG" || blade == "Al")
+				{
+					pdfData.BladeMaterial = blade;
+				}
 
                 // Copy graphs to PDF object 
                 pdfData.PerformanceCurveSVG = selectedFanData.performanceCurve;
@@ -635,21 +638,20 @@ namespace CFM_Web
             // If fan is fixed fan, use bm_description
             // If fan is multiwing fan, use blade_material
             string bladeMaterial = "n/a";
-
-            if (fanData.fanObject != null ) {
-                int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
-                if (mw == 1 && fr.BladeMaterial != "-" )
-                {
-                    bladeMaterial = fr.BladeMaterial;
-                }
-                else
-                {
-                    if ( fanData.fanObject.bladeMaterialObject != null)
-                    {
-                        bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
-                    }
-                }
-            }
+			if (fanData.fanObject != null ) {
+				int mw = DB.FanDBController.IsMwFromRange(fanData.fanObject.rangeObject.rangeID);
+				if (mw == 1 && fr.BladeMaterial != "-")
+				{
+					bladeMaterial = fr.BladeMaterial;
+				}
+				else
+				{
+					if (fanData.fanObject.bladeMaterialObject != null)
+					{
+						bladeMaterial = fanData.fanObject.bladeMaterialObject.description;
+					}
+				}
+			}
   
 
             nominalDataTable.AppendLine("<table id=\"nominalDataTable\" class=\"dataTable\">");
@@ -1009,10 +1011,16 @@ namespace CFM_Web
 
 			string frb = "";
             string b = "";
-            if (fr.BladeMaterial == "Aluminium") frb = "Al."; else frb = fr.BladeMaterial;
-            if (bladeMaterial == "Aluminium") b = "Al."; else b = bladeMaterial;
-			if (frb == "") frb = blade;
-
+			if (blade != "-Any-")  // If search form has bm selected, use it.
+			{
+				b = blade;
+			}
+			else
+			{
+				if (fr.BladeMaterial == "Aluminium") frb = "Al."; else frb = fr.BladeMaterial;
+				if (bladeMaterial == "Aluminium") b = "Al."; else b = bladeMaterial;
+				if (frb == "") frb = blade;
+			}
 
 			performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Material", frb, b);
             // performanceDataTable.AppendFormat("<tr><th>{0}</th><td>{1}</td><td>{2}</td></tr>", "Blade Pitch", "", fanData.angle);
