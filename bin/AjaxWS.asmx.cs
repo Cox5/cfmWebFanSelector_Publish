@@ -300,7 +300,10 @@ namespace CFM_Web
                     fanData.intercept.staticPressure = fr.ActualSP; // staticPressure;
                     fanData.intercept.power = pwr;
                     pdfData.FanDataSpeed = Convert.ToString(fanData.RPM);
-                }
+					pdfData.ActualAF = Convert.ToString(fr.ActualAF);
+					pdfData.ActualSP = Convert.ToString(fr.ActualSP);
+
+				}
                 else
                 {
                     pdfData.FanDataSpeed = "";
@@ -402,7 +405,7 @@ namespace CFM_Web
                 pdfData.wiring = fanData.wiring;
 
                 var json = new JavaScriptSerializer().Serialize(pdfData);
-                Session["pdfdata"] = json;
+                Session["pdfdata"] = json; // Share gathered info with other parts of the page
                 // return the HTML snippets to the calling javascript
                 return selectedFanData;
             }
