@@ -1077,7 +1077,7 @@ namespace CFM_Web
         }
 
         /// <summary>
-        /// See there is an (almost) exact match for airflow intercept on fan curve, and return it if so.
+        /// See if there is an (almost) exact match for airflow intercept on fan curve, and return it if so.
         /// </summary>
         /// <param name="dpl"></param>
         /// <param name="airflow"></param>
@@ -1087,8 +1087,7 @@ namespace CFM_Web
             FansBackend.Entities.DataPoint nulldp = null;
             foreach (FansBackend.Entities.DataPoint p in dpl)
             {
-                if (p.airflow >= airflow && p.airflow < airflow*1.005 &&
-                    p.staticPressure >= staticpressure && p.staticPressure < staticpressure*1.005)
+                if (p.airflow >= airflow && p.airflow < airflow*1.005)
                 {
                     return p;
                 }
